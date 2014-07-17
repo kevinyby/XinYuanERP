@@ -26,9 +26,11 @@
     userList.realContentsDictionary = [NSMutableDictionary dictionaryWithObject:numbers forKey:@""];
     
     // did click event
-    userList.appTableDidSelectRowBlock = ^(AppSearchTableViewController* controller ,NSIndexPath* indexPath) {
-        
-        NSString* userNumber = [controller valueForIndexPath: indexPath];
+    userList.headerTableView.tableView.tableViewBaseDidSelectAction = ^void(TableViewBase* tableViewObj, NSIndexPath* indexPath)
+    {
+        FilterTableView* filterTableView = (FilterTableView*)tableViewObj;
+        NSIndexPath* realIndexPath = [filterTableView getRealIndexPathInFilterMode: indexPath];
+        NSString* userNumber = [filterTableView realContentForIndexPath: realIndexPath];
         NSString* employeeName = DATA.usersNONames[userNumber];
         NSMutableArray* actionButtons = [NSMutableArray arrayWithObjects:
                                          LOCALIZE_MESSAGE(@"SettingUserPermissions"),
@@ -37,7 +39,7 @@
                                          nil];
         if (UI_USER_INTERFACE_IDIOM() == UIUserInterfaceIdiomPhone)  [actionButtons addObject: LOCALIZE_KEY(@"CANCEL")];
         UIActionSheet* actionSheet =
-        [PopupViewHelper popSheet: employeeName inView:controller.view actionBlock:^(UIView *view, NSInteger buttonIndex) {
+        [PopupViewHelper popSheet: employeeName inView:[ViewHelper getTopView] actionBlock:^(UIView *view, NSInteger buttonIndex) {
             UIViewController* controller = nil;
 //            UIActionSheet* actionSheet = (UIActionSheet*)view;
 //            NSString* clickButtonTitle = [actionSheet buttonTitleAtIndex: buttonIndex];

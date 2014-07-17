@@ -339,6 +339,8 @@
 {
     [JsonControllerHelper iterateJsonControllerSubmitButtonsConfig: jsoncontroller handler:^BOOL(NSString* buttonKey, JRButton *submitBTN, NSString *departmentType, NSString *orderType, NSString *sendNestedViewKey, NSString *appTo, NSString *appFrom, JsonControllerSubmitButtonType buttonType) {
         
+        [JsonControllerHelper setUserInterfaceEnable: submitBTN enable:NO];
+        
         if (![order isEqualToString: orderType]) {
             return NO;
         }
@@ -347,8 +349,7 @@
             return NO;;
         }
         
-        if (![DATA.signedUserName isEqualToString: objects[PROPERTY_FORWARDUSER]])
-        {
+        if (![DATA.signedUserName isEqualToString: objects[PROPERTY_FORWARDUSER]]) {
             return NO;;
         }
         

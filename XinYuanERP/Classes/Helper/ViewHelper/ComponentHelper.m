@@ -16,15 +16,4 @@
 }
 
 
-+(AutoCompleteTextField*) createAutoCompleteTextField: (UIReturnKeyType)returnKeyType delegate:(id)delegate
-{
-    AutoCompleteTextField* autoCompleteTextField = [[AutoCompleteTextField alloc] init];
-    autoCompleteTextField.delegate = delegate;
-    autoCompleteTextField.returnKeyType = returnKeyType;
-    autoCompleteTextField.borderStyle = UITextBorderStyleLine;
-    autoCompleteTextField.font = [UIFont fontWithName:@"Arial" size:[FrameTranslater convertFontSize:20]];
-    return autoCompleteTextField;
-}
-
-
 @end

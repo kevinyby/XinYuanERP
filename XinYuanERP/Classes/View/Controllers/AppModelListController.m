@@ -102,8 +102,8 @@
 
 #pragma mark - Override Super Class Methods
 
--(void)tableViewBase:(TableViewBase *)tableViewObj didSelectIndexPath:(NSIndexPath*)indexPath{
-    self.selectedIndexPath = indexPath;
+-(void)tableViewBase:(TableViewBase *)tableViewObj didSelectIndexPath:(NSIndexPath*)indexPath {
+    self.selectedRealIndexPath = [((FilterTableView*)tableViewObj) getRealIndexPathInFilterMode: indexPath];
     self.currentRow = indexPath.row;
     // update amounts
     self.amounts = [[self.headerTableView.tableView realContentsForSection: 0] count];

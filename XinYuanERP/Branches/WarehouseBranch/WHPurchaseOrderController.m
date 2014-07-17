@@ -89,7 +89,7 @@
 {
     
     OrderSearchListViewController* list = [VIEW.navigator.viewControllers objectAtIndex: VIEW.navigator.viewControllers.count - 2];
-    NSString* orderNO = [[list.headerTableView.tableView realContentForIndexPath: list.selectedIndexPath] objectAtIndex: 1];
+    NSString* orderNO = [[list.headerTableView.tableView realContentForIndexPath: list.selectedRealIndexPath] objectAtIndex: 1];
     
     RequestJsonModel* requestModel = [OrderJsonModelFactory factoryMultiJsonModels:@[@"Warehouse.WHPurchaseOrder",@"Finance.FinancePaymentBill",@"Finance.FinancePaymentOrder"]
                                                                            objects:@[@{PROPERTY_ORDERNO:orderNO},@{@"referenceOrderNO":orderNO},@{}]

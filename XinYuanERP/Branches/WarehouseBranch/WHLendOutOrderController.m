@@ -233,7 +233,7 @@
         UIViewController* viewController = [VIEW.navigator.viewControllers objectAtIndex: VIEW.navigator.viewControllers.count - 2];
         if ([viewController isKindOfClass:[OrderSearchListViewController class]]) {
             OrderSearchListViewController* list = (OrderSearchListViewController* )viewController;
-            orderNO = [[list.headerTableView.tableView realContentForIndexPath: list.selectedIndexPath] objectAtIndex: 1];
+            orderNO = [[list.headerTableView.tableView realContentForIndexPath: list.selectedRealIndexPath] objectAtIndex: 1];
         }
     }
     

@@ -49,19 +49,45 @@
         "CONTROL_MODE" : {
             "DEFAULT_MODE_SUB":{
                 "ENABLE":[],
-                "UNENABLE":["NESTED_book1"]
+                "UNENABLE":[
+                            "NESTED_book1",
+                            "NESTED_book2",
+                            "employeeNO", "password_N",
+                            "NESTED_Photo_new.BTN_Take_new",
+                            "NESTED_toggle_new"
+                            ]
             },
-            "CREAT_MODE_SUB":{
+            "READ_MODE_SUB":{
                 "ENABLE":[],
                 "UNENABLE":[]
             },
             
+            "CREAT_MODE_SUB":{
+                "ENABLE":[
+                          "NESTED_book2",
+                          "employeeNO", "password_N",
+                          "NESTED_Photo_new.BTN_Take_new",
+                          "NESTED_toggle_new"
+                          ],
+                "UNENABLE":[]
+            },
+            
             "MODIFY_MODE_SUB":{
-                "ENABLE":[],
+                "ENABLE":[
+                          "NESTED_book2",
+                          "employeeNO", "password_N",
+                          "NESTED_Photo_new.BTN_Take_new",
+                          "NESTED_toggle_new"
+                ],
                 "UNENABLE":[]
             },
             "APPLY_MODE_SUB":{
-                "ENABLE":[],
+                "ENABLE":[
+                          "NESTED_book2",
+                          "employeeNO", "password_N",
+                          "NESTED_Photo_new.BTN_Take_new",
+                          "NESTED_toggle_new"
+                ],
                 "UNENABLE":[]
             }
         },
