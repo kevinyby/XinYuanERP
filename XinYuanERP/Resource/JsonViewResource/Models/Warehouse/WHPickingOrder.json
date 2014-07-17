@@ -1,0 +1,286 @@
+{
+    "COMPONENTS":{
+        "NESTED_footer": "",
+        "BG_BOOK_IMAGE" : {
+            "JCom": "JRImageView",
+            "JFrame": [40,80,913,525],
+            "JSubRender":{
+                "JR_IMG": "Picking_背景.png"
+            }
+        },
+        "NESTED_TOP":{
+            "JFrame":[60, 100, 880, 60],
+            "BORDER": 11,
+            "COMPONENTS":{
+                
+                "orderNO": {
+                    "JCom" : "JRLabelCommaTextFieldView",
+                    "JFrame": [30,5,250,40],
+                    "JSubRender": {
+                        "SubRenders":[{},{},{"JR_IMG":"Picking_文字框"}]
+                    }
+                },
+                "pickingDate": {
+                    "JCom" : "JRLabelCommaTextFieldView",
+                    "JFrame": [300,5,250,40],
+                    "JSubRender": {
+                        "SubRenders":[{},{},{"JR_IMG":"Picking_文字框"}]
+                    }
+                },
+                "pickingStaff": {
+                    "JCom" : "JRLabelCommaTextFieldView",
+                    "JFrame": [600,5,250,40],
+                    "JSubRender": {
+                        "SubRenders":[{},{},{"JR_IMG":"Picking_文字框"}]
+                    }
+                },
+            }
+        },
+        "NESTED_MIDDLE_left":{
+            "JFrame":[55, 165, 600, 420],
+            "BORDER": 11,
+            "COMPONENTS":{
+                "productCategory": {
+                    "JCom" : "JRLabelTextFieldView",
+                    "JFrame": [40,8,420,40],
+                    "BORDER": 20,
+                    "JSubRender": {
+                        "frames":[[-1.1,-1.1,120, 40],  [120,-1.1,260, 40]],
+                        "SubRenders":[{"BORDER": 2},{"JR_BORDERSTYLE" : 0}]
+                    }
+
+                },
+                "productCode": {
+                    "JCom" : "JRLabelTextFieldView",
+                    "JFrame": [40,60,420,40],
+                    "BORDER": 20,
+                    "JSubRender": {
+                        "frames":[[-1.1,-1.1,140, 40],  [120,-1.1,260, 40]],
+                        "SubRenders":[{"BORDER": 2},{"JR_BORDERSTYLE" : 0}]
+                    }
+
+                },
+                "productName": {
+                    "JCom" : "JRLabelTextFieldView",
+                    "JFrame": [40,115,420,40],
+                    "BORDER": 20,
+                    "JSubRender": {
+                        "frames":[[-1.1,-1.1,120, 40],  [120,-1.1,260, 40]],
+                        "SubRenders":[{"CH_SPACE": "7"},{"JR_BORDERSTYLE" : 0}]
+                    }
+
+                },
+                "application": {
+                    "JCom" : "JRLabelTextFieldView",
+                    "JFrame": [40,170,270,40],
+                    "BORDER": 20,
+                    "JSubRender": {
+                        "frames":[[-1.1,-1.1,120, 40],  [120,-1.1,260, 40]],
+                        "SubRenders":[{"CH_SPACE": "7"},{"JR_BORDERSTYLE" : 0}]
+                    }
+
+                },
+                "applicationDesc": {
+                    "JCom" : "JRTextField",
+                    "JFrame": [325,170,150,40],
+                    "BORDER": 20,
+                    "JSubRender": {
+                        "JR_BORDERSTYLE_" : 1
+                    }
+                },
+                
+                "unit": {
+                    "JCom" : "JRLabelTextFieldView",
+                    "JFrame": [40,225,250,40],
+                    "JSubRender": {
+                        "frames":[[-1.1,-1.1,140, 40],  [120,-1.1,120, 40]],
+                        "SubRenders":[{"CH_SPACE": "7"},{"JR_BORDERSTYLE" : 0}]
+                    }
+                    
+                },
+                
+                "unitPrice": {
+                    "JCom" : "JRLabelTextFieldView",
+                    "JFrame": [340,225,250,40],
+                    "BORDER": 20,
+                    "JSubRender": {
+                        "frames":[[-1.1,-1.1,120, 40],  [120,-1.1,120, 40]],
+                        "SubRenders":[{"CH_SPACE": "7"},{"JR_BORDERSTYLE" : 0}]
+                    }
+                    
+                },
+                "pickingAmount": {
+                    "JCom" : "JRLabelTextFieldView",
+                    "JFrame": [40,280,250,40],
+                    "BORDER": 20,
+                    "JSubRender": {
+                        "frames":[[-1.1,-1.1,120, 40],  [120,-1.1,120, 40]],
+                        "SubRenders":[{},{"JR_BORDERSTYLE" : 0}]
+                    }
+                    
+                },
+                "totalPrice": {
+                    "JCom" : "JRLabelTextFieldView",
+                    "JFrame": [340,280,250,40],
+                    "BORDER": 20,
+                    "JSubRender": {
+                        "frames":[[-1.1,-1.1,120, 40],  [120,-1.1,120, 40]],
+                        "SubRenders":[{"CH_SPACE": "7"},{"JR_BORDERSTYLE" : 0}]
+                    }
+                    
+                },
+                "remark": {
+                    "JCom" : "JRLabelTextView",
+                    "BORDER": 20,
+                    "JFrame": [40,340,550,60],
+                    "JSubRender": {
+                        "frames":[[0,5,-1.1,-1.1],[120,0,430,60]],
+                        "SubRenders":[{},{}]
+                    }
+                },
+                
+                
+            }
+        },
+        "NESTED_MIDDLE_right":{
+            "JFrame":[655, 165, 280, 420],
+            "BORDER": 11,
+            "COMPONENTS":{
+                "recycleAmount": {
+                    "JCom" : "JRLabelCommaTextFieldView",
+                    "JFrame": [20,10,250,40],
+                    "JSubRender": {
+                        "SubRenders":[{},{},{"JR_IMG":"Picking_回收数量"}]
+                    }
+                },
+                "BTN_Take_Recycle" : {
+                    "JCom": "JRButton",
+                    "JFrame": [220,5,-1.1,-1.1],
+                    "JSubRender":{
+                        "JR_BGN_IMG": "Scrap_拍照按钮"
+                    }
+                },
+                "BG_Photo" :{
+                    "JCom": "JRImageView",
+                    "JFrame": [15,70,-1.1,-1.1],
+                    "JSubRender":{
+                        "JR_IMG": "Picking_相片框"
+                    }
+                },
+                "recyclePhoto": {
+                    "JCom" : "JRLocalizeLabel",
+                    "JFrame": [100,75,-1.1,-1.1],
+                    "JSubRender": {
+                        "FONT_SIZE":18,
+                    }
+                },
+                "IMG_Photo_Recycle" :{
+                    "JCom": "JRImageView",
+                    "JFrame": [20,110,240,150],
+                    "BORDER": 11,
+                    "JSubRender":{
+                        "JR_IMG": "",
+                        "JR_Radius": 8.0
+                    }
+                },
+                
+                "Signature": {
+                    "JFrame": [40, 280, 200, 100 ],
+                    "SORTEDKEYS": ["BG_Signature","IMG_Signature","ZZ_BTNSignature"],
+                    "COMPONENTS": {
+                        
+                        "BTN_Signature": {
+                            "JCom": "JRButton",
+                            "JFrame": [2,5,-1.1,-1.1],
+                            "JSubRender":{
+                                "JS_FONT_BOLD":1,"FONT_SIZE":20,"JS_FONT_N_COLOR":[255,255,255],
+                                "JR_BGN_IMG": "Picking_签名按钮"
+                            }
+                        },
+                        "BG_Signature" :{
+                            "JCom": "JRImageView",
+                            "JFrame": [7,0,-1.1,-1.1],
+                            "JSubRender":{
+                                "JR_IMG": "Picking_签名框"
+                            }
+                        },
+                        "IMG_Signature": {
+                            "JCom": "JRImageView",
+                            "JFrame": [12,5,180,100],
+                            "JSubRender":{
+                                "JR_IMG": "",
+                                "JR_Radius": 5.0
+                            }
+                        }
+                    }
+                },
+               
+            }
+        },
+        
+        "NESTED_BOTTOM": {
+            "JFrame": [ 80, 630, 530, 60],
+            "BORDER": 2 ,
+            "COMPONENTS": {
+                "createUser": {
+                    "JCom" : "JRButtonTextFieldView",
+                    "JFrame": [342,1,170,55],
+                    "JSubRender": {
+                        "frames":[[], [81,1,-1.1,-1.1]],
+                        "SubRenders":[{"JR_BGN_IMG":"public_底部按钮.png"},{"JR_IMG":"public_底部长名字框.png"}]
+                    }
+                },
+                
+                "app1": {
+                    "JCom" : "JRButtonTextFieldView",
+                    "JFrame": [176,1,170,55],
+                    "JSubRender": {
+                        "frames":[[], [81,1,-1.1,-1.1]],
+                        "SubRenders":[{"JR_BGN_IMG":"public_底部按钮.png"},{"JR_IMG":"public_底部长名字框.png"}]
+                    }
+                },
+                
+                "app2": {
+                    "JCom" : "JRButtonTextFieldView",
+                    "JFrame": [10,1,170,55],
+                    "JSubRender": {
+                        "frames":[[], [81,1,-1.1,-1.1]],
+                        "SubRenders":[{"JR_BGN_IMG":"public_底部按钮.png"},{"JR_IMG":"public_底部长名字框.png"}]
+                    }
+                },
+            }
+        },
+        "BTN_Disagree" : {
+            "JFrame":[680,610,250,80],
+            "SORTEDKEYS": ["Disagree_Button","Disagree","Notice"],
+            "BORDER": 11,
+            "COMPONENTS":{
+                "Disagree": {
+                    "JCom" : "JRLocalizeLabel",
+                    "JFrame": [85,15,-1.1,-1.1],
+                    "JSubRender": {
+                        "JS_FONT_BOLD":1,"JS_FONT_N_COLOR":[255,255,255,1],"FONT_SIZE":22,
+                    }
+                },
+                "Notice": {
+                    "JCom" : "JRLocalizeLabel",
+                    "JFrame": [35,35,-1.1,-1.1],
+                    "JSubRender": {
+                        "JS_FONT_BOLD":1,"JS_FONT_N_COLOR":[255,255,255,1],"FONT_SIZE":18,
+                    }
+                },
+
+                "Disagree_Button":{
+                    "JCom": "JRButton",
+                    "JFrame": [0,0,-1.1,-1.1],
+                    "JSubRender":{
+                        "JR_BGN_IMG": "Picking_通知按钮",
+                    }
+                }
+
+            }
+        },
+
+
+    }
+}

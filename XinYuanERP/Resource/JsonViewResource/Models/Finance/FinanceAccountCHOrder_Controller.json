@@ -1,0 +1,24 @@
+{
+    
+    "SERVER":{
+
+        "CHECK_NOTEMPTY": [
+                           "number_O",
+                           "number_N", "name_N", "bankAccountNumber_N", "amount_N", "address_N"
+                           ]
+        
+    },
+    
+    
+    
+    
+    
+    
+    
+    
+    "CLIENT": {
+        
+        
+    }
+    
+}

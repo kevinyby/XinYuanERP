@@ -1,0 +1,198 @@
+{
+
+    
+    "LETTER_VER_TEXTFIEDS": [["Bank","number_O","name_O","bankAccountNumber_O","amount_O","address_O"],["Branch","number_N","name_N","bankAccountNumber_N","amount_N","address_N"]],
+
+
+    "COMPONENTS" : {
+        
+        "BG_BOOK_IMAGE" : {
+            "JCom": "JRImageView",
+            "JFrame": [45,100,-1.1,-1.1],
+            "JSubRender":{
+                "JR_IMG": "AccountTransactionTable_03.png"
+            }
+        },
+        
+        
+        "NESTED_BODY" : {
+            "JFrame": [70,120,900,500],
+            "COMPONENTS" : {
+                
+                
+                "NESTED_UPPER" : {
+                    "JFrame": [20,10,850,50],
+                    "BORDER":9,
+                    "COMPONENTS" : {
+                        
+                        "financeAccountId": {
+                            "JCom" : "JRLabel",
+                            "JFrame": [0,-10,10,20],
+                            "JSubRender": {
+                                "HIDDEN" : 1
+                            }
+                        },
+                        
+                        "bank": {
+                            "JCom" : "JRLabelCommaTextFieldView",
+                            "JFrame": [0,0,340,42],
+                            "JSubRender": {
+                                "SubRenders":[{"CH_SPACE": "7"},{},{"JR_IMG":"AccountTransactionTable_01.png"}]
+                            }
+                        },
+                        
+                        
+                        "branch": {
+                            "JCom" : "JRLabelCommaTextFieldView",
+                            "JFrame": [475,0,340,42],
+                            "JSubRender": {
+                                "SubRenders":[{"CH_SPACE": "1"},{},{"JR_IMG":"AccountTransactionTable_01.png"}]
+                            }
+                        },
+                        
+                    }
+                },
+
+                
+                
+                "NESTED_LEFT" : {
+                    "JFrame": [20,80,400,400],
+                    "BORDER":5,
+                    "COMPONENTS" : {
+                        
+                        
+                        "Adjust_Before": {
+                            "JCom" : "JRLabelTextFieldView",
+                            "JFrame": [0,0,-1.1,-1.1],
+                            "JSubRender": {
+                                "frames":[[30,10,-1.1,-1.1],[]],
+                                "SubRenders":[{"FONT_SIZE":30,},{"JR_IMG":"AccountTransactionTable_02.png"}]
+                            }
+                        },
+                        
+                        "number_O": {
+                            "JCom" : "JRLabelCommaTextFieldView",
+                            "JFrame": [0,70,340,42],
+                            "JSubRender": {
+                                "SubRenders":[{},{},{"JR_IMG":"AccountTransactionTable_01.png"}]
+                            }
+                        },
+                        
+                        
+                        "name_O": {
+                            "JCom" : "JRLabelCommaTextFieldView",
+                            "JFrame": [0,130,340,42],
+                            "JSubRender": {
+                                "SubRenders":[{"CH_SPACE": "7"},{},{"JR_IMG":"AccountTransactionTable_01.png"}]
+                            }
+                        },
+                        
+                        
+                        "bankAccountNumber_O": {
+                            "JCom" : "JRLabelCommaTextFieldView",
+                            "JFrame": [0,190,340,42],
+                            "JSubRender": {
+                                "SubRenders":[{"CH_SPACE": "7"},{},{"JR_IMG":"AccountTransactionTable_01.png"}]
+                            }
+                        },
+                        
+                        
+                        "amount_O": {
+                            "JCom" : "JRLabelCommaTextFieldView",
+                            "JFrame": [0,250,340,42],
+                            "JSubRender": {
+                                "SubRenders":[{},{},{"JR_IMG":"AccountTransactionTable_01.png"}]
+                            }
+                        },
+                        
+                        
+                        "address_O": {
+                            "JCom" : "JRLabelCommaTextFieldView",
+                            "JFrame": [0,310,340,42],
+                            "JSubRender": {
+                                "SubRenders":[{"CH_SPACE": "7"},{},{"JR_IMG":"AccountTransactionTable_01.png"}]
+                            }
+                        },
+                        
+                    }
+                },
+                
+                "NESTED_RIGHT" : {
+                    "JFrame": [490,80,400,400],
+                    "BORDER":5,
+                    "COMPONENTS" : {
+                        
+                        
+                        "Adjust_After": {
+                            "JCom" : "JRLabelTextFieldView",
+                            "JFrame": [0,0,-1.1,-1.1],
+                            "JSubRender": {
+                                "frames":[[30,10,-1.1,-1.1],[]],
+                                "SubRenders":[{"FONT_SIZE":30,},{"JR_IMG":"AccountTransactionTable_02.png"}]
+                            }
+                        },
+                        
+                        "number_N": {
+                            "JCom" : "JRLabelCommaTextFieldView",
+                            "JFrame": [0,70,340,42],
+                            "JSubRender": {
+                                "SubRenders":[{},{},{"JR_IMG":"AccountTransactionTable_01.png"}]
+                            }
+                        },
+                        
+                        
+                        "name_N": {
+                            "JCom" : "JRLabelCommaTextFieldView",
+                            "JFrame": [0,130,340,42],
+                            "JSubRender": {
+                                "SubRenders":[{"CH_SPACE": "7"},{},{"JR_IMG":"AccountTransactionTable_01.png"}]
+                            }
+                        },
+                        
+                        
+                        "bankAccountNumber_N": {
+                            "JCom" : "JRLabelCommaTextFieldView",
+                            "JFrame": [0,190,340,42],
+                            "JSubRender": {
+                                "SubRenders":[{"CH_SPACE": "7"},{},{"JR_IMG":"AccountTransactionTable_01.png"}]
+                            }
+                        },
+                        
+                        
+                        "amount_N": {
+                            "JCom" : "JRLabelCommaTextFieldView",
+                            "JFrame": [0,250,340,42],
+                            "JSubRender": {
+                                "SubRenders":[{},{},{"JR_IMG":"AccountTransactionTable_01.png"}]
+                            }
+                        },
+                        
+                        
+                        
+                        "address_N": {
+                            "JCom" : "JRLabelCommaTextFieldView",
+                            "JFrame": [0,310,340,42],
+                            "JSubRender": {
+                                "SubRenders":[{"CH_SPACE": "7"},{},{"JR_IMG":"AccountTransactionTable_01.png"}]
+                            }
+                        },
+
+                    }
+                },
+                
+                
+               
+                
+                
+                
+                
+                
+                
+                
+                
+                
+            }
+        }
+        
+    }
+}

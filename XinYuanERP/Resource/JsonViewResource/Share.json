@@ -1,0 +1,158 @@
+{
+    
+    
+    "JCom": "JsonView",
+    "JFrame": [0, 0, 1024, 768],
+    "SORTEDKEYS": ["BG_BOTTOM_IMAGE", "BG_BOOK_IMAGE", "BG_HeaderImage", "NESTED_header", "NESTED_footer", "BTN_PriorPage", "BTN_NextPage" ],
+    "COMPONENTS" : {
+        
+        "BG_BOTTOM_IMAGE" : {
+            "JCom": "JRImageView",
+            "JFrame": [],
+            "JSubRender":{
+                "JR_IMG": "public_背景.png"
+            }
+        },
+        
+        "BG_HeaderImage" : {
+            "JCom": "JRImageView",
+            "JFrame": [],
+            "JSubRender":{
+                "JR_IMG": "Orders_Header.png"
+            }
+        },
+        
+        "ORDER_TITLE": {
+            "JCom": "JRLocalizeLabel",
+            "JFrame": [400,0,-1.1,80],
+            "JSubRender": {
+                "RESERVE_CENTER": 1,
+                "FONT_SIZE":40
+            }
+        },
+        
+        "BTN_PriorPage" : {
+            "JCom": "JRButton",
+            "BORDER_" : 3,
+            "JFrame": [0,715,-1.1,-1.1],
+            "JSubRender":{
+                "JR_BGN_IMG": "public_上一页按钮.png",
+                "JR_FGN_IMG": "public_上一页箭头.png"
+            }
+        },
+        
+        "BTN_NextPage" : {
+            "JCom": "JRButton",
+            "BORDE_R" : 3,
+            "JFrame": [940,715,-1.1,-1.1],
+            "JSubRender":{
+                "JR_BGN_IMG": "public_下一页按钮.png",
+                "JR_FGN_IMG": "public_下一页箭头.png"
+            }
+        },
+        
+        
+        
+        "NESTED_header": {
+            "JFrame": [ 0,0, 1024, 80 ],
+            "BORDER_": 2,
+            "COMPONENTS": {
+                
+                "BTN_Back" : {
+                    "JCom": "JRButton",
+                    "BORDER_" : 2,
+                    "JFrame": [2,1.1,104,80],
+                    "JSubRender": {
+                        "JR_BGN_IMG": "public_顶部按钮.png", "JR_FGN_IMG":"Stafftransactiontable_02.png", "JR_FGIMG_Insets":[15, 5, 15 , 55], "JR_TITLE_Insets": [0, -10, 0, 0]
+                    }
+                },
+                
+                "BTN_Delete" : {
+                    "JCom": "JRButton",
+                    "BORDER_" : 2,
+                    "JFrame": [130,1.1,104,80],
+                    "JSubRender": {
+                        "JR_BGN_IMG": "public_顶部按钮.png", "JR_FGN_IMG":"Stafftransactiontable_03.png", "JR_FGIMG_Insets":[15, 0, 15 , 50], "JR_TITLE_Insets": [0, -10, 0, 0]
+                    }
+                },
+                
+                "exception" : {
+                    "JCom": "JRCheckBox",
+                    "BORDER_" : 2,
+                    "JFrame": [790,1.1,104,80],
+                    "JSubRender": {
+                        "JR_BGN_IMG": "public_顶部按钮.png", "CHECK_IMG":"Stafftransactiontable_04H.png","UNCHECK_IMG":"Stafftransactiontable_04.png", "JR_FGIMG_Insets":[15, 2, 15 , 52], "JR_TITLE_Insets": [0, -10, 0, 0],"FONT_SIZE":19
+                    }
+                },
+                
+                "BTN_Return" : {
+                    "JCom": "JRButton",
+                    "BORDER_" : 2,
+                    "JFrame": [920,1.1,104,80],
+                    "JSubRender": {
+                        "JR_BGN_IMG": "public_顶部按钮.png", "FONT_SIZE": 21
+                    }
+                }
+            }
+        },
+        
+        "NESTED_footer": {
+            "JFrame": [ 85, 680, 860, 60],
+            "COMPONENTS": {
+                
+                "createUser": {
+                    "JCom" : "JRButtonTextFieldView",
+                    "JFrame": [684,1,170,55],
+                    
+                    "JSubRender": {
+                        "frames":[[], [81,1,-1.1,-1.1]],
+                        "SubRenders":[{"JR_BGN_IMG":"public_底部按钮.png"},{"JR_IMG":"public_底部长名字框.png"}]
+                    }
+                },
+                
+                "app1": {
+                    "JCom" : "JRButtonTextFieldView",
+                    "JFrame": [518,1,170,55],
+                    "JSubRender": {
+                        "frames":[[], [81,1,-1.1,-1.1]],
+                        "SubRenders":[{"JR_BGN_IMG":"public_底部按钮.png"},{"JR_IMG":"public_底部长名字框.png"}]
+                    }
+                },
+                
+                "app2": {
+                    "JCom" : "JRButtonTextFieldView",
+                    "JFrame": [352,1,170,55],
+                    "JSubRender": {
+                        "frames":[[], [81,1,-1.1,-1.1]],
+                        "SubRenders":[{"JR_BGN_IMG":"public_底部按钮.png"},{"JR_IMG":"public_底部长名字框.png"}]
+                    }
+                },
+                
+                "app3": {
+                    "JCom" : "JRButtonTextFieldView",
+                    "JFrame": [177,1,180,55],
+                    "JSubRender": {
+                        "frames":[[], [90,1,-1.1,-1.1]],
+                        "SubRenders":[{"JR_BGN_IMG":"public_底部长按钮.png"},{"JR_IMG":"public_底部长名字框.png"}]
+                    }
+                },
+                
+                "app4": {
+                    "JCom" : "JRButtonTextFieldView",
+                    "BORDER_": 10,
+                    "JFrame": [0,1,170,55],
+                    "JSubRender": {
+                        "frames":[[], [90,1,-1.1,-1.1]],
+                        "SubRenders":[{"JR_BGN_IMG":"public_底部长按钮.png"},{"JR_IMG":"public_底部长名字框.png"}]
+                    }
+                }
+                
+            }
+        }
+        
+    }
+    
+    
+}
+
+

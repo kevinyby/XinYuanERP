@@ -1,0 +1,62 @@
+
+{
+    
+    
+    "SERVER":{
+        
+        "CHECK_NOTEMPTY": ["employeeNO","adjustDate"]
+        
+    },
+    
+    
+    
+    
+    
+    
+    
+    
+    "CLIENT": {
+        
+        
+        "CONTROL_MODE" : {
+            "DEFAULT_MODE_SUB":{
+                "ENABLE":[],
+                "UNENABLE":[
+                            "NESTED_INFO_HEAD",
+                            "NESTED_Left",
+                            "NESTED_Right",
+                            
+                            "NESTED_Right_Silk.ZZ_LBLAFTERSUM",
+                            "NESTED_Right_BOTTOM.adjustAmount"
+                            
+                            ]
+            },
+            
+            "CREAT_MODE_SUB":{
+                "ENABLE":[ "NESTED_INFO_HEAD", "NESTED_Right" ],
+                "UNENABLE":[]
+            },
+            
+            "MODIFY_MODE_SUB":{
+                "ENABLE":[ "NESTED_Right" ],
+                "UNENABLE":[]
+            }
+        },
+        
+        "CREATE_AUTOFILL": {
+            "NOW_DATE":["NESTED_Right_BOTTOM.adjustDate"]
+        },
+        
+        
+        "COMS_DATE_PICKERS": ["adjustDate"],
+        "COMS_DATE_PATTERNS": {
+            "adjustDate":"yyyy-MM-dd",
+            "lastAdjustDate":"yyyy-MM-dd"
+        }
+        
+    }
+    
+    
+    
+    
+}

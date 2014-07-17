@@ -1,0 +1,62 @@
+{
+    "IMAGES" : {
+        
+        "IMAGES_LOAD": ["IMG_Photo_Before","IMG_Photo_After"],
+        
+        "IMAGES_NAMES": {
+            "IMG_Photo_Before": {
+                "PRE": "",
+                "MAINNAME": ["orderNO", "projectName"],
+                "SUF":"_before.png"
+            },
+            "IMG_Photo_After": {
+                "PRE": "",
+                "MAINNAME": ["orderNO", "projectName"],
+                "SUF":"_after.png"
+            }
+        },
+        "IMAGES_DATAS": {
+            "IMG_Photo_Before": {
+                "JPG_CompressionQuality": 0.3
+            },
+            "IMG_Photo_After": {
+                "JPG_CompressionQuality": 0.3
+            }
+        },
+        "IMAGES_PREVIEWS":{
+            "IMG_Photo_Before":{},
+            "IMG_Photo_After":{}
+        },
+        "IMAGE_PICKER":{
+            "BTN_Take_Before":"IMG_Photo_Before",
+            "BTN_Take_After":"IMG_Photo_After"
+        }
+    },
+    
+    "SERVER":{
+        
+        "CHECK_NOTEMPTY": ["IMG_Photo_Before","qualityDesc"]
+        
+        
+    },
+    
+    
+    
+    "CLIENT":{
+        
+        "CONTROL_MODE" : {
+            
+            
+            "CREAT_MODE_SUB":{
+                "ENABLE":[],
+                "UNENABLE":["orderNO"]
+            }
+        },
+        
+        
+    }
+    
+    
+    
+    
+}

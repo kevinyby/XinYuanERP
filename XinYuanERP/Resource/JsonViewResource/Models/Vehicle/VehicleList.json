@@ -1,0 +1,18 @@
+
+{
+    
+    "VehicleInfoOrder" : {
+        "FIELDS": [["id", "vehicleNo" , "fileNo"]],
+        
+        "HEADERS": [ "VehicleInfoOrder.vehicleNo" ,"VehicleInfoOrder.fileNo"],
+        "HEADERSX": [50, 260],
+        "VALUESX":  [50, 260],
+        
+        
+        "FILTERS": {"0":"FILTER_NIL"}
+    }
+    
+    
+}
+
+

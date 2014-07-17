@@ -1,0 +1,595 @@
+{
+    
+    "LETTER_HOR_VIEWS":[["NESTED_BODY_LEFT","NESTED_BODY_MIDDLE","NESTED_BODY_RIGHT"]],
+    "LETTER_VER_TEXTFIEDS": ["NESTED_BODY_LEFT","NESTED_BODY_MIDDLE","NESTED_BODY_MIDDLE_TWO","NESTED_BODY_RIGHT"],
+    
+
+"COMPONENTS" : {
+
+    "BG_BOOK_IMAGE": {
+        "JCom" : "JRImageView",
+        "JFrame": [0,75,-1.1,650],
+        "BORDER_":5,
+        "JSubRender": {
+            "JR_IMG":"material_background.png"
+        }
+    },
+    
+    "NESTED_MAIN": {
+        "JFrame": [ 0,80, 1024, 650 ],
+        "COMPONENTS": {
+            
+            "NESTED_HEAD": {
+                "JFrame": [ 80 ,7, 900, 45 ],
+                "SORTEDKEYS": ["IMG_head"],
+                "COMPONENTS": {
+                    
+                    "IMG_head_": {
+                        "JCom" : "JRImageView",
+                        "JFrame": [50,-20,-1.1,-1.1],
+                        "JSubRender": {
+                            "JR_IMG":"material_head.png"
+                        }
+                    },
+                    
+                    "orderNO": {
+                        "JCom" : "JRLabelCommaTextFieldView",
+                        "JFrame": [0,0,200,40],
+                        "JSubRender": {
+                            "SubRenders":[{},{},{"JR_IMG":"material_input2.png","JR_ENABLE_":0},{}]
+                        }
+                    },
+                    
+                    "contractNO": {
+                        "JCom" : "JRLabelCommaTextFieldView",
+                        "JFrame":[280,0,250,40],
+                        "JSubRender": {
+                            "frames":[[], [], []],
+                            "SubRenders":[{},{},{"JR_IMG":"material_input2.png"}]
+                        }
+                    },
+                    
+                    "format": {
+                        "JCom" : "JRLabelCommaTextFieldView",
+                        "JFrame":[620,0,250,40],
+                        "JSubRender": {
+                            "frames":[[], [], []],
+                            "SubRenders":[{},{},{"JR_IMG":"material_input2.png"}]
+                        }
+                    }
+                }
+                
+            },
+        
+            "NESTED_BODY":{
+                "JFrame": [ 80, 50, 900, 580 ],
+                "COMPONENTS":{
+                    
+                    "NESTED_BODY_LEFT":{
+                        "JFrame": [ 0, 0, 200, 580 ],
+                        "COMPONENTS":{
+                            
+                            "projectName": {
+                                "JCom" : "JRLabelTextFieldView",
+                                "JFrame":[0, 0, 200, 60],
+                                "JSubRender": {
+                                    "frames":[[0,0,-1.1,-1.1],[-2,22,-1.1,-1.1]],
+                                    "SubRenders":[{"FONT_SIZE":16},{"JR_IMG":"material_input1.png"}]
+                                }
+                            },
+                            "planesize": {
+                                "JCom" : "JRLabelTextFieldView",
+                                "JFrame":[0,57,200,60],
+                                "JSubRender": {
+                                    "frames":[[0,0,-1.1,-1.1],[-2,22,-1.1,-1.1]],
+                                    "SubRenders":[{"FONT_SIZE":16},{"JR_IMG":"material_input1.png"}]
+                                }
+                            },
+                            "drippingHeight": {
+                                "JCom" : "JRLabelTextFieldView",
+                                "JFrame":[0,114,200,60],
+                                "JSubRender": {
+                                    "frames":[[0,0,-1.1,-1.1],[-2,22,-1.1,-1.1]],
+                                    "SubRenders":[{"FONT_SIZE":16},{"JR_IMG":"material_input1.png"}]
+                                }
+                            },
+                            "brickWallHeight": {
+                                "JCom" : "JRLabelTextFieldView",
+                                "JFrame":[0,171,200,60],
+                                "JSubRender": {
+                                    "frames":[[0,0,-1.1,-1.1],[-2,22,-1.1,-1.1]],
+                                    "SubRenders":[{"FONT_SIZE":16},{"JR_IMG":"material_input1.png"}]
+                                }
+                            },
+                            "pillarBottomHeight": {
+                                "JCom" : "JRLabelTextFieldView",
+                                "JFrame":[0,228,200,60],
+                                "JSubRender": {
+                                    "frames":[[0,0,-1.1,-1.1],[-2,22,-1.1,-1.1]],
+                                    "SubRenders":[{"FONT_SIZE":16},{"JR_IMG":"material_input1.png"}]
+                                }
+                            },
+                            "pillarDistance": {
+                                "JCom" : "JRLabelTextFieldView",
+                                "JFrame":[0,285,200,60],
+                                "JSubRender": {
+                                    "frames":[[0,0,-1.1,-1.1],[-2,22,-1.1,-1.1]],
+                                    "SubRenders":[{"FONT_SIZE":16},{"JR_IMG":"material_input1.png"}]
+                                }
+                            },
+                            "pillarSpec": {
+                                "JCom" : "JRLabelTextFieldView",
+                                "JFrame":[0,342,200,60],
+                                "JSubRender": {
+                                    "frames":[[0,0,-1.1,-1.1],[-2,22,-1.1,-1.1]],
+                                    "SubRenders":[{"FONT_SIZE":16},{"JR_IMG":"material_input1.png"}]
+                                }
+                            },
+                            "doorSpec": {
+                                "JCom" : "JRLabelTextFieldView",
+                                "JFrame":[0,399,200,60],
+                                "JSubRender": {
+                                    "frames":[[0,0,-1.1,-1.1],[-2,22,-1.1,-1.1]],
+                                    "SubRenders":[{"FONT_SIZE":16},{"JR_IMG":"material_input1.png"}]
+                                }
+                            },
+                            "girderSpec": {
+                                "JCom" : "JRLabelTextFieldView",
+                                "JFrame":[0,456,200,60],
+                                "JSubRender": {
+                                    "frames":[[0,0,-1.1,-1.1],[-2,22,-1.1,-1.1]],
+                                    "SubRenders":[{"FONT_SIZE":16},{"JR_IMG":"material_input1.png"}]
+                                }
+                            },
+                            "roofPurlinSpec": {
+                                "JCom" : "JRLabelTextFieldView",
+                                "JFrame":[0,513,200,60],
+                                "JSubRender": {
+                                    "frames":[[0,0,-1.1,-1.1],[-2,22,-1.1,-1.1]],
+                                    "SubRenders":[{"FONT_SIZE":16},{"JR_IMG":"material_input1.png"}]
+                                }
+                            }
+                        }
+                    },
+                    
+                    
+                    "NESTED_BODY_MIDDLE":{
+                        "JFrame": [ 210, 0, 200, 580 ],
+                        "COMPONENTS":{
+                            
+                            
+                            
+                            "wallPurlinSpec": {
+                                "JCom" : "JRLabelTextFieldView",
+                                "JFrame":[0,0,200,60],
+                                "JSubRender": {
+                                    "frames":[[0,0,-1.1,-1.1],[-2,22,-1.1,-1.1]],
+                                    "SubRenders":[{"FONT_SIZE":16},{"JR_IMG":"material_input1.png"}]
+                                }
+                            },
+                            "purlinPaintSpec": {
+                                "JCom" : "JRLabelTextFieldView",
+                                "JFrame":[0,57,200,60],
+                                "JSubRender": {
+                                    "frames":[[0,0,-1.1,-1.1],[-2,22,-1.1,-1.1]],
+                                    "SubRenders":[{"FONT_SIZE":16},{"JR_IMG":"material_input1.png"}]
+                                }
+                            },
+                            "downPipes": {
+                                "JCom" : "JRLabelTextFieldView",
+                                "JFrame":[0,114,200,60],
+                                "JSubRender": {
+                                    "frames":[[0,0,-1.1,-1.1],[-2,22,-1.1,-1.1]],
+                                    "SubRenders":[{"FONT_SIZE":16},{"JR_IMG":"material_input1.png"}]
+                                }
+                            },
+
+                            
+                            "baitingTime": {
+                                "JCom" : "JRLabelTextFieldView",
+                                "JFrame":[0,171,200,60],
+                                "JSubRender": {
+                                    "frames":[[0,0,-1.1,-1.1],[-2,22,-1.1,-1.1]],
+                                    "SubRenders":[{"FONT_SIZE":16},{"JR_IMG":"material_input1.png"}]
+                                }
+                            },
+                            "productionTime": {
+                                "JCom" : "JRLabelTextFieldView",
+                                "JFrame":[0,228,200,60],
+                                "JSubRender": {
+                                    "frames":[[0,0,-1.1,-1.1],[-2,22,-1.1,-1.1]],
+                                    "SubRenders":[{"FONT_SIZE":16},{"JR_IMG":"material_input1.png"}]
+                                }
+                            },
+                            "basicSetupTime": {
+                                "JCom" : "JRLabelTextFieldView",
+                                "JFrame":[0,285,200,60],
+                                "JSubRender": {
+                                    "frames":[[0,0,-1.1,-1.1],[-2,22,-1.1,-1.1]],
+                                    "SubRenders":[{"FONT_SIZE":16},{"JR_IMG":"material_input1.png"}]
+                                }
+                            },
+                            "steelStructureSetupTime": {
+                                "JCom" : "JRLabelTextFieldView",
+                                "JFrame":[0,342,200,60],
+                                "JSubRender": {
+                                    "frames":[[0,0,-1.1,-1.1],[-2,22,-1.1,-1.1]],
+                                    "SubRenders":[{"FONT_SIZE":16},{"JR_IMG":"material_input1.png"}]
+                                }
+                            },
+                            "projectDuration": {
+                                "JCom" : "JRLabelTextFieldView",
+                                "JFrame":[0,399,200,60],
+                                "JSubRender": {
+                                    "frames":[[0,0,-1.1,-1.1],[-2,22,-1.1,-1.1]],
+                                    "SubRenders":[{"FONT_SIZE":16},{"JR_IMG":"material_input1.png"}]
+                                }
+                            },
+                            "drainSlop": {
+                                "JCom" : "JRLabelTextFieldView",
+                                "JFrame":[0,456,200,60],
+                                "JSubRender": {
+                                    "frames":[[0,0,-1.1,-1.1],[-2,22,-1.1,-1.1]],
+                                    "SubRenders":[{"FONT_SIZE":16},{"JR_IMG":"material_input1.png"}]
+                                }
+                            },
+                            "sink": {
+                                "JCom" : "JRLabelTextFieldView",
+                                "JFrame":[0,513,200,60],
+                                "JSubRender": {
+                                    "frames":[[0,0,-1.1,-1.1],[-2,22,-1.1,-1.1]],
+                                    "SubRenders":[{"FONT_SIZE":16},{"JR_IMG":"material_input1.png"}]
+                                }
+                            }
+                        }
+                    },
+                    
+                    
+                    
+                    "NESTED_BODY_MIDDLE_TWO":{
+                        "JFrame": [ 420, 0, 200, 580 ],
+                        "COMPONENTS":{
+                            
+                            
+                            "dormerType": {
+                                "JCom" : "JRLabelTextFieldView",
+                                "JFrame":[0,0,200,60],
+                                "JSubRender": {
+                                    "frames":[[0,0,-1.1,-1.1],[-2,22,-1.1,-1.1]],
+                                    "SubRenders":[{"FONT_SIZE":16},{"JR_IMG":"material_input1.png"}]
+                                }
+                            },
+                            "verticalGirder": {
+                                "JCom" : "JRLabelTextFieldView",
+                                "JFrame":[0,57,200,60],
+                                "JSubRender": {
+                                    "frames":[[0,0,-1.1,-1.1],[-2,22,-1.1,-1.1]],
+                                    "SubRenders":[{"FONT_SIZE":16},{"JR_IMG":"material_input1.png"}]
+                                }
+                            },
+                            "insulationLayer": {
+                                "JCom" : "JRLabelTextFieldView",
+                                "JFrame":[0,114,200,60],
+                                "JSubRender": {
+                                    "frames":[[0,0,-1.1,-1.1],[-2,22,-1.1,-1.1]],
+                                    "SubRenders":[{"FONT_SIZE":16},{"JR_IMG":"material_input1.png"}]
+                                }
+                            },
+                            "lightingBoard": {
+                                "JCom" : "JRLabelTextFieldView",
+                                "JFrame":[0,171,200,60],
+                                "JSubRender": {
+                                    "frames":[[0,0,-1.1,-1.1],[-2,22,-1.1,-1.1]],
+                                    "SubRenders":[{"FONT_SIZE":16},{"JR_IMG":"material_input1.png"}]
+                                }
+                            },
+                            "weighPay": {
+                                "JCom" : "JRLabelTextFieldView",
+                                "JFrame":[0,228,200,60],
+                                "JSubRender": {
+                                    "frames":[[0,0,-1.1,-1.1],[-2,22,-1.1,-1.1]],
+                                    "SubRenders":[{"FONT_SIZE":16},{"JR_IMG":"material_input1.png"}]
+                                }
+                            },
+                            "partyCheckWeigh": {
+                                "JCom" : "JRLabelTextFieldView",
+                                "JFrame":[0,285,200,60],
+                                "JSubRender": {
+                                    "frames":[[0,0,-1.1,-1.1],[-2,22,-1.1,-1.1]],
+                                    "SubRenders":[{"FONT_SIZE":16},{"JR_IMG":"material_input1.png"}]
+                                }
+                            },
+                            "constructReport": {
+                                "JCom" : "JRLabelTextFieldView",
+                                "JFrame":[0,342,200,60],
+                                "JSubRender": {
+                                    "frames":[[0,0,-1.1,-1.1],[-2,22,-1.1,-1.1]],
+                                    "SubRenders":[{"FONT_SIZE":16},{"JR_IMG":"material_input1.png"}]
+                                }
+                            },
+                            "inspection": {
+                                "JCom" : "JRLabelTextFieldView",
+                                "JFrame":[0,399,200,60],
+                                "JSubRender": {
+                                    "frames":[[0,0,-1.1,-1.1],[-2,22,-1.1,-1.1]],
+                                    "SubRenders":[{"FONT_SIZE":16},{"JR_IMG":"material_input1.png"}]
+                                }
+                            },
+                            "hemmingColor": {
+                                "JCom" : "JRLabelTextFieldView",
+                                "JFrame":[0,456,200,60],
+                                "JSubRender": {
+                                    "frames":[[0,0,-1.1,-1.1],[-2,22,-1.1,-1.1]],
+                                    "SubRenders":[{"FONT_SIZE":16},{"JR_IMG":"material_input1.png"}]
+                                }
+                            }
+
+                        }
+                    },
+
+                    
+                    
+                    "NESTED_BODY_RIGHT":{
+                        "JFrame": [ 625, 0, 300, 550 ],
+                        "COMPONENTS":{
+                            
+                            
+                            "frameComponent_1": {
+                                "JCom" : "JRComplexView",
+                                "JFrame": [0, 0, 300, 120 ],
+                                
+                                
+                                "SORTEDKEYS": ["IMG_frame"],
+                                "COMPONENTS": {
+                                    
+                                    "IMG_frame" : {
+                                        "JCom": "JRImageView",
+                                        "JFrame": [0,25,-1.1,-1.1],
+                                        "JSubRender":{
+                                            "JR_IMG": "material_frame.png"
+                                        }
+                                    },
+                                    
+                                    "boardColorTitle": {
+                                        "JCom": "JRLocalizeLabel",
+                                        "JFrame": [0,0,-1.1,30],
+                                        "JSubRender": {"FONT_SIZE":16,"BORDER_": 18}
+                                    },
+                                    
+                                    "colorBoardRoofColor": {
+                                        "JCom" : "JRLabelCommaTextFieldView",
+                                        "JFrame": [10,35,200, 40],
+                                        "JSubRender": {
+                                            "frames":[[], [], [65, 0, -1.1,-1.1]],
+                                            "SubRenders":[{"FONT_SIZE":15}, {} ,{ "JR_IMG":"material_input3.png"}]
+                                        }
+                                    },
+                                    
+                                    "colorBoardWallColor": {
+                                        "JCom" : "JRLabelCommaTextFieldView",
+                                        "JFrame": [10,75,200, 40],
+                                        "JSubRender": {
+                                            "frames":[[], [], [65, 0, -1.1,-1.1]],
+                                            "SubRenders":[{"FONT_SIZE":15}, {} ,{ "JR_IMG":"material_input3.png"}]
+                                        }
+                                    }
+                                    
+                                }
+                            },
+                            "frameComponent_2": {
+                                "JCom" : "JRComplexView",
+                                "JFrame": [0, 110, 300, 120 ],
+                                
+                                
+                                "SORTEDKEYS": ["IMG_frame"],
+                                "COMPONENTS": {
+                                    
+                                    "IMG_frame" : {
+                                        "JCom": "JRImageView",
+                                        "JFrame": [0,25,-1.1,-1.1],
+                                        "JSubRender":{
+                                            "JR_IMG": "material_frame.png"
+                                        }
+                                    },
+                                    
+                                    "roofColorBoardTitle": {
+                                        "JCom": "JRLocalizeLabel",
+                                        "JFrame": [0,0,-1.1,30],
+                                        "JSubRender": {"FONT_SIZE":16}
+                                    },
+                                    
+                                    "roofColorBoardSpec": {
+                                        "JCom" : "JRLabelCommaTextFieldView",
+                                        "JFrame": [10,35,200, 40],
+                                        "JSubRender": {
+                                            "frames":[[], [], [65, 0, -1.1,-1.1]],
+                                            "SubRenders":[{"FONT_SIZE":15}, {} ,{"JR_IMG":"material_input3.png"}]
+                                        }
+                                    },
+                                    
+                                    "roofColorBoardQuantity": {
+                                        "JCom" : "JRLabelCommaTextFieldView",
+                                        "JFrame": [10,75,200, 40],
+                                        "JSubRender": {
+                                            "frames":[[], [], [65, 0, -1.1,-1.1]],
+                                            "SubRenders":[{"FONT_SIZE":15}, {} ,{ "JR_IMG":"material_input3.png"}]
+                                        }
+                                    }
+                                    
+                                }
+                            },
+                            "frameComponent_3": {
+                                "JCom" : "JRComplexView",
+                                "JFrame": [0, 220, 300, 120 ],
+                                
+                                
+                                "SORTEDKEYS": ["IMG_frame"],
+                                "COMPONENTS": {
+                                    
+                                    "IMG_frame" : {
+                                        "JCom": "JRImageView",
+                                        "JFrame": [0,25,-1.1,-1.1],
+                                        "JSubRender":{
+                                            "JR_IMG": "material_frame.png"
+                                        }
+                                    },
+                                    
+                                    "roofColorBoardTitle": {
+                                        "JCom": "JRLocalizeLabel",
+                                        "JFrame": [0,0,-1.1,30],
+                                        "JSubRender": {"FONT_SIZE":16}
+                                    },
+                                    
+                                    "roofColorBoardSpec": {
+                                        "JCom" : "JRLabelCommaTextFieldView",
+                                        "JFrame": [10,35,200, 40],
+                                        "JSubRender": {
+                                            "frames":[[], [], [65, 0, -1.1,-1.1]],
+                                            "SubRenders":[{"FONT_SIZE":15}, {} ,{"JR_IMG":"material_input3.png"}]
+                                        }
+                                    },
+                                    
+                                    "roofColorBoardQuantity": {
+                                        "JCom" : "JRLabelCommaTextFieldView",
+                                        "JFrame": [10,75,200, 40],
+                                        "JSubRender": {
+                                            "frames":[[], [], [65, 0, -1.1,-1.1]],
+                                            "SubRenders":[{"FONT_SIZE":15}, {} ,{"JR_IMG":"material_input3.png"}]
+                                        }
+                                    }
+                                    
+                                }
+                            },
+
+                            "frameComponent_4": {
+                                "JCom" : "JRComplexView",
+                                "JFrame": [0, 330, 300, 120 ],
+                                
+                                
+                                "SORTEDKEYS": ["IMG_frame"],
+                                "COMPONENTS": {
+                                    
+                                    "IMG_frame" : {
+                                        "JCom": "JRImageView",
+                                        "JFrame": [0,25,-1.1,-1.1],
+                                        "JSubRender":{
+                                            "JR_IMG": "material_frame.png"
+                                        }
+                                    },
+                                    
+                                    "steelBottomPaintTitle": {
+                                        "JCom": "JRLocalizeLabel",
+                                        "JFrame": [0,0,-1.1,30],
+                                        "JSubRender": {"FONT_SIZE":16}
+                                    },
+                                    
+                                    "steelBottomPaintRoofTruss": {
+                                        "JCom" : "JRLabelCommaTextFieldView",
+                                        "JFrame": [10,35,200, 40],
+                                        "JSubRender": {
+                                            "frames":[[], [], [65, 0, -1.1,-1.1]],
+                                            "SubRenders":[{"FONT_SIZE":15}, {} ,{"JR_IMG":"material_input3.png"}]
+                                        }
+                                    },
+                                    
+                                    "steelBottomPaintDormer": {
+                                        "JCom" : "JRLabelCommaTextFieldView",
+                                        "JFrame": [10,75,200, 40],
+                                        "JSubRender": {
+                                            "frames":[[], [], [65, 0, -1.1,-1.1]],
+                                            "SubRenders":[{"FONT_SIZE":15}, {} ,{"JR_IMG":"material_input3.png"}]
+                                        }
+                                    }
+                                    
+                                }
+                            },
+                            "frameComponent_5": {
+                                "JCom" : "JRComplexView",
+                                "JFrame": [0, 440, 300, 120 ],
+                                
+                                
+                                "SORTEDKEYS": ["IMG_frame"],
+                                "COMPONENTS": {
+                                    
+                                    "IMG_frame" : {
+                                        "JCom": "JRImageView",
+                                        "JFrame": [0,25,-1.1,-1.1],
+                                        "JSubRender":{
+                                            "JR_IMG": "material_frame.png"
+                                        }
+                                    },
+                                    
+                                    "steelSurfacePaintTitle": {
+                                        "JCom": "JRLocalizeLabel",
+                                        "JFrame": [0,0,-1.1,30],
+                                        "JSubRender": {"FONT_SIZE":16}
+                                    },
+                                    
+                                    "steelSurfacePaintRoofTruss": {
+                                        "JCom" : "JRLabelCommaTextFieldView",
+                                        "JFrame": [10,35,200, 40],
+                                        "JSubRender": {
+                                            "frames":[[], [], [65, 0,-1.1,-1.1]],
+                                            "SubRenders":[{"FONT_SIZE":15}, {} ,{ "JR_IMG":"material_input3.png"}]
+                                        }
+                                    },
+                                    
+                                    "steelSurfacePaintDormer": {
+                                        "JCom" : "JRLabelCommaTextFieldView",
+                                        "JFrame": [10,75,200, 40],
+                                        "JSubRender": {
+                                            "frames":[[], [], [65, 0, -1.1,-1.1]],
+                                            "SubRenders":[{"FONT_SIZE":15}, {} ,{"JR_IMG":"material_input3.png"}]
+                                        }
+                                    }
+                                    
+                                }
+                            }
+                        }
+                    }
+                    
+                }
+            }
+        }
+    
+    },
+    
+    
+    "NESTED_footer": {
+        "JFrame": [ 120, 715, 800, 50 ],
+        "BORDER":5,
+        "SORTEDKEYS": [],
+        "COMPONENTS": {
+            
+            "createUser": {
+                "JFrame": [600,0,180,30]
+            },
+            
+            "app1": {
+                "JFrame": [400,0,180,30]
+            },
+            
+            "app2": {
+                "JFrame": [200,0,180,30]
+            },
+            
+            "app3": {
+                "JFrame": [0,0,180,30]
+            },
+            
+            "app4":""
+        }
+    }
+
+  }
+
+}
+
+
+
+
+
+
+
+
+

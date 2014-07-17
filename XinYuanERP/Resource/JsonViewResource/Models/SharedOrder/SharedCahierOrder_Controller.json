@@ -1,0 +1,45 @@
+
+{
+    "SERVER":{
+        
+        "CHECK_NOTEMPTY": ["meetDate"]
+        
+    },
+    
+    
+    
+    
+    
+    
+    
+    
+    "CLIENT": {
+        
+        
+        
+        "CONTROL_MODE" : {
+            "DEFAULT_MODE_SUB":{
+                "ENABLE":[],
+                "UNENABLE":["NESTED_1","NESTED_2"]
+            },
+            
+            "CREAT_MODE_SUB":{
+                "ENABLE":["NESTED_1","NESTED_2"],
+                "UNENABLE":[]
+            }
+        },
+        
+        
+        
+        "COMS_DATE_PICKERS":["meetDate"],
+        "COMS_DATE_PATTERNS": {
+            "meetDate":"yyyy-MM-dd"
+        }
+        
+        
+    }
+    
+    
+    
+}
+

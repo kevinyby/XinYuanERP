@@ -1,0 +1,23 @@
+
+{
+    
+    
+    
+    
+    "AddExperienceView_Controller":{
+        "COMS_DATE_PICKERS": [ "from", "to"],
+        "COMS_DATE_PATTERNS": {
+            "from":"yyyy-MM-dd",
+            "to" : "yyyy-MM-dd"
+        }
+    }
+    
+    
+    
+    
+    
+    
+    
+    
+}
+

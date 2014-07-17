@@ -1,0 +1,55 @@
+
+{
+    "SERVER":{
+        
+        "SUBMIT_BUTTONS" : [
+                            
+                            {
+                            "NESTED_footer.createUser": {
+                            "MODEL_APPTO" : "ALL"
+                            }
+                            }
+                            
+                            ],
+        
+        "CHECK_NOTEMPTY": ["deadLine"]
+        
+    },
+    
+    
+    
+    
+    
+    
+    
+    
+    "CLIENT": {
+        
+        
+        
+        "CONTROL_MODE" : {
+            "DEFAULT_MODE_SUB":{
+                "ENABLE":[],
+                "UNENABLE":["NESTED_1","NESTED_2"]
+            },
+            
+            "CREAT_MODE_SUB":{
+                "ENABLE":["NESTED_2","NESTED_1"],
+                "UNENABLE":["proxy","jobTitle","unit","origin","acceptDate"]
+            }
+        },
+        
+        
+        "COMS_DATE_PICKERS": ["acceptDate_","deadLine"],
+        "COMS_DATE_PATTERNS": {
+            "acceptDate_":"yyyy-MM-dd",
+            "deadLine":"yyyy-MM-dd"
+        }
+        
+        
+    }
+    
+    
+    
+}
+

@@ -1,0 +1,17 @@
+
+{
+    
+    
+    "ModelsStructure_Visual" : {
+        
+        "EmployeeQuitOrder" : ["EmployeeQuitPassOrder"],
+        
+        
+        "WHLendOutOrder":["WHLendOutBill"]
+        
+    }
+    
+    
+    
+    
+}

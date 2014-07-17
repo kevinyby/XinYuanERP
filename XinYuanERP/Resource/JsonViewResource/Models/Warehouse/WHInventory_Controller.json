@@ -1,0 +1,88 @@
+{
+    "IMAGES" : {
+        "IMAGES_LOAD": ["IMG_Photo", "IMG_QRCode"],
+        
+        "IMAGES_NAMES": {
+            "IMG_Photo": {
+                "MAINNAME": ["orderNO", ""],
+                "SUF":"Product.png"
+            },
+            "IMG_QRCode": {
+                "MAINNAME": ["orderNO", ""],
+                "SUF":"QRCode.png"
+            }
+        },
+        "IMAGES_DATAS": {
+            "IMG_Photo": {
+                "JPG_CompressionQuality":1
+            },
+            "IMG_QRCode":{
+                "JPG_CompressionQuality":0.8
+            }
+        },
+        "IMAGE_PICKER":{
+            "BTN_Take_Product":"IMG_Photo",
+        },
+        "IMAGES_PREVIEWS":{
+            "IMG_Photo":{
+            },
+            "IMG_QRCode":{
+            }
+        }
+    },
+    
+    "SERVER":{
+        
+        "SUBMIT_BUTTONS" : [
+                                {
+                                    "MODEL_SENDVIEW" : "NESTED_MaterialInfo",
+                                    
+                                    "NESTED_BOTTOM.BTN_Save": {
+                                        "MODEL_APPTO" : "app1"
+                                    },
+                            
+                                    "NESTED_BOTTOM.app1": {
+                                        "BUTTON_TYPE" : 1,
+                                        "MODEL_APPFROM" : "app1",
+                                        "MODEL_APPTO" : "createUser"
+                                    }
+                                
+                                }
+            
+                           ],
+   
+    
+    "CREATE_FAILED_RESET":["IMG_QRCode"],
+    
+    
+    "CHECK_NOTEMPTY": ["IMG_Photo","IMG_QRCode",
+                       "productCode","productName","productCategory",
+                       "totalAmount","basicUnit","lendAmount","remainAmount",
+                       "priceBasicUnit"],
+        
+     },
+    
+    "CLIENT":{
+        
+        "QRCODES_BUTTONS" : [
+                             {
+                             "button":"BTN_CreateQR",
+                             "image":"IMG_QRCode",
+                             "contentKeys":[ "productCode", "productName" ],
+                             }
+                             ],
+        
+        "CONTROL_MODE" : {
+            
+            "READ_MODE_SUB":{
+                "ENABLE":[],
+                "UNENABLE":["NESTED_MaterialInfo"]
+            }
+            
+        }
+    }
+    
+    
+    
+    
+}

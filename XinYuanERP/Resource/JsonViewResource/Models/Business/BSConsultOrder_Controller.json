@@ -1,0 +1,56 @@
+{
+    "SERVER":{
+        
+        "SUBMIT_BUTTONS" : [
+                            {
+                            "MODEL_SENDVIEW" : "NESTED_BODY",
+                            
+                            "NESTED_BODY_FOOTER.ZZ_BTNSubmit": {
+                            }
+                            }
+        ],
+        
+        
+        
+        "CHECK_NOTEMPTY": [
+                            "number","project","projectAddr","traceEmployeeNO",
+                            "name","consult","phoneNO","createDate"
+                            ],
+        
+    },
+    
+    
+    
+    
+    
+    
+    
+    "CLIENT": {
+        
+        "CREATE_AUTOFILL": {
+            "NOW_DATE":["createDate"],
+            "NOW_USER":["traceEmployeeNO"]
+        },
+        
+        "COMS_DATE_PATTERNS": {
+            "createDate":"yyyy-MM-dd"
+        },
+        
+        
+        
+        
+        "CONTROL_MODE" : {
+            "DEFAULT_MODE_SUB":{
+                "ENABLE":[],
+                "UNENABLE":["NESTED_BODY","traceEmployeeNO","createDate"]
+            },
+            
+            "CREAT_MODE_SUB":{
+                "ENABLE":["NESTED_BODY"],
+                "UNENABLE":[]
+            }
+        }
+        
+    }
+    
+}

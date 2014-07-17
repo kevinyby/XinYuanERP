@@ -1,0 +1,350 @@
+
+{
+    "LETTER_HOR_VIEWS_":[["employeeNO","name"]],
+    "LETTER_VER_TEXTFIEDS": [
+                             ["employeeNO","name"],
+                             ["department","jobTitle"],
+                             ["adjustDate","adjustAmount"],
+                             ["lastAdjustDate","lastAdjustAmount"],
+                             ["baseSalary_O", "skillBenefit_O", "fullBenefit_O", "dutyBenefit_O", "dormBenefit_O", "foodBenefit_O"],
+                             ["baseSalary_N", "skillBenefit_N", "fullBenefit_N", "dutyBenefit_N", "dormBenefit_N","foodBenefit_N"],
+                             ],
+    
+        "COMPONENTS" : {
+            
+            
+            "NESTED_MAIN": {
+                "JFrame": [30,90, 970, 565 ],
+                "SORTEDKEYS": ["BG_book"],
+                "COMPONENTS" : {
+                    
+                    "BG_book" : {
+                        "JCom": "JRImageView",
+                        "JFrame": [0,0,-1.1,-1.1],
+                        "JSubRender":{
+                            "JR_IMG": "PayrollTransactionTable_11.png"
+                        }
+                    },
+                    
+                    
+                    "NESTED_INFO_HEAD": {
+                        "JFrame": [40, 20, 900, 85 ],
+                        "COMPONENTS" : {
+                            
+                            "employeeNO": {
+                                "JCom" : "JRLabelCommaTextFieldView",
+                                "JFrame": [80,0,280,40],
+                                "JSubRender": {
+                                    "SubRenders":[{"CH_SPACE": "7"},{},{"JR_IMG":"PayrollTransactionTable_04.png"}]
+                                }
+                            },
+                            
+                            "name": {
+                                "JCom" : "JRLabelCommaTextFieldView",
+                                "JFrame": [80,45,280,40],
+                                "JSubRender": {
+                                    "SubRenders":[{"CH_SPACE": "7"},{},{"JR_IMG":"PayrollTransactionTable_04.png"}]
+                                }
+                            },
+                            
+                            "department": {
+                                "JCom" : "JRLabelCommaTextFieldView",
+                                "JFrame": [545,0,280,40],
+                                "JSubRender": {
+                                    "SubRenders":[{"CH_SPACE": "0"},{},{"JR_IMG":"PayrollTransactionTable_04.png"}]
+                                }
+                            },
+                            
+                            
+                            "jobTitle": {
+                                "JCom" : "JRLabelCommaTextFieldView",
+                                "JFrame": [545,45,280,40],
+                                "JSubRender": {
+                                    "SubRenders":[{"CH_SPACE": "7"},{},{"JR_IMG":"PayrollTransactionTable_04.png"}]
+                                }
+                            }
+                            
+                        }
+                    },
+                    
+                    "NESTED_Left": {
+                        "JFrame": [40,110, 400, 460 ],
+                        "COMPONENTS" : {
+                            
+                            "NESTED_Left_Silk": {
+                                "JFrame": [25,0, 350, 50 ],
+                                "SORTEDKEYS": ["BG_silk_1"],
+                                "COMPONENTS" : {
+                                    
+                                    "BG_silk_1" : {
+                                        "JCom": "JRImageView",
+                                        "JFrame": [0,0,-1.1,-1.1],
+                                        "JSubRender":{
+                                            "JR_IMG": "PayrollTransactionTable_12.png"
+                                        }
+                                    },
+                                    
+                                    "Adjust_Before" : {
+                                        "JCom": "JRGradientLabel",
+                                        "JFrame": [20,0,120,50],
+                                        "JSubRender":{
+                                            "FONT_NAME": "MarkerFelt-Wide" ,
+                                            "FONT_SIZE": 27 ,
+                                            "JS_FONT_N_COLOR": [ 159, 145, 133, 1 ],
+                                            
+                                            "STROKE.width_": 2.0,
+                                            "STROKE.color_":[0, 0, 0],
+                                        }
+                                    },
+                                    
+                                    "ZZ_LBLBEFORESUM": {
+                                        "JCom" : "JRLabelCommaTextFieldView",
+                                        "JFrame": [140,10,200,40],
+                                        "JSubRender": {
+                                            "SubRenders":[{},{},{"JR_IMG":"PayrollTransactionTable_13.png","JR_BORDERSTYLE": 0 , "BGCOLOR": "", "JR_ENABLE":0}]
+                                        }
+                                    }
+                                    
+                                }
+                            },
+                            
+                            
+                            "NESTED_Left_DOWN": {
+                                "JFrame": [80, 65, 275, 270 ],
+                                "COMPONENTS" : {
+                                    
+                                    "baseSalary_O": {
+                                        "JCom" : "JRLabelCommaTextFieldView",
+                                        "JFrame": [0,0,280,40],
+                                        "JSubRender": {
+                                            "frames":[[], [], []],
+                                            "SubRenders":[{"CH_SPACE": "7"},{},{"JR_IMG":"PayrollTransactionTable_08.png"}]
+                                        }
+                                    },
+                                    
+                                    "skillBenefit_O": {
+                                        "JCom" : "JRLabelCommaTextFieldView",
+                                        "JFrame": [0,45,280,40],
+                                        "JSubRender": {
+                                            "frames":[[], [], []],
+                                            "SubRenders":[{},{},{"JR_IMG":"PayrollTransactionTable_08.png"}]
+                                        }
+                                    },
+                                    
+                                    "fullBenefit_O": {
+                                        "JCom" : "JRLabelCommaTextFieldView",
+                                        "JFrame": [0,90,280,40],
+                                        "JSubRender": {
+                                            "frames":[[], [], []],
+                                            "SubRenders":[{},{},{"JR_IMG":"PayrollTransactionTable_08.png"}]
+                                        }
+                                    },
+                                    
+                                    "dutyBenefit_O": {
+                                        "JCom" : "JRLabelCommaTextFieldView",
+                                        "JFrame": [0,135,280,40],
+                                        "JSubRender": {
+                                            "frames":[[], [], []],
+                                            "SubRenders":[{},{},{"JR_IMG":"PayrollTransactionTable_08.png"}]
+                                        }
+                                    },
+                                    
+                                    "dormBenefit_O": {
+                                        "JCom" : "JRLabelCommaTextFieldView",
+                                        "JFrame": [0,180,280,40],
+                                        "JSubRender": {
+                                            "frames":[[], [], []],
+                                            "SubRenders":[{},{},{"JR_IMG":"PayrollTransactionTable_08.png"}]
+                                        }
+                                    },
+                                    
+                                    "foodBenefit_O": {
+                                        "JCom" : "JRLabelCommaTextFieldView",
+                                        "JFrame": [0,225,280,40],
+                                        "JSubRender": {
+                                            "frames":[[], [], []],
+                                            "SubRenders":[{},{},{"JR_IMG":"PayrollTransactionTable_08.png"}]
+                                        }
+                                    }
+                                }
+                            
+                            },
+                            
+                            "NESTED_Left_BOTTOM":{
+                                "JFrame": [50,352, 280, 100 ],
+                                "COMPONENTS" : {
+                                    "lastAdjustDate": {
+                                        "JCom" : "JRLabelCommaTextFieldView",
+                                        "JFrame": [0,0,280,40],
+                                        "JSubRender": {
+                                            "frames":[[], [], []],
+                                            "SubRenders":[{},{},{"JR_IMG":"PayrollTransactionTable_10.png"}]
+                                        }
+                                    },
+                                    
+                                    "lastAdjustAmount": {
+                                        "JCom" : "JRLabelCommaTextFieldView",
+                                        "JFrame": [0,45,280,40],
+                                        "JSubRender": {
+                                            "frames":[[], [], []],
+                                            "SubRenders":[{},{},{"JR_IMG":"PayrollTransactionTable_10.png"}]
+                                        }
+                                    }
+                                }
+                            }
+                            
+                        }
+                    },
+                    
+                    "NESTED_Right": {
+                        "JFrame": [500, 110, 420, 460 ],
+                        "COMPONENTS" : {
+                            
+                            "NESTED_Right_Silk": {
+                                "JFrame": [25,0, 350, 50 ],
+                                "SORTEDKEYS": ["BG_silk_2"],
+                                "COMPONENTS" : {
+                                    
+                                    "BG_silk_2" : {
+                                        "JCom": "JRImageView",
+                                        "JFrame": [0,0,-1.1,-1.1],
+                                        "JSubRender":{
+                                            "JR_IMG": "PayrollTransactionTable_12.png"
+                                        }
+                                    },
+                                    
+                                    "Adjust_After" : {
+                                        "JCom": "JRGradientLabel",
+                                        "JFrame": [20,0,120,50],
+                                        "JSubRender":{
+                                            "FONT_NAME": "MarkerFelt-Wide" ,
+                                            "FONT_SIZE": 27 ,
+                                            "JS_FONT_N_COLOR": [ 159, 145, 133, 1 ],
+                                            
+                                            "STROKE.width_": 1.0,
+                                            "STROKE.color_":[193, 255, 193],
+                                            "GRADIENT.count_": 6,
+                                            "GRADIENT.startColor_":[0, 255, 0],
+                                            "GRADIENT.endColor_":[0, 0, 205],
+                                            "GRADIENT.startPoint_":[0.5,1],
+                                            "GRADIENT.endPoint_":[0.5,0]
+                                            
+                                        }
+                                    },
+                                    
+                                    "ZZ_LBLAFTERSUM": {
+                                        "JCom" : "JRLabelCommaTextFieldView",
+                                        "JFrame": [140,10,200,40],
+                                        "JSubRender": {
+                                            "frames":[[], [], []],
+                                            "SubRenders":[{},{},{"JR_IMG":"PayrollTransactionTable_14.png","JR_BORDERSTYLE": 0 , "BGCOLOR": "", "JR_ENABLE":0}]
+                                        }
+                                    }
+                                }
+                            },
+                            
+                            
+                            "NESTED_Right_DOWN": {
+                                "JFrame": [80, 65, 275, 270 ],
+                                "COMPONENTS" : {
+                                    
+                                    "baseSalary_N": {
+                                        "JCom" : "JRLabelCommaTextFieldView",
+                                        "JFrame": [0,0,280,40],
+                                        "JSubRender": {
+                                            "frames":[[], [], []],
+                                            "SubRenders":[{"CH_SPACE": "7"},{},{"JR_IMG":"PayrollTransactionTable_09.png"}]
+                                        }
+                                    },
+                                    
+                                    "skillBenefit_N": {
+                                        "JCom" : "JRLabelCommaTextFieldView",
+                                        "JFrame": [0,45,280,40],
+                                        "JSubRender": {
+                                            "frames":[[], [], []],
+                                            "SubRenders":[{},{},{"JR_IMG":"PayrollTransactionTable_09.png"}]
+                                        }
+                                    },
+                                    
+                                    "fullBenefit_N": {
+                                        "JCom" : "JRLabelCommaTextFieldView",
+                                        "JFrame": [0,90,280,40],
+                                        "JSubRender": {
+                                            "frames":[[], [], []],
+                                            "SubRenders":[{},{},{"JR_IMG":"PayrollTransactionTable_09.png"}]
+                                        }
+                                    },
+                                    
+                                    "dutyBenefit_N": {
+                                        "JCom" : "JRLabelCommaTextFieldView",
+                                        "JFrame": [0,135,280,40],
+                                        "JSubRender": {
+                                            "frames":[[], [], []],
+                                            "SubRenders":[{},{},{"JR_IMG":"PayrollTransactionTable_09.png"}]
+                                        }
+                                    },
+                                    
+                                    "dormBenefit_N": {
+                                        "JCom" : "JRLabelCommaTextFieldView",
+                                        "JFrame": [0,180,280,40],
+                                        "JSubRender": {
+                                            "frames":[[], [], []],
+                                            "SubRenders":[{},{},{"JR_IMG":"PayrollTransactionTable_09.png"}]
+                                        }
+                                    },
+                                    
+                                    "foodBenefit_N": {
+                                        "JCom" : "JRLabelCommaTextFieldView",
+                                        "JFrame": [0,225,280,40],
+                                        "JSubRender": {
+                                            "frames":[[], [], []],
+                                            "SubRenders":[{},{},{"JR_IMG":"PayrollTransactionTable_09.png"}]
+                                        }
+                                    }
+                                    
+                                    
+                                    
+                                }
+                                
+                            },
+                            
+                            
+                            "NESTED_Right_BOTTOM":{
+                                "JFrame": [110,352, 280, 100 ],
+                                "COMPONENTS" : {
+                                    "adjustDate": {
+                                        "JCom" : "JRLabelCommaTextFieldView",
+                                        "JFrame": [0,0,280,40],
+                                        "JSubRender": {
+                                            "frames":[[], [], []],
+                                            "SubRenders":[{},{},{"JR_IMG":"PayrollTransactionTable_10.png"}]
+                                        }
+                                    },
+                                    
+                                    "adjustAmount": {
+                                        "JCom" : "JRLabelCommaTextFieldView",
+                                        "JFrame": [0,45,280,40],
+                                        "JSubRender": {
+                                            "frames":[[], [], []],
+                                            "SubRenders":[{},{},{"JR_IMG":"PayrollTransactionTable_10.png"}]
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+                
+                
+            },
+            
+            
+            
+        }
+    
+    
+    
+    
+
+}
+

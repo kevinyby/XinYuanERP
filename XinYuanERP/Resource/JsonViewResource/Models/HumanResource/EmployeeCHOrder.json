@@ -1,0 +1,317 @@
+{
+    
+    "LETTER_VER_TEXTFIEDS": [["name_O","phoneNO_O","livingAddress_O","urgencyName_O","urgencyPhone_O","department_O","jobTitle_O"],["name_N","phoneNO_N","livingAddress_N","urgencyName_N","urgencyPhone_N","department_N","jobTitle_N"]],
+    
+    "COMPONENTS" : {
+        
+        "BG_BOOK_IMAGE" : {
+            "JCom": "JRImageView",
+            "JFrame": [20,75,-1.1,-1.1],
+            "JSubRender":{
+                "JR_IMG": "Stafftransactiontable_08.png"
+            }
+        },
+        "employeeNO": {
+            "JCom" : "JRLabelCommaTextFieldView",
+            "JFrame": [210,100,300,40],
+            "JSubRender": {
+                "SubRenders":[{"CH_SPACE_": "11"},{},{"JR_IMG":"EmployeeDataSheet_07.png"}]
+            }
+        },
+        "password_N" : {
+            "JCom": "JRLabelCommaTextFieldView",
+            "JFrame": [700,100,300,40],
+            "JSubRender": {
+                "SubRenders":[{"CH_SPACE_": "12|1.2", "DESCRIPTION_KEY": "EmployeeCHOrder.password_N"},{},{"JR_IMG":"EmployeeDataSheet_07.png", "JR_PASSWORD": 1}]
+            }
+        },
+
+        
+        "NESTED_BODY": {
+            "JFrame": [ 70, 340, 940, 320 ],
+            "COMPONENTS": {
+                
+                "NESTED_book1": {
+                    "JFrame": [ 1, 1, 420, 320 ],
+                    "COMPONENTS": {
+                        
+                        "name_O": {
+                            "JCom" : "JRLabelCommaTextFieldView",
+                            "JFrame": [0,0,300,40],
+                            "JSubRender": {
+                                "SubRenders":[{"CH_SPACE": "10"},{},{"JR_IMG":"EmployeeDataSheet_11.png"}]
+                            }
+                        },
+                        
+                        "phoneNO_O": {
+                            "JCom" : "JRLabelCommaTextFieldView",
+                            "JFrame": [0,45,300,40],
+                            "JSubRender": {
+                                "SubRenders":[{"CH_SPACE": "1","EN_SPACE_":"3"},{},{"JR_IMG":"EmployeeDataSheet_11.png"}]
+                            }
+                        },
+                        "livingAddress_O": {
+                            "JCom" : "JRLabelCommaTextFieldView",
+                            "JFrame": [0,90,558,38],
+                            "JSubRender": {
+                                "frames":[],
+                                "SubRenders":[{"CH_SPACE": "10"},{},{"JR_IMG":"EmployeeDataSheet_11.png"}]
+                            }
+                        },
+                        "urgencyName_O": {
+                            "JCom" : "JRLabelCommaTextFieldView",
+                            "JFrame": [0,135,558,38],
+                            "JSubRender": {
+                                "frames":[],
+                                "SubRenders":[{},{},{"JR_IMG":"EmployeeDataSheet_11.png"}]
+                            }
+                        },
+                        "urgencyPhone_O": {
+                            "JCom" : "JRLabelCommaTextFieldView",
+                            "JFrame": [0,180,558,38],
+                            "JSubRender": {
+                                "frames":[],
+                                "SubRenders":[{},{},{"JR_IMG":"EmployeeDataSheet_11.png"}]
+                            }
+                        },
+                        "department_O": {
+                            "JCom" : "JRLabelCommaTextFieldView",
+                            "JFrame": [0,225,300,40],
+                            "JSubRender": {
+                                "SubRenders":[{},{},{"JR_IMG":"EmployeeDataSheet_11.png"}]
+                            }
+                        },
+                        
+                        "jobTitle_O": {
+                            "JCom" : "JRLabelCommaTextFieldView",
+                            "JFrame": [0,270,300,40],
+                            "JSubRender": {
+                                "SubRenders":[{"CH_SPACE": "3|1.1"},{},{"JR_IMG":"EmployeeDataSheet_14.png"}]
+                            }
+                        },
+                        
+                        "jobLevel_O": {
+                            "JCom" : "JRLabelCommaTextFieldView",
+                            "JFrame": [250,270,300,40],
+                            "JSubRender": {
+                                "SubRenders":[{"CH_SPACE": "3|1.1","EN_SPACE_":"5"},{},{"JR_IMG":"EmployeeDataSheet_14.png"}]
+                            }
+                        }
+
+                    }
+                },
+                
+                
+                
+                "NESTED_book2": {
+                    "JFrame": [ 500, 1, 420, 320 ],
+                    "COMPONENTS": {
+                        "name_N": {
+                            "JCom" : "JRLabelCommaTextFieldView",
+                            "JFrame": [0,0,300,40],
+                            "JSubRender": {
+                                "SubRenders":[{"CH_SPACE": "11"},{},{"JR_IMG":"EmployeeDataSheet_11.png"}]
+                            }
+                        },
+                        
+                        "phoneNO_N": {
+                            "JCom" : "JRLabelCommaTextFieldView",
+                            "JFrame": [0,45,300,40],
+                            "JSubRender": {
+                                "SubRenders":[{},{},{"JR_IMG":"EmployeeDataSheet_11.png"}]
+                            }
+                        },
+                        
+                        "livingAddress_N": {
+                            "JCom" : "JRLabelCommaTextFieldView",
+                            "JFrame": [0,90,558,38],
+                            "JSubRender": {
+                                "frames":[],
+                                "SubRenders":[{"CH_SPACE": "10"},{},{"JR_IMG":"EmployeeDataSheet_11.png"}]
+                            }
+                        },
+                        "urgencyName_N": {
+                            "JCom" : "JRLabelCommaTextFieldView",
+                            "JFrame": [0,135,558,38],
+                            "JSubRender": {
+                                "frames":[],
+                                "SubRenders":[{},{},{"JR_IMG":"EmployeeDataSheet_11.png"}]
+                            }
+                        },
+                        "urgencyPhone_N": {
+                            "JCom" : "JRLabelCommaTextFieldView",
+                            "JFrame": [0,180,558,38],
+                            "JSubRender": {
+                                "frames":[],
+                                "SubRenders":[{},{},{"JR_IMG":"EmployeeDataSheet_11.png"}]
+                            }
+                        },
+                        
+                        "department_N": {
+                            "JCom" : "JRLabelCommaTextFieldView",
+                            "JFrame": [0,225,300,40],
+                            "BORDER_": 2,
+                            "JSubRender": {
+                                "SubRenders":[{},{},{"JR_IMG":"EmployeeDataSheet_11.png"}]
+                            }
+                        },
+                        
+                        "jobTitle_N": {
+                            "JCom" : "JRLabelCommaTextFieldView",
+                            "JFrame": [0,270,300,40],
+                            "JSubRender": {
+                                "SubRenders":[{"CH_SPACE": "1"},{},{"JR_IMG":"EmployeeDataSheet_14.png"}]
+                            }
+                        },
+                        
+                        "jobLevel_N": {
+                            "JCom" : "JRLabelCommaTextFieldView",
+                            "JFrame": [240,270,300,40],
+                            "JSubRender": {
+                                "SubRenders":[{"CH_SPACE": "1"},{},{"JR_IMG":"EmployeeDataSheet_14.png"}]
+                            }
+                        }
+
+                    }
+                }
+                
+                
+            }
+        },
+        
+        
+        
+        "NESTED_Photo": {
+            
+            "JFrame": [50, 150, 930, 185 ],
+            "COMPONENTS" : {
+                
+                "NESTED_Photo_old":{
+                    "JFrame": [0, 0, 180, 200 ],
+                    "SORTEDKEYS": ["IMG_Photo_old","BG_ConteactPhoto_old"],
+                    "COMPONENTS" : {
+                        "BG_ConteactPhoto_old":{
+                            "JCom": "JRImageView",
+                            "JFrame": [25,0,-1.1,-1.1],
+                            "JSubRender":{
+                                "JR_IMG": "EmployeeDataSheet_29.png"
+                            }
+                        },
+                        "IMG_Photo_old":{
+                            "JCom": "JRImageView",
+                            "JFrame": [29,4,136,175],
+                            "JSubRender":{
+                                "JR_IMG": "",
+                                "JR_Radius": 8.0
+                            }
+                        },
+                        "BTN_Take_old_" : {
+                            "JCom": "JRButton",
+                            "JFrame": [0,31,-1.1,-1.1],
+                            "JSubRender":{
+                                "JR_BGN_IMG": "EmployeeDataSheet_03.png"
+                            }
+                        }
+                    }
+                },
+                
+                
+                "NESTED_Photo_new":{
+                    "JFrame": [500, 0, 200, 190 ],
+                    "SORTEDKEYS": ["BG_ConteactPhoto_new","IMG_Photo_new"],
+                    "COMPONENTS" : {
+                        "BG_ConteactPhoto_new":{
+                            "JCom": "JRImageView",
+                            "JFrame": [50,0,-1.1,-1.1],
+                            "JSubRender":{
+                                "JR_IMG": "EmployeeDataSheet_29.png"
+                            }
+                        },
+                        "IMG_Photo_new":{
+                            "JCom": "JRImageView",
+                            "JFrame": [55,4,136,175],
+                            "JSubRender":{
+                                "JR_IMG": "",
+                                "JR_Radius": 8.0
+                            }
+                        },
+                        "BTN_Take_new" : {
+                            "JCom": "JRButton",
+                            "JFrame": [0,20,-1.1,-1.1],
+                            "JSubRender":{
+                                "JR_BGN_IMG": "EmployeeDataSheet_03.png"
+                            }
+                        }
+                    }
+                },
+                
+                "NESTED_toggle_old": {
+                    "JFrame": [200, 40, 200, 150 ],
+                    "COMPONENTS" : {
+                        
+                        "ownApproval_O" : {
+                            "JCom": "JRButton",
+                            "JFrame": [0,1,176,48],
+                            "JSubRender": {
+                                "JR_BGN_IMG": "EmployeeDataSheet_05.png", "JR_FGN_IMG":"EmployeeDataSheet_06.png","JS_FONT_N_COLOR":[1,1,1],"JS_FONT_BOLD": 1,"JR_FGIMG_Insets":[0, 140, 0 , 0], "FONT_SIZE":18,"JR_TITLE_Insets": [0, -50, 0, 0], "JR_ENABLE":0
+                            }
+                        },
+                        
+                        "inDrives_O" : {
+                            "JCom": "JRButton",
+                            "JFrame": [0,50,176,48],
+                            "JSubRender": {
+                                "JR_BGN_IMG": "EmployeeDataSheet_05.png", "JR_FGN_IMG":"EmployeeDataSheet_06.png","JS_FONT_N_COLOR":[1,1,1],"JS_FONT_BOLD": 1,"JR_FGIMG_Insets":[0, 140, 0 , 0], "FONT_SIZE":19,"JR_TITLE_Insets": [0, -50, 0, 0], "JR_ENABLE":0
+                            }
+                        },
+                        "resign_O" : {
+                            "JCom": "JRButton",
+                            "JFrame": [0,100,176,48],
+                            "JSubRender": {
+                                "JR_BGN_IMG": "EmployeeDataSheet_05.png", "JR_FGN_IMG":"EmployeeDataSheet_06.png","JS_FONT_N_COLOR":[1,1,1],"JS_FONT_BOLD": 1,"JR_FGIMG_Insets":[0, 140, 0 , 0], "FONT_SIZE":19,"JR_TITLE_Insets": [0, -40, 0, 0], "JR_ENABLE":0
+                            }
+                        }
+
+                    }
+                },
+                
+                "NESTED_toggle_new": {
+                    "JFrame": [700, 40, 200, 150 ],
+                    "COMPONENTS" : {
+                        
+                        "ownApproval_N" : {
+                            "JCom": "JRButton",
+                            "JFrame": [0,1,176,48],
+                            "JSubRender": {
+                                "JR_BGN_IMG": "EmployeeDataSheet_05.png", "JR_FGN_IMG":"EmployeeDataSheet_06.png","JS_FONT_N_COLOR":[1,1,1],"JS_FONT_BOLD": 1,"JR_FGIMG_Insets":[0, 140, 0 , 0], "FONT_SIZE":18,"JR_TITLE_Insets": [0, -50, 0, 0]
+                            }
+                        },
+                        
+                        "inDrives_N" : {
+                            "JCom": "JRButton",
+                            "JFrame": [0,50,176,48],
+                            "JSubRender": {
+                                "JR_BGN_IMG": "EmployeeDataSheet_05.png", "JR_FGN_IMG":"EmployeeDataSheet_06.png","JS_FONT_N_COLOR":[1,1,1],"JS_FONT_BOLD": 1,"JR_FGIMG_Insets":[0, 140, 0 , 0], "FONT_SIZE":19,"JR_TITLE_Insets": [0, -50, 0, 0]
+                            }
+                        },
+                        "resign_N" : {
+                            "JCom": "JRButton",
+                            "JFrame": [0,100,176,48],
+                            "JSubRender": {
+                                "JR_BGN_IMG": "EmployeeDataSheet_05.png", "JR_FGN_IMG":"EmployeeDataSheet_06.png","JS_FONT_N_COLOR":[1,1,1],"JS_FONT_BOLD": 1,"JR_FGIMG_Insets":[0, 140, 0 , 0], "FONT_SIZE":19,"JR_TITLE_Insets": [0, -40, 0, 0]
+                            }
+                        }
+                        
+                    }
+                }
+
+            }
+            
+            
+        }
+        
+    }
+    
+    
+}
+

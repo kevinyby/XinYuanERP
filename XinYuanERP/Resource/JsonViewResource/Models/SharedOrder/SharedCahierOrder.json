@@ -1,0 +1,146 @@
+{
+    
+    
+"LETTER_VER_TEXTFIEDS_": [["meetDate","personalEmployeeNOs"],["location","absentEmployeeNOs"]],
+"COMPONENTS" : {
+    "NESTED_BODY":{
+        "JFrame": [ 15,90, 990, 500 ],
+        "COMPONENTS":{
+            "SORTEDKEYS": ["IMG_bg"],
+            "IMG_bg": {
+                "JCom" : "JRImageView",
+                "JFrame": [0,0,-1.1,-1.1],
+                "JSubRender": {
+                    "JR_IMG":"cahier_bg.png"
+                }
+            },
+            "NESTED_1": {
+                "JFrame": [ 30,10, 970, 130 ],
+                "COMPONENTS": {
+                    
+                    "meetName": {
+                        "JCom" : "JRLabelCommaTextFieldView",
+                        "JFrame": [0,0,300,30],
+                        "JSubRender": {
+                            "SubRenders":[{"CH_SPACE": ""},{},{"BORDER":6,"JR_IMG":"cahier_input.png","JR_PASSWORD_":1, "JR_ENABLE_":0},{}]
+                        }
+                    },
+                    
+                    "meetDate": {
+                        "JCom" : "JRLabelCommaTextFieldView",
+                        "JFrame":[320,0,300,30],
+                        "JSubRender": {
+                            "SubRenders":[{"CH_SPACE": ""},{},{"JR_IMG":"cahier_input.png"}]
+                        }
+                    },
+                    
+                    "personalEmployeeNOs": {
+                        "JCom" : "JRImageLabelCommaTextView",
+                        "JFrame":[0,50,410,90],
+                        "JSubRender": {
+                            "frames":[[85,0,-1.1,-1.1], [], []],
+                            "SubRenders":[{"JR_IMG":"cahier_input2.png"}, {},{"HIDDEN_":1}]
+                        }
+                    },
+                    
+                    "absentEmployeeNOs": {
+                        "JCom" : "JRImageLabelCommaTextView",
+                        "JFrame":[640,50,300,90],
+                        "JSubRender": {
+                            "frames":[[85,0,-1.1,-1.1], [], []],
+                            "SubRenders":[{"JR_IMG":"cahier_input3.png"},{},{}]
+                        }
+                    },
+                    
+                    "location": {
+                        "JCom" : "JRLabelCommaTextFieldView",
+                        "JFrame":[640,0,300,30],
+                        "JSubRender": {
+                            "frames":[[], [], []],
+                            "SubRenders":[{"CH_SPACE": "7"},{},{"JR_IMG":"cahier_input.png"}]
+                        }
+                    }
+                }
+            },
+            
+            "NESTED_2":{
+                "JFrame": [ 10,175, 900, 350 ],
+                "SORTEDKEYS":["frame1","frame2"],
+                "COMPONENTS":{
+                    "frame1":{
+                        "JCom": "JRImageView",
+                        "JFrame":[0,0,-1.1,-1.1],
+                        "JSubRender": {
+                            "JR_IMG":"cahier_text.png"
+                        }
+                    },
+                    "frame2":{
+                        "JCom": "JRImageView",
+                        "JFrame":[490,0,-1.1,-1.1],
+                        "JSubRender": {
+                            "JR_IMG":"cahier_text.png"
+                        }
+                    },
+                    "meetContent":{
+                        "JCom": "JRLabelTextView",
+                        "JFrame":[20,10,450,370],
+                        "JSubRender": {
+                            "frames":[[40,0,-1.1,30], [0,40,450,370]],
+                            "SubRenders":[{"FONT_SIZE":20, "JS_FONT_N_COLOR": [ 255, 255, 255, 1 ],"JS_FONT_BOLD": 1,"CH_SPACE": ""},{}]
+                            
+                        }
+                    },
+                    "meetTodo":{
+                        "JCom": "JRLabelTextView",
+                        "JFrame":[510,10,450,370],
+                        "JSubRender": {
+                            "frames":[[70,0,-1.1,30], [0,40,450,370]],
+                            "SubRenders":[{"FONT_SIZE":20, "JS_FONT_N_COLOR": [ 255, 255, 255, 1 ],"JS_FONT_BOLD": 1,"CH_SPACE": ""},{}]
+                            
+                        }
+                    }
+                }
+            }
+        }
+    },
+    
+    "NESTED_footer": {
+        "JFrame": [ 120, 590, 980, 300 ],
+        "SORTEDKEYS": [],
+        "COMPONENTS": {
+            
+            "createUser": {
+                "JFrame": [600,100,180,30]
+            },
+            
+            "app1": {
+                "JFrame": [400,100,180,30]
+            },
+            
+            "app2": {
+                "JFrame": [200,100,180,30]
+            },
+            
+            "app3": {
+                "JFrame": [0,100,180,30]
+            },
+            
+            "app4":""
+        }
+    }
+}
+
+
+
+
+
+}
+
+
+
+
+
+
+
+
+

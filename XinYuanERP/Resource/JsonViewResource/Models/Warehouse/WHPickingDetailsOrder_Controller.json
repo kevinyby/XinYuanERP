@@ -1,0 +1,67 @@
+{
+   
+        
+    "Specifications" : {
+            
+            "TableCellElementsFrames": [
+                                                 [20, 10, 150, 35],
+                                                 [185, 10, 150, 35],
+                                                 [350, 10, 160, 35],
+                                                 [530, 10, 110, 35],
+                                                 [655, 10, 70, 35],
+                                                 [735, 10, 90, 35],
+                                                 [840, 10, 90, 35]
+                                                 ],
+            "TableCellElementsSubRenders": [
+                                                     { "JR_BORDERSTYLE": 0,"BGCOLOR":-1},
+                                                     
+                                                     { "JR_BORDERSTYLE": 0,"BGCOLOR":-1},
+                                                     
+                                                     { "JR_BORDERSTYLE": 0,"BGCOLOR":-1},
+                                                     
+                                                     { "JR_BORDERSTYLE": 0, "JR_ISNUMBER":1,"BGCOLOR":-1},
+                                                     
+                                                     { "JR_BORDERSTYLE": 0,"BGCOLOR":-1},
+                                                     
+                                                     { "JR_BORDERSTYLE": 0,"BGCOLOR":-1},
+                                                     
+                                                     { "JR_BORDERSTYLE": 0, "JR_ISNUMBER":1,"BGCOLOR":-1},
+                                                     
+                                                     ],
+            
+            "TableCellElementsAttribute": [
+                                            "projectName",
+                                            
+                                            "productCode",
+                                            
+                                            "productName",
+                                            
+                                            "pickingAmount",
+                                            
+                                            "unit",
+                                            
+                                            "pickingStaff",
+                                            
+                                            "recycleAmount",
+                                            
+                                            ]
+            
+            
+        },
+    
+    "CLIENT":{
+        
+        "CREATE_AUTOFILL": {
+            "NOW_DATE":["pickingDate"]
+        },
+        "COMS_DATE_PATTERNS": {
+            "pickingDate":"yyyy-MM-dd"
+        },
+        
+    }
+    
+    
+    
+    
+    
+}

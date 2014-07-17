@@ -1,0 +1,115 @@
+{
+    "COMPONENTS" : {
+
+        "NESTED": {
+            "JFrame": [ 0,80, 1020,595],
+            "COMPONENTS": {
+                "BG_book": {
+                    "JCom" : "JRImageView",
+                    "JFrame": [0,0,-1.1,-1.1],
+                    "JSubRender": {
+                        "JR_IMG":"Articles_05.png"
+                    }
+                },
+                
+                "NESTED_Before": {
+                    "JFrame": [8,0, 505, 600],
+                    "BORDER": 6,
+                    "SORTEDKEYS": ["Before","Adjust_Before"],
+                    "COMPONENTS" : {
+                        
+                        "Before": {
+                            "JCom" : "JRImageView",
+                            "JFrame": [-8,0,-1.1,-1.1],
+                            "JSubRender": {
+                                "JR_IMG":"Articles_03.png"
+                                
+                            }
+                        },
+
+                        "Adjust_Before":{
+                            "JCom":"JRLocalizeLabel",
+                            "BORDER_": 5,
+                            "JFrame":[14,5,-1.1,-1.1],
+                            
+                        },
+                        
+                        "title_O":{
+                            "JCom" : "JRTextField",
+                            "JFrame": [125,11,270,40],
+                            "BORDER": 5,
+                            "JSubRender": {
+                                "JR_BORDERSTYLE" : 0,
+                                "BGCOLOR":-1
+                            }
+                        },
+                        
+                        "articles_O":{
+                            "JCom":"JRTextScrollView",
+                            "JFrame":[20,60,450,520],
+                            "BORDER": 4,
+                        },
+                        
+                    
+                    }
+                },
+                "NESTED_After": {
+
+                    "JFrame": [513,0, 505, 600 ],
+                    "BORDER": 5,
+
+                    "SORTEDKEYS": ["After","Adjust_After"],
+                    "COMPONENTS" : {
+                        
+                        "After": {
+                            "JCom" : "JRImageView",
+                            "JFrame": [410,0,-1.1,-1.1],
+                            "JSubRender": {
+                                "JR_IMG":"Articles_04.png"
+                            }
+                        },
+
+                        "Adjust_After":{
+                            "JCom":"JRLocalizeLabel",
+                            "BORDER_": 5,
+                            "JFrame":[432,5,-1.1,-1.1],
+                            
+                        },
+                        "title_N":{
+                            "JCom" : "JRTextField",
+                            "JFrame": [105,11,270,40],
+                            "BORDER": 5,
+                            "JSubRender": {
+                                "JR_BORDERSTYLE" : 0,
+                                 "BGCOLOR":-1
+                            }
+                        },
+                        
+                        "articles_N":{
+                            
+                            "JCom":"JRTextScrollView",
+                            "JFrame":[30,60,450,520],
+                            "BORDER": 2,
+                            
+                        },
+                        
+                   }
+                
+                }
+
+            }
+        }
+    }
+    
+
+    
+}
+
+
+
+
+
+
+
+
+

@@ -1,0 +1,249 @@
+{
+    "LETTER_VER_TEXTFIEDS": [["orderNO","vendor"],["bookPurhaseNO","contact"],["bookDate", "phoneNO"],["payCondition","deliveryDate"],["payWay","deliveryPlace"]],
+    "COMPONENTS" : {
+        
+        "BG_BOOK_IMAGE" : {
+            "JCom": "JRImageView",
+            "JFrame": [0,80,-1.1,-1.1],
+            "JSubRender":{
+                "JR_IMG": "PurchaseOrder_09.png"
+            }
+        },
+        
+        
+        
+        "NESTED_BODY" : {
+            "JFrame": [10,90,1000,570],
+            "COMPONENTS" : {
+                
+                "NESTED_UP" : {
+                    "JFrame": [20,7,980,100],
+                    
+                    "COMPONENTS" : {
+                        
+                        "orderNO": {
+                            "JCom" : "JRLabelCommaTextFieldView",
+                            "JFrame": [5,0,300,42],
+                            "JSubRender": {
+                                "SubRenders":[{"CH_SPACE": "2"},{},{"JR_IMG":"PurchaseOrder_01.png"}]
+                            }
+                        },
+                        
+                        "vendor": {
+                            "JCom" : "JRLabelCommaTextFieldView",
+                            "JFrame": [5,50,300,42],
+                            "JSubRender": {
+                                "SubRenders":[{"CH_SPACE": "2"},{},{"JR_IMG":"PurchaseOrder_01.png"}]
+                            }
+                        },
+                        
+                        
+                        
+                        "bookPurhaseNO": {
+                            "JCom" : "JRLabelCommaTextFieldView",
+                            "JFrame": [330,0,300,42],
+                            "JSubRender": {
+                                "SubRenders":[{},{},{"JR_IMG":"PurchaseOrder_01.png"}]
+                            }
+                        },
+                        
+                        "contact": {
+                            "JCom" : "JRLabelCommaTextFieldView",
+                            "JFrame": [330,50,300,42],
+                            "JSubRender": {
+                                "SubRenders":[{"CH_SPACE": "2"},{},{"JR_IMG":"PurchaseOrder_01.png"}]
+                            }
+                        },
+                        
+                        
+                        
+                        
+                        
+                        "bookDate": {
+                            "JCom" : "JRLabelCommaTextFieldView",
+                            "JFrame": [670,0,300,42],
+                            "JSubRender": {
+                                "SubRenders":[{},{},{"JR_IMG":"PurchaseOrder_01.png"}]
+                            }
+                        },
+                        "phoneNO": {
+                            "JCom" : "JRLabelCommaTextFieldView",
+                            "JFrame": [670,50,300,42],
+                            "JSubRender": {
+                                "SubRenders":[{},{},{"JR_IMG":"PurchaseOrder_01.png"}]
+                            }
+                        }
+                        
+                        
+                    }
+                },
+                
+                
+                
+                
+                "NESTED_MIDDLE" : {
+                    "JFrame": [10,110,980,340],
+                    
+                    "COMPONENTS" : {
+                        
+                        
+                        "TABLE_ITEMS_LIST": {
+                            "JCom": "JRRefreshTableView",
+                            "JFrame": [25, 15, 935, 265],
+                            "BORDER_": 28,
+                            "JSubRender":{
+                                "BGCOLOR": 0,
+                                "HIDE_SEARCH_BAR": 1,
+                                "headerHeight": 50,
+                                "headerColor": 0,
+                                
+                                
+                                "headers":["productCode", "productNames", "amount", "unit", "unitPrice", "subtotal"],
+                                "headersX":[50, 250, 470, 575, 680, 830]
+                            }
+                        },
+                        
+                        
+                        "Use" : {
+                            "JCom" : "JRImageLabelCommaTextView",
+                            "JFrame": [20,275,636,54],
+                            "BORDER_": 15,
+                            "JSubRender": {
+                                "frames":[[],[30,10],[],[130,8,500,40]],
+                                "SubRenders":[{"BORDER_": 11,"JR_IMG":"PurchaseOrder_10.png"},{},{"HIDDEN":1},{"BORDER_": 32}]
+                            }
+                        },
+
+                        
+                        "summary" : {
+                            "JCom" : "JRLabelCommaTextFieldView",
+                            "JFrame": [735,285,230,42],
+                            "JSubRender": {
+                                "SubRenders":[{},{},{"JR_IMG":"PurchaseOrder_03.png"}]
+                            }
+                        },
+                        
+                        
+                        
+                        
+                        
+                        "line_1" : {
+                            "JCom": "JRImageView",
+                            "JFrame": [200, 0],
+                            "JSubRender":{
+                                "JR_IMG": "PurchaseOrder_02.png"
+                            }
+                        },
+                        "line_2" : {
+                            "JCom": "JRImageView",
+                            "JFrame": [450, 0],
+                            "JSubRender":{
+                                "JR_IMG": "PurchaseOrder_02.png"
+                            }
+                        },
+                        "line_3" : {
+                            "JCom": "JRImageView",
+                            "JFrame": [570, 0],
+                            "JSubRender":{
+                                "JR_IMG": "PurchaseOrder_02.png"
+                            }
+                        },
+                        "line_4" : {
+                            "JCom": "JRImageView",
+                            "JFrame": [660, 0],
+                            "JSubRender":{
+                                "JR_IMG": "PurchaseOrder_02.png"
+                            }
+                        },
+                        "line_5" : {
+                            "JCom": "JRImageView",
+                            "JFrame": [780, 0],
+                            "JSubRender":{
+                                "JR_IMG": "PurchaseOrder_02.png"
+                            }
+                        }
+                        
+                        
+                        
+                        
+                    }
+                },
+                
+                
+                
+                "NESTED_DOWN" : {
+                    "JFrame": [20,452,980,108],
+                    
+                    "COMPONENTS" : {
+                        
+                        "payCondition": {
+                            "JCom" : "JRLabelCommaTextFieldButtonView",
+                            "JFrame": [0,0,300,40],
+                            "JSubRender": {
+                                "SubRenders":[{},{},{"JR_IMG":"PurchaseOrder_04.png"},{"JR_BGN_IMG":"PurchaseOrder_05.png"}]
+                            }
+                        },
+                        "deliveryDate": {
+                            "JCom" : "JRLabelCommaTextFieldView",
+                            "JFrame": [0,50,300,42],
+                            "JSubRender": {
+                                "SubRenders":[{},{},{"JR_IMG":"PurchaseOrder_06.png"}]
+                            }
+                        },
+                        
+                        
+                        
+                        
+                        
+                        
+                        "payWay": {
+                            "JCom" : "JRLabelCommaTextFieldButtonView",
+                            "JFrame": [330,0,300,40],
+                            "JSubRender": {
+                                "SubRenders":[{},{},{"JR_IMG":"PurchaseOrder_04.png"},{"JR_BGN_IMG":"PurchaseOrder_05.png"}]
+                            }
+                        },
+                        "deliveryPlace": {
+                            "JCom" : "JRLabelCommaTextFieldView",
+                            "JFrame": [330,50,350,42],
+                            "JSubRender": {
+                                "SubRenders":[{},{},{"JR_IMG":"PurchaseOrder_06.png"}]
+                            }
+                        },
+                        
+                        
+                        
+                        
+                        "freight": {
+                            "JCom" : "JRLabelCommaTextFieldButtonView",
+                            "JFrame": [680,0,250,40],
+                            "JSubRender": {
+                                "SubRenders":[{},{},{"JR_IMG":"PurchaseOrder_04.png"},{"JR_BGN_IMG":"PurchaseOrder_05.png"}]
+                            }
+                        },
+                        
+                        
+                        
+                        "spin":  {
+                            "JCom": "JRButton",
+                            "JFrame": [750, 60, -1.1, -1.1],
+                            "JSubRender":{
+                                "JR_BGN_IMG": "PurchaseOrder_08.png","FONT_SIZE": 20, "JS_FONT_BOLD":1,"JS_FONT_N_COLOR":[0,0,0,1]
+                            }
+                        }
+                        
+                        
+                        
+                    }
+                }
+                
+                
+            }
+        }
+        
+    }
+    
+    
+    
+    
+}

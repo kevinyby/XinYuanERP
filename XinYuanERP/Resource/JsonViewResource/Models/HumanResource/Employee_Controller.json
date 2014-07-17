@@ -1,0 +1,196 @@
+
+{
+    "IMAGES" : {
+        "IMAGES_LOAD": ["IMG_Photo", "IMG_Signature", "IMG_QRCode"],
+        
+        "IMAGES_NAMES": {
+            "IMG_Photo": {
+                "MAINNAME": ["employeeNO","employeeNO"],
+            },
+            "IMG_Signature": {
+                "MAINNAME": ["employeeNO","employeeNO"],
+                "SUF":"_signature.png"
+            },
+            "IMG_QRCode":{
+                "MAINNAME": ["employeeNO","employeeNO"],
+                "SUF":"_QR.png"
+            }
+        },
+        "IMAGES_DATAS": {
+            "IMG_Photo": {
+                "JPG_CompressionQuality":1
+            },
+            "IMG_Signature": {
+                "IS_SAVE_AS_PNG_DATA": 1
+            },
+            "IMG_QRCode":{
+                "JPG_CompressionQuality":0.8
+            }
+        },
+        "IMAGE_PICKER":{
+            "BTN_Take":"IMG_Photo",
+        },
+        "IMAGES_PREVIEWS":{
+            "IMG_Photo":{
+                "X":20,
+                "IPhone_Ratio": 1.3
+            },
+            "IMG_Signature":{
+            },
+            "IMG_QRCode":{
+            }
+        }
+        
+    },
+    
+    
+    "SERVER":{
+        
+        "SUBMIT_BUTTONS" : [
+                            {
+                            "MODEL_SENDVIEW" : "NESTED_INFO",
+                            
+                            "NESTED_Right_2.ZZ_BTNSubmit": {
+                            "MODEL_APPTO" : "app1"
+                            },
+                            "NESTED_RIGHT.app1": {
+                            "BUTTON_TYPE" : 1,
+                            "MODEL_APPFROM" : "app1",
+                            "MODEL_APPTO" : "app2"
+                            },
+                            "NESTED_RIGHT.app2": {
+                            "BUTTON_TYPE" : 1,
+                            "MODEL_APPFROM" : "app2",
+                            "MODEL_APPTO" : "createUser"
+                            }
+                            
+                            }
+            
+        ],
+        
+        
+        "CREATE_FAILED_RESET":["IMG_QRCode"],
+        
+        
+        "CHECK_NOTEMPTY": [
+                            "IMG_Photo","IMG_Signature","IMG_QRCode",
+                            "employeeNO","wordMask","department", "employDate",
+                            "name","gender","nativePlace","idCard","birthday","phoneNO","livingAddress",
+                           "schoolTextField","degreeTextField","recordTextField",
+                           "urgencyName", "urgencyPhone"],
+        
+        
+        
+        "CHECK_FORMAT": {
+            "NESTED_INFO.height": "digit",
+            "NESTED_INFO.weight": "digit"
+        }
+        
+    },
+    
+    
+    
+    
+    
+    
+    
+    
+    "CLIENT": {
+        
+        "CONTROL_MODE" : {
+            "DEFAULT_MODE_SUB":{
+                "ENABLE":[],
+                "UNENABLE":["NESTED_Left_1.employeeNO","NESTED_Left_1.wordMask","NESTED_Left_1.department","NESTED_Left_1.jobTitle","NESTED_Left_1.jobLevel",
+                            "NESTED_Left_2.ownApproval","NESTED_Left_2.inDrives","NESTED_Left_2.resign",
+                            "BTN_Take",
+                            "NESTED_Right_1_UPLeft","NESTED_Right_1_UPRight",
+                            "livingAddress", "education_experience",
+                            "BTN_Add","ZZ_BTNSignature","ZZ_BTNCreateQR", "TBL_Contents"]
+            },
+            
+            "READ_MODE_SUB":{
+                "ENABLE":[],
+                "UNENABLE":[]
+            },
+            
+            "CREAT_MODE_SUB":{
+                "ENABLE":["NESTED_Left_1.employeeNO","NESTED_Left_1.wordMask","NESTED_Left_1.department","NESTED_Left_1.jobTitle","NESTED_Left_1.jobLevel",
+                          "NESTED_Left_2.ownApproval","NESTED_Left_2.inDrives","NESTED_Left_2.resign",
+                          "BTN_Take",
+                          "NESTED_Right_1_UPLeft","NESTED_Right_1_UPRight",
+                          "livingAddress", "education_experience",
+                          "BTN_Add","ZZ_BTNSignature","ZZ_BTNCreateQR", "TBL_Contents"],
+                "UNENABLE":[]
+            },
+            
+            "MODIFY_MODE_SUB":{
+                "ENABLE":["NESTED_Left_1.employeeNO","NESTED_Left_1.wordMask","NESTED_Left_1.department","NESTED_Left_1.jobTitle","NESTED_Left_1.jobLevel",
+                          "NESTED_Left_2.ownApproval","NESTED_Left_2.inDrives","NESTED_Left_2.resign",
+                          "BTN_Take",
+                          "NESTED_Right_1_UPLeft","NESTED_Right_1_UPRight",
+                          "livingAddress", "education_experience",
+                          "BTN_Add","ZZ_BTNSignature","ZZ_BTNCreateQR", "TBL_Contents"],
+                "UNENABLE":[]
+            },
+            
+            "APPLY_MODE_SUB":{
+                "ENABLE":[
+                    "NESTED_Left_1.employeeNO","NESTED_Left_1.department","NESTED_Left_1.jobTitle","NESTED_Left_1.jobLevel",
+                          "NESTED_Left_2.ownApproval","NESTED_Left_2.inDrives","NESTED_Left_2.resign"
+                          ],
+                "UNENABLE":[]
+            }
+        },
+        
+        
+        
+        "COMS_DATE_PICKERS": ["birthday","employDate"],
+        "COMS_DATE_PATTERNS": {
+            "birthday":"yyyy-MM-dd",
+            "employDate":"yyyy-MM-dd",
+        },
+        
+        "COMS_SIGNATURE_BUTTONS": {
+            "ZZ_BTNSignature": "IMG_Signature"
+        },
+        
+        
+        "TOGGLES_BUTTONS" : [
+                            {
+                            "button":"ownApproval",
+                            "default_value":0
+                            },
+                            {
+                            "button":"inDrives",
+                            "default_value":0
+                            },
+                            {
+                            "button":"resign",
+                            "default_value":0
+                            }
+                            ],
+        
+        "QRCODES_BUTTONS" : [
+                     {
+                     "button":"ZZ_BTNCreateQR",
+                     "image":"IMG_QRCode",
+                     "contentKeys":[ "employeeNO", "name" ],
+                     "width_":600
+                     }
+                     ],
+        
+        
+        "VALUES_PICKER" : {
+            "gender": "gender",
+            "jobLevel":"jobLevel",
+            "department":"department",
+            "degreeTextField":"eduDegree",
+            "recordTextField":"eduRecord"
+        }
+        
+        
+    }
+    
+    
+    
+}

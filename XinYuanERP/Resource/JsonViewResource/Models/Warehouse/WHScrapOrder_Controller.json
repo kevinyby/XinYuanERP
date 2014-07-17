@@ -1,0 +1,45 @@
+{
+    "IMAGES" : {
+        "IMAGES_LOAD": ["IMG_Photo"],
+        
+        "IMAGES_NAMES": {
+            "IMG_Photo": {
+                "MAINNAME": ["orderNO", ""],
+                "SUF":"scrapProduct.png"
+            }
+        },
+        "IMAGES_DATAS": {
+            "IMG_Photo": {
+                "JPG_CompressionQuality":1
+            }
+           
+        },
+        "IMAGE_PICKER":{
+            "BTN_Take_Scrap":"IMG_Photo",
+        },
+        "IMAGES_PREVIEWS":{
+            "IMG_Photo":{
+            }
+        }
+    },
+    
+    "SERVER":{
+        
+       "CHECK_NOTEMPTY": ["IMG_Photo",
+                          "productCode","productName","scrapAmount"],
+        
+     },
+    
+    "CLIENT":{
+        
+        "COMS_DATE_PICKERS": ["scrapTime"],
+        "COMS_DATE_PATTERNS": {
+            "scrapTime":"yyyy-MM-dd",
+        }
+        
+    }
+    
+    
+    
+    
+}

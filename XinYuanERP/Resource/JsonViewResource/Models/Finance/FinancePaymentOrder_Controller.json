@@ -1,0 +1,123 @@
+
+{
+    "IMAGES" : {
+        "IMAGES_LOAD": ["IMG_Signature"],
+        
+        "IMAGES_NAMES": {
+            "IMG_Signature": {
+                "MAINNAME": ["orderNO","staffCategory*staffNO"],
+                "SUF":"_PayeeSIGN.png"
+            }
+        },
+        
+        "IMAGES_DATAS": {
+            "IMG_Signature": {
+                "IS_SAVE_AS_PNG_DATA": 1
+            }
+        },
+        
+        "IMAGES_PREVIEWS":{
+            "IMG_Signature":{
+            }
+        }
+        
+    },
+    
+    
+    
+    
+    
+    
+    
+    "SERVER":{
+        "CHECK_NOTEMPTY": [
+                            "staffCategory","staffNO", "feeDescription", "IMG_Signature"
+                            ]
+        
+    },
+    
+    
+    
+    
+    
+    
+    
+    
+    "CLIENT": {
+        
+        "CREATE_AUTOFILL": {
+            "NOW_DATE":["createDate"]
+        },
+        "COMS_DATE_PATTERNS": {
+            "createDate":"yyyy-MM-dd"
+        },
+        
+        "COMS_SIGNATURE_BUTTONS": {
+            "signature": "IMG_Signature"
+        },
+        
+        
+        
+        "CONTROL_MODE" : {
+            "DEFAULT_MODE_SUB":{
+                "ENABLE":[],
+                "UNENABLE":[]
+            },
+            
+            "CREAT_MODE_SUB":{
+                "ENABLE":[],
+                "UNENABLE":["NESTED_MAIN.NESTED_MAIN_Header.createDate"]
+            }
+        },
+        
+    },
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    "Specifications" : {
+        
+        "RightTableImageNameX" : 120,
+        "RightTableImageFrame" : [5, 5, 100, 40],
+        
+        
+        "LeftTableOrderCellFrame" : [0, 0 , 680, 48],
+        "LeftTableOrderCellElementsFrames": [
+                                             [5, 5, 165, 40],
+                                             [180, 5, 160, 40],
+                                             [350, 5, 110, 40],
+                                             [465, 5, 100, 40],
+                                             [575, 5, 100, 40]
+                                             ],
+        "LeftTableOrderCellElementsSubRenders": [
+                                                 { "JR_BORDERSTYLE_": 0, "JR_ENABLE": 0},
+                                                 
+                                                 { "JR_BORDERSTYLE_": 0},
+                                                 
+                                                 { "JR_BORDERSTYLE": 0, "JR_ENABLE": 0, "JR_ISNUMBER":1},
+                                                 
+                                                 { "JR_BORDERSTYLE_": 0, "JR_ISNUMBER":1},
+                                                 
+                                                 { "JR_BORDERSTYLE": 0, "JR_ENABLE": 0, "JR_ISNUMBER":1}
+                                                 ]
+    }
+    
+    
+    
+    
+    
+    
+}

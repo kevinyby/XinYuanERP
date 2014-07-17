@@ -1,0 +1,230 @@
+{
+    "LETTER_VER_TEXTFIEDS":[["cost","average"],["startMile","endMile","Total mileage"],["PassengerInfo_Name","PassengerInfo_Tel","PassengerInfo_Addr"],["startMile","endMile","Total mileage"]],
+    "COMPONENTS":{
+        "BG_BOOK_IMAGE" : {
+            "JCom": "JRImageView",
+            "JFrame": [60,75,-1.1,-1.1],
+            "JSubRender":{
+                "JR_IMG": "VehicleApplyOrder_bg"
+            }
+        },
+        "NESTED_MAIN":{
+            "JFrame":[80, 80, 880, 570],
+            "COMPONENTS":{
+                
+                "NESTED_TOP":{
+                    "JFrame":[0,0,880,600],
+                    "COMPONENTS":{
+                        "TOP":{
+                            "JFrame":[0,0,900,60],
+                            "COMPONENTS":{
+                                "orderNO":{
+                                    "JCom":"JRLabelCommaTextFieldView",
+                                    "JFrame":[10,10,230,40],
+                                    "JSubRender":{
+                                        "frames":[[],[],[]],
+                                        "SubRenders":[{},{},{"JR_IMG":"Requisitionvehicles_01.png"}]
+                                    }
+                                },
+                                "applicant":{
+                                    "JCom":"JRLabelCommaTextFieldView",
+                                    "JFrame":[300,10,230,40],
+                                    "JSubRender":{
+                                        "frames":[[],[],[]],
+                                        "SubRenders":[{},{},{"JR_IMG":"Requisitionvehicles_01.png"}]
+                                    }
+                                },
+                                
+                                "post":{
+                                    "JCom":"JRLabelCommaTextFieldView",
+                                    "JFrame":[600,10,230,40],
+                                    "JSubRender":{
+                                        "frames":[[],[],[]],
+                                        "SubRenders":[{},{},{"JR_IMG":"Requisitionvehicles_01.png"}]
+                                    }
+                                }
+                            }
+                        },
+
+                        "TOP_LEFT":{
+                            "JFrame":[0,60,570,370],
+                            "COMPONENTS":{
+                                "passenger":{
+                                    "JCom":"JRLabelTextView",
+                                    "JFrame":[30,10,550,40],
+                                    "JSubRender":{
+                                        "frames":[[0,0,-1.1,40],[140,0,400,40]],
+                                        "SubRenders":[{},{}]
+                                    }
+                                },
+                                "location":{
+                                    "JCom":"JRLabelTextView",
+                                    "JFrame":[30,80,550,40],
+                                    "JSubRender":{
+                                        "frames":[[0,0,-1.1,40],[140,0,400,40]],
+                                        "SubRenders":[{"CH_SPACE": "7"},{}]
+                                    }
+                                },
+                                "expectTime":{
+                                    "JCom":"JRComplexView",
+                                    "JFrame":[30,150,550,40],
+                                    "COMPONENTS":{
+                                        "time1":{
+                                            "JCom":"JRLabelTextView",
+                                            "JFrame":[0,0,270,40],
+                                            "JSubRender":{
+                                                "frames":[[0,0,-1.1,40],[140,0,150,40]],
+                                                "SubRenders":[{},{}]
+                                            }
+                                        },
+                                        "time2":{
+                                            "JCom":"JRTextView",
+                                            "JFrame":[390,0,140,40],
+                                            "JSubRender":{
+                                                
+                                            }
+                                        }
+                                    }
+                                },
+                                "driver":{
+                                    "JCom":"JRLabelTextView",
+                                    "JFrame":[30,215,200,40],
+                                    "JSubRender":{
+                                        "frames":[[0,0,-1.1,40],[140,0,150,40]],
+                                        "SubRenders":[{"CH_SPACE": "2"},{}]
+                                    }
+                                },
+                                "vehicleNo":{
+                                    "JCom":"JRLabelTextView",
+                                    "JFrame":[300,215,200,40],
+                                    "JSubRender":{
+                                        "frames":[[45,0,-1.1,40],[120,0,140,40]],
+                                        "SubRenders":[{"CH_SPACE": "2"},{}]
+                                    }
+                                },
+                                "reason":{
+                                    "JCom":"JRLabelTextView",
+                                    "JFrame":[30,287,480,70],
+                                    "JSubRender":{
+                                        "frames":[[0,0,-1.1,40],[160,0,380,70]],
+                                        "SubRenders":[{"CH_SPACE": "7"},{}]
+                                    }
+                                },
+                                "maintenance_":{
+                                    "JCom":"JRLabelCommaTextFieldView",
+                                    "JFrame":[35,345,280,40],
+                                    "JSubRender":{
+                                        "frames":[[],[],[]],
+                                        "SubRenders":[{},{},{"JR_IMG":"Requisitionvehicles_04.png"}]
+                                    }
+                                }
+                            }
+                        },
+                        "TOP_RIGHT":{
+                            "JFrame":[585,60,295,360],
+                            "COMPONENTS":{
+                                "stuff_Head":{
+                                    "JCom":"JRLocalizeLabel",
+                                    "JFrame":[90,10,-1.1,-1.1],
+                                    "JSubRender":{
+                                        "frames":[],
+                                        "SubRenders":[{}]
+                                    }
+                                },
+                                "stuff_Add" : {
+                                    "JCom": "JRButton",
+                                    "JFrame": [240,0,-1.1,-1.1],
+                                    "JSubRender":{
+                                        "JR_BGN_IMG": "Requisitionvehicles_03.png"
+                                    }
+                                },
+                                
+                                "stuff_Contents": {
+                                    "JCom": "JRTableView",
+                                    "BGCOLOR": 0,
+                                    "JFrame": [7,50, 285, 115],
+                                    "JSubRender":{
+                                    }
+                                },
+                                
+                                "passengerInfo_Head":{
+                                    "JCom":"JRLocalizeLabel",
+                                    "JFrame":[90,175,-1.1,-1.1]
+                                },
+                                "PassengerInfo_Name":{
+                                    "JCom":"JRLabelCommaTextFieldView",
+                                    "JFrame":[10,215,200, 50],
+                                    "JSubRender":{
+                                        "frames":[[],[],[]],
+                                        "SubRenders":[{"CH_SPACE": "7"},{},{"JR_IMG":"Requisitionvehicles_01.png"}]
+                                    }
+                                },
+                                "PassengerInfo_Tel":{
+                                    "JCom":"JRLabelCommaTextFieldView",
+                                    "JFrame":[10,265,200, 50],
+                                    "JSubRender":{
+                                        "frames":[[],[],[]],
+                                        "SubRenders":[{"CH_SPACE": "7"},{},{"JR_IMG":"Requisitionvehicles_01.png"}]
+                                    }
+                                },
+                                "PassengerInfo_Addr":{
+                                    "JCom":"JRLabelCommaTextFieldView",
+                                    "JFrame":[10,315,200, 50],
+                                    "JSubRender":{
+                                        "frames":[[],[],[]],
+                                        "SubRenders":[{"CH_SPACE": "7"},{},{"JR_IMG":"Requisitionvehicles_01.png"}]
+                                    }
+                                },
+                            }
+                        },
+                        "TOP_UNDER":{
+                            "JFrame":[20,440,850,150],
+                            "COMPONENTS":{
+                                "Refuel":{
+                                    "JCom":"JRButton",
+                                    "JFrame":[560,20,-1.1,-1.1],
+                                    "JSubRender":{
+                                        "JR_BGN_IMG":"Requisitionvehicles_Refuel.png"
+                                    }
+                                },
+                                "mapButton":{
+                                    "JCom":"JRButton",
+                                    "JFrame":[700,5,-1.1,-1.1],
+                                    "JSubRender":{
+                                        "JR_BGN_IMG":"VehicleApply_mapIcon.png"
+                                    }
+                                },
+
+                                "startMile":{
+                                    "JCom":"JRLabelCommaTextFieldView",
+                                    "JFrame":[0,0,200, 50],
+                                    "JSubRender":{
+                                        "frames":[[],[],[]],
+                                        "SubRenders":[{},{},{"JR_IMG":"Requisitionvehicles_01.png"}]
+                                    }
+                                },
+                                "endMile":{
+                                    "JCom":"JRLabelCommaTextFieldView",
+                                    "JFrame":[0,45,200, 50],
+                                    "JSubRender":{
+                                        "frames":[[],[],[]],
+                                        "SubRenders":[{},{},{"JR_IMG":"Requisitionvehicles_01.png"}]
+                                    }
+                                },
+                                "Total mileage":{
+                                    "JCom":"JRLabelCommaTextFieldView",
+                                    "JFrame":[0,90,200, 50],
+                                    "JSubRender":{
+                                        "frames":[[],[],[]],
+                                        "SubRenders":[{},{},{"JR_IMG":"Requisitionvehicles_01.png"}]
+                                    }
+                                },
+                            }
+                        }
+                    }
+                }
+                
+            }
+        }
+    }
+}

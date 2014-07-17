@@ -1,0 +1,33 @@
+
+{
+    
+    "Vendor" : {
+        "FIELDS": [["id", "number","name"]],
+        
+        "HEADERS": ["Vendor.number", "Vendor.name"],
+        "HEADERSX": [50, 260],
+        "VALUESX":  [50, 260],
+        
+        
+        "FILTERS": {"0":"FILTER_NIL"}
+        
+    },
+    
+    
+    "PurchaseOrder" : {
+        "FIELDS": [["id", "orderNO"]],
+        
+        "HEADERS": ["orderNO"],
+        "HEADERSX": [50],
+        "VALUESX": [0],
+        
+        
+        "FILTERS": {"0":"FILTER_NIL"}
+    }
+    
+    
+    
+    
+}
+
+

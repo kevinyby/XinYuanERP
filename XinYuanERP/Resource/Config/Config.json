@@ -1,0 +1,703 @@
+
+{
+    
+    
+    "WHEELS" : {
+        
+        "SORTED_Categories" : ["HumanResource","VIP","SharedOrder","Assistant","Statistics","Articles","Finance","Business","Design","FactoryAffair","Vehicle","Security","Purchase","QualityControl","Warehouse","Manufacture","Cards","Approval"],
+        
+        
+        "SORTED_Models" : {
+            
+            "HumanResource": ["Employee","EmployeeCHOrder","EmployeeQuitOrder","EmployeeATTDROrder","EmployeeATTFixOrder","EmployeeATTOrder","EmployeeDormOrder","EmployeeLeaveOrder","EmployeeMEOrder","EmployeeMissMealOrder","EmployeeOTOrder","EmployeeSMOrder"]
+            
+        },
+        
+        "DEFAULT_WHEEL_VIEW" : {
+            
+            "JCom": "JsonDivView",
+            "JFrame": [0, 0, 500, 200],
+            "BGCOLOR": [255, 255, 255, 0.8],
+            "BORDER": 2,
+            "BORDERWIDTH": 2,
+            "COMPONENTS": {
+                "LABEL": {
+                    "JCom": "JRLocalizeLabel",
+                    "JFrame": [0, 0, 100, 50],
+                    "JSubRender": {"FONT_SIZE":50, "JR_ENABLE":1 }
+                }
+            }
+            
+        },
+        
+        "1" : {
+            "WHEELS_BACKGROUNDVIEW" : {
+                "JCom": "JRImageView",
+                "JFrame": [0,0,1024,768],
+                "BGCOLOR": [222,45,89, 0.5],
+                "JSubRender":{
+                    "JR_IMG": "Login_BG.png", "JR_ENABLE":0
+                }
+            },
+            
+            "WHEELS_VIEWS" : {
+                
+                "COMMON_" : {
+                    
+                    "JCom": "JsonDivView",
+                    "JFrame": [0, 0, 500, 204],
+                    "BGCOLOR": [255, 255, 255, 0.5],
+                    "BORDER": 4,
+                    "BORDERWIDTH": 2,
+                    "COMPONENTS": {
+                        
+                        "LABEL": {
+                            "JCom": "JRLocalizeLabel",
+                            "JFrame": [0, 0, 100, 50],
+                            "JSubRender": {
+                                "FONT_SIZE":35, "FONT_NAME": "GurmukhiMN-Bold", "JR_ENABLE":1
+                            }
+                        }
+                        
+                    }
+                    
+                },
+                
+                "COMMON" : {
+                    
+                    "JCom": "JRImageView",
+                    "JSubRender":{
+                        "JR_IMG": "Wheel_16.png", "JR_ENABLE":1
+                    },
+                    "COMPONENTS": {
+                        "LABEL": {
+                            "JCom": "JRLocalizeLabel",
+                            "JFrame": [0, 0,476, 204],
+                            "JSubRender": {
+                                "FONT_SIZE":35,"FONT_NAME": "GurmukhiMN-Bold"
+                            }
+                        }
+                        
+                    }
+                    
+                },
+                
+                
+                "HumanResource" : {
+                    
+                    "JCom": "JRImageView",
+                    "JSubRender":{
+                        "JR_IMG": "Wheel_1.png", "JR_ENABLE":1
+                    },
+                    "COMPONENTS": {
+                        "LABEL": {
+                            "JCom": "JRLocalizeLabel",
+                            "JFrame": [0, 0, 476, 204],
+                            "JSubRender": {
+                                "FONT_SIZE":35,"FONT_NAME": "GurmukhiMN-Bold"
+                            }
+                        }
+                        
+                    }
+                    
+                },
+                
+                "VIP" : {
+                    
+                    "JCom": "JRImageView",
+                    "JSubRender":{
+                        "JR_IMG": "Wheel_17.png", "JR_ENABLE":1
+                    },
+                    "COMPONENTS": {
+                        "LABEL": {
+                            "JCom": "JRLocalizeLabel",
+                            "JFrame": [0, 0,476, 204],
+                            "JSubRender": {
+                                "FONT_SIZE":35,"FONT_NAME": "GurmukhiMN-Bold"
+                            }
+                        }
+                        
+                    }
+                    
+                },
+
+                
+                "SharedOrder" : {
+                    
+                    "JCom": "JRImageView",
+                    "JSubRender":{
+                        "JR_IMG": "Wheel_2.png", "JR_ENABLE":1
+                    },
+                    "COMPONENTS": {
+                        "LABEL": {
+                            "JCom": "JRLocalizeLabel",
+                            "JFrame": [0, 0, 476, 204],
+                            "JSubRender": {
+                                "FONT_SIZE":35,"FONT_NAME": "GurmukhiMN-Bold"
+                            }
+                        }
+                        
+                    }
+                    
+                },
+                "Assistant" : {
+                    
+                    "JCom": "JRImageView",
+                    "JSubRender":{
+                        "JR_IMG": "Wheel_3.png", "JR_ENABLE":1
+                    },
+                    "COMPONENTS": {
+                        "LABEL": {
+                            "JCom": "JRLocalizeLabel",
+                            "JFrame": [0, 0, 476, 204],
+                            "JSubRender": {
+                                "FONT_SIZE":35,"FONT_NAME": "GurmukhiMN-Bold"
+                            }
+                        }
+                        
+                    }
+                    
+                },
+                "Statistics" : {
+                    
+                    "JCom": "JRImageView",
+                    "JSubRender":{
+                        "JR_IMG": "Wheel_4.png", "JR_ENABLE":1
+                    },
+                    "COMPONENTS": {
+                        "LABEL": {
+                            "JCom": "JRLocalizeLabel",
+                            "JFrame": [0, 0,476, 204],
+                            "JSubRender": {
+                                "FONT_SIZE":35,"FONT_NAME": "GurmukhiMN-Bold"
+                            }
+                        }
+                        
+                    }
+                    
+                },
+                
+                "Articles" : {
+                    
+                    "JCom": "JRImageView",
+                    "JSubRender":{
+                        "JR_IMG": "Wheel_5.png", "JR_ENABLE":1
+                    },
+                    "COMPONENTS": {
+                        "LABEL": {
+                            "JCom": "JRLocalizeLabel",
+                            "JFrame": [0, 0,476, 204],
+                            "JSubRender": {
+                                "FONT_SIZE":35,"FONT_NAME": "GurmukhiMN-Bold"
+                            }
+                        }
+                        
+                    }
+                    
+                },
+                
+                "Finance" : {
+                    
+                    "JCom": "JRImageView",
+                    "JSubRender":{
+                        "JR_IMG": "Wheel_15.png", "JR_ENABLE":1
+                    },
+                    "COMPONENTS": {
+                        "LABEL": {
+                            "JCom": "JRLocalizeLabel",
+                            "JFrame": [0, 0,476, 204],
+                            "JSubRender": {
+                                "FONT_SIZE":35,"FONT_NAME": "GurmukhiMN-Bold"
+                            }
+                        }
+                        
+                    }
+                    
+                },
+
+
+                
+                "Business" : {
+                    
+                    "JCom": "JRImageView",
+                    "JSubRender":{
+                        "JR_IMG": "Wheel_6.png", "JR_ENABLE":1
+                    },
+                    "COMPONENTS": {
+                        "LABEL": {
+                            "JCom": "JRLocalizeLabel",
+                            "JFrame": [0, 0,476, 204],
+                            "JSubRender": {
+                                "FONT_SIZE":35,"FONT_NAME": "GurmukhiMN-Bold"
+                            }
+                        }
+                        
+                    }
+                    
+                },
+                "Design" : {
+                    
+                    "JCom": "JRImageView",
+                    "JSubRender":{
+                        "JR_IMG": "Wheel_7.png", "JR_ENABLE":1
+                    },
+                    "COMPONENTS": {
+                        "LABEL": {
+                            "JCom": "JRLocalizeLabel",
+                            "JFrame": [0, 0,476, 204],
+                            "JSubRender": {
+                                "FONT_SIZE":35,"FONT_NAME": "GurmukhiMN-Bold"
+                            }
+                        }
+                        
+                    }
+                    
+                },
+
+                "Purchase" : {
+                    
+                    "JCom": "JRImageView",
+                    "JSubRender":{
+                        "JR_IMG": "Wheel_8.png", "JR_ENABLE":1
+                    },
+                    "COMPONENTS": {
+                        "LABEL": {
+                            "JCom": "JRLocalizeLabel",
+                            "JFrame": [0, 0,476, 204],
+                            "JSubRender": {
+                                "FONT_SIZE":35,"FONT_NAME": "GurmukhiMN-Bold"
+                            }
+                        }
+                        
+                    }
+                    
+                },
+                
+                "QualityControl" : {
+                    
+                    "JCom": "JRImageView",
+                    "JSubRender":{
+                        "JR_IMG": "Wheel_9.png", "JR_ENABLE":1
+                    },
+                    "COMPONENTS": {
+                        "LABEL": {
+                            "JCom": "JRLocalizeLabel",
+                            "JFrame": [0, 0,476, 204],
+                            "JSubRender": {
+                                "FONT_SIZE":35,"FONT_NAME": "GurmukhiMN-Bold"
+                            }
+                        }
+                        
+                    }
+                    
+                },
+                
+                "Warehouse" : {
+                    
+                    "JCom": "JRImageView",
+                    "JSubRender":{
+                        "JR_IMG": "Wheel_10.png", "JR_ENABLE":1
+                    },
+                    "COMPONENTS": {
+                        "LABEL": {
+                            "JCom": "JRLocalizeLabel",
+                            "JFrame": [0, 0,476, 204],
+                            "JSubRender": {
+                                "FONT_SIZE":35,"FONT_NAME": "GurmukhiMN-Bold"
+                            }
+                        }
+                        
+                    }
+                    
+                },
+                "Manufacture" : {
+                    
+                    "JCom": "JRImageView",
+                    "JSubRender":{
+                        "JR_IMG": "Wheel_11.png", "JR_ENABLE":1
+                    },
+                    "COMPONENTS": {
+                        "LABEL": {
+                            "JCom": "JRLocalizeLabel",
+                            "JFrame": [0, 0,476, 204],
+                            "JSubRender": {
+                                "FONT_SIZE":35,"FONT_NAME": "GurmukhiMN-Bold"
+                            }
+                        }
+                        
+                    }
+                    
+                },
+                "FactoryAffair" : {
+                    
+                    "JCom": "JRImageView",
+                    "JSubRender":{
+                        "JR_IMG": "Wheel_12.png", "JR_ENABLE":1
+                    },
+                    "COMPONENTS": {
+                        "LABEL": {
+                            "JCom": "JRLocalizeLabel",
+                            "JFrame": [0, 0,476, 204],
+                            "JSubRender": {
+                                "FONT_SIZE":35,"FONT_NAME": "GurmukhiMN-Bold"
+                            }
+                        }
+                        
+                    }
+                    
+                },
+                "Vehicle" : {
+                    
+                    "JCom": "JRImageView",
+                    "JSubRender":{
+                        "JR_IMG": "Wheel_13.png", "JR_ENABLE":1
+                    },
+                    "COMPONENTS": {
+                        "LABEL": {
+                            "JCom": "JRLocalizeLabel",
+                            "JFrame": [0, 0,476, 204],
+                            "JSubRender": {
+                                "FONT_SIZE":35,"FONT_NAME": "GurmukhiMN-Bold"
+                            }
+                        }
+                        
+                    }
+                    
+                },
+                
+                "Security" : {
+                    
+                    "JCom": "JRImageView",
+                    "JSubRender":{
+                        "JR_IMG": "Wheel_14.png", "JR_ENABLE":1
+                    },
+                    "COMPONENTS": {
+                        "LABEL": {
+                            "JCom": "JRLocalizeLabel",
+                            "JFrame": [0, 0,476, 204],
+                            "JSubRender": {
+                                "FONT_SIZE":35,"FONT_NAME": "GurmukhiMN-Bold"
+                            }
+                        }
+                        
+                    }
+                    
+                },
+                
+                
+                "Cards" : {
+                    
+                    "JCom": "JRImageView",
+                    "JSubRender":{
+                        "JR_IMG": "Wheel_18.png", "JR_ENABLE":1
+                    },
+                    "COMPONENTS": {
+                        "LABEL": {
+                            "JCom": "JRLocalizeLabel",
+                            "JFrame": [0, 0,476, 204],
+                            "JSubRender": {
+                                "FONT_SIZE":35,"FONT_NAME": "GurmukhiMN-Bold"
+                            }
+                        }
+                        
+                    }
+                    
+                },
+                
+                "Approval" : {
+                    
+                    "JCom": "JRImageView",
+                    "JSubRender":{
+                        "JR_IMG": "Wheel_16.png", "JR_ENABLE":1
+                    },
+                    "COMPONENTS": {
+                        "LABEL": {
+                            "JCom": "JRLocalizeLabel",
+                            "JFrame": [0, 0,476, 204],
+                            "JSubRender": {
+                                "FONT_SIZE":35,"FONT_NAME": "GurmukhiMN-Bold"
+                            }
+                        }
+                        
+                    }
+                    
+                }
+
+
+                
+                
+                
+                
+                
+                
+                
+                
+                
+            }
+            
+        },
+        
+        "2" : {
+            "WHEELS_BACKGROUNDVIEW" : {
+                "JCom": "JRImageView",
+                "JFrame": [0,0,1024,768],
+                "BGCOLOR": [222,45,89, 0.5],
+                "JSubRender":{
+                    "JR_IMG": "Login_BG.png", "JR_ENABLE":0
+                }
+            },
+
+            "WHEELS_VIEWS" : {
+                
+                "COMMON" : {
+                    
+                    "JCom": "JsonDivView",
+                    "JFrame": [0, 0, 500, 204],
+                    "BGCOLOR": [255, 255, 255, 0.5],
+                    "BORDER": 4,
+                    "BORDERWIDTH": 2,
+                    "COMPONENTS": {
+                        
+                        "LABEL": {
+                            "JCom": "JRLocalizeLabel",
+                            "JFrame": [0, 0, 100, 50],
+                            "JSubRender": {
+                                "FONT_SIZE":35, "FONT_NAME": "GurmukhiMN-Bold", "JR_ENABLE":1
+                            }
+                        }
+                        
+                    }
+                    
+                },
+                
+                
+                "Employee" : {
+                    
+                    "JCom": "JRImageView",
+                    "JSubRender":{
+                        "JR_IMG": "Wheel_1.png", "JR_ENABLE":1
+                    },
+                    "COMPONENTS": {
+                        "LABEL": {
+                            "JCom": "JRLocalizeLabel",
+                            "JFrame": [0, 0,476, 204],
+                            "JSubRender": {
+                                "FONT_SIZE":35,"FONT_NAME": "GurmukhiMN-Bold"
+                            }
+                        }
+                    }
+                },
+                "EmployeeCHOrder" : {
+                    
+                    "JCom": "JRImageView",
+                    "JSubRender":{
+                        "JR_IMG": "Wheel_2.png", "JR_ENABLE":1
+                    },
+                    "COMPONENTS": {
+                        "LABEL": {
+                            "JCom": "JRLocalizeLabel",
+                            "JFrame": [0, 0,476, 204],
+                            "JSubRender": {
+                                "FONT_SIZE":35,"FONT_NAME": "GurmukhiMN-Bold"
+                            }
+                        }
+                    }
+                },
+
+                
+                "EmployeeATTDROrder_" : {
+                    
+                    "JCom": "JRImageView",
+                    "JSubRender":{
+                        "JR_IMG": "Wheel_2.png", "JR_ENABLE":1
+                    },
+                    "COMPONENTS": {
+                        "LABEL": {
+                            "JCom": "JRLocalizeLabel",
+                            "JFrame": [0, 0, 476, 204],
+                            "JSubRender": {
+                                "FONT_SIZE":35,"FONT_NAME": "GurmukhiMN-Bold"
+                            }
+                        }
+                    }
+                },
+                
+                "EmployeeATTFixOrder_" : {
+                    
+                    "JCom": "JRImageView",
+                    "JSubRender":{
+                        "JR_IMG": "Wheel_3.png", "JR_ENABLE":1
+                    },
+                    "COMPONENTS": {
+                        "LABEL": {
+                            "JCom": "JRLocalizeLabel",
+                            "JFrame": [0, 0, 478, 178],
+                            "JSubRender": {
+                                "FONT_SIZE":35,"FONT_NAME": "GurmukhiMN-Bold"
+                            }
+                        }
+                    }
+                },
+                
+                "EmployeeATTOrder_" : {
+                    
+                    "JCom": "JRImageView",
+                    "JSubRender":{
+                        "JR_IMG": "Wheel_4.png", "JR_ENABLE":1
+                    },
+                    "COMPONENTS": {
+                        "LABEL": {
+                            "JCom": "JRLocalizeLabel",
+                            "JFrame": [0, 0, 478, 178],
+                            "JSubRender": {
+                                "FONT_SIZE":35,"FONT_NAME": "GurmukhiMN-Bold"
+                            }
+                        }
+                    }
+                },
+                
+                
+                "EmployeeDormOrder_" : {
+                    
+                    "JCom": "JRImageView",
+                    "JSubRender":{
+                        "JR_IMG": "Wheel_6.png", "JR_ENABLE":1
+                    },
+                    "COMPONENTS": {
+                        "LABEL": {
+                            "JCom": "JRLocalizeLabel",
+                            "JFrame": [0, 0, 478, 178],
+                            "JSubRender": {
+                                "FONT_SIZE":35,"FONT_NAME": "GurmukhiMN-Bold"
+                            }
+                        }
+                    }
+                },
+                
+                "EmployeeLeaveOrder_" : {
+                    
+                    "JCom": "JRImageView",
+                    "JSubRender":{
+                        "JR_IMG": "Wheel_7.png", "JR_ENABLE":1
+                    },
+                    "COMPONENTS": {
+                        "LABEL": {
+                            "JCom": "JRLocalizeLabel",
+                            "JFrame": [0, 0, 478, 178],
+                            "JSubRender": {
+                                "FONT_SIZE":35,"FONT_NAME": "GurmukhiMN-Bold"
+                            }
+                        }
+                    }
+                },
+                
+                "EmployeeMEOrder{" : {
+                    
+                    "JCom": "JRImageView",
+                    "JSubRender":{
+                        "JR_IMG": "Wheel_8.png", "JR_ENABLE":1
+                    },
+                    "COMPONENTS": {
+                        "LABEL": {
+                            "JCom": "JRLocalizeLabel",
+                            "JFrame": [0, 0, 478, 178],
+                            "JSubRender": {
+                                "FONT_SIZE":35,"FONT_NAME": "GurmukhiMN-Bold"
+                            }
+                        }
+                    }
+                },
+                
+                "EmployeeMissMealOrder_" : {
+                    
+                    "JCom": "JRImageView",
+                    "JSubRender":{
+                        "JR_IMG": "Wheel_9.png", "JR_ENABLE":1
+                    },
+                    "COMPONENTS": {
+                        "LABEL": {
+                            "JCom": "JRLocalizeLabel",
+                            "JFrame": [0, 0, 478, 178],
+                            "JSubRender": {
+                                "FONT_SIZE":35,"FONT_NAME": "GurmukhiMN-Bold"
+                            }
+                        }
+                    }
+                },
+                
+                "EmployeeOTOrder_" : {
+                    
+                    "JCom": "JRImageView",
+                    "JSubRender":{
+                        "JR_IMG": "Wheel_12.png", "JR_ENABLE":1
+                    },
+                    "COMPONENTS": {
+                        "LABEL": {
+                            "JCom": "JRLocalizeLabel",
+                            "JFrame": [0, 0, 478, 178],
+                            "JSubRender": {
+                                "FONT_SIZE":35,"FONT_NAME": "GurmukhiMN-Bold"
+                            }
+                        }
+                    }
+                },
+                
+                "EmployeeQuitOrder_" : {
+                    
+                    "JCom": "JRImageView",
+                    "JSubRender":{
+                        "JR_IMG": "Wheel_10.png", "JR_ENABLE":1
+                    },
+                    "COMPONENTS": {
+                        "LABEL": {
+                            "JCom": "JRLocalizeLabel",
+                            "JFrame": [0, 0, 478, 178],
+                            "JSubRender": {
+                                "FONT_SIZE":35,"FONT_NAME": "GurmukhiMN-Bold"
+                            }
+                        }
+                    }
+                },
+                
+                "EmployeeSMOrder_" : {
+                    
+                    "JCom": "JRImageView",
+                    "JSubRender":{
+                        "JR_IMG": "Wheel_1.png", "JR_ENABLE":1
+                    },
+                    "COMPONENTS": {
+                        "LABEL": {
+                            "JCom": "JRLocalizeLabel",
+                            "JFrame": [0, 0, 478, 178],
+                            "JSubRender": {
+                                "FONT_SIZE":35,"FONT_NAME": "GurmukhiMN-Bold"
+                            }
+                        }
+                    }
+                }
+                
+            }
+
+            
+            
+        }
+        
+    },
+    
+    
+    
+    
+    "JOBLEVELS": [
+                  ["1", "董事長"],
+                  ["2", "總經理,董事長助理"],
+                  ["3", "副總經理,總經理助理"],
+                  ["4", "經理,副總經理助理"],
+                  ["5", "副理,課長"],
+                  ["6", "副課,財務員"],
+                  ["7", "生管人員,質檢員"],
+                  ["8", "設計員,人事,倉庫"],
+                  ["9", "保安隊長,車隊隊長,班助長"],
+                  ["10", "保安,員工,司機"],
+                  ]
+    
+}

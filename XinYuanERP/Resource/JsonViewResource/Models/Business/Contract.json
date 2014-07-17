@@ -1,0 +1,618 @@
+{
+    "SORTEDKEYS": ["BG_BOTTOM_IMAGE", "BG_HeaderImage", "NESTED_SCROLL", "BTN_PriorPage", "BTN_NextPage" ],
+    "COMPONENTS" : {
+        
+      "NESTED_footer": "",
+        
+      "NESTED_TABS": {
+            "JFrame": [55, 80, 620, 50 ],
+            "SORTEDKEYS":["TAB_Contract", "TAB_Cost"],
+            "COMPONENTS" : {
+                "TAB_Contract" : {
+                    "JCom": "JRButton",
+                    "JFrame": [0,5,100,46],
+                    "JSubRender": {
+                        "JR_BGN_IMG": "WarehouseInventory_标签按钮"
+                        ,"JR_BGS_IMG": "WarehouseInventory_标签按钮"
+                        ,"JR_BGH_IMG": "WarehouseInventory_标签按钮"
+                        ,"JS_FONT_N_COLOR": [0,0.56,0.8]
+                        ,"JS_FONT_S_COLOR": [0,0,0]
+                        ,"JS_FONT_BOLD": 1 ,"JR_TITLE_Insets": [0, 0, -10, 0]
+                    }
+                },
+                "TAB_Cost" : {
+                    "JCom": "JRButton",
+                    "JFrame": [105,5,100,46],
+                    "JSubRender": {
+                        "JR_BGN_IMG": "WarehouseInventory_标签按钮"
+                        ,"JR_BGS_IMG": "WarehouseInventory_标签按钮"
+                        ,"JR_BGH_IMG": "WarehouseInventory_标签按钮"
+                        ,"JS_FONT_N_COLOR":[0,0.56,0.8]
+                        ,"JS_FONT_S_COLOR":[0,0,0]
+                        ,"JS_FONT_BOLD": 1,"JR_TITLE_Insets": [0, 0, -10, 0]
+                    }
+                }
+            }
+        },
+        "NESTED_SCROLL":{
+            "JFrame": [0, 130, 6144, 640 ],
+            "SORTEDKEYS": ["NESTED_Contract", "NESTED_Cost"],
+            "BORDER": 11,
+            "COMPONENTS" : {
+                "NESTED_Contract":{
+                    "JFrame": [0, -3, 1024, 640 ],
+                    "BORDER": 11,
+                    "SORTEDKEYS" : ["BG_BOOK"],
+                    "COMPONENTS" : {
+                        "BG_BOOK" : {
+                            "JCom": "JRImageView",
+                            "JFrame": [0,0,1024,580],
+                            "JSubRender":{
+                                "JR_IMG": "Contract_背景.png"
+                            }
+                        },
+                        "NESTED_TOP_LEFT":{
+                            "JFrame":[40, 10, 220, 430],
+                            "BORDER": 11,
+                            "COMPONENTS":{
+                                
+                                "contractNO": {
+                                    "JCom" : "JRLabelTextFieldView",
+                                    "JFrame": [15,20,190,75],
+                                    "JSubRender": {
+                                        "frames":[[20,0,-1.1,-1.1],[10,28,-1.1,-1.1]],
+                                        "SubRenders":[{"FONT_SIZE":18},{"JR_IMG":"Contract_长输入框.png"}]
+                                    }
+                                },
+                                "contractName": {
+                                    "JCom" : "JRLabelTextFieldView",
+                                    "JFrame": [15,85,190,75],
+                                    "JSubRender": {
+                                        "frames":[[20,0,-1.1,-1.1],[10,28,-1.1,-1.1]],
+                                        "SubRenders":[{"FONT_SIZE":18},{"JR_IMG":"Contract_长输入框.png"}]
+                                    }
+                                },
+                                "clientNumber": {
+                                    "JCom" : "JRLabelTextFieldView",
+                                    "JFrame": [15,150,190,75],
+                                    "JSubRender": {
+                                        "frames":[[20,0,-1.1,-1.1],[10,28,-1.1,-1.1]],
+                                        "SubRenders":[{"FONT_SIZE":18},{"JR_IMG":"Contract_长输入框.png"}]
+                                    }
+                                },
+                                "clientName": {
+                                    "JCom" : "JRLabelTextFieldView",
+                                    "JFrame": [15,215,190,75],
+                                    "JSubRender": {
+                                        "frames":[[20,0,-1.1,-1.1],[10,28,-1.1,-1.1]],
+                                        "SubRenders":[{"FONT_SIZE":18},{"JR_IMG":"Contract_长输入框.png"}]
+                                    }
+                                },
+                                "salesMan": {
+                                    "JCom" : "JRLabelTextFieldView",
+                                    "JFrame": [15,280,190,75],
+                                    "JSubRender": {
+                                        "frames":[[20,0,-1.1,-1.1],[10,28,-1.1,-1.1]],
+                                        "SubRenders":[{"FONT_SIZE":18},{"JR_IMG":"Contract_长输入框.png"}]
+                                    }
+                                },
+                                "signedDate": {
+                                    "JCom" : "JRLabelTextFieldView",
+                                    "JFrame": [15,345,190,75],
+                                    "JSubRender": {
+                                        "frames":[[20,0,-1.1,-1.1],[10,28,-1.1,-1.1]],
+                                        "SubRenders":[{"FONT_SIZE":18},{"JR_IMG":"Contract_长输入框.png"}]
+                                    }
+                                },
+                            }
+                        },
+                        "NESTED_TOP_RIGHT_Top":{
+                            "JFrame":[300, 5, 690, 50],
+                            "BORDER": 11,
+                            "COMPONENTS":{
+                                
+                                "totalAmount": {
+                                    "JCom" : "JRLabelCommaTextFieldView",
+                                    "JFrame": [480,7,-1.1,-1.1],
+                                    "JSubRender": {
+                                        "SubRenders":[{},{},{"JR_IMG":"Contract_短输入框"}]
+                                    }
+                                },
+                                "BTN_Print" : {
+                                    "JCom": "JRButton",
+                                    "JFrame": [20,-5,-1.1,-1.1],
+                                    "JSubRender":{
+                                        "JR_BGN_IMG": "Contract_列印按钮.png","JS_FONT_BOLD":1,"JS_FONT_N_COLOR":[255,255,255,1], "FONT_SIZE": 20
+                                    }
+                                },
+                                
+                                
+                            }
+                            
+                        },
+                        "NESTED_TOP_RIGHT_TableOne":{
+                            
+                            "JCom": "JRRefreshTableView",
+                            "JFrame": [300, 60, 685, 170],
+                            "BORDER": 12,
+                            "JSubRender":{
+                                "BGCOLOR": 0,
+                                "HIDE_SEARCH_BAR": 1,
+                                "SHOW_LINES":1,
+                                "HIDE_REFRESH": 1,
+                                "CELL_BGCOLOR": 0,
+                                "headerColor":0,
+                                "headerHeight": 35,
+                                "headers":["Contract.installment","Contract.willPayDate","Contract.payRate","Contract.payAmount"],
+                                "headersX":[50,225,420,580],
+                                "headersY": [5],
+                            }
+                            
+                        },
+                        "NESTED_TOP_RIGHT_TableTwo":{
+                            
+                            "JCom": "JRRefreshTableView",
+                            "JFrame": [300, 235, 685, 170],
+                            "BORDER": 12,
+                            "JSubRender":{
+                                "BGCOLOR": 0,
+                                "HIDE_SEARCH_BAR": 1,
+                                "SHOW_LINES":1,
+                                "HIDE_REFRESH": 1,
+                                "CELL_BGCOLOR": 0,
+                                "headerColor":0,
+                                "headerHeight": 35,
+                                "headers":["Contract.receiveOrder","Contract.realReceiveDate","Contract.receiveMan","Contract.receiveAmount"],
+                                "headersX":[55,225,425,560],
+                                "headersY": [5],
+                            }
+                            
+                        },
+                        "Line_1" : {
+                            "JCom" : "JRComplexView",
+                            "JFrame": [480, 60, 4, 215 ],
+                            "JSubRender":{
+                                "DISABLE_VALUE":1
+                            },
+                            "COMPONENTS": {
+                                
+                                "top" : {
+                                    "JCom": "JRImageView",
+                                    "JFrame": [0, 0],
+                                    "JSubRender":{
+                                        "JR_IMG": "WHPurchase_线顶部.png"
+                                    }
+                                },
+                                "middle" : {
+                                    "JCom": "JRImageView",
+                                    "JFrame": [0, 48,4,72],
+                                    "JSubRender":{
+                                        "JR_IMG": "WHPurchase_线中部.png"
+                                    }
+                                },
+                                "bottom" : {
+                                    "JCom": "JRImageView",
+                                    "JFrame": [0, 120],
+                                    "JSubRender":{
+                                        "JR_IMG": "WHPurchase_线底部.png"
+                                    }
+                                }
+                            }
+                        },
+                        "Line_2" : {
+                            "JCom" : "JRComplexView",
+                            "JFrame": [680, 60, 4, 215 ],
+                            "JSubRender":{
+                                "DISABLE_VALUE":1
+                            },
+                            "COMPONENTS": {
+                                
+                                "top" : {
+                                    "JCom": "JRImageView",
+                                    "JFrame": [0, 0],
+                                    "JSubRender":{
+                                        "JR_IMG": "WHPurchase_线顶部.png"
+                                    }
+                                },
+                                "middle" : {
+                                    "JCom": "JRImageView",
+                                    "JFrame": [0, 48,4,72],
+                                    "JSubRender":{
+                                        "JR_IMG": "WHPurchase_线中部.png"
+                                    }
+                                },
+                                "bottom" : {
+                                    "JCom": "JRImageView",
+                                    "JFrame": [0, 120],
+                                    "JSubRender":{
+                                        "JR_IMG": "WHPurchase_线底部.png"
+                                    }
+                                }
+                            }
+                        },
+                        "Line_3" : {
+                            "JCom" : "JRComplexView",
+                            "JFrame": [830, 60, 4, 215 ],
+                            "JSubRender":{
+                                "DISABLE_VALUE":1
+                            },
+                            "COMPONENTS": {
+                                
+                                "top" : {
+                                    "JCom": "JRImageView",
+                                    "JFrame": [0, 0],
+                                    "JSubRender":{
+                                        "JR_IMG": "WHPurchase_线顶部.png"
+                                    }
+                                },
+                                "middle" : {
+                                    "JCom": "JRImageView",
+                                    "JFrame": [0, 48,4,72],
+                                    "JSubRender":{
+                                        "JR_IMG": "WHPurchase_线中部.png"
+                                    }
+                                },
+                                "bottom" : {
+                                    "JCom": "JRImageView",
+                                    "JFrame": [0, 120],
+                                    "JSubRender":{
+                                        "JR_IMG": "WHPurchase_线底部.png"
+                                    }
+                                }
+                            }
+                        },
+                        "Line_4" : {
+                            "JCom" : "JRComplexView",
+                            "JFrame": [480, 235, 4, 215 ],
+                            "JSubRender":{
+                                "DISABLE_VALUE":1
+                            },
+                            "COMPONENTS": {
+                                
+                                "top" : {
+                                    "JCom": "JRImageView",
+                                    "JFrame": [0, 0],
+                                    "JSubRender":{
+                                        "JR_IMG": "WHPurchase_线顶部.png"
+                                    }
+                                },
+                                "middle" : {
+                                    "JCom": "JRImageView",
+                                    "JFrame": [0, 48,4,62],
+                                    "JSubRender":{
+                                        "JR_IMG": "WHPurchase_线中部.png"
+                                    }
+                                },
+                                "bottom" : {
+                                    "JCom": "JRImageView",
+                                    "JFrame": [0, 110],
+                                    "JSubRender":{
+                                        "JR_IMG": "WHPurchase_线底部.png"
+                                    }
+                                }
+                            }
+                        },
+                        "Line_5" : {
+                            "JCom" : "JRComplexView",
+                            "JFrame": [680, 235, 4, 215 ],
+                            "JSubRender":{
+                                "DISABLE_VALUE":1
+                            },
+                            "COMPONENTS": {
+                                
+                                "top" : {
+                                    "JCom": "JRImageView",
+                                    "JFrame": [0, 0],
+                                    "JSubRender":{
+                                        "JR_IMG": "WHPurchase_线顶部.png"
+                                    }
+                                },
+                                "middle" : {
+                                    "JCom": "JRImageView",
+                                    "JFrame": [0, 48,4,62],
+                                    "JSubRender":{
+                                        "JR_IMG": "WHPurchase_线中部.png"
+                                    }
+                                },
+                                "bottom" : {
+                                    "JCom": "JRImageView",
+                                    "JFrame": [0, 110],
+                                    "JSubRender":{
+                                        "JR_IMG": "WHPurchase_线底部.png"
+                                    }
+                                }
+                            }
+                        },
+                        "Line_6" : {
+                            "JCom" : "JRComplexView",
+                            "JFrame": [830, 235, 4, 215 ],
+                            "JSubRender":{
+                                "DISABLE_VALUE":1
+                            },
+                            "COMPONENTS": {
+                                
+                                "top" : {
+                                    "JCom": "JRImageView",
+                                    "JFrame": [0, 0],
+                                    "JSubRender":{
+                                        "JR_IMG": "WHPurchase_线顶部.png"
+                                    }
+                                },
+                                "middle" : {
+                                    "JCom": "JRImageView",
+                                    "JFrame": [0, 48,4,62],
+                                    "JSubRender":{
+                                        "JR_IMG": "WHPurchase_线中部.png"
+                                    }
+                                },
+                                "bottom" : {
+                                    "JCom": "JRImageView",
+                                    "JFrame": [0, 110],
+                                    "JSubRender":{
+                                        "JR_IMG": "WHPurchase_线底部.png"
+                                    }
+                                }
+                            }
+                        },
+                        "NESTED_TOP_RIGHT_Bottom":{
+                            "JFrame":[300, 405, 670, 50],
+                            "BORDER": 11,
+                            "SORTEDKEYS": ["BG_AttachFile"],
+                            "COMPONENTS":{
+                                "BG_AttachFile" :{
+                                    "JCom": "JRImageView",
+                                    "JFrame": [0,-5,-1.1,-1.1],
+                                    "JSubRender":{
+                                        "JR_IMG": "Contract_附档框"
+                                    }
+                                },
+                                "BTN_AttachFile" : {
+                                    "JCom": "JRButton",
+                                    "JFrame": [0,-5,-1.1,-1.1],
+                                    "JSubRender":{
+                                        "JR_BGN_IMG": "Contract_附档按钮.png","JS_FONT_BOLD":1,"JS_FONT_N_COLOR":[255,255,255,1], "FONT_SIZE": 20
+                                    }
+                                },
+                                "attachFile":{
+                                    "JCom" : "JRTextField",
+                                    "JFrame": [160, 5 ,140 ,40],
+                                    "JSubRender": {
+                                        "BGCOLOR":-1,
+                                        "JR_BORDERSTYLE" : 0
+                                    }
+                                },
+                                
+                                "shouldReceive": {
+                                    "JCom" : "JRLabelCommaTextFieldView",
+                                    "JFrame": [320,5,200,35],
+                                    "JSubRender": {
+                                        "SubRenders":[{},{},{"JR_IMG":"Contract_短输入框","JR_ISNUMBER":1}]
+                                    }
+                                },
+                                "unReceive": {
+                                    "JCom" : "JRLabelCommaTextFieldView",
+                                    "JFrame": [500,5,200,35],
+                                    "JSubRender": {
+                                        "SubRenders":[{},{},{"JR_IMG":"Contract_短输入框","JR_ISNUMBER":1}]
+                                    }
+                                },
+                                
+                            }
+                        },
+                        "NESTED_BOTTOM":{
+                            "JFrame":[0, 455, 1000, 115],
+                            "BORDER": 11,
+                            "COMPONENTS":{
+                                "TXT_Advise":{
+                                    "JCom":"JRLocalizeLabel",
+                                    "JFrame":[15,10,80,38],
+                                    "JSubRender":{
+                                        "JS_FONT_N_COLOR":[255,255,255,1],
+                                        "FONT_SIZE": 23
+                                    }
+                                },
+                                
+                                "NESTED_TextView_1":{
+                                    "JFrame": [80,0, 170, 110],
+                                    "SORTEDKEYS": ["BG_TextView"],
+                                    "COMPONENTS" : {
+                                        "BG_TextView" :{
+                                            "JCom": "JRImageView",
+                                            "JFrame": [5,5,-1.1,-1.1],
+                                            "JSubRender":{
+                                                "JR_IMG": "Contract_建议框"
+                                            }
+                                        },
+                                        "generalMgrAdvise": {
+                                            "JCom" : "JRLabelTextView",
+                                            "JFrame": [10, 10,155,90],
+                                            "BORDER": 11,
+                                            "JSubRender": {
+                                                "frames":[[45,0,-1.1,-1.1],[5,30,150,60]],
+                                                "SubRenders":[{},{}]
+                                            }
+                                        },
+                                    }
+                                    
+                                },
+                                "NESTED_TextView_2":{
+                                    "JFrame": [255,0, 170, 110],
+                                    "SORTEDKEYS": ["BG_TextView"],
+                                    "COMPONENTS" : {
+                                        "BG_TextView" :{
+                                            "JCom": "JRImageView",
+                                            "JFrame": [5,5,-1.1,-1.1],
+                                            "JSubRender":{
+                                                "JR_IMG": "Contract_建议框"
+                                            }
+                                        },
+                                        "viceMgrAdvise": {
+                                            "JCom" : "JRLabelTextView",
+                                            "JFrame": [10, 10,155,90],
+                                            "BORDER": 11,
+                                            "JSubRender": {
+                                                "frames":[[45,0,-1.1,-1.1],[5,30,150,60]],
+                                                "SubRenders":[{},{}]
+                                            }
+                                        },
+                                    }
+                                    
+                                },
+                                "NESTED_TextView_3":{
+                                    "JFrame": [435,0, 170, 110],
+                                    "SORTEDKEYS": ["BG_TextView"],
+                                    "COMPONENTS" : {
+                                        "BG_TextView" :{
+                                            "JCom": "JRImageView",
+                                            "JFrame": [5,5,-1.1,-1.1],
+                                            "JSubRender":{
+                                                "JR_IMG": "Contract_建议框"
+                                            }
+                                        },
+                                        "purchaseSprAdvise": {
+                                            "JCom" : "JRLabelTextView",
+                                            "JFrame": [10, 10,155,90],
+                                            "BORDER": 11,
+                                            "JSubRender": {
+                                                "frames":[[45,0,-1.1,-1.1],[5,30,150,60]],
+                                                "SubRenders":[{},{}]
+                                            }
+                                        },
+                                    }
+                                    
+                                },
+                                "NESTED_TextView_4":{
+                                    "JFrame": [610,0, 170, 110],
+                                    "SORTEDKEYS": ["BG_TextView"],
+                                    "COMPONENTS" : {
+                                        "BG_TextView" :{
+                                            "JCom": "JRImageView",
+                                            "JFrame": [5,5,-1.1,-1.1],
+                                            "JSubRender":{
+                                                "JR_IMG": "Contract_建议框"
+                                            }
+                                        },
+                                        "businessSprAdvise": {
+                                            "JCom" : "JRLabelTextView",
+                                            "JFrame": [10, 10,155,90],
+                                            "BORDER": 11,
+                                            "JSubRender": {
+                                                "frames":[[45,0,-1.1,-1.1],[5,30,150,60]],
+                                                "SubRenders":[{},{}]
+                                            }
+                                        },
+                                    }
+                                    
+                                },
+                                "NESTED_TextView_5":{
+                                    "JFrame": [790,0, 170, 110],
+                                    "SORTEDKEYS": ["BG_TextView"],
+                                    "COMPONENTS" : {
+                                        "BG_TextView" :{
+                                            "JCom": "JRImageView",
+                                            "JFrame": [5,5,-1.1,-1.1],
+                                            "JSubRender":{
+                                                "JR_IMG": "Contract_建议框"
+                                            }
+                                        },
+                                        "salesManAdvise": {
+                                            "JCom" : "JRLabelTextView",
+                                            "JFrame": [10, 10,155,90],
+                                            "BORDER": 11,
+                                            "JSubRender": {
+                                                "frames":[[45,0,-1.1,-1.1],[5,30,150,60]],
+                                                "SubRenders":[{},{}]
+                                            }
+                                        },
+                                    }
+                                    
+                                },
+                                
+                            }
+                            
+                        },
+                        "NESTED_FOOTER_BOTTON": {
+                            "JFrame": [ 85, 570, 860, 60],
+                            "BORDER": 2 ,
+                            "COMPONENTS": {
+                                
+                                "createUser": {
+                                    "JCom" : "JRButtonTextFieldView",
+                                    "JFrame": [684,1,170,55],
+                                    
+                                    "JSubRender": {
+                                        "frames":[[], [81,1,-1.1,-1.1]],
+                                        "SubRenders":[{"JR_BGN_IMG":"public_底部按钮.png"},{"JR_IMG":"public_底部长名字框.png"}]
+                                    }
+                                },
+                                
+                                "app1": {
+                                    "JCom" : "JRButtonTextFieldView",
+                                    "JFrame": [518,1,170,55],
+                                    "JSubRender": {
+                                        "frames":[[], [81,1,-1.1,-1.1]],
+                                        "SubRenders":[{"JR_BGN_IMG":"public_底部按钮.png"},{"JR_IMG":"public_底部长名字框.png"}]
+                                    }
+                                },
+                                
+                                "app2": {
+                                    "JCom" : "JRButtonTextFieldView",
+                                    "JFrame": [352,1,170,55],
+                                    "JSubRender": {
+                                        "frames":[[], [81,1,-1.1,-1.1]],
+                                        "SubRenders":[{"JR_BGN_IMG":"public_底部按钮.png"},{"JR_IMG":"public_底部长名字框.png"}]
+                                    }
+                                },
+                                
+                                "app3": {
+                                    "JCom" : "JRButtonTextFieldView",
+                                    "JFrame": [177,1,180,55],
+                                    "JSubRender": {
+                                        "frames":[[], [90,1,-1.1,-1.1]],
+                                        "SubRenders":[{"JR_BGN_IMG":"public_底部长按钮.png"},{"JR_IMG":"public_底部长名字框.png"}]
+                                    }
+                                },
+                                
+                                "app4": {
+                                    "JCom" : "JRButtonTextFieldView",
+                                    "BORDER_": 10,
+                                    "JFrame": [0,1,170,55],
+                                    "JSubRender": {
+                                        "frames":[[], [90,1,-1.1,-1.1]],
+                                        "SubRenders":[{"JR_BGN_IMG":"public_底部长按钮.png"},{"JR_IMG":"public_底部长名字框.png"}]
+                                    }
+                                }
+                                
+                            }
+                        }
+                    }
+                   
+                },
+                "NESTED_Cost":{
+                    "JFrame": [1024, 0, 1024, 620 ],
+                    "COMPONENTS" : {
+                        "Cost_TABLE": {
+                            "JCom": "JRRefreshTableView",
+                            "JFrame": [0, 0, 1024, 620],
+                            "BGCOLOR": 0,
+                            "JSubRender":{
+                                "BGCOLOR": 0,
+                                "HIDE_SECTION": 0,
+                                "SECTION_HEIGHT": 50,
+                                "HIDE_SEARCH_BAR": 1,
+                                "HIDE_REFRESH_": 1,
+                                "headerColor": 2,
+                                "headerHeight": 1
+                            }
+                        }
+                        
+                    }
+                },
+                
+            }
+            
+        },
+        
+        
+    }
+}

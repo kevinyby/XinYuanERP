@@ -1,0 +1,348 @@
+{
+    
+     "LETTER_VER_TEXTFIEDS":[["currency","branch","amount"],["number","bank","name"]],
+    "COMPONENTS" : {
+        
+        "NESTED_footer": "",
+        
+        
+        "NESTED_TABS": {
+            "JFrame": [130, 85, 320, 50 ],
+            "BORDER": 2,
+            "SORTEDKEYS": ["TAB_INFO","TAB_DETAILS","TAB_BORROWOUT"],
+            "COMPONENTS" : {
+                "TAB_INFO" : {
+                    "JCom": "JRButton",
+                    "JFrame": [0,5,100,46],
+                    "BORDER": 1,
+                    "JSubRender": {
+                        "BORDER": 2
+                        ,"JR_BGN_IMG": "Vendordatacard_06.png"
+                        ,"JR_BGS_IMG": "Vendordatacard_06.png"
+                        ,"JR_BGH_IMG": "Vendordatacard_06.png"
+                        ,"JS_FONT_N_COLOR": [0,0.56,0.8]
+                        ,"JS_FONT_S_COLOR": [0,0,0]
+                       ,"JS_FONT_BOLD": 1 ,"JR_TITLE_Insets": [0, 0, -10, 0]
+                    }
+                },
+                
+                "TAB_DETAILS" : {
+                    "JCom": "JRButton",
+                    "JFrame": [105,5,100,46],
+                    "BORDER": 1,
+                    "JSubRender": {
+                        "BORDER": 2
+                        ,"JR_BGN_IMG": "Vendordatacard_06.png"
+                        ,"JR_BGS_IMG": "Vendordatacard_06.png"
+                        ,"JR_BGH_IMG": "Vendordatacard_06.png"
+                        ,"JS_FONT_N_COLOR": [0,0.56,0.8]
+                        ,"JS_FONT_S_COLOR": [0,0,0]
+                        ,"JS_FONT_BOLD": 1 ,"JR_TITLE_Insets": [0, 0, -10, 0]
+                    }
+                },
+                
+                "TAB_BORROWOUT" : {
+                    "JCom": "JRButton",
+                    "JFrame": [210,5,100,46],
+                    "BORDER": 1,
+                    "JSubRender": {
+                        "BORDER": 2
+                        ,"JR_BGN_IMG": "Vendordatacard_06.png"
+                        ,"JR_BGS_IMG": "Vendordatacard_06.png"
+                        ,"JR_BGH_IMG": "Vendordatacard_06.png"
+                        ,"JS_FONT_N_COLOR": [0,0.56,0.8]
+                        ,"JS_FONT_S_COLOR": [0,0,0]
+                        ,"JS_FONT_BOLD": 1 ,"JR_TITLE_Insets": [0, 0, -10, 0]
+                    }
+                }
+            }
+        },
+        
+        
+        
+        
+        "NESTED_SCROLL":{
+            "JFrame": [0, 135, 3072, 570 ],
+            "BORDER": 11,
+            "SORTEDKEYS": ["NESTED_INFO", "NESTED_DETAILS", "NESTED_BORROWOUT"],
+            "COMPONENTS" : {
+                
+                
+                "NESTED_INFO": {
+                    "JFrame": [0, 0, 1024, 570 ],
+                    "BORDER": 3,
+                    "SORTEDKEYS": ["BG_book"],
+                    "COMPONENTS" : {
+                        
+                        "BG_book" : {
+                            "JCom": "JRImageView",
+                            "JFrame": [90,-5,-1.1,-1.1],
+                            "JSubRender":{
+                                "JR_IMG": "AccountInformation_05.png"
+                            }
+                        },
+                        
+                        
+                        
+                        "NESTED_INFO_MAIN": {
+                            
+                            "JFrame": [150, 50, 760, 440 ],
+                            "BORDER": 4,
+                            "COMPONENTS" : {
+                                
+                                "NESTED_UPLEFT" : {
+                                    
+                                    "JFrame": [50, 20, 300, 160 ],
+                                    "BORDER": 4,
+                                    "COMPONENTS" : {
+                                        
+                                        "number": {
+                                            "JCom" : "JRLabelCommaTextFieldView",
+                                            "JFrame": [0,0,300,46],
+                                            "BORDER":10,
+                                            "JSubRender": {
+                                                "SubRenders":[{},{},{"BORDER":2, "JR_IMG":"AccountInformation_01.png"}]
+                                            }
+                                        },
+                                        
+                                        "bank": {
+                                            "JCom" : "JRLabelCommaTextFieldView",
+                                            "JFrame": [0,55,300,46],
+                                            "BORDER":10,
+                                            "JSubRender": {
+                                                "SubRenders":[{},{},{"BORDER":2, "JR_IMG":"AccountInformation_01.png"}]
+                                            }
+                                        },
+                                        
+                                        "name": {
+                                            "JCom" : "JRLabelCommaTextFieldView",
+                                            "JFrame": [0,110,300,46],
+                                            "BORDER":10,
+                                            "JSubRender": {
+                                                "SubRenders":[{"CH_SPACE": "7"},{},{"BORDER":2, "JR_IMG":"AccountInformation_01.png"}]
+                                            }
+                                        }
+                                        
+                                        
+                                    }
+                                    
+                                    
+                                },
+                                
+                                
+                                
+                                "NESTED_UPRIGHT" : {
+                                    
+                                    "JFrame": [410, 20, 300, 160 ],
+                                    "BORDER": 4,
+                                    "COMPONENTS" : {
+                                        
+                                        "currency": {
+                                            "JCom" : "JRLabelCommaTextFieldView",
+                                            "JFrame": [0,0,300,46],
+                                            "BORDER":10,
+                                            "JSubRender": {
+                                                "SubRenders":[{"CH_SPACE": "7"},{},{"BORDER":2, "JR_IMG":"AccountInformation_01.png"}]
+                                            }
+                                        },
+                                        
+                                        "branch": {
+                                            "JCom" : "JRLabelCommaTextFieldView",
+                                            "JFrame": [0,55,300,46],
+                                            "BORDER":10,
+                                            "JSubRender": {
+                                                "SubRenders":[{"CH_SPACE": "2"},{},{"BORDER":2, "JR_IMG":"AccountInformation_01.png"}]
+                                            }
+                                        },
+                                        
+                                        "amount": {
+                                            "JCom" : "JRLabelCommaTextFieldView",
+                                            "JFrame": [0,110,300,46],
+                                            "BORDER":10,
+                                            "JSubRender": {
+                                                "SubRenders":[{},{},{"BORDER":2, "JR_IMG":"AccountInformation_01.png"}]
+                                            }
+                                        }
+                                        
+                                        
+                                    }
+                                    
+                                    
+                                },
+                                
+                                
+                                "address": {
+                                    "JCom" : "JRLabelCommaTextFieldView",
+                                    "JFrame": [50,190,600,46],
+                                    "BORDER":10,
+                                    "JSubRender": {
+                                        "SubRenders":[{},{},{"BORDER":2, "JR_IMG":"AccountInformation_02.png"}]
+                                    }
+                                },
+                                
+                                
+                                
+                                "bankAccountNumber": {
+                                    "JCom" : "JRLabelCommaTextFieldView",
+                                    "JFrame": [50,265,600,60],
+                                    "BORDER":10,
+                                    "JSubRender": {
+                                        "frames":[[], [], [-1.1,-1.1, 550, 60]],
+                                        "SubRenders":[{"BORDER":3},{"BORDER":4},{"BORDER":2, "BGCOLOR":0, "JR_BORDERSTYLE": 0}]
+                                    }
+                                },
+                                
+                                
+                                "NESTED_BUTTONS" : {
+                                    "JFrame": [350, 350, 400, 60 ],
+                                    "BORDER": 4,
+                                    "COMPONENTS" : {
+                                        
+                                        
+                                        "app1": {
+                                            "JCom" : "JRButtonTextFieldView",
+                                            "JFrame": [0,0,200,50],
+                                            "BORDER": 4,
+                                            "JSubRender": {
+                                                "frames":[[], [90,1,-1.1,-1.1]],
+                                                "SubRenders":[{"JR_BGN_IMG":"public_底部长按钮.png"},{"JR_IMG":"public_底部长名字框.png"}]
+                                            }
+                                        },
+
+                                        
+                                        "save" : {
+                                            "JCom": "JRButton",
+                                            "JFrame": [200,2],
+                                            "BORDER": 4,
+                                            "JSubRender":{
+                                                "JR_BGN_IMG": "AccountInformation_04.png"
+                                                ,"JR_BGS_IMG": "AccountInformation_03.png"
+                                                ,"JR_BGH_IMG": "AccountInformation_03.png"
+                                                ,"FONT_SIZE": 22
+                                                ,"JS_FONT_N_COLOR":[255,255,255,1]
+                                                ,"JS_FONT_S_COLOR":[0,0,0,0]
+                                            }
+                                        }
+                                        
+                                        
+                                    }
+                                }
+                                
+                                
+                                
+                            }
+                            
+                        }
+                        
+                        
+                    }
+                },
+                
+                
+                
+                "NESTED_DETAILS":{
+                    "JFrame": [1024, 0, 1024, 570 ],
+                    "BORDER_": 2,
+                    "BGCOLOR": 15,
+                    "COMPONENTS" : {
+                        
+                        "NESTED_DETAILS_MAIN":{
+                            "JFrame": [10, 0, 950, 570 ],
+                            "BORDER_": 16,
+                            "SORTEDKEYS": ["BG_book"],
+                            "COMPONENTS" : {
+                                
+                                "BG_book" : {
+                                    "JCom": "JRImageView",
+                                    "JFrame": [0,-2,-1.1,-1.1],
+                                    "JSubRender":{
+                                        "JR_IMG": "AccountInformation-Details_10.png"
+                                    }
+                                },
+                                
+                                
+                                
+                                "DETAILS_TABLE": {
+                                    "JCom": "JRRefreshTableView",
+                                    "JFrame": [70, 20, 820, 400],
+                                    "BORDER_": 28,
+                                    "JSubRender":{
+                                        "JR_CELLBGN_IMG":"AccountInformation-Details_07.png",
+                                        "JR_CELLBGH_IMG":"AccountInformation-Details_08.png",
+                                        "BGCOLOR": 6,
+                                        "HIDE_SEARCH_BAR": 1
+                                    }
+                                },
+                                
+                                
+                                "NESTED_DETAILS_FOOTER":{
+                                    "JFrame": [300, 450, 560, 80 ],
+                                    "BORDER_": 18,
+                                    "COMPONENTS" : {
+                                        
+                                        "summary": {
+                                            "JCom" : "JRLabelCommaTextFieldView",
+                                            "JFrame": [0,0,200,46],
+                                            "BORDER":10,
+                                            "JSubRender": {
+                                                "SubRenders":[{},{},{"BORDER":2, "JR_IMG":"AccountInformation-Details_09.png"}]
+                                            }
+                                        },
+                                        
+                                        "OutSummary": {
+                                            "JCom" : "JRTextField",
+                                            "JFrame": [200,0],
+                                            "BORDER":10,
+                                            "JSubRender": {
+                                                "JR_IMG":"AccountInformation-Details_09.png"
+                                            }
+                                        }
+                                        
+                                        
+                                    }
+                                }
+                                
+                                
+                                
+                            }
+                        }
+                        
+                    }
+                },
+                
+                
+                
+                "NESTED_BORROWOUT":{
+                    "JFrame": [2048, 0, 1024, 570 ],
+                    "BORDER": 1,
+                    "BGCOLOR": 16,
+                    "COMPONENTS" : {
+                    }
+                }
+                
+                
+                
+            }
+        }
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+    }
+    
+    
+
+}
+

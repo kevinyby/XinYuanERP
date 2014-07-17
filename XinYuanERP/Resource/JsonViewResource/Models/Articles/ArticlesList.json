@@ -1,0 +1,37 @@
+
+
+
+{
+    
+    
+    
+    "ArticlesOrder" : {
+        "FIELDS": [["id", "title"]],
+        
+        "HEADERS": [ "ArticlesOrder.title" ],
+        "HEADERSX": [20],
+        "VALUESX":  [20],
+        
+        
+        "FILTERS": {"0":"FILTER_NIL"}
+    },
+    
+    
+    "ArticlesCHOrder" : {
+        "FIELDS": [["id", "orderNO"]],
+        
+        "HEADERS": [ "orderNO" ],
+        "HEADERSX": [20],
+        "VALUESX":  [20],
+        
+        
+        "FILTERS": {"0":"FILTER_NIL"}
+    }
+    
+    
+
+}
+
+
+
+

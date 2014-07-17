@@ -1,0 +1,183 @@
+{
+"COMPONENTS" : {
+    "NESTED_1": {
+        "BORDER_":6,
+        "JFrame": [0,75, 990, 630 ],
+        "SORTEDKEYS": ["IMG_bg","table","V1","V2","Validation","repair"],
+        "COMPONENTS": {
+            
+            "IMG_bg": {
+                "JCom" : "JRImageView",
+                "JFrame": [0,0,-1.1,-1.1],
+                "BORDER_":5,
+                "JSubRender": {
+                    "JR_IMG":"patrol_bg.png"
+                }
+            },
+            
+            "protralDate": {
+                "JCom" : "JRLabelCommaTextFieldView",
+                "JFrame": [170,20,300,50],
+                "JSubRender": {
+                    "frames":[[], [], []],
+                    "SubRenders":[{},{},{"JR_IMG":"visotor_order.png"}]
+                }
+            },
+            
+            "editButton":{
+                "JCom":"JRButton",
+                "JFrame":[670,8,-1.1,-1.1],
+                "JSubRender": {
+                    "JR_BGN_IMG": "patrol_edit.png","JS_FONT_N_COLOR":[1,1,1],"JS_FONT_BOLD": 1
+                }
+            },
+            
+            "Validation":{
+                "JCom":"JRButton",
+                "JFrame":[620,128,-1.1,-1.1],
+                "JSubRender": {
+                    "JR_BGN_IMG": "patrol_button2","JS_FONT_N_COLOR":[0,0,0],"JS_FONT_BOLD":0.8
+                }
+            },
+            
+            "repair":{
+                "JCom":"JRButton",
+                "JFrame":[830,128,-1.1,-1.1],
+                "JSubRender": {
+                    "JR_BGN_IMG": "patrol_button1","JS_FONT_N_COLOR":[0,0,0],"JS_FONT_BOLD":0.8
+                }
+            },
+            "table":{
+                "JCom": "JRRefreshTableView",
+                "JFrame": [30, 80, 930, 480],
+                "BORDER_": 28,
+                "JSubRender":{
+                    "BGCOLOR": 0,
+                    "HIDE_SEARCH_BAR": 1,
+                    "SHOW_LINES":1,
+                    "HIDE_REFRESH": 1,
+                    
+                    "CELL_BGCOLOR": 0,
+                    
+                    "headerColor":0,
+                    "headerHeight": 50,
+                    "headers":["SecurityPatrolOrder.routine","SecurityPatrolOrder.checker","SecurityPatrolOrder.repairOrderNO"],
+                    "headersX":[230,630,830],
+                    "headersY": [10],
+                }
+            },
+            "V1" : {
+                "JCom" : "JRComplexView",
+                "JFrame": [600, 80, 4, 270 ],
+                "JSubRender":{
+                    "DISABLE_VALUE":1
+                },
+                "COMPONENTS": {
+                    
+                    "top" : {
+                        "JCom": "JRImageView",
+                        "JFrame": [0, 0],
+                        "JSubRender":{
+                            "JR_IMG": "WHPurchase_线顶部.png"
+                        }
+                    },
+                    "middle" : {
+                        "JCom": "JRImageView",
+                        "JFrame": [0, 48,4,372],
+                        "JSubRender":{
+                            "JR_IMG": "WHPurchase_线中部.png"
+                        }
+                    },
+                    "bottom" : {
+                        "JCom": "JRImageView",
+                        "JFrame": [0, 420],
+                        "JSubRender":{
+                            "JR_IMG": "WHPurchase_线底部.png"
+                        }
+                    }
+                }
+            },
+            
+            "V2" : {
+                "JCom" : "JRComplexView",
+                "JFrame": [805, 80, 4, 300 ],
+                "JSubRender":{
+                    "DISABLE_VALUE":1
+                },
+                "COMPONENTS": {
+                    
+                    "top" : {
+                        "JCom": "JRImageView",
+                        "JFrame": [0, 0],
+                        "JSubRender":{
+                            "JR_IMG": "WHPurchase_线顶部.png"
+                        }
+                    },
+                    "middle" : {
+                        "JCom": "JRImageView",
+                        "JFrame": [0, 48,4,372],
+                        "JSubRender":{
+                            "JR_IMG": "WHPurchase_线中部.png"
+                        }
+                    },
+                    "bottom" : {
+                        "JCom": "JRImageView",
+                        "JFrame": [0, 420],
+                        "JSubRender":{
+                            "JR_IMG": "WHPurchase_线底部.png"
+                        }
+                    }
+                }
+            },
+            
+            
+            "exComment" : {
+                "JCom" : "JRLabelTextFieldView",
+                "JFrame":[60,570,880,60],
+                "JSubRender":{
+                    "frames":[[0,0,-1.1,60],[150,0,730,55]]
+                }
+            }
+        }
+    },
+    
+    "NESTED_footer": {
+        "JFrame": [ 120, 590, 980, 300 ],
+        "SORTEDKEYS": [],
+        "COMPONENTS": {
+            
+            "createUser_": {
+                "JFrame": [600,100,180,30]
+            },
+            
+            "app1_": {
+                "JFrame": [400,100,180,30]
+            },
+            
+            "app2_": {
+                "JFrame": [200,100,180,30]
+            },
+            
+            "app3_": {
+                "JFrame": [0,100,180,30]
+            },
+            
+            "app4_":""
+        }
+    }
+}
+
+
+
+
+
+}
+
+
+
+
+
+
+
+
+

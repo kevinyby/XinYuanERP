@@ -1,0 +1,694 @@
+{
+    "SORTEDKEYS": ["BG_BOTTOM_IMAGE", "BG_HeaderImage", "NESTED_SCROLL", "BTN_PriorPage", "BTN_NextPage" ],
+    "LETTER_VER_TEXTFIEDS": [["name","birthday","livingAddress","phoneNO","urgencyName","urgencyPhone"],["idCard","employDate"],["age","height"],["nativePlace","gender","weight"]],
+    "COMPONENTS" : {
+        
+        "NESTED_footer": "",
+        
+        "NESTED_TABS": {
+            "JFrame": [55, 82, 620, 50 ],
+            "SORTEDKEYS":["ZZ_TAB_BTNInfo", "ZZ_TAB_BTNPending", "TraceStatus", "ZZ_TAB_BTNHistory", "ZZ_TAB_BTNBorrow"],
+            "COMPONENTS" : {
+                "ZZ_TAB_BTNInfo" : {
+                    "JCom": "JRButton",
+                    "JFrame": [0,5,100,46],
+                    "JSubRender": {
+                        "JR_BGN_IMG": "EmployeeDataSheet_02.png"
+                        ,"JR_BGS_IMG": "EmployeeDataSheet_02.png"
+                        ,"JR_BGH_IMG": "EmployeeDataSheet_02.png"
+                        ,"JS_FONT_N_COLOR": [0,0.56,0.8]
+                        ,"JS_FONT_S_COLOR": [0,0,0]
+                        ,"JS_FONT_BOLD": 1 ,"JR_TITLE_Insets": [0, 0, -10, 0]
+                    }
+                },
+                
+                "ZZ_TAB_BTNPending" : {
+                    "JCom": "JRButton",
+                    "JFrame": [105,5,100,46],
+                    "JSubRender": {
+                        "JR_BGN_IMG": "EmployeeDataSheet_02.png"
+                        ,"JR_BGS_IMG": "EmployeeDataSheet_02.png"
+                        ,"JR_BGH_IMG": "EmployeeDataSheet_02.png"
+                        ,"JS_FONT_N_COLOR":[0,0.56,0.8]
+                        ,"JS_FONT_S_COLOR":[0,0,0]
+                        ,"JS_FONT_BOLD": 1,"JR_TITLE_Insets": [0, 0, -10, 0]
+                    }
+                },
+                
+                "TraceStatus" : {
+                    "JCom": "JRButton",
+                    "JFrame": [210,5,100,46],
+                    "JSubRender": {
+                        "JR_BGN_IMG": "EmployeeDataSheet_02.png"
+                        ,"JR_BGS_IMG": "EmployeeDataSheet_02.png"
+                        ,"JR_BGH_IMG": "EmployeeDataSheet_02.png"
+                        ,"JS_FONT_N_COLOR":[0,0.56,0.8]
+                        ,"JS_FONT_S_COLOR":[0,0,0]
+                        ,"JS_FONT_BOLD": 1,"JR_TITLE_Insets": [0, 0, -10, 0]
+                    }
+                },
+                
+                "ZZ_TAB_BTNHistory" : {
+                    "JCom": "JRButton",
+                    "JFrame": [315,5,100,46],
+                    "JSubRender": {
+                        "JR_BGN_IMG": "EmployeeDataSheet_02.png"
+                        ,"JR_BGS_IMG": "EmployeeDataSheet_02.png"
+                        ,"JR_BGH_IMG": "EmployeeDataSheet_02.png"
+                        ,"JS_FONT_N_COLOR":[0,0.56,0.8]
+                        ,"JS_FONT_S_COLOR":[0,0,0]
+                        ,"JS_FONT_BOLD": 1,"JR_TITLE_Insets": [0, 0, -10, 0]
+                    }
+                },
+                
+                "ZZ_TAB_BTNBorrow" : {
+                    "JCom": "JRButton",
+                    "JFrame": [420,5,100,46],
+                    "JSubRender": {
+                        "JR_BGN_IMG": "EmployeeDataSheet_02.png"
+                        ,"JR_BGS_IMG": "EmployeeDataSheet_02.png"
+                        ,"JR_BGH_IMG": "EmployeeDataSheet_02.png"
+                        ,"JS_FONT_N_COLOR":[0,0.56,0.8]
+                        ,"JS_FONT_S_COLOR":[0,0,0]
+                        ,"JS_FONT_BOLD": 1,"JR_TITLE_Insets": [0, 0, -10, 0]
+                    }
+                }
+            }
+        },
+        
+        
+        "NESTED_SCROLL":{
+            "JFrame": [0, 135, 6144, 620 ],
+            "SORTEDKEYS": ["NESTED_INFO", "NESTED_PENDING", "NESTED_TraceStatus", "NESTED_HISTORY", "NESTED_BORROW"],
+            "COMPONENTS" : {
+                
+                "NESTED_INFO":{
+                    "JFrame": [0, 0, 1024, 620 ],
+                    "COMPONENTS" : {
+                        
+                        "NESTED_INFO_BODY":{
+                            "JFrame": [0, 0, 1000, 620 ],
+                            "SORTEDKEYS": ["BG_book"],
+                            "COMPONENTS" : {
+                                
+                                "BG_book" : {
+                                    "JCom": "JRImageView",
+                                    "JFrame": [0,-15,-1.1,-1.1],
+                                    "JSubRender":{
+                                        "JR_IMG": "EmployeeDataSheet_31.png"
+                                    }
+                                },
+                                
+                                "NESTED_LEFT": {
+                                    "JFrame": [35, 0, 320, 620 ],
+                                    "COMPONENTS" : {
+                                        
+                                        
+                                        "NESTED_Left_0": {
+                                            "JFrame": [62, 10, 265, 180 ],
+                                            "SORTEDKEYS": ["IMG_Photo","BG_Photo"],
+                                            "COMPONENTS" : {
+                                                
+                                                "BG_Photo" :{
+                                                    "JCom": "JRImageView",
+                                                    "JFrame": [70,0,-1.1,-1.1],
+                                                    "JSubRender":{
+                                                        "JR_IMG": "EmployeeDataSheet_29.png"
+                                                    }
+                                                },
+                                                "IMG_Photo" :{
+                                                    "JCom": "JRImageView",
+                                                    "JFrame": [74,4,136,175],
+                                                    "JSubRender":{
+                                                        "JR_IMG": "",
+                                                        "JR_Radius": 8.0
+                                                    }
+                                                },
+                                                "BTN_Take" : {
+                                                    "JCom": "JRButton",
+                                                    "JFrame": [20,10,-1.1,-1.1],
+                                                    "JSubRender":{
+                                                        "JR_BGN_IMG": "EmployeeDataSheet_03.png"
+                                                    }
+                                                }
+                                                
+                                            }
+                                        },
+                                        
+                                        "NESTED_Left_1": {
+                                            "JFrame": [15, 198, 265, 265 ],
+                                            "COMPONENTS" : {
+                                                
+                                                "employeeNO": {
+                                                    "JCom" : "JRLabelCommaTextFieldView",
+                                                    "JFrame": [0,0,250,38],
+                                                    "JSubRender": {
+                                                        "SubRenders":[{"CH_SPACE": "7"},{},{"JR_IMG":"EmployeeDataSheet_07.png"}]
+                                                    }
+                                                },
+                                                
+                                                "wordMask": {
+                                                    "JCom" : "JRLabelCommaTextFieldView",
+                                                    "JFrame": [0,45,250,38],
+                                                    "JSubRender": {
+                                                        "SubRenders":[{"CH_SPACE": "7"},{},{"JR_IMG":"EmployeeDataSheet_07.png","JR_PASSWORD": 1}]
+                                                    }
+                                                },
+                                                
+                                                
+                                                "department": {
+                                                    "JCom" : "JRLabelCommaTextFieldView",
+                                                    "JFrame": [0,135,300,38],
+                                                    "JSubRender": {
+                                                        "frames":[[], [], [],[]],
+                                                        "SubRenders":[{},{},{"JR_IMG":"EmployeeDataSheet_07.png", "JR_ENABLE_": 0}]
+                                                    }
+                                                },
+                                                
+                                                
+                                                "jobTitle": {
+                                                    "JCom" : "JRLabelCommaTextFieldView",
+                                                    "JFrame": [0,180,250,38],
+                                                    "JSubRender": {
+                                                        "frames":[[], [], []],
+                                                        "SubRenders":[{"CH_SPACE": "7"},{},{"JR_IMG":"EmployeeDataSheet_07.png"}]
+                                                    }
+                                                },
+                                                
+                                                "jobLevel": {
+                                                    "JCom" : "JRLabelCommaTextFieldView",
+                                                    "JFrame": [0,225,300,38],
+                                                    "JSubRender": {
+                                                        "frames":[[], [], [],[]],
+                                                        "SubRenders":[{"CH_SPACE": "7"},{},{"JR_IMG":"EmployeeDataSheet_07.png"}]
+                                                    }
+                                                }
+                                                
+                                            }
+                                            
+                                        },
+                                        
+                                        "NESTED_Left_2": {
+                                            "JFrame": [100, 470, 200, 150 ],
+                                            "COMPONENTS" : {
+                                                
+                                                "ownApproval" : {
+                                                    "JCom": "JRButton",
+                                                    "JFrame": [0,1,176,48],
+                                                    "JSubRender": {
+                                                        "JR_BGN_IMG": "EmployeeDataSheet_05.png", "JR_FGN_IMG":"EmployeeDataSheet_06.png","JS_FONT_N_COLOR":[1,1,1],"JS_FONT_BOLD": 1,"JR_FGIMG_Insets":[0, 140, 0 , 0], "FONT_SIZE":18,"JR_TITLE_Insets": [0, -50, 0, 0]
+                                                    }
+                                                },
+                                                
+                                                "inDrives" : {
+                                                    "JCom": "JRButton",
+                                                    "JFrame": [0,50,176,48],
+                                                    "JSubRender": {
+                                                        "JR_BGN_IMG": "EmployeeDataSheet_05.png", "JR_FGN_IMG":"EmployeeDataSheet_06.png","JS_FONT_N_COLOR":[1,1,1],"JS_FONT_BOLD": 1,"JR_FGIMG_Insets":[0, 140, 0 , 0], "FONT_SIZE":19,"JR_TITLE_Insets": [0, -50, 0, 0]
+                                                    }
+                                                },
+                                                "resign" : {
+                                                    "JCom": "JRButton",
+                                                    "JFrame": [0,100,176,48],
+                                                    "JSubRender": {
+                                                        "JR_BGN_IMG": "EmployeeDataSheet_05.png", "JR_FGN_IMG":"EmployeeDataSheet_06.png","JS_FONT_N_COLOR":[1,1,1],"JS_FONT_BOLD": 1,"JR_FGIMG_Insets":[0, 140, 0 , 0], "FONT_SIZE":19,"JR_TITLE_Insets": [0, -40, 0, 0]
+                                                    }
+                                                }
+                                                
+                                            }
+                                        }
+                                        
+                                    }
+                                },
+                                
+                                
+                                "NESTED_RIGHT":{
+                                    "JFrame": [395, 10, 580, 612 ],
+                                    "BORDER_" : 2,
+                                    "COMPONENTS" : {
+                                        "NESTED_Right_1": {
+                                            "JFrame": [0, 0, 580, 480 ],
+                                            "COMPONENTS" : {
+                                                
+                                                "NESTED_Right_1_UPLeft": {
+                                                    "JFrame": [0, 0, 280, 260 ],
+                                                    
+                                                    "COMPONENTS" : {
+                                                        
+                                                        "name": {
+                                                            "JCom" : "JRLabelCommaTextFieldView",
+                                                            "JFrame": [0,0,260,38],
+                                                            "JSubRender": {
+                                                                "frames":[],
+                                                                "SubRenders":[{"CH_SPACE": "7"},{},{ "JR_IMG":"EmployeeDataSheet_07.png"}]
+                                                            }
+                                                        },
+                                                        "birthday": {
+                                                            "JCom" : "JRLabelCommaTextFieldView",
+                                                            "JFrame": [0,45,260,38],
+                                                            "JSubRender": {
+                                                                "frames":[],
+                                                                "SubRenders":[{},{},{"JR_IMG":"EmployeeDataSheet_07.png", "JR_TYPE": 1, "JR_ENABLE_":0}]
+                                                            }
+                                                        },
+                                                        "livingAddress": {
+                                                            "JCom" : "JRLabelCommaTextFieldView",
+                                                            "JFrame": [0,90,558,38],
+                                                            "JSubRender": {
+                                                                "frames":[],
+                                                                "SubRenders":[{"CH_SPACE": "7"},{},{"JR_IMG":"EmployeeDataSheet_10.png"}]
+                                                            }
+                                                        },
+                                                        
+
+                                                        "phoneNO": {
+                                                            "JCom" : "JRLabelCommaTextFieldView",
+                                                            "JFrame": [0,135,260,38],
+                                                            "JSubRender": {
+                                                                "frames":[],
+                                                                "SubRenders":[{},{},{"JR_IMG":"EmployeeDataSheet_07.png"}]
+                                                            }
+                                                        },
+                                                        "urgencyName": {
+                                                            "JCom" : "JRLabelCommaTextFieldView",
+                                                            "JFrame": [0,180,265, 40],
+                                                            "JSubRender": {
+                                                                "frames":[],
+                                                                "SubRenders":[{}, {} ,{"JR_IMG":"EmployeeDataSheet_07.png"}]
+                                                            }
+                                                        },
+                                                        "urgencyPhone": {
+                                                            "JCom" : "JRLabelCommaTextFieldView",
+                                                            "JFrame": [0,225,265, 40],
+                                                            "JSubRender": {
+                                                                "frames":[],
+                                                                "SubRenders":[{}, {} ,{"JR_IMG":"EmployeeDataSheet_07.png"}]
+                                                            }
+                                                        }
+                                                    }
+                                                },
+                                                
+                                                "NESTED_Right_1_UPRight": {
+                                                    "JFrame": [290, 0, 300, 260 ],
+                                                    
+                                                    "COMPONENTS" : {
+                                                        
+                                                        "idCard": {
+                                                            "JCom" : "JRLabelCommaTextFieldView",
+                                                            "JFrame": [0,0,280,38],
+                                                            "JSubRender": {
+                                                                "frames":[],
+                                                                "SubRenders":[{"CH_SPACE": "2"},{},{"JR_IMG":"EmployeeDataSheet_07.png"}]
+                                                            }
+                                                        },
+                                                        "employDate": {
+                                                            "JCom" : "JRLabelCommaTextFieldView",
+                                                            "JFrame": [0,45,280,38],
+                                                            "JSubRender": {
+                                                                "frames":[],
+                                                                "SubRenders":[{},{},{"JR_IMG":"EmployeeDataSheet_07.png", "JR_TYPE": 1, "JR_ENABLE_":0}]
+                                                            }
+                                                        },
+                                                        "nativePlace": {
+                                                            "JCom" : "JRLabelCommaTextFieldView",
+                                                            "JFrame": [145,90,140,38],
+                                                            "JSubRender": {
+                                                                "frames":[],
+                                                                "SubRenders":[{"CH_SPACE": ""},{},{"JR_IMG":"EmployeeDataSheet_14.png"}]
+                                                            }
+                                                        },
+                                                        "age": {
+                                                            "JCom" : "JRLabelCommaTextFieldView",
+                                                            "JFrame": [0,135,140,38],
+                                                            "JSubRender": {
+                                                                "SubRenders":[{"CH_SPACE": ""},{},{"JR_IMG":"EmployeeDataSheet_14.png", "JR_ISNUMBER": 1, "JR_ENABLE": 0}]
+                                                            }
+                                                        },
+                                                        "gender": {
+                                                            "JCom" : "JRLabelCommaTextFieldView",
+                                                            "JFrame": [145,135,170,38],
+                                                            "JSubRender": {
+                                                                "SubRenders":[{},{},{"JR_IMG":"EmployeeDataSheet_14.png", "JR_ISBOOL_": 1, "JR_BOOLKEYS":["Employee.gender_0","Employee.gender_1"], "JR_TITLE_KEY":"gender" }]
+                                                            }
+                                                        },
+                                                        
+                                                        "height": {
+                                                            "JCom" : "JRLabelCommaTextFieldView",
+                                                            "JFrame": [0,180,140,38],
+                                                            "JSubRender": {
+                                                                "SubRenders":[{"CH_SPACE": ""},{},{"JR_IMG":"EmployeeDataSheet_14.png", "JR_ISNUMBER": 1}]
+                                                            }
+                                                        },
+                                                        
+                                                        "weight": {
+                                                            "JCom" : "JRLabelCommaTextFieldView",
+                                                            "JFrame": [145,180,140,38],
+                                                            "JSubRender": {
+                                                                "SubRenders":[{"CH_SPACE": ""},{},{"JR_IMG":"EmployeeDataSheet_14.png", "JR_ISNUMBER": 1}]
+                                                            }
+                                                        }
+
+                                                    }
+                                                },
+                                                
+                                                "Seniority_Complex":{
+                                                    "JCom" : "JRComplexView",
+                                                    "JFrame": [290, 220, 300, 40 ],
+                                                    "COMPONENTS" : {
+                                                        
+                                                        "Seniority":{
+                                                            "JCom":"JRLabelCommaView",
+                                                            "JFrame":[0,3,80,38],
+                                                        },
+                                                        
+                                                        "year":{
+                                                            "JCom" : "JRLabelTextFieldView",
+                                                            "JFrame": [48, 0, 100, 40],
+                                                            "JSubRender": {
+                                                                "frames":[[80, 0, 60, 40], [0, 0, 72 ,40]], "SubRenders":[{},{ "JR_IMG":"EmployeeDataSheet_14.png","JR_ENABLE": 0}]
+                                                            }
+                                                        },
+                                                        "month":{
+                                                            "JCom" : "JRLabelTextFieldView",
+                                                            "JFrame": [193, 0, 100, 40],
+                                                            "JSubRender": {
+                                                                "frames":[[80, 0, 60, 40], [0, 0, 72 ,40]], "SubRenders":[{},{"JR_IMG":"EmployeeDataSheet_14.png","JR_ENABLE": 0}]
+                                                            }
+                                                        }
+                                                        
+                                                    }
+                                                },
+                                                
+                                                "education_experience" : {
+                                                    "JCom" : "JRComplexView",
+                                                    "JFrame": [0,270,560,90],
+                                                    "SORTEDKEYS": ["schoolTextField","degreeTextField", "year", "month", "recordTextField"],
+                                                    "COMPONENTS" : {
+                                                        
+                                                        "education":{
+                                                            "JCom":"JRLocalizeLabel",
+                                                            "JFrame":[0,0,80,38],
+                                                        },
+                                                        
+                                                        "schoolTextField":{
+                                                            "JCom" : "JRTextField",
+                                                            "JFrame": [90, 0, 206, 40],
+                                                            "JSubRender": {
+                                                                "JR_IMG":"EmployeeDataSheet_11.png"
+                                                            }
+                                                        },
+                                                        "degreeTextField":{
+                                                            "JCom" : "JRTextField",
+                                                            "JFrame": [350, 0, 206 ,40],
+                                                            "JSubRender": {
+                                                                "JR_IMG":"EmployeeDataSheet_11.png"
+                                                            }
+                                                        },
+                                                        "year":{
+                                                            "JCom" : "JRLabelTextFieldView",
+                                                            "JFrame": [90, 45, 100, 40],
+                                                            "JSubRender": {
+                                                                "frames":[[80, 0, 60, 40], [0, 0, 72 ,40]], "SubRenders":[{},{ "JR_IMG":"EmployeeDataSheet_14.png"}]
+                                                            }
+                                                        },
+                                                        "month":{
+                                                            "JCom" : "JRLabelTextFieldView",
+                                                            "JFrame": [210, 45, 100, 40],
+                                                            "JSubRender": {
+                                                               "frames":[[80, 0, 60, 40], [0, 0, 72 ,40]], "SubRenders":[{},{"JR_IMG":"EmployeeDataSheet_14.png"}]
+                                                            }
+                                                        },
+                                                        
+                                                        "recordTextField":{
+                                                            "JCom" : "JRTextField",
+                                                            "JFrame": [350, 45, 206 ,40],
+                                                            "JSubRender": {
+                                                                "JR_IMG":"EmployeeDataSheet_11.png"
+                                                            }
+                                                        },
+                                                        
+                                                    }
+                                                },
+                                                
+                                                "work_experience": {
+                                                    "JCom" : "JRComplexView",
+                                                    "JFrame": [0, 360, 270, 125 ],
+                                                    "SORTEDKEYS":["BG_Exp_Header","BG_Exp_Body", "BG_Exp_Line"],
+                                                    "COMPONENTS": {
+                                                        
+                                                        "BG_Exp_Header": {
+                                                            "JCom": "JRImageView",
+                                                            "JFrame": [],
+                                                            "JSubRender":{
+                                                                "JR_IMG": "EmployeeDataSheet_15.png"
+                                                            }
+                                                        },
+                                                        
+                                                        "BG_Exp_Body": {
+                                                            "JCom": "JRImageView",
+                                                            "JFrame": [-1.1, 42, -1.1, -1.1],
+                                                            "JSubRender":{
+                                                                "JR_IMG": "EmployeeDataSheet_16.png"
+                                                            }
+                                                        },
+                                                        
+                                                        "BG_Exp_Line_": {
+                                                            "JCom": "JRImageView",
+                                                            "JFrame": [-1.1, 75, -1.1, -1.1],
+                                                            "JSubRender":{
+                                                                "JR_IMG": "EmployeeDataSheet_18.png"
+                                                            }
+                                                        },
+                                                        
+                                                        "ZZ_LBLExperience": {
+                                                            "JCom": "JRLocalizeLabel",
+                                                            "JFrame": [50,0,-1.1,40],
+                                                            "JSubRender": {
+                                                                "FONT_SIZE":18, "JS_FONT_BOLD": 1,"CH_SPACE": "3"
+                                                            }
+                                                        },
+                                                        
+                                                        
+                                                        "BTN_Add" : {
+                                                            "JCom": "JRButton",
+                                                            "JFrame": [200,0,-1.1,-1.1],
+                                                            "JSubRender":{
+                                                                "JR_BGN_IMG": "EmployeeDataSheet_17.png"
+                                                            }
+                                                        },
+                                                        
+                                                        "TBL_Contents": {
+                                                            "JCom": "JRTableView",
+                                                            "BGCOLOR": 0,
+                                                            "JFrame": [5,40, 255, 80],
+                                                            "JSubRender":{
+                                                            }
+                                                        }
+                                                        
+                                                    }
+                                                    
+                                                },
+                                                
+                                                "QR": {
+                                                    "JFrame": [280, 370, 270, 120 ],
+                                                    "COMPONENTS": {
+                                                        
+                                                        "IMG_QRCode": {
+                                                            "JCom": "JRImageView",
+                                                            "BGCOLOR_": 0,
+                                                            "JFrame": [150,10,90,90],
+                                                            "JSubRender":{
+                                                                "JR_IMG": "",
+                                                            }
+                                                        },
+                                                        
+                                                        "ZZ_BTNCreateQR" : {
+                                                            "JCom": "JRButton",
+                                                            "JFrame": [10,0,112,46],
+                                                            "JSubRender":{
+                                                                "JR_BGN_IMG": "EmployeeDataSheet_20.png","JS_FONT_BOLD":1,"JS_FONT_N_COLOR":[255,255,255,1], "FONT_SIZE": 15
+                                                            }
+                                                        },
+                                                        
+                                                        "ZZ_BTNPrintQR" : {
+                                                            "JCom": "JRButton",
+                                                            "JFrame": [10,60,112,46],
+                                                            "JSubRender":{
+                                                                "JR_BGN_IMG": "EmployeeDataSheet_20.png","JS_FONT_BOLD":1,"JS_FONT_N_COLOR":[255,255,255,1], "FONT_SIZE": 15
+                                                            }
+                                                        }
+
+                                                        
+                                                    }
+                                                }
+
+                                                
+                                            }
+                                        },
+                                        
+                                        "NESTED_Right_2": {
+                                            "JFrame": [0, 480, 550, 120 ],
+                                            "COMPONENTS" : {
+                                                
+                                                "Signature": {
+                                                    "JFrame": [0, 20, 200, 100 ],
+                                                    "SORTEDKEYS": ["BG_Signature","IMG_Signature","ZZ_BTNSignature"],
+                                                    "COMPONENTS": {
+                                                        
+                                                        "ZZ_BTNSignature": {
+                                                            "JCom": "JRButton",
+                                                            "JFrame": [0,-2,-1.1,-1.1],
+                                                            "JSubRender":{
+                                                                "JS_FONT_BOLD":1,"FONT_SIZE":20,"JS_FONT_N_COLOR":[255,255,255],
+                                                                "JR_BGN_IMG": "EmployeeDataSheet_27.png"
+                                                            }
+                                                        },
+                                                        "BG_Signature" :{
+                                                            "JCom": "JRImageView",
+                                                            "JFrame": [7,0,-1.1,-1.1],
+                                                            "JSubRender":{
+                                                                "JR_IMG": "EmployeeDataSheet_28.png"
+                                                            }
+                                                        },
+                                                        "IMG_Signature": {
+                                                            "JCom": "JRImageView",
+                                                            "JFrame": [11,4,165,80],
+                                                            "JSubRender":{
+                                                                "JR_IMG": "",
+                                                                "JR_Radius": 5.0
+                                                            }
+                                                        }
+                                                    }
+                                                },
+                                                
+                                                "ZZ_BTNSubmit" : {
+                                                    "JCom": "JRButton",
+                                                    "JFrame": [287,10,166,58],
+                                                    "JSubRender":{
+                                                        "JR_BGN_IMG": "EmployeeDataSheet_21.png"
+                                                        ,"JR_BGS_IMG": "EmployeeDataSheet_32.png"
+                                                        ,"JR_BGH_IMG": "EmployeeDataSheet_32.png"
+                                                        ,"JS_FONT_BOLD":1
+                                                        ,"JS_FONT_N_COLOR":[255,255,255,1]
+                                                        ,"JS_FONT_S_COLOR":[0,0,0,0],
+                                                    }
+                                                },
+                                                
+                                                
+                                                "app1": {
+                                                    "JCom" : "JRButtonTextFieldView",
+                                                    "JFrame": [380,70,160,50],
+                                                    "JSubRender": {
+                                                        "frames":[[], [83,0,-1.1,-1.1]],
+                                                        "SubRenders":[{"JR_BGN_IMG":"public_底部按钮.png"},{"JR_IMG":"public_底部长名字框.png"}]
+                                                    }
+                                                },
+                                                
+                                                "app2": {
+                                                    "JCom" : "JRButtonTextFieldView",
+                                                    "JFrame": [200,70,160,50],
+                                                    "JSubRender": {
+                                                        "frames":[[], [83,0,-1.1,-1.1]],
+                                                        "SubRenders":[{"JR_BGN_IMG":"public_底部按钮.png"},{"JR_IMG":"public_底部长名字框.png"}]
+                                                    }
+                                                }
+                                                
+                                            }
+                                        }
+                                    }
+                                }
+                                
+                                
+                            }
+                        }
+                        
+                    }
+                },
+                
+                
+                "NESTED_PENDING":{
+                    "JFrame": [1024, 0, 1024, 620 ],
+                    "COMPONENTS" : {
+                        
+                        "PENDING_TABLE": {
+                            "JCom": "JRRefreshTableView",
+                            "JFrame": [0, -2, 1024, 620],
+                            "BGCOLOR": 0,
+                            "JSubRender":{
+                                "BGCOLOR": 0,
+                                "HIDE_SECTION": 0,
+                                "SECTION_HEIGHT": 50,
+                                "HIDE_SEARCH_BAR": 1,
+                                "HIDE_REFRESH_": 1,
+                                "headerColor": 2,
+                                "headerHeight": 1
+                            }
+                        }
+                        
+                    }
+                },
+                
+                "NESTED_TraceStatus":{
+                    "JFrame": [2048, 0, 1024, 620 ],
+                    "COMPONENTS" : {
+                        
+                        "TraceStatus_TABLE": {
+                            "JCom": "JRRefreshTableView",
+                            "JFrame": [0, -2, 1024, 620],
+                            "BGCOLOR": 0,
+                            "JSubRender":{
+                                "BGCOLOR": 0,
+                                "HIDE_SECTION": 0,
+                                "SECTION_HEIGHT": 50,
+                                "HIDE_SEARCH_BAR": 1,
+                                "HIDE_REFRESH_": 1,
+                                "headerColor": 2,
+                                "headerHeight": 1
+                            }
+                        }
+                        
+                    }
+                },
+                
+                "NESTED_HISTORY":{
+                    "JFrame": [3072, 0, 1024, 620 ],
+                    "BORDER": 12,
+                    "BGCOLOR": 14,
+                    "COMPONENTS" : {
+                        
+                    }
+                },
+                
+                "NESTED_BORROW":{
+                    "JFrame": [4096, 0, 1024, 620 ],
+                    "BORDER": 12,
+                    "BGCOLOR": 15,
+                    "COMPONENTS" : {
+                        
+                    }
+                }
+                
+            }
+        }
+        
+        
+        
+        
+        
+        
+    },
+    
+    
+    
+    
+    
+    
+    "LETTER_VER_TEXTFIEDS": [
+                             ["employeeNO","department","wordMask","jobTitle", "jobLevel"],
+                             ["name","nativePlace"],
+                             ["idCard","birthday","phoneNO"],
+                             ["urgencyName","urgencyPhone"]
+                             ]
+
+}
+

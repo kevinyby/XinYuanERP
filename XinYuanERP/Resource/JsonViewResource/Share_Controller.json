@@ -1,0 +1,76 @@
+
+{
+    "SERVER":{
+        
+        "SUBMIT_BUTTONS" : [
+                            
+                            {
+                            "NESTED_footer.createUser": {
+                            "MODEL_APPFROM" : "createUser",
+                            "MODEL_APPTO" : "app1"
+                            },
+                            "NESTED_footer.app1": {
+                            "BUTTON_TYPE" : 1,
+                            "MODEL_APPFROM" : "app1",
+                            "MODEL_APPTO" : "app2"
+                            },
+                            "NESTED_footer.app2": {
+                            "BUTTON_TYPE" : 1,
+                            "MODEL_APPFROM" : "app2",
+                            "MODEL_APPTO" : "app3"
+                            },
+                            "NESTED_footer.app3": {
+                            "BUTTON_TYPE" : 1,
+                            "MODEL_APPFROM" : "app3",
+                            "MODEL_APPTO" : "app4"
+                            },
+                            "NESTED_footer.app4": {
+                            "BUTTON_TYPE" : 1,
+                            "MODEL_APPFROM" : "app4",
+                            "MODEL_APPTO" : "createUser"
+                            }
+                            }
+                            ],
+        
+    },
+    
+    
+    "CLIENT": {
+        
+        
+        "CONTROL_MODE" : {
+            "DEFAULT_MODE":{
+                "ENABLE":[],
+                "UNENABLE":[
+                            "NESTED_header.BTN_Delete","NESTED_header.exception","NESTED_header.BTN_Return"
+                            ]
+            },
+            
+            "CREAT_MODE":{
+                "ENABLE":[
+                          "NESTED_header.exception"
+                          ],
+                "UNENABLE":["BTN_PriorPage","BTN_NextPage"]
+            },
+            "APPLY_MODE":{
+                "ENABLE":[
+                          "NESTED_header.exception","NESTED_header.BTN_Return"
+                          ],
+                "UNENABLE":[]
+            },
+            "MODIFY_MODE":{
+                "ENABLE":["NESTED_header.exception","NESTED_header.BTN_Return"]
+            },
+            "READ_MODE":{
+                "ENABLE":[],
+                "UNENABLE":[]
+            }
+            
+        }
+        
+    }
+    
+    
+}
+
+

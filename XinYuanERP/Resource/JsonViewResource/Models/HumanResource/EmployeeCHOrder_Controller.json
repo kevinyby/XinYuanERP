@@ -1,0 +1,114 @@
+
+{
+    
+    "IMAGES" : {
+        "IMAGES_LOAD": ["IMG_Photo_old", "IMG_Photo_new"],
+        
+        "IMAGES_NAMES": {
+            "IMG_Photo_old": {
+                "PRE": "O_",
+                "MAINNAME": ["orderNO","employeeNO"]
+            },
+            "IMG_Photo_new": {
+                "PRE": "N_",
+                "MAINNAME": ["orderNO","employeeNO"]
+            }
+        },
+        
+        "IMAGES_DATAS": {
+            "IMG_Photo_old": { "JPG_CompressionQuality": 0.3 },
+            "IMG_Photo_new": { "JPG_CompressionQuality": 0.8 }
+        },
+        
+        
+        "IMAGE_PICKER":{
+            "BTN_Take_new":"IMG_Photo_new",
+        },
+        "IMAGES_PREVIEWS":{"IMG_Photo_old":{}, "IMG_Photo_new":{}}
+        
+    },
+    
+    
+    "SERVER":{
+        
+        "CHECK_NOTEMPTY": ["employeeNO"]
+        
+    },
+    
+    
+    
+    
+    
+    
+    
+    
+    "CLIENT": {
+        
+        
+        
+        "CONTROL_MODE" : {
+            "DEFAULT_MODE_SUB":{
+                "ENABLE":[],
+                "UNENABLE":["NESTED_book1"]
+            },
+            "CREAT_MODE_SUB":{
+                "ENABLE":[],
+                "UNENABLE":[]
+            },
+            
+            "MODIFY_MODE_SUB":{
+                "ENABLE":[],
+                "UNENABLE":[]
+            },
+            "APPLY_MODE_SUB":{
+                "ENABLE":[],
+                "UNENABLE":[]
+            }
+        },
+        
+        
+        "TOGGLES_BUTTONS" : [
+                             {
+                             "button":"ownApproval_O",
+                             "default_value":0
+                             },
+                             {
+                             "button":"inDrives_O",
+                             "default_value":0
+                             },
+                             {
+                             "button":"resign_O",
+                             "default_value":0
+                             },
+                             
+                             
+                             {
+                             "button":"ownApproval_N",
+                             "default_value":0
+                             },
+                             {
+                             "button":"inDrives_N",
+                             "default_value":0
+                             },
+                             {
+                             "button":"resign_N",
+                             "default_value":0
+                             }
+                             ],
+        
+        
+        "VALUES_PICKER" : {
+            "jobLevel_O":"jobLevel",
+            "department_O":"department",
+            "jobLevel_N":"jobLevel",
+            "department_N":"department"
+        }
+        
+        
+    }
+    
+    
+}
+
+
+

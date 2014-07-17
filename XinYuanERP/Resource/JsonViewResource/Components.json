@@ -1,0 +1,430 @@
+
+{
+    "Common_JRLabelCommaTextFieldView": {
+        "JCom" : "JRLabelCommaTextFieldView",
+        "JFrame": [0,0,300,38],
+        "JSubRender": {
+            "frames":[[0,0,100,50], [-1.1,-1.1,30,-1.1], []],
+            "SubRenders":[{},{},{"JR_IMG":"EmployeeDataSheet_07.png"}]
+        }
+    },
+    
+    
+    "AdministratorAPNS" : {
+        "JCom": "JsonView",
+        "JFrame": [0, 500, 1024, 100 ],
+        "COMPONENTS": {
+            
+            "NESTED_BODY": {
+                
+                "JFrame": [0, 0, 1024, 100 ],
+                "COMPONENTS" : {
+                    
+                    "1": {
+                        "JCom" : "JRLabelCommaTextFieldView",
+                        "JFrame": [0,0,300,38],
+                        "JSubRender": {
+                            "SubRenders":[{},{},{"JR_IMG":"EmployeeDataSheet_07.png"}]
+                        }
+                    },
+                    
+                    "2": {
+                        "JCom" : "JRLabelCommaTextFieldView",
+                        "JFrame": [320,0,300,38],
+                        "JSubRender": {
+                            "SubRenders":[{},{},{"JR_IMG":"EmployeeDataSheet_07.png"}]
+                        }
+                    },
+                    
+                    "3": {
+                        "JCom" : "JRLabelCommaTextFieldView",
+                        "JFrame": [640,0,300,38],
+                        "JSubRender": {
+                            "SubRenders":[{},{},{"JR_IMG":"EmployeeDataSheet_07.png"}]
+                        }
+                    }
+                    
+                }
+            }
+            
+        }
+        
+    },
+    
+    
+    
+    "AddExperienceView" : {
+
+        "LETTER_VER_TEXTFIEDS": [["from","to", "company", "jobPosition"]],
+        "JCom": "JsonView",
+        "JFrame": [0, 0, 300, 250 ],
+        "BGCOLOR":23,
+        "RADIUS": 6.0,
+        "COMPONENTS": {
+
+            
+            "experiencePopup": {
+                
+                "JCom" : "JRComplexView",
+                "JFrame": [10, 20, 280, 220 ],
+                "BGCOLOR":23,
+                "SORTEDKEYS": ["from", "to", "company", "jobPosition" ],
+                "COMPONENTS": {
+                    
+                    
+                    "from": {
+                        "JCom" : "JRLabelCommaTextFieldView",
+                        "JFrame": [0,0,270,40],
+                        "JSubRender": {
+                            "frames":[[], [], []],
+                            "SubRenders":[{"CH_SPACE": "0|0.6,1.6"},{},{"BORDER_":1, "JR_IMG":"EmployeeDataSheet_24.png"}]
+                        }
+                    },
+                    
+                    "to": {
+                        "JCom" : "JRLabelCommaTextFieldView",
+                        "JFrame": [0,50,270,38],
+                        "JSubRender": {
+                            "frames":[[], [], []],
+                            "SubRenders":[{"CH_SPACE": "0|0.6,1.6"},{},{"BORDER_":1, "JR_IMG":"EmployeeDataSheet_24.png"}]
+                        }
+                    },
+                    
+                    "company": {
+                        "JCom" : "JRLabelCommaTextFieldView",
+                        "JFrame": [0,100,270,38],
+                        "JSubRender": {
+                            "frames":[[], [], []],
+                            "SubRenders":[{"CH_SPACE": "8"},{},{"BORDER_":1, "JR_IMG":"EmployeeDataSheet_24.png"}]
+                        }
+                    },
+                    
+                    "jobPosition": {
+                        "JCom" : "JRLabelCommaTextFieldView",
+                        "JFrame": [0,150,270,38],
+                        "JSubRender": {
+                            "frames":[[], [], []],
+                            "SubRenders":[{"CH_SPACE": "8"},{},{"BORDER_":1, "JR_IMG":"EmployeeDataSheet_24.png"}]
+                        }
+                    }
+                    
+                }
+            }
+            
+        }
+    },
+    
+    
+    "PictureButtons" : {
+    
+        "JCom": "JsonView",
+        "JFrame": [0, 0, 400, 100 ],
+        "BGCOLOR":0,
+        "BORDER_" : 4,
+        "RADIUS": 6.0,
+        "COMPONENTS": {
+            "BTN_Close" : {
+                "JCom": "JRButton",
+                "BORDER_" : 3,
+                "JFrame": [0,0,-1.1,-1.1],
+                "JSubRender":{
+                    "JR_BGN_IMG": "Pushbutton_02.png",
+                    "JR_FGN_IMG": "Pushbutton_05.png"
+                }
+            },
+            
+            "BTN_Save" : {
+                "JCom": "JRButton",
+                "BORDER_" : 3,
+                "JFrame": [100,0,-1.1,-1.1],
+                "JSubRender":{
+                    "JR_BGN_IMG": "Pushbutton_02.png",
+                    "JR_FGN_IMG": "Pushbutton_03.png"
+                }
+            },
+            
+            
+            "BTN_Print" : {
+                "JCom": "JRButton",
+                "BORDER_" : 3,
+                "JFrame": [200,0,-1.1,-1.1],
+                "JSubRender":{
+                    "JR_BGN_IMG": "Pushbutton_02.png",
+                    "JR_FGN_IMG": "Pushbutton_04.png"
+                }
+            },
+            
+            
+            "BTN_Clear" : {
+                "JCom": "JRButton",
+                "BORDER_" : 3,
+                "JFrame": [300,0,-1.1,-1.1],
+                "JSubRender":{
+                    "JR_BGN_IMG": "Pushbutton_02.png",
+                    "JR_FGN_IMG": "Pushbutton_14.png"
+                }
+            },
+            
+        }
+    },
+    
+    
+    "SignatureViewWithButtons" : {
+        
+        "JCom": "JsonView",
+        "JFrame": [0, 0, 1024, 768 ],
+        "BGCOLOR":0,
+        "RADIUS": 0,
+        "SORTEDKEYS": ["SignatureView","BG_IMAGE","Sign_Cancel","Sign_Clear", "Sign_Save" ],
+        "COMPONENTS": {
+            
+            "SignatureView": {
+                "JCom": "JRSignatureView",
+                "JFrame": [0, 0, 1024, 690 ],
+                "BORDER_": 3,
+                "JSubRender":{
+                    "JR_GLCOLOR":[0.98, 0.98, 0.98, 0.1]
+                }
+            },
+            
+            "BG_IMAGE" : {
+                "JCom": "JRImageView",
+                "JFrame": [0,682,-1.1,-1.1],
+                "BORDER_": 3,
+                "JSubRender":{
+                    "JR_IMG": "Signature_01.png"
+                }
+            },
+            
+            "Sign_Cancel" : {
+                "JCom": "JRButton",
+                "BORDER_" : 3,
+                "JFrame": [755,688],
+                "JSubRender":{
+                    "JR_BGN_IMG": "Signature_03.png", "FONT_SIZE": 18,"JR_TITLE_Insets": [80, 0, 0, 0]
+                }
+            },
+            
+            "Sign_Clear" : {
+                "JCom": "JRButton",
+                "BORDER_" : 3,
+                "JFrame": [25,688],
+                "JSubRender":{
+                    "JR_BGN_IMG": "Signature_02.png", "FONT_SIZE": 18,"JR_TITLE_Insets": [80, 0, 0, 0]
+                }
+            },
+            
+            "Sign_Save" : {
+                "JCom": "JRButton",
+                "BORDER_" : 3,
+                "JFrame": [900,688],
+                "JSubRender":{
+                    "JR_BGN_IMG": "Signature_04.png", "FONT_SIZE": 18,"JR_TITLE_Insets": [80, 0, 0, 0]
+                }
+            }
+            
+            
+            
+        }
+    },
+    
+    
+    "InitializeMainUser" : {
+        
+        "JCom": "JsonView",
+        "JFrame": [0, 0, 1024, 768],
+        "BGCOLOR":0,
+        "BORDER" : 4,
+        "RADIUS": 6.0,
+        "COMPONENTS": {
+            
+            "NESTED_Body": {
+                
+                "JFrame": [0, 0, 430, 350 ],
+                "BORDER" : 8,
+                "SORTEDKEYS": ["BG_Book"],
+                "COMPONENTS" : {
+                    
+                    "BG_Book" : {
+                        "JCom": "JRImageView",
+                        "JFrame": [],
+                        "JSubRender":{
+                            "JR_IMG": "Pushbutton_15.png"
+                        }
+                    },
+                    
+                    "BTN_Close" : {
+                        "JCom": "JRButton",
+                        "BORDER_" : 3,
+                        "JFrame": [0,8,-1.1,-1.1],
+                        "JSubRender":{
+                            "JR_BGN_IMG": "public_close.png"
+                        }
+                    },
+                    
+                    "MESSAGE_ADMIN.MAIN": {
+                        "JCom": "JRLocalizeLabel",
+                        "JFrame": [120, 15,-1.1,30],
+                        "BORDER": 1,
+                        "JSubRender": {
+                            "RESERVE_CENTER": 1,
+                            "JS_FONT_BOLD":1,"FONT_SIZE":30,"JS_FONT_N_COLOR":[255,255,255]
+                        }
+                    },
+                    
+                    "NESTED_Fields": {
+                        "JFrame": [50, 80, 310, 160 ],
+                        "BORDER": 2,
+                        "COMPONENTS" : {
+                            
+                            "username" : {
+                                "JCom": "JRLabelCommaTextFieldView",
+                                "JFrame": [ 0, 0, 300, 46 ],
+                                "BORDER": 2,
+                                "JSubRender": {
+                                    "frames": [ [], [], [] ],
+                                    "SubRenders":[{"CH_SPACE": ""}, {"BORDER_": 1}, {"JR_IMG":"Login_01.png"}]
+                                }
+                            },
+                            
+                            "password" : {
+                                "JCom": "JRLabelCommaTextFieldView",
+                                "JFrame": [ 0, 50, 300, 46 ],
+                                "BORDER": 2,
+                                "JSubRender": {
+                                    "frames": [ [], [], [] ],
+                                    "SubRenders":[{"CH_SPACE": "6|1.1"}, {"BORDER_": 1}, {"JR_IMG":"Login_01.png", "JR_PASSWORD": 1}]
+                                }
+                            },
+                            
+                            "re_password" : {
+                                "JCom": "JRLabelCommaTextFieldView",
+                                "JFrame": [ 0, 100, 300, 46 ],
+                                "BORDER": 2,
+                                "JSubRender": {
+                                    "frames": [ [], [], [] ],
+                                    "SubRenders":[{"JS_FONT_SIZE_": 18}, {"BORDER_": 1}, {"JR_IMG":"Login_01.png", "JR_PASSWORD": 1}]
+                                }
+                            }
+                            
+                            
+                        }
+                    },
+                    
+                    "next" : {
+                        "JCom": "JRButton",
+                        "BORDER" : 3,
+                        "JFrame": [150,250],
+                        "JSubRender":{
+                            "JR_BGN_IMG": "EmployeeDataSheet_21.png","JS_FONT_BOLD":1,"JS_FONT_N_COLOR":[255,255,255,1]
+                        }
+                    }
+                }
+            }
+        }
+    },
+    
+    
+    "InitializeMinorUser" : {
+        
+        "JCom": "JsonView",
+        "JFrame": [0, 0, 1024, 768],
+        "BGCOLOR":0,
+        "BORDER" : 4,
+        "RADIUS": 6.0,
+        "COMPONENTS": {
+            
+            "NESTED_Body": {
+                
+                "JFrame": [0, 0, 430, 350 ],
+                "BORDER" : 8,
+                "SORTEDKEYS": ["BG_Book"],
+                "COMPONENTS" : {
+                    
+                    "BG_Book" : {
+                        "JCom": "JRImageView",
+                        "JFrame": [],
+                        "JSubRender":{
+                            "JR_IMG": "Pushbutton_15.png"
+                        }
+                    },
+                    
+                    "BTN_Close" : {
+                        "JCom": "JRButton",
+                        "BORDER_" : 3,
+                        "JFrame": [0,8,-1.1,-1.1],
+                        "JSubRender":{
+                            "JR_BGN_IMG": "public_close.png"
+                        }
+                    },
+                    
+                    "MESSAGE_ADMIN.MINOR": {
+                        "JCom": "JRLocalizeLabel",
+                        "JFrame": [120, 15,-1.1,30],
+                        "BORDER": 1,
+                        "JSubRender": {
+                            "RESERVE_CENTER": 1,
+                            "JS_FONT_BOLD":1,"FONT_SIZE":30,"JS_FONT_N_COLOR":[255,255,255]
+                        }
+                    },
+                    
+                    "NESTED_Fields": {
+                        "JFrame": [50, 80, 310, 160 ],
+                        "BORDER": 2,
+                        "COMPONENTS" : {
+                            
+                            "username" : {
+                                "JCom": "JRLabelCommaTextFieldView",
+                                "JFrame": [ 0, 0, 300, 46 ],
+                                "BORDER": 2,
+                                "JSubRender": {
+                                    "frames": [ [], [], [] ],
+                                    "SubRenders":[{"CH_SPACE": ""}, {"BORDER_": 1}, {"JR_IMG":"Login_01.png"}]
+                                }
+                            },
+                            
+                            "password" : {
+                                "JCom": "JRLabelCommaTextFieldView",
+                                "JFrame": [ 0, 50, 300, 46 ],
+                                "BORDER": 2,
+                                "JSubRender": {
+                                    "frames": [ [], [], [] ],
+                                    "SubRenders":[{"CH_SPACE": "6|1.1"}, {"BORDER_": 1}, {"JR_IMG":"Login_01.png", "JR_PASSWORD": 1}]
+                                }
+                            },
+                            
+                            "re_password" : {
+                                "JCom": "JRLabelCommaTextFieldView",
+                                "JFrame": [ 0, 100, 300, 46 ],
+                                "BORDER": 2,
+                                "JSubRender": {
+                                    "frames": [ [], [], [] ],
+                                    "SubRenders":[{"JS_FONT_SIZE_": 18}, {"BORDER_": 1}, {"JR_IMG":"Login_01.png", "JR_PASSWORD": 1}]
+                                }
+                            }
+                            
+                            
+                        }
+                    },
+                    
+                    "submit" : {
+                        "JCom": "JRButton",
+                        "BORDER" : 3,
+                        "JFrame": [150,250],
+                        "JSubRender":{
+                            "JR_BGN_IMG": "EmployeeDataSheet_21.png","JS_FONT_BOLD":1,"JS_FONT_N_COLOR":[255,255,255,1]
+                        }
+                    }
+                }
+            }
+            
+            
+            
+            
+        }
+    }
+    
+    
+    
+}
+

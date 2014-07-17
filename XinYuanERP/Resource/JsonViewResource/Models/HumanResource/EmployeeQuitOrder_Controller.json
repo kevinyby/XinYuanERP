@@ -1,0 +1,134 @@
+
+{
+    "IMAGES" : {
+        
+        "IMAGES_LOAD": ["IMG_Signature"],
+        
+        "IMAGES_NAMES": {
+            "IMG_Signature": {
+                "PRE": "",
+                "MAINNAME": ["employeeNO", "employeeNO"],
+                "SUF":"_signature.png"
+            }
+        },
+        "IMAGES_DATAS": {
+            "IMG_Signature": {
+                "IS_SAVE_AS_PNG_DATA": 1
+            }
+        },
+        "IMAGES_PREVIEWS":{
+            "IMG_Signature":{
+            }
+        }
+        
+    },
+    
+    
+    
+    
+    
+    "SERVER":{
+        
+        "SUBMIT_BUTTONS" : [
+                            {
+                            "MODEL_SENDVIEW" : "NESTED_EmployeeQuitOrder",
+                            
+                            "NESTED_EmployeeQuitOrder.NESTED_QUIT_FOOTER.createUser": {
+                            "MODEL_APPTO" : "app1"
+                            },
+                            "NESTED_EmployeeQuitOrder.NESTED_QUIT_FOOTER.app1": {
+                            "BUTTON_TYPE" : 1,
+                            "MODEL_APPFROM" : "app1",
+                            "MODEL_APPTO" : "app2"
+                            },
+                            "NESTED_EmployeeQuitOrder.NESTED_QUIT_FOOTER.app2": {
+                            "BUTTON_TYPE" : 1,
+                            "MODEL_APPFROM" : "app2",
+                            "MODEL_APPTO" : "app3"
+                            },
+                            "NESTED_EmployeeQuitOrder.NESTED_QUIT_FOOTER.app3": {
+                            "BUTTON_TYPE" : 1,
+                            "MODEL_APPFROM" : "app3",
+                            "MODEL_APPTO" : "app4"
+                            },
+                            "NESTED_EmployeeQuitOrder.NESTED_QUIT_FOOTER.app4": {
+                            "BUTTON_TYPE" : 1,
+                            "MODEL_APPFROM" : "app4",
+                            "MODEL_APPTO" : "createUser"
+                            }
+                            
+                            
+                            },
+                            
+                            
+                            
+                            {
+                            "MODEL_SENDVIEW" : "NESTED_EmployeeQuitPassOrder",
+                            "MODEL_SENDORDER" : "EmployeeQuitPassOrder",
+                            
+                            "NESTED_EmployeeQuitPassOrder.NESTED_PASS_FOOTER.createUser": {
+                            "MODEL_APPTO" : "app1"
+                            },
+                            "NESTED_EmployeeQuitPassOrder.NESTED_PASS_FOOTER.app1": {
+                            "BUTTON_TYPE" : 1,
+                            "MODEL_APPFROM" : "app1",
+                            "MODEL_APPTO" : "app2"
+                            },
+                            "NESTED_EmployeeQuitPassOrder.NESTED_PASS_FOOTER.app2": {
+                            "BUTTON_TYPE" : 1,
+                            "MODEL_APPFROM" : "app2",
+                            "MODEL_APPTO" : "app3"
+                            },
+                            "NESTED_EmployeeQuitPassOrder.NESTED_PASS_FOOTER.app3": {
+                            "BUTTON_TYPE" : 1,
+                            "MODEL_APPFROM" : "app3",
+                            "MODEL_APPTO" : "app4"
+                            },
+                            "NESTED_EmployeeQuitPassOrder.NESTED_PASS_FOOTER.app4": {
+                            "BUTTON_TYPE" : 1,
+                            "MODEL_APPFROM" : "app4",
+                            "MODEL_APPTO" : "app3"
+                            }
+                            
+                            }
+                            
+                            
+                            
+                            ]
+        
+        
+    },
+    
+    
+    
+    
+    
+    
+    
+    
+    "CLIENT": {
+        
+        
+        
+        
+        
+        
+        
+        
+        "COMS_SIGNATURE_BUTTONS": {
+            "signature": "IMG_Signature"
+        },
+        
+        "COMS_DATE_PICKERS": ["NESTED_EmployeeQuitOrder.planQuitDate", "NESTED_EmployeeQuitOrder.approvedQuitDate", "NESTED_EmployeeQuitOrder.employDate", "NESTED_EmployeeQuitPassOrder.passDate"],
+        "COMS_DATE_PATTERNS": {
+            "NESTED_EmployeeQuitOrder.planQuitDate":        "yyyy-MM-dd",
+            "NESTED_EmployeeQuitOrder.approvedQuitDate":    "yyyy-MM-dd",
+            "NESTED_EmployeeQuitOrder.employDate":          "yyyy-MM-dd",
+            "NESTED_EmployeeQuitPassOrder.passDate":             "yyyy-MM-dd"
+        }
+    }
+    
+    
+    
+    
+}

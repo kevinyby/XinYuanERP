@@ -1,0 +1,88 @@
+{
+    "IMAGES" : {
+        "IMAGES_LOAD": ["IMG_Signature","IMG_Photo_LendOut"],
+        
+        "IMAGES_NAMES": {
+            "IMG_Photo_LendOut": {
+                "MAINNAME": ["orderNO", "lendProduct"],
+                "SUF":".png"
+            },
+            "IMG_Signature": {
+                "MAINNAME": ["orderNO","signature"],
+                "SUF":".png"
+            }
+    
+        },
+        "IMAGES_DATAS": {
+            "IMG_Photo_LendOut": {
+            },
+            "IMG_Signature":{
+            }
+           
+        },
+        "IMAGE_PICKER":{
+            "BTN_Take_LendOut":"IMG_Photo_LendOut"
+        },
+        "IMAGES_PREVIEWS":{
+            "IMG_Photo_LendOut":{
+            },
+            "IMG_Signature":{
+            }
+           
+        }
+    },
+    
+    "SERVER":{
+        
+        "SUBMIT_BUTTONS" : [
+                            
+                            {
+                            
+                            "MODEL_SENDVIEW" : "NESTED_TOP",
+                            
+                            "NESTED_TOP.NESTED_bottom_left.createUser": {
+                            "MODEL_APPTO" : "app1",
+                            },
+                            "NESTED_TOP.NESTED_bottom_left.app1": {
+                            "BUTTON_TYPE" : 1,
+                            "MODEL_APPFROM" : "app1",
+                            "MODEL_APPTO" : "app2"
+                            },
+                            "NESTED_TOP.NESTED_bottom_left.app2": {
+                            "BUTTON_TYPE" : 1,
+                            "MODEL_APPFROM" : "app2",
+                            "MODEL_APPTO" : "createUser"
+                            }
+                            
+                            }
+            
+        ],
+        
+       "CHECK_NOTEMPTY": ["IMG_Photo_LendOut","IMG_Signature",
+                          "planReturnDate","staffNO","staffCategory","productName"],
+        
+     },
+    
+    "CLIENT":{
+        
+        "COMS_DATE_PICKERS": ["planReturnDate","returnDate"],
+        "COMS_DATE_PATTERNS": {
+            "planReturnDate":"yyyy-MM-dd",
+            "lendDate":"yyyy-MM-dd",
+            "returnDate":"yyyy-MM-dd"
+        },
+        "CREATE_AUTOFILL": {
+            "NOW_DATE":["lendDate"],
+        },
+        
+        "COMS_SIGNATURE_BUTTONS": {
+            "IMG_Signature": "",
+            "staffSign": "IMG_Signature",
+        },
+        
+    }
+    
+    
+    
+    
+}

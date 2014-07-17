@@ -1,0 +1,446 @@
+{
+    
+    "COMPONENTS" : {
+        "NESTED_footer": "",
+        
+       
+        
+        
+        "NESTED_TABS": {
+            "JFrame": [150, 85, 320, 50 ],
+            "SORTEDKEYS": ["ZZ_TAB_BTNInfo","ZZ_TAB_BTNGoodIn","ZZ_TAB_BTNBorrowOut"],
+            "COMPONENTS" : {
+                "ZZ_TAB_BTNInfo" : {
+                    "JCom": "JRButton",
+                    "JFrame": [0,5,100,46],
+                    "JSubRender": {
+                        "JR_BGN_IMG": "Vendordatacard_06.png"
+                        ,"JR_BGS_IMG": "Vendordatacard_06.png"
+                        ,"JR_BGH_IMG": "Vendordatacard_06.png"
+                        ,"JS_FONT_N_COLOR": [0,0.56,0.8]
+                        ,"JS_FONT_S_COLOR":[0,0,0]
+                        ,"JS_FONT_BOLD": 1,"JR_TITLE_Insets": [0, 0, -10, 0]
+                    }
+                },
+                
+                "ZZ_TAB_BTNGoodIn" : {
+                    "JCom": "JRButton",
+                    "JFrame": [105,5,100,46],
+                    "JSubRender": {
+                        "JR_BGN_IMG": "Vendordatacard_06.png"
+                        ,"JR_BGS_IMG": "Vendordatacard_06.png"
+                        ,"JR_BGH_IMG": "Vendordatacard_06.png"
+                        ,"JS_FONT_N_COLOR": [0,0.56,0.8]
+                        ,"JS_FONT_S_COLOR":[0,0,0]
+                        ,"JS_FONT_BOLD": 1,"JR_TITLE_Insets": [0, 0, -10, 0]
+                    }
+                },
+                
+                "ZZ_TAB_BTNBorrowOut" : {
+                    "JCom": "JRButton",
+                    "JFrame": [210,5,100,46],
+                    "JSubRender": {
+                        "JR_BGN_IMG": "Vendordatacard_06.png"
+                        ,"JR_BGS_IMG": "Vendordatacard_06.png"
+                        ,"JR_BGH_IMG": "Vendordatacard_06.png"
+                        ,"JS_FONT_N_COLOR": [0,0.56,0.8]
+                        ,"JS_FONT_S_COLOR":[0,0,0]
+                        ,"JS_FONT_BOLD": 1,"JR_TITLE_Insets": [0, 0, -10, 0]
+                    }
+                }
+            }
+        },
+        
+        "NESTED_SCROLL":{
+            "JFrame": [0, 135, 3072, 570 ],
+            "SORTEDKEYS": ["NESTED_INFO", "NESTED_GOODIN", "NESTED_BORROWOUT"],
+            "COMPONENTS" : {
+                
+                "NESTED_INFO":{
+                    "JFrame": [0, 0, 1024, 570 ],
+                    "COMPONENTS" : {
+                        
+                        "NESTED_INFO_BODY":{
+                            "JFrame": [75, 0, 880, 570 ],
+                            "SORTEDKEYS": ["BG_book"],
+                            "COMPONENTS" : {
+                                
+                                "BG_book" : {
+                                    "JCom": "JRImageView",
+                                    "JFrame": [0,-5,-1.1,-1.1],
+                                    "JSubRender":{
+                                        "JR_IMG": "Vendordatacard_07.png"
+                                    }
+                                },
+                                
+                                "NESTED_BODY":{
+                                    "JFrame": [80, 5, 750, 560 ],
+                                    "COMPONENTS" : {
+                                        
+                                        "NESTED_BODY_UP":{
+                                            "JFrame": [0, 10, 740, 260 ],
+                                            "COMPONENTS" : {
+                                                
+                                                "NESTED_BODY_UP_LEFT":{
+                                                    "JFrame": [0, 0, 320, 260 ],
+                                                    "COMPONENTS" : {
+                                                        
+                                                        "number": {
+                                                            "JCom" : "JRLabelCommaTextFieldView",
+                                                            "JFrame": [0,0,310,46],
+                                                            "JSubRender": {
+                                                                "frames":[[], [], []],
+                                                                "SubRenders":[{"CH_SPACE": "0"},{},{"JR_IMG":"Vendordatacard_01.png"}]
+                                                            }
+                                                        },
+                                                        
+                                                        "name": {
+                                                            "JCom" : "JRLabelCommaTextFieldView",
+                                                            "JFrame": [0,50,310,46],
+                                                            "JSubRender": {
+                                                                "frames":[[], [], []],
+                                                                "SubRenders":[{"CH_SPACE": "0"},{},{"JR_IMG":"Vendordatacard_01.png"}]
+                                                            }
+                                                        },
+                                                        
+                                                        "category": {
+                                                            "JCom" : "JRLabelCommaTextFieldView",
+                                                            "JFrame": [0,100,310,46],
+                                                            "JSubRender": {
+                                                                "frames":[[], [], []],
+                                                                "SubRenders":[{"CH_SPACE": "0"},{},{"JR_IMG":"Vendordatacard_01.png"}]
+                                                            }
+                                                        },
+                                                        
+                                                        "webSite": {
+                                                            "JCom" : "JRLabelCommaTextFieldView",
+                                                            "JFrame": [0,150,310,46],
+                                                            "JSubRender": {
+                                                                "frames":[[], [], []],
+                                                                "SubRenders":[{"CH_SPACE": "7"},{},{"JR_IMG":"Vendordatacard_01.png"}]
+                                                            }
+                                                        }
+                                                        
+                                                    }
+                                                    
+                                                    
+                                                },
+                                                
+                                                "NESTED_BODY_UP_RIGHT":{
+                                                    "JFrame": [400, 0, 320, 260 ],
+                                                    "COMPONENTS" : {
+                                                        
+                                                        "principal": {
+                                                            "JCom" : "JRLabelCommaTextFieldView",
+                                                            "JFrame": [0,0,310,46],
+                                                            "JSubRender": {
+                                                                "frames":[[], [], []],
+                                                                "SubRenders":[{"CH_SPACE": "2"},{},{"JR_IMG":"Vendordatacard_01.png"}]
+                                                            }
+                                                        },
+                                                        
+                                                        "phoneNO": {
+                                                            "JCom" : "JRLabelCommaTextFieldView",
+                                                            "JFrame": [0,50,310,46],
+                                                            "JSubRender": {
+                                                                "frames":[[], [], []],
+                                                                "SubRenders":[{"CH_SPACE": "7"},{},{"JR_IMG":"Vendordatacard_01.png"}]
+                                                            }
+                                                        },
+                                                        
+                                                        "faxNO": {
+                                                            "JCom" : "JRLabelCommaTextFieldView",
+                                                            "JFrame": [0,100,310,46],
+                                                            "JSubRender": {
+                                                                "frames":[[], [], []],
+                                                                "SubRenders":[{"CH_SPACE": "7"},{},{"JR_IMG":"Vendordatacard_01.png"}]
+                                                            }
+                                                        },
+                                                        
+                                                        "address": {
+                                                            "JCom" : "JRLabelCommaTextFieldView",
+                                                            "JFrame": [0,150,310,46],
+                                                            "JSubRender": {
+                                                                "frames":[[], [], []],
+                                                                "SubRenders":[{"CH_SPACE": "7"},{},{"JR_IMG":"Vendordatacard_01.png"}]
+                                                            }
+                                                        },
+                                                        
+                                                        "postcode": {
+                                                            "JCom" : "JRLabelCommaTextFieldView",
+                                                            "JFrame": [0,200,310,46],
+                                                            "JSubRender": {
+                                                                "frames":[[], [], []],
+                                                                "SubRenders":[{"CH_SPACE": "0"},{},{ "JR_IMG":"Vendordatacard_01.png"}]
+                                                            }
+                                                        }
+                                                        
+                                                    }
+                                                    
+                                                    
+                                                }
+                                                
+                                            }
+                                        },
+                                        
+                                        
+                                        "NESTED_BODY_DOWN":{
+                                            "JFrame": [0, 260, 740, 200 ],
+                                            "COMPONENTS" : {
+                                                
+                                                "NESTED_BODY_DOWN_LEFT":{
+                                                    
+                                                    "JFrame": [1, 1, 350, 198 ],
+                                                    "COMPONENTS" : {
+                                                        
+                                                        "NESTED_PHOTO_ONE":{
+                                                            "JFrame": [5, 5, 170, 190 ],
+                                                            "SORTEDKEYS": ["BG_ConteactPhoto_One","IMG_Photo_One"],
+                                                            "COMPONENTS" : {
+                                                                "BG_ConteactPhoto_One":{
+                                                                    "JCom": "JRImageView",
+                                                                    "JFrame": [0,30,-1.1,-1.1],
+                                                                    "JSubRender":{
+                                                                        "JR_IMG": "Vendordatacard_02.png"
+                                                                    }
+                                                                },
+                                                                "IMG_Photo_One":{
+                                                                    "JCom": "JRImageView",
+                                                                    "JFrame": [5,35,147,137],
+                                                                    "JSubRender":{
+                                                                        "JR_IMG": "",
+                                                                        "JR_Radius": 8.0
+                                                                    }
+                                                                },
+                                                                "BTN_Take_One" : {
+                                                                    "JCom": "JRButton",
+                                                                    "JFrame": [25,5,-1.1,-1.1],
+                                                                    "JSubRender":{
+                                                                        "JR_BGN_IMG": "Vendordatacard_04.png"
+                                                                    }
+                                                                }
+                                                            }
+                                                        },
+                                                        
+                                                        "contactOne" : {
+                                                            "JCom" : "JRComplexView",
+                                                            "JFrame": [170, 40, 175, 180 ],
+                                                            "COMPONENTS": {
+                                                                
+                                                                "contactOne": {
+                                                                    "JCom" : "JRLabelCommaTextFieldView",
+                                                                    "JFrame": [0,0,166,70],
+                                                                    "JSubRender": {
+                                                                        "frames":[[0,0,-1.1,25], [], [0, 25, -1.1,-1.1]],
+                                                                        "SubRenders":[{},{},{ "JR_IMG":"Vendordatacard_03.png"}]
+                                                                    }
+                                                                },
+                                                                
+                                                                "phoneNO": {
+                                                                    "JCom" : "JRLabelCommaTextFieldView",
+                                                                    "JFrame": [0,70,166,70],
+                                                                    "JSubRender": {
+                                                                        "frames":[[0,0,-1.1,25], [], [0, 25, -1.1,-1.1]],
+                                                                        "SubRenders":[{},{},{"JR_IMG":"Vendordatacard_03.png"}]
+                                                                    }
+                                                                }
+                                                                
+                                                                
+                                                            }
+                                                        }
+                                                        
+                                                    }
+                                                    
+                                                },
+                                                
+                                                "NESTED_BODY_DOWN_RIGHT":{
+                                                    
+                                                    "JFrame": [380, 1, 350, 198 ],
+                                                    "COMPONENTS" : {
+                                                        
+                                                        "NESTED_PHOTO_TWO":{
+                                                            "JFrame": [5, 5, 170, 190 ],
+                                                            "SORTEDKEYS": ["BG_ConteactPhoto_Two","IMG_Photo_Two"],
+                                                            "COMPONENTS" : {
+                                                                "BG_ConteactPhoto_Two":{
+                                                                    "JCom": "JRImageView",
+                                                                    "JFrame": [0,30,-1.1,-1.1],
+                                                                    "JSubRender":{
+                                                                        "JR_IMG": "Vendordatacard_02.png"
+                                                                    }
+                                                                },
+                                                                "IMG_Photo_Two":{
+                                                                    "JCom": "JRImageView",
+                                                                    "JFrame": [5,35,147,137],
+                                                                    "JSubRender":{
+                                                                        "JR_IMG": "",
+                                                                        "JR_Radius": 8.0
+                                                                    }
+                                                                },
+                                                                "BTN_Take_Two" : {
+                                                                    "JCom": "JRButton",
+                                                                    "JFrame": [25,5,-1.1,-1.1],
+                                                                    "JSubRender":{
+                                                                        "JR_BGN_IMG": "Vendordatacard_04.png"
+                                                                    }
+                                                                }
+                                                            }
+                                                        },
+                                                        
+                                                        "contactTwo" : {
+                                                            "JCom" : "JRComplexView",
+                                                            "JFrame": [170, 40, 175, 180 ],
+                                                            "COMPONENTS": {
+                                                                
+                                                                "contactTwo": {
+                                                                    "JCom" : "JRLabelCommaTextFieldView",
+                                                                    "JFrame": [0,0,166,70],
+                                                                    "JSubRender": {
+                                                                        "frames":[[0,0,-1.1,25], [], [0, 25, -1.1,-1.1]],
+                                                                        "SubRenders":[{},{},{"JR_IMG":"Vendordatacard_03.png"}]
+                                                                    }
+                                                                },
+                                                                
+                                                                "phoneNO": {
+                                                                    "JCom" : "JRLabelCommaTextFieldView",
+                                                                    "JFrame": [0,70,166,70],
+                                                                    "JSubRender": {
+                                                                        "frames":[[0,0,-1.1,25], [], [0, 25, -1.1,-1.1]],
+                                                                        "SubRenders":[{},{},{ "JR_IMG":"Vendordatacard_03.png"}]
+                                                                    }
+                                                                }
+                                                                
+                                                                
+                                                            }
+                                                        }
+                                                        
+                                                    }
+                                                    
+                                                }
+                                                
+                                            }
+                                        },
+                                        
+                                        "NESTED_BODY_FOOTER":{
+                                            "JFrame": [2, 472, 738, 85 ],
+                                            "COMPONENTS" : {
+                                                "ZZ_BTNSubmit":  {
+                                                    "JCom": "JRButton",
+                                                    "JFrame": [300, 25, -1.1, -1.1],
+                                                    "JSubRender":{
+                                                        "JR_BGN_IMG": "Vendordatacard_05.png","FONT_SIZE": 25, "JS_FONT_BOLD":1,"JS_FONT_N_COLOR":[255,255,255,1]
+                                                    }
+                                                }
+                                            }
+                                        }
+                                        
+                                    }
+                                }
+                                
+                                
+                            }
+                        }
+                        
+                    }
+                },
+                
+                "NESTED_GOODIN":{
+                    "JFrame": [1024, 0, 1024, 570 ],
+                    "COMPONENTS" : {
+                        
+                        "NESTED_MAIN":{
+                            "JFrame": [45, 0, 900, 570 ],
+                            "BORDER": 16,
+                            "SORTEDKEYS": ["BG_book"],
+                            "COMPONENTS" : {
+                                
+                                "BG_book" : {
+                                    "JCom": "JRImageView",
+                                    "JFrame": [0,-25,-1.1,-1.1],
+                                    "JSubRender":{
+                                        "JR_IMG": "Lentitems_01.png"
+                                    }
+                                },
+                                
+                                "BTN_GOODIN_ADD" : {
+                                    "JCom": "JRButton",
+                                    "BORDER" : 3,
+                                    "JFrame": [760,-1,-1.1,-1.1],
+                                    "JSubRender":{
+                                        "JR_BGN_IMG": "Lentitems_02.png"
+                                    }
+                                },
+                                
+                                "GOODIN_TABLE": {
+                                    "JCom": "JRRefreshTableView",
+                                    "BORDER": 2,
+                                    "JFrame": [65, 50, 800, 450],
+                                    "JSubRender":{
+                                        "JR_CELLBGN_IMG":"Contract_02.png",
+                                        "JR_CELLBGH_IMG":"Contract_03.png",
+                                        "BGCOLOR": 0,
+                                        "HIDE_SEARCH_BAR": 1
+                                    }
+                                }
+                                
+                            }
+                        }
+                        
+                    }
+                },
+                
+                "NESTED_BORROWOUT":{
+                    "JFrame": [2048, 0, 1024, 570 ],
+                    "COMPONENTS" : {
+                        
+                        "NESTED_MAIN":{
+                            "JFrame": [45, 0, 900, 570 ],
+                            "BORDER": 16,
+                            "SORTEDKEYS": ["BG_book"],
+                            "COMPONENTS" : {
+                                
+                                "BG_book" : {
+                                    "JCom": "JRImageView",
+                                    "JFrame": [0,-25,-1.1,-1.1],
+                                    "JSubRender":{
+                                        "JR_IMG": "Lentitems_01.png"
+                                    }
+                                },
+                                
+                                "BTN_BORROWOUT_ADD" : {
+                                    "JCom": "JRButton",
+                                    "BORDER" : 3,
+                                    "JFrame": [760,-1,-1.1,-1.1],
+                                    "JSubRender":{
+                                        "JR_BGN_IMG": "Lentitems_02.png"
+                                    }
+                                },
+                                
+                                "BORROWOUT_TABLE": {
+                                    "JCom": "JRRefreshTableView",
+                                    "JFrame": [65, 50, 800, 450],
+                                    "JSubRender":{
+                                        "JR_CELLBGN_IMG":"Contract_02.png",
+                                        "JR_CELLBGH_IMG":"Contract_03.png",
+                                        "BGCOLOR": 0,
+                                        "HIDE_SEARCH_BAR": 1
+                                    }
+                                }
+                                
+                            }
+                        }
+                        
+                        
+                    }
+                }
+                
+            }
+        }
+        
+        
+    },
+    
+    
+    "LETTER_VER_TEXTFIEDS": ["NESTED_BODY_UP_LEFT","NESTED_BODY_UP_RIGHT"],
+    
+}

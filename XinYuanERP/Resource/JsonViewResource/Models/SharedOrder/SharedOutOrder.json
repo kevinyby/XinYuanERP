@@ -1,0 +1,245 @@
+{
+
+"SORTEDKEYS_":["NESTED_BODY","NESTED_footer"],
+"COMPONENTS" : {
+    "BG_BOOK_IMAGE": {
+        "JCom" : "JRImageView",
+        "JFrame": [0,80,-1.1,-1.1],
+        "JSubRender": {
+            "JR_IMG":"out_bg.png"
+        }
+    },
+    
+
+    "NESTED_BODY": {
+        "JFrame": [ 70,100, 940, 600 ],
+        "BORDER":1,
+        "SORTEDKEYS":["NESTED_MAIN","v1","v2","v3"],
+        "COMPONENTS": {
+            "NESTED_MAIN":{
+                "JFrame":[0,0,900,430],
+                "BORDER":2,
+                "COMPONENTS":{
+                    "orderNO":{
+                        "JCom":"JRLabelCommaTextFieldView",
+                        "JFrame":[200,-5,500,50],
+                        "BORDER":3,
+                        "JSubRender":{
+                            "SubRenders":[{},{},{"JR_IMG":"visotor_order.png"}]
+                        }
+                    },
+                    
+                    "mainTable":{
+                        "JCom": "JRRefreshTableView",
+                        "JFrame": [0, 55, 557, 310],
+                        "BORDER_": 28,
+                        "JSubRender":{
+                            "BGCOLOR": 0,
+                            "HIDE_SEARCH_BAR": 1,
+                            "SHOW_LINES":1,
+                            "HIDE_REFRESH": 1,
+                            
+                            "CELL_BGCOLOR": 0,
+                            
+                            "headerColor":0,
+                            "headerHeight": 45,
+                            "headers":["SharedOutOrder.number","SharedOutOrder.name","SharedOutOrder.Personal items"],
+                            "headersX":[65,220,370],
+                            "headersY": [15],
+                        }
+                    },
+                    "v1": {
+                        "JCom" : "JRImageView",
+                        "JFrame": [150,60,-1.1,-1.1],
+                        "JSubRender":{
+                            "DISABLE_VALUE":1
+                        },
+                        "COMPONENTS": {
+                            
+                            "top" : {
+                                "JCom": "JRImageView",
+                                "JFrame": [0, 0],
+                                "JSubRender":{
+                                    "JR_IMG": "WHPurchase_线顶部.png"
+                                }
+                            },
+                            "middle" : {
+                                "JCom": "JRImageView",
+                                "JFrame": [0, 48,4,192],
+                                "JSubRender":{
+                                    "JR_IMG": "WHPurchase_线中部.png"
+                                }
+                            },
+                            "bottom" : {
+                                "JCom": "JRImageView",
+                                "JFrame": [0, 240],
+                                "JSubRender":{
+                                    "JR_IMG": "WHPurchase_线底部.png"
+                                }
+                            }
+                        }
+                    },
+                    "v2": {
+                        "JCom" : "JRImageView",
+                        "JFrame": [300,60,-1.1,-1.1],
+                        "JSubRender":{
+                            "DISABLE_VALUE":1
+                        },
+                        "COMPONENTS": {
+                            
+                            "top" : {
+                                "JCom": "JRImageView",
+                                "JFrame": [0, 0],
+                                "JSubRender":{
+                                    "JR_IMG": "WHPurchase_线顶部.png"
+                                }
+                            },
+                            "middle" : {
+                                "JCom": "JRImageView",
+                                "JFrame": [0, 48,4,192],
+                                "JSubRender":{
+                                    "JR_IMG": "WHPurchase_线中部.png"
+                                }
+                            },
+                            "bottom" : {
+                                "JCom": "JRImageView",
+                                "JFrame": [0, 240],
+                                "JSubRender":{
+                                    "JR_IMG": "WHPurchase_线底部.png"
+                                }
+                            }
+                        }
+                    },
+                    "v3": {
+                        "JCom" : "JRImageView",
+                        "JFrame": [555,60,-1.1,-1.1],
+                        "JSubRender":{
+                            "DISABLE_VALUE":1
+                        },
+                        "COMPONENTS": {
+                            
+                            "top" : {
+                                "JCom": "JRImageView",
+                                "JFrame": [0, 0],
+                                "JSubRender":{
+                                    "JR_IMG": "WHPurchase_线顶部.png"
+                                }
+                            },
+                            "middle" : {
+                                "JCom": "JRImageView",
+                                "JFrame": [0, 48,4,192],
+                                "JSubRender":{
+                                    "JR_IMG": "WHPurchase_线中部.png"
+                                }
+                            },
+                            "bottom" : {
+                                "JCom": "JRImageView",
+                                "JFrame": [0, 240],
+                                "JSubRender":{
+                                    "JR_IMG": "WHPurchase_线底部.png"
+                                }
+                            }
+                        }
+                    },
+                    
+                    "reason":{
+                        "JCom":"JRLabelTextFieldView",
+                        "JFrame":[0,365,890,60],
+                        "BORDER":5,
+                        "JSubRender":{
+                            "frames":[[0,0,-1.1,40],[180,0,700,60]],
+                            "SubRenders":[{"CH_SPACE": "0.49"},{}]
+                        }
+                    }
+                }
+            },
+            "NESTED_ADDON":{
+                "JFrame":[570,48,325,315],
+                "BORDER":9,
+                "SORTEDKEYS":["bg"],
+                "COMPONENTS":{
+                    "bg":{
+                        "JCom":"JRImageView",
+                        "JSubRender":{"JR_IMG":"out_sticker.png"}
+                    },
+                    "addonLabel":{
+                        "JCom":"JRLocalizeLabel",
+                        "JFrame":[60,10,-1.1,70],
+                        "JSubRender": {
+                            "FONT_SIZE":20, "JS_FONT_BOLD": 1
+                        }
+                    },
+                    "addonButton":{
+                        "JCom":"JRButton",
+                        "JFrame":[245,8,-1.1,-1.1],
+                        "JSubRender": {
+                            "BORDER": 2,"JR_BGN_IMG": "out_add.png","JS_FONT_N_COLOR":[1,1,1],"JS_FONT_BOLD": 1
+                        }
+                    }
+                }
+            },
+            "NESTED_BUTTONS":{
+                "JFrame":[130,495,480,100],
+                "BORDER":7,
+                "COMPONENTS":{
+                    "outTime":{
+                        "JCom":"JRButtonTextFieldView",
+                        "JFrame":[0,0,300,70],
+                        "JSubRender":{
+                            "frames":[[0,0,-1.1,-1.1],[115,0,-1.1,-1.1]],
+                            "SubRenders":[{"JR_BGN_IMG":"out_button.png"},{"JR_IMG":"out_label.png"}]
+                        }
+                    },
+                    "inTime":{
+                        "JCom":"JRButtonTextFieldView",
+                        "JFrame":[0,50,300,70],
+                        "JSubRender":{
+                            "frames":[[0,0,-1.1,-1.1],[115,0,-1.1,-1.1]],
+                            "SubRenders":[{"JR_BGN_IMG":"out_button.png"},{"JR_IMG":"out_label.png"}]
+                        }
+                    }
+                }
+            }
+        }
+    },
+    
+    "NESTED_footer": {
+        "JFrame": [ 200, 540, 500, 50 ],
+        "SORTEDKEYS": [],
+        "BORDER":6,
+        "COMPONENTS": {
+            
+            "createUser": {
+                "JFrame": [0,0,-1.1,-1.1]
+            },
+            
+            "app1": {
+                "JFrame": [170,0,-1.1,-1.1]
+            },
+            
+            "app2": {
+                "JFrame": [340,0,-1.1,-1.1]
+            },
+            
+            "app3": "",
+            
+            "app4":""
+        }
+    }
+    
+}
+
+
+
+
+
+}
+
+
+
+
+
+
+
+
+

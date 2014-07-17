@@ -1,0 +1,69 @@
+
+{
+    "IMAGES" : {
+        
+        "IMAGES_LOAD": ["IMG_Photo"],
+        "IMAGES_NAMES": {
+            "IMG_Photo": {
+                "MAINNAME": ["orderNO"]
+            }
+        },
+        "IMAGES_DATAS": {
+            "IMG_Photo": {
+                "FIX": 1
+            }
+        },
+        
+        
+        "IMAGE_PICKER":{
+            "BTN_Take":"IMG_Photo"
+        },
+        "IMAGES_PREVIEWS":{
+            "IMG_Photo":{
+            }
+        }
+        
+        
+    },
+    
+    
+    
+    "SERVER":{
+        
+        "SUBMIT_BUTTONS" : [
+                            "MODEL_SENDVIEW" : "NESTED_INFO",
+                            
+                            {
+                            "NESTED_INFO.NESTED_BUTTONS.BTN_SAVE": {
+                            }
+                            }
+        ],
+        
+    },
+    
+    
+    
+    
+    
+    
+    
+    
+    "CLIENT": {
+        
+        
+        
+        
+        "COMS_DATE_PICKERS": ["NESTED_INFO.NESTED_LEFT.insurExpira", "NESTED_INFO.NESTED_LEFT.checkExpira", "NESTED_INFO.NESTED_RIGHT.boughtDate", "NESTED_INFO.NESTED_RIGHT.paperDate"],
+        "COMS_DATE_PATTERNS": {
+            "NESTED_INFO.NESTED_LEFT.insurExpira":          "yyyy-MM-dd",
+            "NESTED_INFO.NESTED_LEFT.checkExpira":          "yyyy-MM-dd",
+            "NESTED_INFO.NESTED_RIGHT.boughtDate":          "yyyy-MM-dd",
+            "NESTED_INFO.NESTED_RIGHT.paperDate":            "yyyy-MM-dd",
+        }
+        
+        
+    }
+    
+    
+    
+}

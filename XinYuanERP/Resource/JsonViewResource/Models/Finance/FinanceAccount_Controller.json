@@ -1,0 +1,39 @@
+
+{
+    
+    
+    "SERVER":{
+        
+        "SUBMIT_BUTTONS" : [
+                            {
+                            "MODEL_SENDVIEW" : "NESTED_INFO",
+                            
+                            "NESTED_BUTTONS.save": {
+                            }
+                            
+                            }
+        ],
+        
+        "CHECK_NOTEMPTY": [
+                            "NESTED_INFO.number","NESTED_INFO.name","NESTED_INFO.bank",
+                            "bankAccountNumber"
+                            ],
+        
+    },
+    
+    
+    
+    
+    
+    
+    
+    
+    "CLIENT": {
+        
+        
+    }
+    
+    
+    
+    
+}

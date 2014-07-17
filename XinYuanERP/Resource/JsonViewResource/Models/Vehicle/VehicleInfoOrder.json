@@ -1,0 +1,357 @@
+{
+    
+    
+    "LETTER_VER_TEXTFIEDS": [["nextMaintain","insurExpira","checkExpira"],
+                             ["vehicleNo","vehicleType","fileNo","vehicleAlias","engineNo","boughtDate","paperDate"]],
+    "COMPONENTS":{
+        "NESTED_footer":"",
+        
+        "NESTED_TABS": {
+            "JFrame": [150, 78, 440, 50 ],
+            "SORTEDKEYS": ["TAB_INFO","TAB_DISPATCH","TAB_REFUEL", "TAB_MAINTAN"],
+            "COMPONENTS":{
+                "TAB_INFO":{
+                    "JCom": "JRButton",
+                    "JFrame": [0,5,100,46],
+                    "JSubRender": {
+                        "JR_BGN_IMG": "CustomerDataCard_01.png"
+                        ,"JR_BGS_IMG": "CustomerDataCard_01.png"
+                        ,"JR_BGH_IMG": "CustomerDataCard_01.png"
+                        ,"JS_FONT_N_COLOR": [0,0.56,0.8]
+                        ,"JS_FONT_S_COLOR":[0,0,0]
+                        ,"JS_FONT_BOLD": 1,"JR_TITLE_Insets": [0, 0, -10, 0]
+                    }
+                },
+                "TAB_DISPATCH":{
+                    "JCom": "JRButton",
+                    "JFrame": [105,5,100,46],
+                    "JSubRender": {
+                        "JR_BGN_IMG": "CustomerDataCard_01.png"
+                        ,"JR_BGS_IMG": "CustomerDataCard_01.png"
+                        ,"JR_BGH_IMG": "CustomerDataCard_01.png"
+                        ,"JS_FONT_N_COLOR": [0,0.56,0.8]
+                        ,"JS_FONT_S_COLOR":[0,0,0]
+                        ,"JS_FONT_BOLD": 1,"JR_TITLE_Insets": [0, 0, -10, 0]
+                    }
+                },
+                "TAB_REFUEL":{
+                    "JCom": "JRButton",
+                    "JFrame": [210,5,100,46],
+                    "JSubRender": {
+                        "JR_BGN_IMG": "CustomerDataCard_01.png"
+                        ,"JR_BGS_IMG": "CustomerDataCard_01.png"
+                        ,"JR_BGH_IMG": "CustomerDataCard_01.png"
+                        ,"JS_FONT_N_COLOR": [0,0.56,0.8]
+                        ,"JS_FONT_S_COLOR":[0,0,0]
+                        ,"JS_FONT_BOLD": 1,"JR_TITLE_Insets": [0, 0, -10, 0]
+                    }
+                },
+                "TAB_MAINTAN":{
+                    "JCom": "JRButton",
+                    "JFrame": [315,5,100,46],
+                    "JSubRender": {
+                        "JR_BGN_IMG": "CustomerDataCard_01.png"
+                        ,"JR_BGS_IMG": "CustomerDataCard_01.png"
+                        ,"JR_BGH_IMG": "CustomerDataCard_01.png"
+                        ,"JS_FONT_N_COLOR": [0,0.56,0.8]
+                        ,"JS_FONT_S_COLOR":[0,0,0]
+                        ,"JS_FONT_BOLD": 1,"JR_TITLE_Insets": [0, 0, -10, 0]
+                    }
+                }
+            }
+        },
+        
+        "NESTED_SCROLL":{
+            "JFrame": [0, 125, 4096, 570 ],
+            "BORDER": 11,
+            "SORTEDKEYS": ["NESTED_INFO", "NESTED_DISPATCH", "NESTED_REFUEL", "NESTED_MAINTAN"],
+            "COMPONENTS" : {
+                "NESTED_INFO":{
+                    "JFrame": [0, 0, 1024, 570 ],
+                    "BORDER": 12,
+                    "BGCOLOR_":1,
+                    "COMPONENTS" : {
+                        
+                        "NESTED_MAIN":{
+                            "JFrame":[100,0,800,570],
+                            "SORTEDKEYS":["BG_book"],
+                            "COMPONENTS":{
+                                
+                                "BG_book":{
+                                    "JCom":"JRImageView",
+                                    "JFrame":[0,-15,-1.1,-1.1],
+                                    "JSubRender":{
+                                        "JR_IMG": "Vehicleregistrationdata_07.png"
+                                    }
+                                },
+                                "NESTED_LEFT":{
+                                    "JFrame":[50,20,350,350],
+                                    "BORDER":13,
+                                    "SORTEDKEYS": ["BG_Photo","IMG_Photo"],
+                                    "COMPONENTS":{
+                                        
+                                        "BG_Photo" :{
+                                            "JCom": "JRImageView",
+                                            "JFrame": [30,0,-1.1,-1.1],
+                                            "JSubRender":{
+                                                "JR_IMG": "Vehicleregistrationdata_02.png"
+                                            }
+                                        },
+                                        
+                                        "IMG_Photo":{
+                                            "JCom":"JRImageView",
+                                            "BORDER":3,
+                                            "JFrame":[33,2,295,175],
+                                            "JSubRender":{
+                                                "JR_IMG":"",
+                                                "JR_Radius":8.0
+                                            }
+                                        },
+                                        "BTN_Take":{
+                                            "JCom":"JRButton",
+                                            "JFrame":[3,20,-1.1,-1.1],
+                                            "JSubRender":{
+                                                "JR_BGN_IMG":"Vehicleregistrationdata_01.png"
+                                            }
+                                        },
+                                        "nextMaintain":{
+                                            "JCom":"JRLabelCommaTextFieldView",
+                                            "JFrame":[0,200,200,30],
+                                            "JSubRender":{
+                                                "frames":[[],[],[]],
+                                                "SubRenders":[{},{},{"JR_IMG":"Vehicleregistrationdata_03.png"}]
+                                            }
+                                        },
+                                        "insurExpira":{
+                                            "JCom":"JRLabelCommaTextFieldView",
+                                            "JFrame":[0,250,260,30],
+                                            "JSubRender":{
+                                                "frames":[[],[],[]],
+                                                "SubRenders":[{},{},{"JR_IMG":"Vehicleregistrationdata_03.png"}]
+                                            }
+                                        },
+                                        "checkExpira":{
+                                            "JCom":"JRLabelCommaTextFieldView",
+                                            "JFrame":[0,300,260,30],
+                                            "JSubRender":{
+                                                "frames":[[],[],[]],
+                                                "SubRenders":[{},{},{"JR_IMG":"Vehicleregistrationdata_03.png"}]
+                                            }
+                                        }
+                                        
+                                    }
+                                },
+                                "NESTED_RIGHT":{
+                                    "JFrame":[470,20,400,350],
+                                    "BORDER":15,
+                                    "COMPONENTS":{
+                                        "vehicleNo":{
+                                            "JCom":"JRLabelCommaTextFieldView",
+                                            "JFrame":[0,0,260,30],
+                                            "JSubRender":{
+                                                "frames":[[],[],[]],
+                                                "SubRenders":[{"CH_SPACE": "2"},{},{"JR_IMG":"Vehicleregistrationdata_03.png"}]
+                                            }
+                                        },
+                                        "vehicleType":{
+                                            "JCom":"JRLabelCommaTextFieldView",
+                                            "JFrame":[0,50,260,30],
+                                            "JSubRender":{
+                                                "frames":[[],[],[]],
+                                                "SubRenders":[{"CH_SPACE": "2"},{},{"JR_IMG":"Vehicleregistrationdata_03.png"}]
+                                            }
+                                        },
+                                        "fileNo":{
+                                            "JCom":"JRLabelCommaTextFieldView",
+                                            "JFrame":[0,100,260,30],
+                                            "JSubRender":{
+                                                "frames":[[],[],[]],
+                                                "SubRenders":[{"CH_SPACE": "2"},{},{"JR_IMG":"Vehicleregistrationdata_03.png"}]
+                                            }
+                                        },
+                                        "vehicleAlias":{
+                                            "JCom":"JRLabelCommaTextFieldView",
+                                            "JFrame":[0,150,260,30],
+                                            "JSubRender":{
+                                                "frames":[[],[],[]],
+                                                "SubRenders":[{"FONT_SIZE":17.5},{},{"JR_IMG":"Vehicleregistrationdata_03.png"}]
+                                            }
+                                        },
+                                        "engineNo":{
+                                            "JCom":"JRLabelCommaTextFieldView",
+                                            "JFrame":[0,200,260,30],
+                                            "JSubRender":{
+                                                "frames":[[],[],[]],
+                                                "SubRenders":[{"CH_SPACE": "1","FONT_SIZE":17.5},{},{"JR_IMG":"Vehicleregistrationdata_03.png"}]
+                                            }
+                                        },
+                                        "boughtDate":{
+                                            "JCom":"JRLabelCommaTextFieldView",
+                                            "JFrame":[0,250,260,30],
+                                            "JSubRender":{
+                                                "frames":[[],[],[]],
+                                                "SubRenders":[{"CH_SPACE": "2"},{},{"JR_IMG":"Vehicleregistrationdata_03.png"}]
+                                            }
+                                        },
+                                        "paperDate":{
+                                            "JCom":"JRLabelCommaTextFieldView",
+                                            "JFrame":[0,300,260,30],
+                                            "JSubRender":{
+                                                "frames":[[],[],[]],
+                                                "SubRenders":[{"CH_SPACE": "2"},{},{"JR_IMG":"Vehicleregistrationdata_03.png"}]
+                                            }
+                                        }
+                                    }
+                                },
+                                "NESTED_BUTTONS":{
+                                    "JFrame":[325,410,200,40],
+                                    "COMPONENTS":{
+                                        "BTN_MODIFY":{
+                                            "JCom":"JRButton",
+                                            "JFrame":[],
+                                            "JSubRender":{
+                                                "JR_BGN_IMG":"CustomerDataCard_07.png"
+                                            }
+                                        },
+                                        "BTN_SAVE":{
+                                            "JCom":"JRButton",
+                                            "JFrame":[130,0,-1.1,-1.1],
+                                            "JSubRender":{
+                                                "JR_BGN_IMG":"CustomerDataCard_07.png"
+                                            }
+                                        }
+                                    }
+                                }
+                                
+                            }
+                        }
+                        
+                        
+                    }
+                },
+                "NESTED_DISPATCH":{
+                    "JFrame": [1024, 0, 1024, 570 ],
+                    "BGCOLOR":2,
+                    "COMPONENTS" : {
+                        "NESTED_MAIN":{
+                            "JFrame":[100,0,850,570],
+                            "SORTEDKEYS":["BG_book"],
+                            "COMPONENTS":{
+                                
+                                "BG_book":{
+                                    "JCom":"JRImageView",
+                                    "JFrame":[0,-15,-1.1,-1.1],
+                                    "JSubRender":{
+                                        "JR_IMG": "Contract_04.png"
+                                    }
+                                },
+                                "MAIN_TABLE": {
+                                    "JCom": "JRRefreshTableView",
+                                    "JFrame": [65, 10, 805, 515],
+                                    "BORDER_": 28,
+                                    "JSubRender":{
+                                        "BGCOLOR": 0,
+                                        "HIDE_SEARCH_BAR": 1,
+                                        "SHOW_LINES":1,
+                                        "HIDE_REFRESH": 1,
+                                        
+                                        "CELL_BGCOLOR": 0,
+                                        
+                                        "headerColor":0,
+                                        "headerHeight": 45,
+                                        "headers":["date","VehicleApplyOrder.driver", "VehicleApplyOrder.reason","VehicleApplyOrder.startMile"],
+                                        "headersX":[65,240,365,477],
+                                        "headersY": [10],
+                                    }
+                                },
+                                
+                            }
+                        }
+                    }
+                },
+                "NESTED_REFUEL":{
+                    "JFrame": [2048, 0, 1024, 570 ],
+                    "BGCOLOR":3,
+                    "COMPONENTS" : {
+                        
+                        "NESTED_MAIN":{
+                            "JFrame":[100,0,850,570],
+                            "SORTEDKEYS":["BG_book"],
+                            "COMPONENTS":{
+                                
+                                "BG_book":{
+                                    "JCom":"JRImageView",
+                                    "JFrame":[0,-15,-1.1,-1.1],
+                                    "JSubRender":{
+                                        "JR_IMG": "Contract_04.png"
+                                    }
+                                },
+                                "MAIN_TABLE": {
+                                    "JCom": "JRRefreshTableView",
+                                    "JFrame": [65, 10, 805, 515],
+                                    "BORDER_": 28,
+                                    "JSubRender":{
+                                        "BGCOLOR": 0,
+                                        "HIDE_SEARCH_BAR": 1,
+                                        "SHOW_LINES":1,
+                                        "HIDE_REFRESH": 1,
+                                        
+                                        "CELL_BGCOLOR": 0,
+                                        
+                                        "headerColor":0,
+                                        "headerHeight": 45,
+                                        "headers":["date","VehicleApplyOrder.driver", "VehicleApplyOrder.reason","VehicleApplyOrder.startMile"],
+                                        "headersX":[65,240,365,477],
+                                        "headersY": [10],
+                                    }
+                                },
+                                
+                            }
+                        }
+                    }
+                },
+                "NESTED_MAINTAN":{
+                    "JFrame": [3072, 0, 1024, 570 ],
+                    "BGCOLOR":4,
+                    "COMPONENTS" : {
+                        
+                        "NESTED_MAIN":{
+                            "JFrame":[100,0,850,570],
+                            "SORTEDKEYS":["BG_book"],
+                            "COMPONENTS":{
+                                
+                                "BG_book":{
+                                    "JCom":"JRImageView",
+                                    "JFrame":[0,-15,-1.1,-1.1],
+                                    "JSubRender":{
+                                        "JR_IMG": "Contract_04.png"
+                                    }
+                                },
+                                "MAIN_TABLE": {
+                                    "JCom": "JRRefreshTableView",
+                                    "JFrame": [65, 10, 805, 515],
+                                    "BORDER_": 28,
+                                    "JSubRender":{
+                                        "BGCOLOR": 0,
+                                        "HIDE_SEARCH_BAR": 1,
+                                        "SHOW_LINES":1,
+                                        "HIDE_REFRESH": 1,
+                                        
+                                        "CELL_BGCOLOR": 0,
+                                        
+                                        "headerColor":0,
+                                        "headerHeight": 45,
+                                        "headers":["date","VehicleApplyOrder.driver", "VehicleApplyOrder.reason","VehicleApplyOrder.startMile"],
+                                        "headersX":[65,240,365,477],
+                                        "headersY": [10],
+                                    }
+                                },
+                                
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+}

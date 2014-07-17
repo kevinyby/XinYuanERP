@@ -1,0 +1,97 @@
+{
+    "Specifications" : {
+        
+        "TableCellElementsFrames": [
+                                    [20, 10, 150, 35],
+                                    [195, 10, 170, 35],
+                                    [390, 10, 130, 35],
+                                    [540, 10, 130, 35]
+                                    
+                                    ],
+        "TableCellElementsSubRenders": [
+                                        { "JR_BORDERSTYLE_": 0,"BGCOLOR":-1},
+                                        
+                                        { "JR_BORDERSTYLE_": 0,"BGCOLOR":-1},
+                                        
+                                        { "JR_BORDERSTYLE_": 0,"BGCOLOR":-1},
+                                        
+                                        { "JR_BORDERSTYLE_": 0,"BGCOLOR":-1},
+                                        
+                                        ],
+        
+        "TableCellElementsAttribute": [
+                                       "installment",
+                                       
+                                       "willPayDate",
+                                       
+                                       "payRate",
+                                       
+                                       "payAmount",
+                                       
+                                       ]
+        
+        
+    },
+    "CLIENT":{
+        
+        "COMS_DATE_PICKERS": ["signedDate"],
+        "COMS_DATE_PATTERNS": {
+            "signedDate":"yyyy-MM-dd"
+        },
+        
+        "CONTROL_MODE" : {
+            
+            "CREAT_MODE_SUB":{
+                "ENABLE":[],
+                "UNENABLE":[
+                            "shouldReceive",
+                            "unReceive"
+                            ]
+            }
+        },
+        
+        "CHECK_NOTEMPTY": ["contractNO","contractName"],
+
+    },
+    "SERVER":{
+        
+        "SUBMIT_BUTTONS" : [
+                            
+                                {
+                                    "MODEL_SENDVIEW" : "NESTED_Contract",
+                                    
+                                    "NESTED_FOOTER_BOTTON.createUser": {
+                                        "MODEL_APPFROM" : "createUser",
+                                        "MODEL_APPTO" : "app1"
+                                    },
+                                    
+                                    "NESTED_FOOTER_BOTTON.app1": {
+                                        "BUTTON_TYPE" : 1,
+                                        "MODEL_APPFROM" : "app1",
+                                        "MODEL_APPTO" : "app2"
+                                    },
+                                    
+                                    "NESTED_FOOTER_BOTTON.app2": {
+                                        "BUTTON_TYPE" : 1,
+                                        "MODEL_APPFROM" : "app2",
+                                        "MODEL_APPTO" : "app3"
+                                    },
+                                    
+                                    "NESTED_FOOTER_BOTTON.app3": {
+                                        "BUTTON_TYPE" : 1,
+                                        "MODEL_APPFROM" : "app3",
+                                        "MODEL_APPTO" : "app4"
+                                    },
+                                    
+                                    "NESTED_FOOTER_BOTTON.app4": {
+                                        "BUTTON_TYPE" : 1,
+                                        "MODEL_APPFROM" : "app4",
+                                        "MODEL_APPTO" : "createUser"
+                                    }
+                                
+                                }
+                            
+                          ],
+        
+    },
+}

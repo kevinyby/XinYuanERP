@@ -1,0 +1,398 @@
+
+{
+    "LETTER_VER_TEXTFIEDS": [["employeeNO","department","planQuitDate"],["name","jobTitle"],["idCard", "employDate"]],
+    
+    "COMPONENTS" : {
+        
+
+        "NESTED_footer": "",
+        
+        "BG_BOOK_IMAGE" : {
+            "JCom": "JRImageView",
+            "JFrame": [30,80,-1.1,-1.1],
+            "JSubRender":{
+                "JR_IMG": "Employmentapplicationform_10.png"
+            }
+        },
+        
+        
+        "NESTED_EmployeeQuitOrder": {
+            
+            "JFrame": [65, 120, 880, 300],
+            
+            "COMPONENTS" : {
+                
+                "NESTED_QUIT_BODY" : {
+                    "JFrame": [2, 2, 880, 250],
+                    "SORTEDKEYS": ["BG_Reason", "BG_Signature", "IMG_Signature"],
+                    "COMPONENTS" : {
+                        
+                        "NESTED_QUIT_1" : {
+                            "JFrame": [0, 0, 280, 140],
+                            "COMPONENTS" : {
+                                
+                                "employeeNO": {
+                                    "JCom" : "JRLabelCommaTextFieldView",
+                                    "JFrame": [0,0,255,40],
+                                    "JSubRender": {
+                                        "frames":[[], [], [],[]],
+                                        "SubRenders":[{"CH_SPACE": "5"},{},{"JR_IMG":"Employmentapplicationform_04.png"}]
+                                    }
+                                },
+                                "department": {
+                                    "JCom" : "JRLabelCommaTextFieldView",
+                                    "JFrame": [0,50,200,40],
+                                    "JSubRender": {
+                                        "frames":[[], [], []],
+                                        "SubRenders":[{"CH_SPACE": "5"},{},{"JR_IMG":"Employmentapplicationform_04.png", "JR_ENABLE":0}]
+                                    }
+                                },
+                                "planQuitDate": {
+                                    "JCom" : "JRLabelCommaTextFieldView",
+                                    "JFrame": [0,100,280,40],
+                                    "JSubRender": {
+                                        "frames":[[], [], []],
+                                        "SubRenders":[{},{},{"JR_IMG":"Employmentapplicationform_04.png",}]
+                                    }
+                                }
+                                
+                            }
+                            
+                        },
+                        
+                        
+                        "NESTED_QUIT_2" : {
+                            "JFrame": [300, 0, 280, 140],
+                            "COMPONENTS" : {
+                                
+                                "name": {
+                                    "JCom" : "JRLabelCommaTextFieldView",
+                                    "JFrame": [0,0,200,40],
+                                    "JSubRender": {
+                                        "frames":[[], [], []],
+                                        "SubRenders":[{},{},{ "JR_IMG":"Employmentapplicationform_04.png", "JR_ENABLE":0}]
+                                    }
+                                },
+                                
+                                "jobTitle": {
+                                    "JCom" : "JRLabelCommaTextFieldView",
+                                    "JFrame": [0,50,200,40],
+                                    "JSubRender": {
+                                        "frames":[[], [], []],
+                                        "SubRenders":[{"CH_SPACE": "3"},{},{ "JR_IMG":"Employmentapplicationform_04.png", "JR_ENABLE":0}]
+                                    }
+                                },
+                                "approvedQuitDate": {
+                                    "JCom" : "JRLabelCommaTextFieldView",
+                                    "JFrame": [0,100,280,40],
+                                    "JSubRender": {
+                                        "frames":[[], [], []],
+                                        "SubRenders":[{},{},{"JR_IMG":"Employmentapplicationform_04.png"}]
+                                    }
+                                }
+                                
+                            }
+                        },
+                        
+                        
+                        "NESTED_QUIT_3" : {
+                            "JFrame": [600, 0, 280, 140],
+                            "COMPONENTS" : {
+                                
+                                "idCard": {
+                                    "JCom" : "JRLabelCommaTextFieldView",
+                                    "JFrame": [0,0,200,40],
+                                    "JSubRender": {
+                                        "frames":[[], [], []],
+                                        "SubRenders":[{},{},{"JR_IMG":"Employmentapplicationform_04.png", "JR_ENABLE":0}]
+                                    }
+                                },
+                                "employDate": {
+                                    "JCom" : "JRLabelCommaTextFieldView",
+                                    "JFrame": [0,50,200,40],
+                                    "JSubRender": {
+                                        "frames":[[], [], []],
+                                        "SubRenders":[{"CH_SPACE": "1"},{},{"JR_IMG":"Employmentapplicationform_04.png"}]
+                                    }
+                                }
+                                
+                            }
+                        },
+                        
+                        
+                        "quitReason": {
+                            "JCom" : "JRLabelTextView",
+                            "JFrame": [0,150,580,104],
+                            "JSubRender": {
+                                "frames":[[20,0,80,80],[150,5,425,80]],
+                                "SubRenders":[{},{}]
+                            }
+                        },
+                        "BG_Reason": {
+                            "JCom" : "JRImageView",
+                            "JFrame": [0,150,-1.1,-1.1],
+                            "JSubRender": {
+                                "JR_IMG":"Employmentapplicationform_05.png"
+                            }
+                        },
+                            
+                        
+                        "signature": {
+                            "JCom": "JRButton",
+                            "JFrame": [650,140,-1.1,-1.1],
+                            "JSubRender":{
+                                "JS_FONT_BOLD":1,
+                                "FONT_SIZE":20,
+                                "JR_TITLE_Insets":[0,-10,10,0],
+                                "JS_FONT_N_COLOR":[255,255,255],
+                                "JR_BGN_IMG": "PettyApplicationForm_12.png",
+                                
+                            }
+                        },
+                        "BG_Signature": {
+                            "JCom" : "JRImageView",
+                            "JFrame": [650,141,-1.1,-1.1],
+                            "JSubRender": {
+                                "JR_IMG":"Employmentapplicationform_06.png"
+                            }
+                        },
+                        "IMG_Signature": {
+                            "JCom": "JRImageView",
+                            "JFrame": [662,143,200,95],
+                            "JSubRender":{
+                                "JR_IMG": "",
+                                "JR_Radius": 5.0
+                            }
+                        }
+                        
+                    }
+                },
+                
+                
+                
+                "NESTED_QUIT_FOOTER": {
+                    "JFrame": [ 15, 250, 880, 50 ],
+                    "COMPONENTS": {
+                        
+                        "createUser": {
+                            "JCom" : "JRButtonTextFieldView",
+                            "JFrame": [680,1,185,60],
+                            
+                            "JSubRender": {
+                                "frames":[[], [90,1,-1.1,-1.1]],
+                                "SubRenders":[{"JR_BGN_IMG":"public_底部长按钮.png"},{"JR_IMG":"public_底部名字框.png"}]
+                            }
+                        },
+                        
+                        "app1": {
+                            "JCom" : "JRButtonTextFieldView",
+                            "JFrame": [510,1,180,60],
+                            "JSubRender": {
+                                "frames":[[], [90,1,-1.1,-1.1]],
+                                "SubRenders":[{"JR_BGN_IMG":"public_底部长按钮.png"},{"JR_IMG":"public_底部名字框.png"}]
+                            }
+                        },
+                        
+                        "app2": {
+                            "JCom" : "JRButtonTextFieldView",
+                            "JFrame": [340,1,180,60],
+                            "JSubRender": {
+                                "frames":[[], [90,1,-1.1,-1.1]],
+                                "SubRenders":[{"JR_BGN_IMG":"public_底部长按钮.png"},{"JR_IMG":"public_底部名字框.png"}]
+                            }
+                        },
+                        
+                        "app3": {
+                            "JCom" : "JRButtonTextFieldView",
+                            "JFrame": [170,1,180,60],
+                            "JSubRender": {
+                                "frames":[[], [90,1,-1.1,-1.1]],
+                                "SubRenders":[{"JR_BGN_IMG":"public_底部长按钮.png"},{"JR_IMG":"public_底部名字框.png"}]
+                            }
+                        },
+                        
+                        "app4": {
+                            "JCom" : "JRButtonTextFieldView",
+                            "JFrame": [0,1,170,60],
+                            "JSubRender": {
+                                "frames":[[], [90,1,-1.1,-1.1]],
+                                "SubRenders":[{"JR_BGN_IMG":"public_底部长按钮.png"},{"JR_IMG":"public_底部名字框.png"}]
+                            }
+                        }
+                        
+                    }
+                }
+                
+            }
+            
+            
+        },
+        
+        
+        "NESTED_EmployeeQuitPassOrder":{
+            "JFrame": [50, 450, 930, 270],
+            
+            "COMPONENTS" : {
+                
+                "passDate": {
+                    "JCom" : "JRButtonTextFieldView",
+                    "JFrame": [550,10,330,50],
+                    
+                    "JSubRender": {
+                        "frames":[[], [145,0,-1.1,-1.1]],
+                        "SubRenders":[{"JR_BGN_IMG":"Employmentapplicationform_07.png"},{"JR_IMG":"Employmentapplicationform_08.png"}]
+                    }
+                },
+                
+                "NESTED_PASS_DESC":{
+                    "JFrame": [ 0, 70, 910, 120 ],
+                    "SORTEDKEYS": ["BG_Security","BG_Finance","BG_WareHouse","BG_HumanResource"],
+                    "COMPONENTS": {
+                        
+                        
+                        "BG_Security": {
+                            "JCom" : "JRImageView",
+                            "JFrame": [170,0,-1.1,-1.1],
+                            "JSubRender": {
+                                "JR_IMG":"Employmentapplicationform_09.png"
+                            }
+                        },
+                        "securityDesc": {
+                            "JCom" : "JRLabelTextView",
+                            "JFrame": [170,5,165,110],
+                            "JSubRender": {
+                                "frames":[[60,0,-1.1,-1.1],[0,30,165,70]],
+                                "SubRenders":[
+                                              {"RESERVE_CENTER": 1, "JS_FONT_BOLD":1,"FONT_SIZE":20,"JS_FONT_N_COLOR_":[255,255,255]},
+                                              {}]
+                            }
+                        },
+                        
+                        "BG_Finance": {
+                            "JCom" : "JRImageView",
+                            "JFrame": [350,0,-1.1,-1.1],
+                            "JSubRender": {
+                                "JR_IMG":"Employmentapplicationform_09.png"
+                            }
+                        },
+                        "financeDesc": {
+                            "JCom" : "JRLabelTextView",
+                            "JFrame": [350,5,165,110],
+                            "JSubRender": {
+                                "frames":[[60,0,-1.1,-1.1],[0,30,165,70]],
+                                "SubRenders":[
+                                              {"RESERVE_CENTER": 1, "JS_FONT_BOLD":1,"FONT_SIZE":20,"JS_FONT_N_COLOR_":[255,255,255]},
+                                              {}]
+                            }
+                        },
+                        
+                        "BG_WareHouse": {
+                            "JCom" : "JRImageView",
+                            "JFrame": [530,0,-1.1,-1.1],
+                            "JSubRender": {
+                                "JR_IMG":"Employmentapplicationform_09.png"
+                            }
+                        },
+                        "warehouseDesc": {
+                            "JCom" : "JRLabelTextView",
+                            "JFrame": [530,5,165,110],
+                            "JSubRender": {
+                                "frames":[[60,0,-1.1,-1.1],[0,30,165,70]],
+                                "SubRenders":[
+                                              {"RESERVE_CENTER": 1, "JS_FONT_BOLD":1,"FONT_SIZE":20,"JS_FONT_N_COLOR_":[255,255,255]},
+                                              {}]
+                            }
+                        },
+                        
+                        
+                        "BG_HumanResource": {
+                            "JCom" : "JRImageView",
+                            "JFrame": [710,0,-1.1,-1.1],
+                            "JSubRender": {
+                                "JR_IMG":"Employmentapplicationform_09.png"
+                            }
+                        },
+                        "humanResouceDesc": {
+                            "JCom" : "JRLabelTextView",
+                            "JFrame": [710,5,165,110],
+                            "JSubRender": {
+                                "frames":[[60,0,-1.1,-1.1],[0,30,165,70]],
+                                "SubRenders":[
+                                              {"RESERVE_CENTER": 1, "JS_FONT_BOLD":1,"FONT_SIZE":20,"JS_FONT_N_COLOR_":[255,255,255]},
+                                              {}]
+                            }
+                        },
+                        
+
+                    }
+                },
+                
+                
+                "NESTED_PASS_FOOTER": {
+                    "JFrame": [ 0, 200, 910, 60 ],
+                    "COMPONENTS": {
+                        
+                        "createUser": {
+                            "JCom" : "JRButtonTextFieldView",
+                            "JFrame": [710,1,180,60],
+                            
+                            "JSubRender": {
+                                "frames":[[], [90,1,-1.1,-1.1]],
+                                "SubRenders":[{"JR_BGN_IMG":"public_底部长按钮.png"},{"JR_IMG":"public_底部名字框.png"}]
+                            }
+                        },
+                        
+                        "app1": {
+                            "JCom" : "JRButtonTextFieldView",
+                            "JFrame": [530,1,180,60],
+                            "JSubRender": {
+                                "frames":[[], [90,1,-1.1,-1.1]],
+                                "SubRenders":[{"JR_BGN_IMG":"public_底部长按钮.png"},{"JR_IMG":"public_底部名字框.png"}]
+                            }
+                        },
+                        
+                        "app2": {
+                            "JCom" : "JRButtonTextFieldView",
+                            "JFrame": [350,1,180,60],
+                            "JSubRender": {
+                                "frames":[[], [90,1,-1.1,-1.1]],
+                                "SubRenders":[{"JR_BGN_IMG":"public_底部长按钮.png"},{"JR_IMG":"public_底部名字框.png"}]
+                            }
+                        },
+                        
+                        "app3": {
+                            "JCom" : "JRButtonTextFieldView",
+                            "JFrame": [170,1,180,60],
+                            "JSubRender": {
+                                "frames":[[], [90,1,-1.1,-1.1]],
+                                "SubRenders":[{"JR_BGN_IMG":"public_底部长按钮.png"},{"JR_IMG":"public_底部名字框.png"}]
+                            }
+                        },
+                        
+                        "app4": {
+                            "JCom" : "JRButtonTextFieldView",
+                            "JFrame": [0,1,170,60],
+                            "JSubRender": {
+                                "frames":[[], [90,1,-1.1,-1.1]],
+                                "SubRenders":[{"JR_BGN_IMG":"public_底部长按钮.png"},{"JR_IMG":"public_底部名字框.png"}]
+                            }
+                        }
+                        
+                    }
+                }
+                
+            }
+            
+        }
+        
+        
+    }
+    
+    
+    
+    
+    
+    
+
+}
+

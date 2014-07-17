@@ -1,0 +1,180 @@
+{
+    "COMPONENTS":{
+        "NESTED_footer": "",
+        
+        "BG_BOOK_IMAGE" : {
+            "JCom": "JRImageView",
+            "JFrame": [110,74,-1.1,-1.1],
+            "JSubRender":{
+                "JR_IMG": "RecycleInventory_背景"
+            }
+        },
+        "NESTED_MAIN":{
+            "JFrame":[140, 100, 800, 600],
+            "BORDER": 10,
+            "COMPONENTS":{
+                
+                "productCode": {
+                    "JCom" : "JRLabelTextFieldView",
+                    "JFrame": [40,10,720,40],
+                    "JSubRender": {
+                        "frames":[[-1.1,-1.1,140, 40],  [200,-1.1,400, 40]],
+                        "SubRenders":[{},{"JR_BORDERSTYLE" : 0,"BGCOLOR" : 0}]
+                    }
+                },
+                "productName": {
+                    "JCom" : "JRLabelTextFieldView",
+                    "JFrame": [40,70,720,40],
+                    "JSubRender": {
+                        "frames":[[-1.1,-1.1,140, 40],  [200,-1.1,400, 40]],
+                        "SubRenders":[{"CH_SPACE": "0|1.7"},{"JR_BORDERSTYLE" : 0,"BGCOLOR" : 0}]
+                    }
+                },
+                
+                "productCategory": {
+                    "JCom" : "JRLabelTextFieldView",
+                    "JFrame": [40,130,720,40],
+                    "JSubRender": {
+                        "frames":[[-1.1,-1.1,140, 40],  [200,-1.1,400, 40]],
+                        "SubRenders":[{},{"JR_BORDERSTYLE" : 0,"BGCOLOR" : 0}]
+                    }
+                },
+                
+                "totalAmount": {
+                    "JCom" : "JRLabelTextFieldView",
+                    "JFrame": [40,195,360,40],
+                    "JSubRender": {
+                        "frames":[[-1.1,-1.1,140, 40],  [200,-1.1,150, 40]],
+                        "SubRenders":[{"CH_SPACE": "1|1.1,2.1"},{"JR_BORDERSTYLE" : 0,"BGCOLOR" : 0}]
+                    }
+                },
+                
+                "basicUnit": {
+                    "JCom" : "JRLabelTextFieldView",
+                    "JFrame": [430,195,320,40],
+                    "JSubRender": {
+                        "frames":[[-1.1,-1.1,140, 40],  [120,-1.1,120, 40]],
+                        "SubRenders":[{},{"JR_BORDERSTYLE" : 0,"BGCOLOR" : 0}]
+                    }
+                },
+                
+                
+                "NESTED_UNITCONVERT":{
+                    "JFrame":[40, 250, 700, 50],
+                    "SORTEDKEYS": ["BG_BOX_IMAGE"],
+                    "COMPONENTS":{
+                        
+                        "unitConvert": {
+                            "JCom" : "JRLocalizeLabel",
+                            "JFrame": [0,-5,140,60],
+                            "JSubRender": {
+                                "SubRenders":[{}]
+                            }
+                        },
+                        
+                        "BG_BOX_IMAGE" : {
+                            "JCom": "JRImageView",
+                            "JFrame": [200,0],
+                            "JSubRender":{
+                                "JR_IMG": "WarehouseInventory_单位转换框"
+                            }
+                        },
+                        
+                        "basicUnit": {
+                            "JCom" : "JRTextField",
+                            "JFrame": [255,5,70,40],
+                            "JSubRender": {
+                                "JR_BORDERSTYLE" : 0
+                            }
+                        },
+                        
+                        "amount": {
+                            "JCom" : "JRLabelTextFieldView",
+                            "JFrame": [380,5,140,40],
+                            "JSubRender": {
+                                "frames":[[5,10,50, 20],  [55,0,90, 40]],
+                                "SubRenders":[{}, {"JR_BORDERSTYLE" : 0 ,"BGCOLOR" : 0}]
+                            }
+                        },
+                        
+                        
+                        "unit": {
+                            "JCom" : "JRLabelTextFieldView",
+                            "JFrame": [525,5,150,40],
+                            "JSubRender": {
+                                "frames":[[5,10,50, 20],  [65,0,70, 40]],
+                                "SubRenders":[{}, {"JR_BORDERSTYLE" : 0,"BGCOLOR" : 0 }]
+                            }
+                        },
+                        
+                    }
+                    
+                },
+                
+                "NESTED_UNITPRICE":{
+                    "JFrame":[40, 300, 400, 80],
+                    "COMPONENTS":{
+                        
+                        "averagePrice": {
+                            "JCom" : "JRLocalizeLabel",
+                            "JFrame": [0,20,140,40],
+                            "JSubRender": {
+                                "SubRenders":[{}]
+                            }
+                        },
+                        
+                        "priceBasicUnit": {
+                            "JCom" : "JRLabelTextFieldView",
+                            "JFrame": [200,20,200,70],
+                            "JSubRender": {
+                                "frames":[[-1.1,5,-1.1, -1.1],  [-1.1,0,110, 40]],
+                                "SubRenders":[{},{ "JR_BORDERSTYLE" : 0 , "BGCOLOR" : 0 }]
+                            }
+                        },
+                        "yuan": {
+                            "JCom" : "JRLocalizeLabel",
+                            "JFrame": [400,20,100,40],
+                            "JSubRender": {
+                                "SubRenders":[{}]
+                            }
+                        },
+                        
+                        
+                        
+                    }
+                    
+                },
+                
+                "productLocation": {
+                    "JCom" : "JRLabelTextFieldView",
+                    "JFrame": [40,380,720,70],
+                    "JSubRender": {
+                        "frames":[[-1.1,-1.1,140, 40],  [200,-1.1,400, 40]],
+                        "SubRenders":[{},{"JR_BORDERSTYLE" : 0,"BGCOLOR" : 0}]
+                    }
+                },
+                "productDesc": {
+                    "JCom" : "JRLabelTextFieldView",
+                    "JFrame": [40,455,720,40],
+                    "JSubRender": {
+                        "frames":[[-1.1,-1.1,140, 40],  [200,-1.1,500, 40]],
+                        "SubRenders":[{},{"JR_BORDERSTYLE" : 0,"BGCOLOR" : 0}]
+                    }
+                },
+                "productDescPDF": {
+                    "JCom" : "JRTextField",
+                    "JFrame": [240,535,400,50],
+                    "JSubRender": {
+                        "JR_BORDERSTYLE" : 0,
+                        "BGCOLOR" : -1
+                    }
+                },
+                
+            }
+            
+        }
+
+        
+    },
+    
+}

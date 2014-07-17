@@ -1,0 +1,60 @@
+
+{
+    
+    
+    "Employee": {
+        "PATH": "Super",
+        "MODELS": [".HumanResource.Employee",".Approval.Approvals"],
+        
+        "FIELDS": [["id", "employeeNO","name", "department", "jobTitle", "resign"], ["pendingApprovals"]],
+        "JOINS": {"Employee.employeeNO":"EQ<>Approvals.employeeNO"},
+        "SORTS": [["resign.ASC", "employeeNO.ASC"]],
+        
+        "HEADERS": ["employeeNO", "name", "department", "jobTitle", "PendingOrders", "Employee.resign"],
+        "HEADERSX": [50, 230, 400, 550, 680, 850],
+        "VALUESX":  [20, 230, 400, 550, 705, 860],
+        
+        
+        "__Delete_Images_Folder": "employeeNO"
+    },
+    
+    
+    "EmployeeCHOrder" : {
+        "FIELDS": [["id", "orderNO", "employeeNO"]],
+        
+        "HEADERS": ["orderNO", "employeeNO", "name"],
+        "HEADERSX": [50, 350, 500],
+        "VALUESX": [0, 350, 500],
+        
+        
+        "FILTERS": {"0":"FILTER_NIL", "2":"FILTER_NumberName"}
+    },
+    
+    
+    "EmployeeQuitOrder" : {
+        "FIELDS": [["id", "createDate", "employeeNO"]],
+        
+        "HEADERS": ["createDate", "employeeNO", "name"],
+        "HEADERSX": [50, 300, 500],
+        "VALUESX":  [20, 280, 480],
+        
+        
+        "FILTERS": {"0":"FILTER_NIL", "1":"FILTER_Date", "2":"FILTER_NumberName"}
+    },
+    
+    
+    "EmployeeLeaveOrder" :{
+        "FIELDS": [["id", "orderNO", "employeeNO"]],
+        
+        "HEADERS": ["orderNO", "employeeNO", "name"],
+        "HEADERSX": [50, 300, 500],
+        "VALUESX":  [0, 300, 500],
+        
+        
+        "FILTERS": {"0":"FILTER_NIL", "2":"FILTER_NumberName"}
+    }
+    
+    
+}
+
+

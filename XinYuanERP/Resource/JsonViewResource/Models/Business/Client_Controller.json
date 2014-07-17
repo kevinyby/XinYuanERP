@@ -1,0 +1,85 @@
+
+{
+    "IMAGES" : {
+        "IMAGES_LOAD": ["IMG_Photo_One", "IMG_Photo_Two"],
+        
+        "IMAGES_NAMES": {
+            "IMG_Photo_One": {
+                "MAINNAME": ["number","contactOne"]
+            },
+            "IMG_Photo_Two": {
+                "MAINNAME": ["number","contactTwo"]
+            }
+        },
+        
+        "IMAGES_DATAS": {
+            "IMG_Photo_One": {
+            },
+            "IMG_Photo_Two": {
+            }
+        },
+        
+        
+        "IMAGE_PICKER":{
+            "BTN_Take_One":"IMG_Photo_One",
+            "BTN_Take_Two":"IMG_Photo_Two",
+        },
+        "IMAGES_PREVIEWS":{"IMG_Photo_One":{}, "IMG_Photo_Two":{}}
+        
+    },
+    
+    
+    
+    "SERVER":{
+        
+        "SUBMIT_BUTTONS" : [
+                            {
+                            
+                            "MODEL_SENDVIEW" : "NESTED_INFO",
+                            
+                            "NESTED_BODY_FOOTER.ZZ_BTNSubmit": {
+                            }
+                            
+                            }
+        ],
+        
+        "CHECK_NOTEMPTY": [
+                            "number","name","category",
+                            "principal","NESTED_BODY_UP_RIGHT.phoneNO","address","postcode",
+                            "IMG_Photo_One","contactOne"
+                            ]
+        
+        
+        
+    },
+    
+    
+    
+    
+    
+    "CLIENT": {
+        
+        "COMS_DATE_PATTERNS": {
+            "createDate":"yyyy-MM-dd"
+        },
+        
+        "CREATE_AUTOFILL": {
+            "NOW_DATE":["createDate"],
+        },
+        
+
+        
+        "CONTROL_MODE" : {
+            "DEFAULT_MODE_SUB":{
+                "ENABLE":[],
+                "UNENABLE":["NESTED_BODY_UP","NESTED_BODY_FOOTER", "createDate", "BTN_Take_One", "contactOne", "BTN_Take_Two", "contactTwo"]
+            },
+            
+            "CREAT_MODE_SUB":{
+                "ENABLE":["NESTED_BODY_UP","NESTED_BODY_FOOTER", "BTN_Take_One", "contactOne", "BTN_Take_Two", "contactTwo"],
+                "UNENABLE":[]
+            }
+        }
+        
+    }
+}

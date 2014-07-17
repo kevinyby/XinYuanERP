@@ -1,0 +1,32 @@
+
+{
+    
+    
+    "Client" : {
+        "FIELDS": [["id", "number", "name"]],
+        
+        "HEADERSX": [50, 260],
+        "VALUESX": [50, 260],
+        
+        
+        "FILTERS": {"0":"FILTER_NIL"},
+        
+        "__Delete_Images_Folder": "number"
+    },
+    
+    
+    "Contract" : {
+        "FIELDS": [["id", "contractNO","contractName"]],
+        "HEADERS": ["Contract.contractNO" ,"Contract.contractName" ],
+        "HEADERSX": [80, 260],
+        "VALUESX": [10, 260],
+        
+        
+        "FILTERS": {"0":"FILTER_NIL"},
+        
+    }
+    
+    
+}
+
+

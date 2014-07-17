@@ -1,0 +1,419 @@
+{
+    "LETTER_VER_TEXTFIEDS":[["orderNO","staffCategory"],["lendDate","staffNO"]],
+    "COMPONENTS":{
+        "NESTED_footer": "",
+        
+        "NESTED_TOP":{
+            "JFrame":[60, 80, 908, 310],
+            "BORDER": 11,
+            "SORTEDKEYS":["BG_IMAGE"],
+            "COMPONENTS":{
+                
+                "BG_IMAGE" : {
+                    "JCom": "JRImageView",
+                    "JFrame": [0,0,-1.1,-1.1],
+                    "JSubRender":{
+                        "JR_IMG": "LendOut_表单顶部背景"
+                    }
+                },
+                "NESTED_top_left": {
+                    "JFrame": [20,10, 300, 120],
+                    "COMPONENTS" : {
+                        
+                        "orderNO": {
+                            "JCom" : "JRLabelCommaTextFieldView",
+                            "JFrame": [10,10,250,38],
+                            "JSubRender": {
+                                "SubRenders":[{"CH_SPACE": "7"},{},{"JR_IMG":"LendOut_文字框"}]
+                            }
+                        },
+                        "staffCategory": {
+                            "JCom" : "JRLabelCommaTextFieldView",
+                            "JFrame": [10,70,250,38],
+                            "JSubRender": {
+                                "SubRenders":[{},{},{"JR_IMG":"LendOut_文字框"}]
+                            }
+                        },
+                
+                    }
+                    
+                },
+                "NESTED_top_middle": {
+                    "JFrame": [310,10, 300, 120],
+                    "COMPONENTS" : {
+                        
+                        "lendDate": {
+                            "JCom" : "JRLabelCommaTextFieldView",
+                            "JFrame": [10,10,250,38],
+                            "JSubRender": {
+                                "SubRenders":[{},{},{"JR_IMG":"LendOut_文字框"}]
+                            }
+                        },
+                        "staffNO": {
+                            "JCom" : "JRLabelCommaTextFieldView",
+                            "JFrame": [10,70,250,38],
+                            "JSubRender": {
+                                "SubRenders":[{},{},{"JR_IMG":"LendOut_文字框"}]
+                            }
+                        },
+                        
+                    }
+                    
+                },
+                "NESTED_top_right": {
+                    "JFrame": [600,10, 300, 120],
+                    "SORTEDKEYS":["staffSign"],
+                    "COMPONENTS" : {
+                        
+                        "planReturnDate": {
+                            "JCom" : "JRLabelCommaTextFieldView",
+                            "JFrame": [10,10,250,38],
+                            "JSubRender": {
+                                "SubRenders":[{},{},{"JR_IMG":"LendOut_文字框"}]
+                            }
+                        },
+                        "staffSign": {
+                            "JCom" : "JRLabelCommaTextFieldView",
+                            "JFrame": [10,70,250,38],
+                            "JSubRender": {
+                                "SubRenders":[{},{},{"JR_IMG":"LendOut_文字框"}]
+                            }
+                        },
+                        "IMG_Signature": {
+                            "BORDER": 3,
+                            "JCom" : "JRImageView",
+                            "JFrame": [100,75,163,34],
+                            "JSubRender": {
+                                "JR_ENABLE_":0
+                            }
+                        },
+                        
+                    }
+                    
+                },
+                "NESTED_bottom_left": {
+                    "JFrame": [10,135, 600, 170],
+                    "BORDER": 11,
+                    "SORTEDKEYS":["NESTED_Line"],
+                    "COMPONENTS" : {
+                        "NESTED_Line":{
+                            "JFrame":[0,50,600,200],
+                            "COMPONENTS":{
+                                "Line_1" : {
+                                    "JCom": "JRImageView",
+                                    "JFrame": [0,0],
+                                    "JSubRender":{
+                                        "JR_IMG": "Scrap_左栏横线.png"
+                                    }
+                                },
+                                "Line_2" : {
+                                    "JCom": "JRImageView",
+                                    "JFrame": [0,50],
+                                    "JSubRender":{
+                                        "JR_IMG": "Scrap_左栏横线.png"
+                                    }
+                                },
+                                "Line_4" : {
+                                    "JCom": "JRImageView",
+                                    "JFrame": [145,0],
+                                    "JSubRender":{
+                                        "JR_IMG": "Scrap_右栏横线.png"
+                                    }
+                                },
+                                "Line_5" : {
+                                    "JCom": "JRImageView",
+                                    "JFrame": [145,50],
+                                    "JSubRender":{
+                                        "JR_IMG": "Scrap_右栏横线.png"
+                                    }
+                                },
+                                
+                            }
+                        },
+
+                        
+                        "productCode": {
+                            "JCom" : "JRLabelTextFieldView",
+                            "JFrame": [40,10,250,40],
+                            "JSubRender": {
+                                "frames":[[-1.1,-1.1,100, 40],  [120,-1.1,130, 40]],
+                                "SubRenders":[{},{"JR_BORDERSTYLE" : 0}]
+                            }
+                        },
+                        "productName": {
+                            "JCom" : "JRLabelTextFieldView",
+                            "JFrame": [340,10,250,40],
+                            "JSubRender": {
+                                "frames":[[-1.1,-1.1,100, 40],  [120,-1.1,130, 40]],
+                                "SubRenders":[{"CH_SPACE": "7"},{"JR_BORDERSTYLE" : 0}]
+                            }
+                        },
+                        "lendAmount": {
+                            "JCom" : "JRLabelTextFieldView",
+                            "JFrame": [40,60,250,40],
+                            "BORDER": 11,
+                            "JSubRender": {
+                                "frames":[[-1.1,-1.1,100, 40],  [120,-1.1,130, 40]],
+                                "SubRenders":[{},{"JR_BORDERSTYLE" : 0}]
+                            }
+                        },
+                        "unit": {
+                            "JCom" : "JRLabelTextFieldView",
+                            "JFrame": [340,60,250,40],
+                            "JSubRender": {
+                                "frames":[[-1.1,-1.1,100, 40],  [120,-1.1,130, 40]],
+                                "SubRenders":[{"CH_SPACE": "7"},{"JR_BORDERSTYLE" : 0}]
+                            }
+                        },
+                        "createUser": {
+                            "JCom" : "JRButtonTextFieldView",
+                            "JFrame": [400,110,180,60],
+                            "JSubRender": {
+                                "frames":[[], [90,1,-1.1,-1.1]],
+                                "SubRenders":[{"JR_BGN_IMG":"public_底部长按钮.png"},{"JR_IMG":"public_底部名字框.png"}]
+                            }
+                        },
+                        
+                        "app1": {
+                            "JCom" : "JRButtonTextFieldView",
+                            "JFrame": [210,110,180,60],
+                            "JSubRender": {
+                                "frames":[[], [90,1,-1.1,-1.1]],
+                                "SubRenders":[{"JR_BGN_IMG":"public_底部长按钮.png"},{"JR_IMG":"public_底部名字框.png"}]
+                            }
+                        },
+                        
+                        "app2": {
+                            "JCom" : "JRButtonTextFieldView",
+                            "JFrame": [20,110,180,60],
+                            "JSubRender": {
+                                "frames":[[], [90,1,-1.1,-1.1]],
+                                "SubRenders":[{"JR_BGN_IMG":"public_底部长按钮.png"},{"JR_IMG":"public_底部名字框.png"}]
+                            }
+                        }
+                        
+                    }
+                    
+                },
+                "NESTED_bottom_right": {
+                    "JFrame": [620,135, 270, 170],
+                    "SORTEDKEYS": ["BG_Photo","IMG_Photo_LendOut"],
+                    "BORDER": 11,
+                    "COMPONENTS" : {
+                        
+                        "BG_Photo" :{
+                            "JCom": "JRImageView",
+                            "JFrame": [10,10,-1.1,-1.1],
+                            "JSubRender":{
+                                "JR_IMG": "LendOut_上相片框"
+                            }
+                        },
+                        "lendPhoto": {
+                            "JCom" : "JRLocalizeLabel",
+                            "JFrame": [110,15,-1.1,-1.1],
+                            "JSubRender": {
+                                "FONT_SIZE":18,
+                            }
+                        },
+                        "IMG_Photo_LendOut" :{
+                            "JCom": "JRImageView",
+                            "JFrame": [15,46,235,120],
+                            "BORDER": 11,
+                            "JSubRender":{
+                                "JR_IMG": "",
+                                "JR_Radius": 8.0
+                            }
+                        },
+                        "BTN_Take_LendOut" : {
+                            "JCom": "JRButton",
+                            "JFrame": [200,15,-1.1,-1.1],
+                            "JSubRender":{
+                                "JR_BGN_IMG": "LendOut_拍照按钮"
+                            }
+                        }
+
+                    }
+                }
+            
+            }
+        },
+        
+        "NESTED_MIDDLE_INCREMENT_":{
+            "JFrame":[60, 390, 908, 164],
+            "BORDER_": 11,
+            "SORTEDKEYS":["BG_IMAGE", "NESTED_Line"],
+            "COMPONENTS":{
+                "BG_IMAGE" : {
+                    "JCom": "JRImageView",
+                    "JFrame": [0,0,-1.1,-1.1],
+                    "JSubRender":{
+                        "JR_IMG": "LendOut_表单中部背景"
+                    }
+                },
+                "NESTED_Line":{
+                    "JFrame":[10,50,600,200],
+                    "COMPONENTS":{
+                        "Line_1" : {
+                            "JCom": "JRImageView",
+                            "JFrame": [0,0],
+                            "JSubRender":{
+                                "JR_IMG": "Scrap_左栏横线.png"
+                            }
+                        },
+                        "Line_2" : {
+                            "JCom": "JRImageView",
+                            "JFrame": [0,50],
+                            "JSubRender":{
+                                "JR_IMG": "Scrap_左栏横线.png"
+                            }
+                        },
+                        "Line_4" : {
+                            "JCom": "JRImageView",
+                            "JFrame": [145,0],
+                            "JSubRender":{
+                                "JR_IMG": "Scrap_右栏横线.png"
+                            }
+                        },
+                        "Line_5" : {
+                            "JCom": "JRImageView",
+                            "JFrame": [145,50],
+                            "JSubRender":{
+                                "JR_IMG": "Scrap_右栏横线.png"
+                            }
+                        },
+                        
+                    }
+                },
+
+                "returnAmount": {
+                    "JCom" : "JRLabelTextFieldView",
+                    "JFrame": [40,8,300,40],
+                    "BORDER_": 20,
+                    "JSubRender": {
+                        "frames":[[-1.1,-1.1,100, 40],  [150,-1.1,200, 40]],
+                        "SubRenders":[{},{"JR_BORDERSTYLE" : 0}]
+                    }
+                },
+                "returnDate": {
+                    "JCom" : "JRLabelTextFieldView",
+                    "JFrame": [40,58,300,40],
+                    "BORDER_": 20,
+                    "JSubRender": {
+                        "frames":[[-1.1,-1.1,100, 40],  [150,-1.1,200, 40]],
+                        "SubRenders":[{},{"JR_BORDERSTYLE" : 0}]
+                    }
+                },
+                "createUser": {
+                    "JCom" : "JRButtonTextFieldView",
+                    "JFrame": [410,110,180,60],
+                    "JSubRender": {
+                        "frames":[[], [90,1,-1.1,-1.1]],
+                        "SubRenders":[{"JR_BGN_IMG":"public_底部长按钮.png"},{"JR_IMG":"public_底部名字框.png"}]
+                    }
+                },
+                
+                "app1": {
+                    "JCom" : "JRButtonTextFieldView",
+                    "JFrame": [220,110,180,60],
+                    "JSubRender": {
+                        "frames":[[], [90,1,-1.1,-1.1]],
+                        "SubRenders":[{"JR_BGN_IMG":"public_底部长按钮.png"},{"JR_IMG":"public_底部名字框.png"}]
+                    }
+                },
+                
+                "app2": {
+                    "JCom" : "JRButtonTextFieldView",
+                    "JFrame": [30,110,180,60],
+                    "JSubRender": {
+                        "frames":[[], [90,1,-1.1,-1.1]],
+                        "SubRenders":[{"JR_BGN_IMG":"public_底部长按钮.png"},{"JR_IMG":"public_底部名字框.png"}]
+                    }
+                },
+                
+                "NESTED_right": {
+                    "JFrame": [620,0, 270, 180],
+                    "SORTEDKEYS": ["BG_Photo","IMG_Photo_Return"],
+                    "BORDER_": 11,
+                    "COMPONENTS" : {
+                        
+                        "BG_Photo" :{
+                            "JCom": "JRImageView",
+                            "JFrame": [10,5,-1.1,-1.1],
+                            "JSubRender":{
+                                "JR_IMG": "LendOut_下相片框"
+                            }
+                        },
+                        "returnPhoto": {
+                            "JCom" : "JRLocalizeLabel",
+                            "JFrame": [110,10,-1.1,-1.1],
+                            "JSubRender": {
+                                "FONT_SIZE":18,
+                            }
+                        },
+                        "IMG_Photo_Return" :{
+                            "JCom": "JRImageView",
+                            "JFrame": [15,41,235,120],
+                            "JSubRender":{
+                                "JR_IMG": "",
+                                "JR_Radius": 8.0
+                            }
+                        },
+                        "BTN_Take_Return" : {
+                            "JCom": "JRButton",
+                            "JFrame": [200,10,-1.1,-1.1],
+                            "JSubRender":{
+                                "JR_BGN_IMG": "LendOut_拍照按钮"
+                            }
+                        }
+                        
+                    }
+                }
+
+            }
+        },
+        "NESTED_BOTTOM":{ 
+            "JFrame":[60, 554, 908, 108],
+            "BORDER": 11,
+            "SORTEDKEYS":["BG_IMAGE"],
+            "COMPONENTS":{
+                "BG_IMAGE" : {
+                    "JCom": "JRImageView",
+                    "JFrame": [0,0,-1.1,-1.1],
+                    "JSubRender":{
+                        "JR_IMG": "LendOut_表单底部背景"
+                    }
+                },
+                
+                "remark": {
+                    "JCom" : "JRLabelTextView",
+                    "JFrame": [20,20,570,60],
+                    "JSubRender": {
+                        "frames":[[20,15,-1.1,-1.1],[150,0,420,60]],
+                        "SubRenders":[{"CH_SPACE": "7"},{}]
+                    }
+                },
+                
+                "notReturnAmount": {
+                    "JCom" : "JRLabelTextFieldView",
+                    "JFrame": [620,15,160,75],
+                    "JSubRender": {
+                        "frames":[[20,0,-1.1,-1.1],[10,28,-1.1,-1.1]],
+                        "SubRenders":[{},{"JR_IMG":"LendOut_数量框.png"}]
+                    }
+                },
+                
+                "BTN_ReturnNum" : {
+                    "JCom": "JRButton",
+                    "JFrame": [770,43,-1.1,-1.1],
+                    "JSubRender":{
+                        "JR_BGN_IMG": "LendOut_还入按钮.png","JS_FONT_BOLD":1,"JS_FONT_N_COLOR":[255,255,255,1], "FONT_SIZE": 17
+                    }
+                },
+                
+            }
+        }
+        
+        
+    }
+
+}

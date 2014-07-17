@@ -1,0 +1,11 @@
+{
+    "COMPONENTS": {
+        "name": {
+            "JCom": "JRLabelTextFieldView",
+            "JFrame": [ 50, 0, 800, 100 ],
+            "JSubRender": {
+                "frames": [ [ 2, 0, 80, 80 ], [ 150, 0, 80, 80 ] ]
+            }
+        }
+    }
+}

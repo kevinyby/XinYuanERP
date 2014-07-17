@@ -1,0 +1,103 @@
+{
+    "IMAGES" : {
+        "IMAGES_LOAD": ["IMG_Photo_Delivery"],
+        
+        "IMAGES_NAMES": {
+            "IMG_Photo_Delivery": {
+                "MAINNAME": ["orderNO", ""],
+                "SUF":"deliveryProduct.png"
+            }
+    
+        },
+        "IMAGES_DATAS": {
+            "IMG_Photo_Delivery": {
+            }
+        },
+        "IMAGE_PICKER":{
+            "BTN_Take_Delivery":"IMG_Photo_Delivery"
+        },
+        "IMAGES_PREVIEWS":{
+            "IMG_Photo_Delivery":{
+            }
+        }
+    },
+    
+    "SERVER":{
+        
+        
+       "CHECK_NOTEMPTY": ["IMG_Photo_Delivery",
+                          "totalPay"],
+        
+     },
+    
+    "CLIENT":{
+        
+        "COMS_DATE_PICKERS": ["purchaseDate"],
+        "COMS_DATE_PATTERNS": {
+            "purchaseDate":"yyyy-MM-dd"
+        },
+        
+    },
+    
+    "Specifications" : {
+        
+        "TableCellElementsFrames": [
+                                    [5, 10, 85, 30],
+                                    [100, 10, 105, 30],
+                                    [220, 10, 95, 30],
+                                    [330, 10, 80, 30],
+                                    [420, 10, 47, 30],
+                                    [477, 10, 68, 30],
+                                    [560, 10, 95, 30],
+                                    [665, 10, 90, 30],
+                                    [761, 10, 45, 30],
+                                    [815, 10, 75, 30],
+                                    [900, 10, 100, 30],
+                                    
+                                    ],
+        "TableCellElementsSubRenders": [
+                                        { "JR_BORDERSTYLE": 0,"BGCOLOR":-1},
+                                        
+                                        { "JR_BORDERSTYLE": 0,"BGCOLOR":-1},
+                                        
+                                        { "JR_BORDERSTYLE": 0,"BGCOLOR":-1},
+                                        
+                                        { "JR_BORDERSTYLE": 0, "JR_ISNUMBER":1,"BGCOLOR":-1},
+                                        
+                                        { "JR_BORDERSTYLE": 0,"BGCOLOR":-1},
+                                        
+                                        { "JR_BORDERSTYLE": 0, "JR_ISNUMBER":1,"BGCOLOR":-1},
+                                        
+                                        { "JR_BORDERSTYLE": 0, "JR_ISNUMBER_":1,"BGCOLOR":-1},
+                                        
+                                        { "JR_BORDERSTYLE": 0, "JR_ISNUMBER":1,"BGCOLOR":-1},
+                                        
+                                        { "JR_BORDERSTYLE": 0,"BGCOLOR":-1},
+                                        
+                                        { "JR_BORDERSTYLE": 0, "JR_ISNUMBER":1,"BGCOLOR":-1},
+                                        
+                                        { "JR_BORDERSTYLE": 0, "JR_ISNUMBER_":1,"BGCOLOR":-1},
+                                        ],
+        
+        "TableCellElementsAttribute": [
+                                       "productCode",
+                                       "productName",
+                                       "purchaseQC",
+                                       "num",
+                                       "unit",
+                                       "unitPrice",
+                                       "subTotal",
+                                       "storageNum",
+                                       "storageUnit",
+                                       "storageUnitPrice",
+                                       "storageSubTotal"
+                                       ]
+        
+        
+    },
+
+    
+    
+    
+    
+}

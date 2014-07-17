@@ -1,0 +1,87 @@
+{
+    "IMAGES" : {
+        "IMAGES_LOAD": ["IMG_Signature","IMG_Photo_Recycle"],
+        
+        "IMAGES_NAMES": {
+            "IMG_Photo_Recycle": {
+                "MAINNAME": ["orderNO", "recycleProduct"],
+                "SUF":".png"
+            },
+            "IMG_Signature": {
+                "MAINNAME": ["orderNO","signature"],
+                "SUF":".png"
+            }
+    
+        },
+        "IMAGES_DATAS": {
+            "IMG_Photo_Recycle": {
+            },
+            "IMG_Signature":{
+            }
+           
+        },
+        "IMAGE_PICKER":{
+            "BTN_Take_Recycle":"IMG_Photo_Recycle"
+        },
+        "IMAGES_PREVIEWS":{
+            "IMG_Photo_Recycle":{
+            },
+            "IMG_Signature":{
+            }
+           
+        }
+    },
+    
+    "SERVER":{
+        
+        "SUBMIT_BUTTONS" : [
+                            {
+                            
+                            "NESTED_BOTTOM.createUser": {
+                            "MODEL_APPTO" : "app1"
+                            },
+                            "NESTED_BOTTOM.app1": {
+                            "BUTTON_TYPE" : 1,
+                            "MODEL_APPFROM" : "app1",
+                            "MODEL_APPTO" : "app2"
+                            },
+                            "NESTED_BOTTOM.app2": {
+                            "BUTTON_TYPE" : 1,
+                            "MODEL_APPFROM" : "app2",
+                            "MODEL_APPTO" : "createUser"
+                            }
+                            
+                            }
+            
+        ],
+        
+       "CHECK_NOTEMPTY": ["IMG_Signature",
+                          "productCategory","productCode","productName","application"],
+        
+     },
+    
+    "CLIENT":{
+        
+        "CREATE_AUTOFILL": {
+            "NOW_DATE":["pickingDate"],
+        },
+        "COMS_DATE_PATTERNS": {
+            "pickingDate":"yyyy-MM-dd"
+        },
+        
+        "COMS_SIGNATURE_BUTTONS": {
+            "BTN_Signature": "IMG_Signature",
+        },
+        "CONTROL_MODE" : {
+            "CREAT_MODE_SUB":{
+                "ENABLE":[],
+                "UNENABLE":["orderNO"]
+            }
+        },
+
+    }
+    
+    
+    
+    
+}

@@ -1,0 +1,33 @@
+{
+    "COMPONENTS":{
+        "NESTED_BODY":{
+            "JFrame":[150,100,800,500],
+            "BORDER":6,
+            "SORTEDKEYS":["Button_bottom"],
+            "COMPONENTS":{
+                "Button_bottom":{
+                    "JCom":"JRImageView",
+                    "JFrame":[100,150,-1.1,-1.1],
+                    "JSubRender":{
+                        "JR_IMG":"tracker_bottom.png"
+                    }
+                },
+                "Button":{
+                    "JCom":"JRButton",
+                    "JFrame":[248,156,-1.1,-1.1],
+                    "JSubRender":{
+                        "JR_BGN_IMG":"tracker_button_enable.png"
+                    }
+                },
+                "lights":{
+                    "JCom":"JRImageView",
+                    "JFrame":[320,380,-1.1,-1.1],
+                    "JSubRender":{
+                        "JR_IMG":"tracker_light_off.png"
+                    }
+                }
+            }
+        },
+        "NESTED_footer":""
+    }
+}

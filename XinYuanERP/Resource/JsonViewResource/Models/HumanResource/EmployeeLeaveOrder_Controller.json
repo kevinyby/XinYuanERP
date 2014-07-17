@@ -1,0 +1,99 @@
+
+{
+    "IMAGES" : {
+        
+        "IMAGES_LOAD": ["IMG_Photo"],
+        
+        "IMAGES_NAMES": {
+            "IMG_Photo": {
+                "MAINNAME": ["employeeNO","employeeNO*createDate"],
+            },
+        },
+        
+        "IMAGES_DATAS": {
+            "IMG_Photo": {},
+        },
+        
+        "IMAGES_PREVIEWS":{
+            "IMG_Photo":{},
+        },
+        "IMAGE_PICKER":{
+            "BTN_Take":"IMG_Photo",
+        }
+        
+    },
+    
+    
+    
+    
+    
+    "SERVER": {
+        
+        "CHECK_NOTEMPTY": [
+                           "employeeNO", "agentEmployeeNO",
+                           "startDate", "endDate"
+                           ]
+        
+    },
+    
+    
+    
+    
+    
+    
+    
+    
+    "CLIENT": {
+        
+        "CONTROL_MODE" : {
+            "DEFAULT_MODE_SUB":{
+                "ENABLE":[],
+                "UNENABLE":[]
+            },
+            
+            "READ_MODE_SUB":{
+                "ENABLE":[],
+                "UNENABLE":[
+                            "employeeNO","agentEmployeeNO",
+                            "NESTED_MIDDLE_2",
+                            "reason", "BTN_Take",
+                            "leaveType"
+                            ]
+            },
+            
+            "CREAT_MODE_SUB":{
+                "ENABLE":[],
+                "UNENABLE":[]
+            },
+            
+            "MODIFY_MODE_SUB":{
+                "ENABLE":[],
+                "UNENABLE":[]
+            },
+            
+            "APPLY_MODE_SUB":{
+                "ENABLE":[ ],
+                "UNENABLE":[]
+            }
+        },
+        
+        
+        "CREATE_AUTOFILL": {
+            "NOW_DATE":["createDate"]
+        },
+        
+        "COMS_DATE_PICKERS": ["startDate", "endDate"],
+        
+        "COMS_DATE_PATTERNS": {
+            "createDate":"yyyy-MM-dd",
+            "startDate" : "yyyy-MM-dd HH:mm:ss",
+            "endDate": "yyyy-MM-dd HH:mm:ss"
+        }
+        
+        
+    }
+    
+    
+    
+    
+}

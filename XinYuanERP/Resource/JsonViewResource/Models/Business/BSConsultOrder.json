@@ -1,0 +1,190 @@
+{
+    
+    "LETTER_VER_TEXTFIEDS": [ ["number", "project", "projectAddr", "traceEmployeeNO"],["name","consult","phoneNO","createDate"],["structForm","content"] ],
+    "COMPONENTS" : {
+        "NESTED_footer": "",
+        
+        "NESTED_Content":{
+            "JFrame": [45, 100, 880, 600 ],
+            "BORDER_": 11,
+            "SORTEDKEYS": ["BG_book"],
+            "COMPONENTS" : {
+                
+                "BG_book" : {
+                    "JCom": "JRImageView",
+                    "JFrame": [0,-5,-1.1,-1.1],
+                    "JSubRender":{
+                        "JR_IMG": "Negotiaterecords_05.png"
+                    }
+                },
+                
+                "NESTED_BODY":{
+                    "JFrame": [61, 5, 820, 580 ],
+                    "BORDER_": 20,
+                    "COMPONENTS" : {
+                        
+                        "NESTED_BODY_UP":{
+                            "JFrame": [40, 5, 750, 210 ],
+                            "BORDER_": 12,
+                            "COMPONENTS" : {
+                                
+                                "NESTED_BODY_UP_LEFT":{
+                                    "JFrame": [2, 10, 335, 201 ],
+                                    "BORDER_": 9,
+                                    "COMPONENTS" : {
+                                        
+                                        "number": {
+                                            "JCom" : "JRLabelCommaTextFieldView",
+                                            "JFrame": [0,0,330,46],
+                                            "BORDER_":10,
+                                            "JSubRender": {
+                                                "frames":[[], [-1.1,-1.1,30,-1.1], []],
+                                                "SubRenders":[{"BORDER_":1,"CH_SPACE": "0"},{},{"BORDER_":2, "JR_IMG":"Negotiaterecords_01.png"}]
+                                            }
+                                        },
+                                        
+                                        "project": {
+                                            "JCom" : "JRLabelCommaTextFieldView",
+                                            "JFrame": [0,50,330,46],
+                                            "BORDER_":10,
+                                            "JSubRender": {
+                                                "frames":[[], [-1.1,-1.1,30,-1.1], []],
+                                                "SubRenders":[{"BORDER_":1,"CH_SPACE": "0"},{},{"BORDER_":2, "JR_IMG":"Negotiaterecords_01.png"}]
+                                            }
+                                        },
+                                        
+                                        "projectAddr": {
+                                            "JCom" : "JRLabelCommaTextFieldView",
+                                            "JFrame": [0,100,330,46],
+                                            "BORDER_":10,
+                                            "JSubRender": {
+                                                "frames":[[], [-1.1,-1.1,30,-1.1], []],
+                                                "SubRenders":[{"BORDER_":1,"CH_SPACE": "0"},{},{"BORDER_":2, "JR_IMG":"Negotiaterecords_01.png"}]
+                                            }
+                                        },
+                                        
+                                        "traceEmployeeNO": {
+                                            "JCom" : "JRLabelCommaTextFieldView",
+                                            "JFrame": [0,150,330,46],
+                                            "BORDER_":10,
+                                            "JSubRender": {
+                                                "frames":[[], [], []],
+                                                "SubRenders":[{"BORDER_":1,"CH_SPACE": "0"},{},{"BORDER_":2, "JR_IMG":"Negotiaterecords_01.png"}]
+                                            }
+                                        }
+                                        
+                                    }
+                                    
+                                    
+                                },
+                                
+                                "NESTED_BODY_UP_RIGHT":{
+                                    "JFrame": [400, 10, 320, 201 ],
+                                    "BORDER_": 9,
+                                    "COMPONENTS" : {
+                                        
+                                        "name": {
+                                            "JCom" : "JRLabelCommaTextFieldView",
+                                            "JFrame": [0,0,310,46],
+                                            "BORDER_":10,
+                                            "JSubRender": {
+                                                "frames":[[], [], []],
+                                                "SubRenders":[{"BORDER_":1,"CH_SPACE": "0"},{},{"BORDER_":2, "JR_IMG":"Negotiaterecords_01.png"}]
+                                            }
+                                        },
+                                        
+                                        "consult": {
+                                            "JCom" : "JRLabelCommaTextFieldView",
+                                            "JFrame": [0,50,310,46],
+                                            "BORDER_":10,
+                                            "JSubRender": {
+                                                "frames":[[], [], []],
+                                                "SubRenders":[{"BORDER_":1,"CH_SPACE": "1|1.1"},{},{"BORDER_":2, "JR_IMG":"Negotiaterecords_01.png"}]
+                                            }
+                                        },
+                                        
+                                        "phoneNO": {
+                                            "JCom" : "JRLabelCommaTextFieldView",
+                                            "JFrame": [0,100,310,46],
+                                            "BORDER_":10,
+                                            "JSubRender": {
+                                                "frames":[[], [], []],
+                                                "SubRenders":[{"BORDER_":1,"CH_SPACE": "7"},{},{"BORDER_":2, "JR_IMG":"Negotiaterecords_01.png"}]
+                                            }
+                                        },
+                                        
+                                        "createDate": {
+                                            "JCom" : "JRLabelCommaTextFieldView",
+                                            "JFrame": [0,150,310,46],
+                                            "BORDER_":10,
+                                            "JSubRender": {
+                                                "frames":[[], [], []],
+                                                "SubRenders":[{"BORDER_":1,"CH_SPACE": "7"},{"BORDER_":1},{"BORDER_":2, "JR_IMG":"Negotiaterecords_01.png"}]
+                                            }
+                                        }
+                                        
+                                        
+                                        
+                                    }
+                                    
+                                    
+                                }
+                                
+                            }
+                        },
+                        
+                        
+                        "NESTED_BODY_DOWN":{
+                            "JFrame": [40, 220, 750, 270 ],
+                            "BORDER_": 12,
+                            "COMPONENTS" : {
+                                
+                                "structForm": {
+                                    "JCom" : "JRImageLabelCommaTextView",
+                                    "JFrame":[0,0,710,76],
+                                    "BORDER_": 5,
+                                    "JSubRender": {
+                                        "frames":[[100,-1.1,-1.1,-1.1],[], []],
+                                        "SubRenders":[{"BORDER":3,"JR_IMG":"Negotiaterecords_02.png"}, {"BORDER":2},{"BORDER":13,"HIDDEN_":1}]
+                                    }
+                                },
+                                
+                                "content": {
+                                    "JCom" : "JRImageLabelCommaTextView",
+                                    "JFrame":[0,80,710,182],
+                                    "BORDER_": 5,
+                                    "JSubRender": {
+                                        "frames":[[100,-1.1,-1.1,-1.1], [], []],
+                                        "SubRenders":[{"BORDER":3,"JR_IMG":"Negotiaterecords_03.png"}, {"BORDER":2},{"BORDER":13,"HIDDEN_":1}]
+                                    }
+                                }
+                                
+                            }
+                        },
+                        
+                        "NESTED_BODY_FOOTER":{
+                            "JFrame": [2, 515, 800, 60 ],
+                            "BORDER_": 13,
+                            "COMPONENTS" : {
+                                
+                                "ZZ_BTNSubmit":  {
+                                    "JCom": "JRButton",
+                                    "BORDER_" : 3,
+                                    "JFrame": [320, 10, -1.1, -1.1],
+                                    "JSubRender":{
+                                        "JR_BGN_IMG": "CustomerDataCard_07.png","FONT_SIZE": 25, "JS_FONT_BOLD":1,"JS_FONT_N_COLOR":[255,255,255,1]
+                                    }
+                                }
+                            }
+                        }
+                        
+                    }
+                }
+                
+                
+            }
+        }
+        
+        
+    }
+}

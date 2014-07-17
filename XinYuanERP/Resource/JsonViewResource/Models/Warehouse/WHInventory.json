@@ -1,0 +1,535 @@
+{
+    "SORTEDKEYS": ["BG_BOTTOM_IMAGE", "BG_HeaderImage", "NESTED_SCROLL", "BTN_PriorPage", "BTN_NextPage" ],
+    "COMPONENTS" : {
+        
+        "NESTED_footer": "",
+        
+        "NESTED_TABS": {
+            "JFrame": [55, 88, 620, 50 ],
+            "SORTEDKEYS":["TAB_MaterialInfo", "TAB_MaterialRecord", "TAB_MaintainRecord", "TAB_LendRecord","TAB_PickingRecord"],
+            "COMPONENTS" : {
+                "TAB_MaterialInfo" : {
+                    "JCom": "JRButton",
+                    "JFrame": [0,5,100,46],
+                    "JSubRender": {
+                        "JR_BGN_IMG": "WarehouseInventory_标签按钮"
+                        ,"JR_BGS_IMG": "WarehouseInventory_标签按钮"
+                        ,"JR_BGH_IMG": "WarehouseInventory_标签按钮"
+                        ,"JS_FONT_N_COLOR": [0,0.56,0.8]
+                        ,"JS_FONT_S_COLOR": [0,0,0]
+                        ,"JS_FONT_BOLD": 1 ,"JR_TITLE_Insets": [0, 0, -10, 0]
+                    }
+                },
+                
+                "TAB_MaterialRecord" : {
+                    "JCom": "JRButton",
+                    "JFrame": [105,5,100,46],
+                    "JSubRender": {
+                        "JR_BGN_IMG": "WarehouseInventory_标签按钮"
+                        ,"JR_BGS_IMG": "WarehouseInventory_标签按钮"
+                        ,"JR_BGH_IMG": "WarehouseInventory_标签按钮"
+                        ,"JS_FONT_N_COLOR":[0,0.56,0.8]
+                        ,"JS_FONT_S_COLOR":[0,0,0]
+                        ,"JS_FONT_BOLD": 1,"JR_TITLE_Insets": [0, 0, -10, 0]
+                    }
+                },
+                
+                "TAB_MaintainRecord" : {
+                    "JCom": "JRButton",
+                    "JFrame":[210,5,100,46],
+                    "JSubRender": {
+                        "JR_BGN_IMG": "WarehouseInventory_标签按钮"
+                        ,"JR_BGS_IMG": "WarehouseInventory_标签按钮"
+                        ,"JR_BGH_IMG": "WarehouseInventory_标签按钮"
+                        ,"JS_FONT_N_COLOR":[0,0.56,0.8]
+                        ,"JS_FONT_S_COLOR":[0,0,0]
+                        ,"JS_FONT_BOLD": 1,"JR_TITLE_Insets": [0, 0, -10, 0]
+                    }
+                },
+                
+                "TAB_LendRecord" : {
+                    "JCom": "JRButton",
+                    "JFrame": [315,5,100,46],
+                    "JSubRender": {
+                        "JR_BGN_IMG": "WarehouseInventory_标签按钮"
+                        ,"JR_BGS_IMG": "WarehouseInventory_标签按钮"
+                        ,"JR_BGH_IMG": "WarehouseInventory_标签按钮"
+                        ,"JS_FONT_N_COLOR":[0,0.56,0.8]
+                        ,"JS_FONT_S_COLOR":[0,0,0]
+                        ,"JS_FONT_BOLD": 1,"JR_TITLE_Insets": [0, 0, -10, 0]
+                    }
+                },
+                "TAB_PickingRecord":{
+                    "JCom": "JRButton",
+                    "JFrame": [420,5,100,46],
+                    "JSubRender": {
+                        "JR_BGN_IMG": "WarehouseInventory_标签按钮"
+                        ,"JR_BGS_IMG": "WarehouseInventory_标签按钮"
+                        ,"JR_BGH_IMG": "WarehouseInventory_标签按钮"
+                        ,"JS_FONT_N_COLOR":[0,0.56,0.8]
+                        ,"JS_FONT_S_COLOR":[0,0,0]
+                        ,"JS_FONT_BOLD": 1,"JR_TITLE_Insets": [0, 0, -10, 0]
+                    }
+
+                }
+            }
+        },
+        "NESTED_SCROLL":{
+            "JFrame": [0, 140, 6144, 620 ],
+            "SORTEDKEYS": ["NESTED_MaterialInfo", "NESTED_MaterialRecord", "NESTED_MaintainRecord", "NESTED_LendRecord","NESTED_PickingRecord"],
+            "COMPONENTS" : {
+                "NESTED_MaterialInfo":{
+                    "JFrame": [0, -5, 1024, 620 ],
+                    "COMPONENTS" : {
+                        "NESTED_BODY":{
+                            "JFrame": [0, 0, 1024, 620 ],
+                            "SORTEDKEYS": ["BG_book"],
+                            "COMPONENTS" : {
+                                "BG_book" : {
+                                    "JCom": "JRImageView",
+                                    "JFrame": [15,0,-1.1,-1.1],
+                                    "JSubRender":{
+                                        "JR_IMG": "WarehouseInventory_表单背景"
+                                    }
+                                },
+                                "NESTED_LEFT":{
+                                    "JFrame":[25, 0, 680, 510],
+                                    "COMPONENTS":{
+                                        
+                                        "productCode": {
+                                            "JCom" : "JRLabelTextFieldView",
+                                            "JFrame": [40,10,360,40],
+                                            "JSubRender": {
+                                                "frames":[[-1.1,-1.1,140, 40],  [160,-1.1,200, 40]],
+                                                "SubRenders":[{},{"JR_BORDERSTYLE" : 0}]
+                                            }
+                                        },
+                                        "productName": {
+                                            "JCom" : "JRLabelTextFieldView",
+                                            "JFrame": [40,65,360,40],
+                                            "JSubRender": {
+                                                "frames":[[-1.1,-1.1,140, 40],  [160,-1.1,200, 40]],
+                                                "SubRenders":[{"CH_SPACE": "0|1.7"},{"JR_BORDERSTYLE" : 0}]
+                                            }
+                                        },
+                                        
+                                        "BTN_CreateQR" : {
+                                            "JCom": "JRButton",
+                                            "JFrame": [420,10,-1.1,-1.1],
+                                            "JSubRender":{
+                                                "JR_BGN_IMG": "InventoryCHOrder_按钮.png","JS_FONT_BOLD":1,"JS_FONT_N_COLOR":[255,255,255,1], "FONT_SIZE": 17
+                                            }
+                                        },
+                                        
+                                        "BTN_PrintQR" : {
+                                            "JCom": "JRButton",
+                                            "JFrame": [420,65,-1.1,-1.1],
+                                            "JSubRender":{
+                                                "JR_BGN_IMG": "InventoryCHOrder_按钮.png","JS_FONT_BOLD":1,"JS_FONT_N_COLOR":[255,255,255,1], "FONT_SIZE": 17
+                                            }
+                                        },
+                                        
+                                        "IMG_QRCode": {
+                                            "JCom": "JRImageView",
+                                            "JFrame": [550,10,100,100],
+                                            "JSubRender":{
+                                                "JR_IMG": "",
+                                            }
+                                        },
+                                        
+                                        
+                                        "productCategory": {
+                                            "JCom" : "JRLabelTextFieldView",
+                                            "JFrame": [40,117,520,50],
+                                            "JSubRender": {
+                                                "frames":[[-1.1,-1.1,145, 50],  [160,-1.1,-1.1,-1.1]],
+                                                "SubRenders":[{},{"JR_IMG":"WarehouseInventory_产品分类框"}]
+                                            }
+                                        },
+                                        
+                                        "BTN_EditCategory_" : {
+                                            "JCom": "JRButton",
+                                            "JFrame": [450,135,-1.1,-1.1],
+                                            "JSubRender":{
+                                                "JR_BGN_IMG": "WarehouseInventory_编辑类别按钮","JS_FONT_BOLD":1,"JS_FONT_N_COLOR":[0,0,0,1], "FONT_SIZE": 17
+                                            }
+                                        },
+                                        
+                                        "totalAmount": {
+                                            "JCom" : "JRLabelTextFieldView",
+                                            "JFrame": [40,180,350,40],
+                                            "JSubRender": {
+                                                "frames":[[-1.1,-1.1,140, 40],  [160,-1.1,200, 40]],
+                                                "SubRenders":[{"CH_SPACE": "1|1.1,2.1"},{"JR_BORDERSTYLE" : 0}]
+                                            }
+                                        },
+                                        
+                                        "basicUnit": {
+                                            "JCom" : "JRLabelTextFieldView",
+                                            "JFrame": [430,180,240,40],
+                                            "JSubRender": {
+                                                "frames":[[-1.1,-1.1,140, 40],  [120,1,120, 40]],
+                                                "SubRenders":[{},{"JR_BORDERSTYLE" : 0}]
+                                            }
+                                        },
+                                        
+                                        "lendAmount": {
+                                            "JCom" : "JRLabelTextFieldView",
+                                            "JFrame": [40,235,350,40],
+                                            "JSubRender": {
+                                                "frames":[[-1.1,-1.1,140, 40],  [160,-1.1,200, 40]],
+                                                "SubRenders":[{},{"JR_BORDERSTYLE" : 0}]
+                                            }
+                                        },
+                                        
+                                        "remainAmount": {
+                                            "JCom" : "JRLabelTextFieldView",
+                                            "JFrame": [430,235,240,40],
+                                            "JSubRender": {
+                                                "frames":[[-1.1,-1.1,140, 40],  [120,1,120, 40]],
+                                                "SubRenders":[{},{"JR_BORDERSTYLE" : 0}]
+                                            }
+                                        },
+                                        
+                                        "NESTED_UNITCONVERT":{
+                                            "JFrame":[35, 280, 600, 60],
+                                            "SORTEDKEYS": ["BG_BOX_IMAGE"],
+                                            "COMPONENTS":{
+                                                
+                                                "unitConvert": {
+                                                    "JCom" : "JRLocalizeLabel",
+                                                    "JFrame": [5,0,140,60],
+                                                    "JSubRender": {
+                                                        "SubRenders":[{}]
+                                                    }
+                                                },
+                                                
+                                                "BG_BOX_IMAGE" : {
+                                                    "JCom": "JRImageView",
+                                                    "JFrame": [140,8],
+                                                    "JSubRender":{
+                                                        "JR_IMG": "WarehouseInventory_单位转换框"
+                                                    }
+                                                },
+                                                
+                                                "oneUnit": {
+                                                    "JCom" : "JRTextField",
+                                                    "JFrame": [195,12,75,40],
+                                                    "JSubRender": {
+                                                        "JR_BORDERSTYLE" : 0
+                                                    }
+                                                },
+                                                
+                                                "amount": {
+                                                    "JCom" : "JRLabelTextFieldView",
+                                                    "JFrame": [320,12,145,40],
+                                                    "JSubRender": {
+                                                        "frames":[[5,10,80, 20],  [60,0,90, 40]],
+                                                        "SubRenders":[{}, {"JR_BORDERSTYLE" : 0 }]
+                                                    }
+                                                },
+                                                
+                                                
+                                                "unit": {
+                                                    "JCom" : "JRLabelTextFieldView",
+                                                    "JFrame": [470,12,130,40],
+                                                    "JSubRender": {
+                                                        "frames":[[5,10,50, 20],  [65,0,70, 40]],
+                                                        "SubRenders":[{}, {"JR_BORDERSTYLE" : 0 }]
+                                                    }
+                                                },
+                                                
+                                            }
+                                            
+                                        },
+                                        
+                                        "NESTED_UNIT":{
+                                            "JFrame":[80, 330, 400, 80],
+                                            "COMPONENTS":{
+                                                
+                                                "averagePrice": {
+                                                    "JCom" : "JRLocalizeLabel",
+                                                    "JFrame": [-40,20,140,40],
+                                                    "JSubRender": {
+                                                        "SubRenders":[{}]
+                                                    }
+                                                },
+                                                "basePrice": {
+                                                    "JCom" : "JRLocalizeLabel",
+                                                    "JFrame": [115,20,90,40],
+                                                    "JSubRender": {
+                                                    }
+                                                },
+                                                
+                                                "priceBasicUnit": {
+                                                    "JCom" : "JRTextField",
+                                                    "JFrame": [190,20,100,40],
+                                                    "JSubRender": {
+                                                        "JR_BORDERSTYLE" : 0
+                                                    }
+                                                },
+                                                
+                                                "yuan": {
+                                                    "JCom" : "JRLocalizeLabel",
+                                                    "JFrame": [300,20,100,40],
+                                                    "JSubRender": {
+                                                        "SubRenders":[{}]
+                                                    }
+                                                },
+                                                
+                                                
+                                                
+                                            }
+                                            
+                                        },
+                                        "NESTED_UNITPRICE":{
+                                            "JFrame":[330, 330, 400, 80],
+                                            "COMPONENTS":{
+                                                
+                                                "basePrice": {
+                                                    "JCom" : "JRLocalizeLabel",
+                                                    "JFrame": [115,20,90,40],
+                                                    "JSubRender": {
+                                                    }
+                                                },
+                                                
+                                                "priceUnit": {
+                                                    "JCom" : "JRTextField",
+                                                    "JFrame": [190,20,100,40],
+                                                    "JSubRender": {
+                                                        "JR_BORDERSTYLE" : 0,
+                                                        "BGCOLOR":-1
+                                                    }
+                                                },
+                                                "yuan": {
+                                                    "JCom" : "JRLocalizeLabel",
+                                                    "JFrame": [300,20,100,40],
+                                                    "JSubRender": {
+                                                        "SubRenders":[{}]
+                                                    }
+                                                },
+                                                
+                                                
+                                                
+                                            }
+                                            
+                                        },
+
+                                        "productLocation": {
+                                            "JCom" : "JRLabelTextView",
+                                            "JFrame": [40,405,700,40],
+                                            "JSubRender": {
+                                                "frames":[[-1.1,-1.1,120, 40],  [160,-1.1,450, 40]],
+                                                "SubRenders":[{},{"JR_BORDERSTYLE" : 0}]
+                                            }
+                                        },
+                                        "productDesc": {
+                                            "JCom" : "JRLabelTextView",
+                                            "JFrame": [40,460,360,60],
+                                            "JSubRender": {
+                                                "frames":[[-1.1,-1.1,120, 60],  [160,-1.1,200, 60]],
+                                                "SubRenders":[{},{"JR_BORDERSTYLE" : 0}]
+                                            }
+                                        },
+                                        "productDescPDF": {
+                                            "JCom" : "JRTextField",
+                                            "JFrame": [420,460,200,60],
+                                            "JSubRender": {
+                                                "JR_BORDERSTYLE" : 0
+                                            }
+                                        },
+                                        "BTN_AddPDF" : {
+                                            "JCom": "JRButton",
+                                            "JFrame": [620,470,-1.1,-1.1],
+                                            "JSubRender":{
+                                                "JR_BGN_IMG": "WarehouseInventory_供应商添加按钮"
+                                            }
+                                        },
+                                    }
+                                },
+                                "NESTED_RIGHT":{
+                                    "JFrame":[715, 10, 280, 510],
+                                     "SORTEDKEYS": ["BG_Photo","IMG_Photo_Product","BG_TableView","TABLE_Supplier"],
+                                    "COMPONENTS":{
+                                        "BG_Photo" :{
+                                            "JCom": "JRImageView",
+                                            "JFrame": [10,10,-1.1,-1.1],
+                                            "JSubRender":{
+                                                "JR_IMG": "WarehouseInventory_相片框"
+                                            }
+                                        },
+                                        "IMG_Photo" :{
+                                            "JCom": "JRImageView",
+                                            "JFrame": [17,16,232,223],
+                                            "JSubRender":{
+                                                "JR_IMG": "",
+                                                "JR_Radius": 8.0
+                                            }
+                                        },
+                                        "BTN_Take_Product" : {
+                                            "JCom": "JRButton",
+                                            "JFrame": [215,95,-1.1,-1.1],
+                                            "JSubRender":{
+                                                "JR_BGN_IMG": "WarehouseInventory_拍照按钮"
+                                            }
+                                        },
+                                        
+                                        "supplierDesc": {
+                                            "JCom" : "JRComplexView",
+                                            "JFrame": [5, 275, 260, 230],
+                                            "SORTEDKEYS":["BG_TableView"],
+                                            "COMPONENTS": {
+                                                
+                                                "supplier":{
+                                                    "JCom" : "JRLocalizeLabel",
+                                                    "JFrame": [50,20,-1.1,-1.1],
+                                                    "JSubRender": {
+                                                        "SubRenders":[{}]
+                                                    }
+                                                },
+                                                "BTN_AddSupplier" : {
+                                                    "JCom": "JRButton",
+                                                    "JFrame": [190,10,-1.1,-1.1],
+                                                    "JSubRender":{
+                                                        "JR_BGN_IMG": "WarehouseInventory_供应商添加按钮"
+                                                    }
+                                                },
+                                                "BG_TableView" :{
+                                                    "JCom": "JRImageView",
+                                                    "JFrame": [10,60,-1.1,-1.1],
+                                                    "JSubRender":{
+                                                        "JR_IMG": "WarehouseInventory_供应商描述框"
+                                                    }
+                                                },
+                                                "TABLE_Supplier": {
+                                                    "JCom": "JRTableView",
+                                                    "JFrame": [20,70, 225, 145],
+                                                    "JSubRender":{
+                                                    }
+                                                },
+                                                
+                                                
+                                            }
+                                        }
+                                        
+                                        
+
+                                    }
+                                },
+                                "NESTED_BOTTOM":{
+                                    "JFrame":[440, 530, 350, 80],
+                                    "COMPONENTS":{
+                                        
+                                        "BTN_Save" : {
+                                            "JCom": "JRButton",
+                                            "JFrame": [200,10,-1.1,-1.1],
+                                            "JSubRender":{
+                                                "JR_BGN_IMG": "WarehouseInventory_保存按钮",
+                                                "JR_BGS_IMG": "WarehouseInventory_保存按钮",
+                                                "JR_BGH_IMG": "WarehouseInventory_保存按钮",
+                                                "JS_FONT_BOLD":1,
+                                                "JS_FONT_N_COLOR":[255,255,255,1],
+                                                "JS_FONT_S_COLOR":[0,0,0,0],
+                                            }
+                                        },
+                                        
+                                        
+                                        "app1": {
+                                            "JCom" : "JRButtonTextFieldView",
+                                            "JFrame": [10,10,160,50],
+                                            "JSubRender": {
+                                                "frames":[[], [83,0,-1.1,-1.1]],
+                                                "SubRenders":[{"JR_BGN_IMG":"public_底部按钮.png"},{"JR_IMG":"public_底部长名字框.png"}]
+                                            }
+                                        },
+                                    }
+                                },
+                            }
+                        },
+                        
+                    }
+                },
+                "NESTED_MaterialRecord":{
+                    "JFrame": [1024, 0, 1024, 620 ],
+                    "COMPONENTS" : {
+                        "MaterialRecord_TABLE": {
+                            "JCom": "JRRefreshTableView",
+                            "JFrame": [0, -2, 1024, 620],
+                            "BGCOLOR": 0,
+                            "JSubRender":{
+                                "BGCOLOR": 0,
+                                "HIDE_SECTION": 0,
+                                "SECTION_HEIGHT": 50,
+                                "HIDE_SEARCH_BAR": 1,
+                                "HIDE_REFRESH_": 1,
+                                "headerColor": 2,
+                                "headerHeight": 1
+                            }
+                        }
+                        
+                    }
+                },
+                "NESTED_MaintainRecord":{
+                    "JFrame": [2048, 0, 1024, 620 ],
+                    "COMPONENTS" : {
+                        
+                        "MaintainRecord_TABLE": {
+                            "JCom": "JRRefreshTableView",
+                            "JFrame": [0, -2, 1024, 620],
+                            "BGCOLOR": 0,
+                            "JSubRender":{
+                                "BGCOLOR": 0,
+                                "HIDE_SECTION": 0,
+                                "SECTION_HEIGHT": 50,
+                                "HIDE_SEARCH_BAR": 1,
+                                "HIDE_REFRESH_": 1,
+                                "headerColor": 2,
+                                "headerHeight": 1
+                            }
+                        }
+                    }
+                },
+                "NESTED_LendRecord":{
+                    "JFrame": [3072, 0, 1024, 620 ],
+                    "COMPONENTS" : {
+                        
+                        "LendRecord_TABLE": {
+                            "JCom": "JRRefreshTableView",
+                            "JFrame": [0, -2, 1024, 620],
+                            "BGCOLOR": 0,
+                            "JSubRender":{
+                                "BGCOLOR": 0,
+                                "HIDE_SECTION": 0,
+                                "SECTION_HEIGHT": 50,
+                                "HIDE_SEARCH_BAR": 1,
+                                "HIDE_REFRESH_": 1,
+                                "headerColor": 2,
+                                "headerHeight": 1
+                            }
+                        }
+                    }
+                },
+                "NESTED_PickingRecord":{
+                    "JFrame": [4096, 0, 1024, 620 ],
+                    "COMPONENTS" : {
+                        "PickingRecord_TABLE": {
+                            "JCom": "JRRefreshTableView",
+                            "JFrame": [0, -2, 1024, 620],
+                            "BGCOLOR": 0,
+                            "JSubRender":{
+                                "BGCOLOR": 0,
+                                "HIDE_SECTION": 0,
+                                "SECTION_HEIGHT": 50,
+                                "HIDE_SEARCH_BAR": 1,
+                                "HIDE_REFRESH_": 1,
+                                "headerColor": 2,
+                                "headerHeight": 1
+                            }
+                        }
+                    }
+
+                },
+            }
+        },
+    }
+}

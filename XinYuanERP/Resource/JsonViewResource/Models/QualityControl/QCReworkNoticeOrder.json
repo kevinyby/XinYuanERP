@@ -1,0 +1,218 @@
+{
+    "LETTER_VER_TEXTFIEDS": [["orderNO","projectName"]],
+    
+    "COMPONENTS":{
+        
+        "NESTED_MAIN": {
+            "JFrame": [0,100, 1024, 512 ],
+            "SORTEDKEYS": ["BG_book"],
+            "COMPONENTS" : {
+                "BG_book" : {
+                    "JCom": "JRImageView",
+                    "JFrame": [0,0,-1.1,-1.1],
+                    "JSubRender":{
+                        "JR_IMG": "ReworkSingle_背景.png"
+                    }
+                },
+                
+                "NESTED_TOP":{
+                    "JFrame": [30,20,980, 100 ],
+                    "COMPONENTS" : {
+                        
+                        "NESTED_top_left": {
+                            "JFrame": [20,5, 300, 100 ],
+                            "COMPONENTS" : {
+                                
+                                "orderNO": {
+                                    "JCom" : "JRLabelCommaTextFieldView",
+                                    "JFrame": [0,0,280,40],
+                                    "JSubRender": {
+                                        "frames":[[], [], []],
+                                        "SubRenders":[{"CH_SPACE": "1|1.6"},{},{"JR_IMG":"ReworkSingle_文字框"}]
+                                    }
+                                },
+                                
+                                
+                                "projectName": {
+                                    "JCom" : "JRLabelCommaTextFieldView",
+                                    "JFrame": [0,45,280,40],
+                                    "JSubRender": {
+                                        "frames":[[], [], []],
+                                        "SubRenders":[{"CH_SPACE": "0"},{},{"JR_IMG":"ReworkSingle_文字框"}]
+                                    }
+                                }
+                            },
+                            
+                            
+                        },
+                        
+                        "producer": {
+                            "JCom" : "JRLabelCommaTextFieldView",
+                            "JFrame": [340,50,280,40],
+                            "JSubRender": {
+                                "frames":[[], [], []],
+                                "SubRenders":[{"CH_SPACE": "0"},{},{"JR_IMG":"ReworkSingle_文字框"}]
+                            }
+                        },
+                        "qcOrderNo": {
+                            "JCom" : "JRLabelCommaTextFieldView",
+                            "JFrame": [660,50,280,40],
+                            "JSubRender": {
+                                "frames":[[], [], []],
+                                "SubRenders":[{"CH_SPACE": "0"},{},{"JR_IMG":"ReworkSingle_文字框"}]
+                            }
+                        },
+                        
+                    },
+                    
+                },
+                
+                
+                "NESTED_MIDDLE": {
+                    "JFrame": [20,120,980, 290 ],
+                    "COMPONENTS" : {
+                        
+                        "qualityDesc": {
+                            "JCom" : "JRImageLabelCommaTextView",
+                            "JFrame": [25,10,310,260],
+                            "JSubRender": {
+                                "frames":[[0,40,-1.1,-1.1], [100,0,-1.1,-1.1], []],
+                                "SubRenders":[{"JR_IMG":"ReworkSingle_描述框.png"}, {},{"HIDDEN":1} ]
+                            }
+                        },
+                        
+                        
+                        "NESTED_middle": {
+                            "JFrame": [335,10, 315, 260 ],
+                            "SORTEDKEYS": ["BG_Photo","IMG_Photo_Before"],
+                            "COMPONENTS" : {
+                                
+                                "Photo_Before": {
+                                    "JCom" : "JRLocalizeLabel",
+                                    "JFrame": [120,0,-1.1,-1.1],
+                                    "JSubRender": {
+                                       "FONT_SIZE":18,
+                                    }
+                                },
+                                
+                                "BG_Photo" :{
+                                    "JCom": "JRImageView",
+                                    "JFrame": [0,40,-1.1,-1.1],
+                                    "JSubRender":{
+                                        "JR_IMG": "ReworkSingle_相片框1"
+                                    }
+                                },
+                                "IMG_Photo_Before" :{
+                                    "JCom": "JRImageView",
+                                    "JFrame": [4,44,281,210],
+                                    "JSubRender":{
+                                        "JR_IMG": "",
+                                        "JR_Radius": 8.0
+                                    }
+                                },
+                                "BTN_Take_Before" : {
+                                    "JCom": "JRButton",
+                                    "JFrame": [252,66,-1.1,-1.1],
+                                    "JSubRender":{
+                                        "JR_BGN_IMG": "ReworkSingle_按钮"
+                                    }
+                                },
+
+                                
+                                
+                            },
+                            
+                            
+                        },
+                        
+                        "NESTED_right": {
+                            "JFrame": [650,10, 330, 260 ],
+                            "SORTEDKEYS": ["IMG_Photo_After","BG_Photo"],
+                            "COMPONENTS" : {
+                                
+                                "Photo_After": {
+                                    "JCom" : "JRLocalizeLabel",
+                                    "JFrame": [120,0,-1.1,-1.1],
+                                    "JSubRender": {
+                                        "FONT_SIZE":18,
+                                    }
+                                },
+                                
+                                "BG_Photo" :{
+                                    "JCom": "JRImageView",
+                                    "JFrame": [24,40,-1.1,-1.1],
+                                    "JSubRender":{
+                                        "JR_IMG": "ReworkSingle_相片框2"
+                                    }
+                                },
+                                "IMG_Photo_After" :{
+                                    "JCom": "JRImageView",
+                                    "JFrame": [27,44,281,210],
+                                    "JSubRender":{
+                                        "JR_IMG": "",
+                                        "JR_Radius": 8.0
+                                    }
+                                },
+                                "BTN_Take_After" : {
+                                    "JCom": "JRButton",
+                                    "JFrame": [1,162,-1.1,-1.1],
+                                    "JSubRender":{
+                                        "JR_BGN_IMG": "ReworkSingle_按钮"
+                                    }
+                                },
+                                
+                                
+                                
+                            },
+                            
+                            
+                        },
+                       
+                        
+                        
+                        
+                     
+                    },
+                    
+                    
+                },
+                
+                
+                "NESTED_BOTTOM": {
+                    "JFrame": [20,410, 1000, 100 ],
+                    "COMPONENTS" : {
+                        
+                    "problemReview": {
+                            "JCom" : "JRLabelTextView",
+                            "JFrame": [0,5,700,80],
+                            "JSubRender": {
+                                "frames":[[20,30,-1.1,-1.1],[150,5,550,70]],
+                                "SubRenders":[{},{}]
+                            }
+                        },
+                        
+                        "fee": {
+                            "JCom" : "JRLabelTextFieldView",
+                            "JFrame": [740,5,210,70],
+                            "JSubRender": {
+                                "frames":[[15,0,-1.1,-1.1],[10,25,-1.1,-1.1]],
+                                "SubRenders":[{"CH_SPACE": "0"},{"JR_IMG":"ReworkSingle_费用框"}]
+                            }
+                        },
+                        
+                    },
+                    
+                    
+                },
+                
+                
+                
+   
+            }
+        
+            
+        }
+
+    }
+    
+}

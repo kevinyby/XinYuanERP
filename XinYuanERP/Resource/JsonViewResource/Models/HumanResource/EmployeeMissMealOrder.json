@@ -1,0 +1,59 @@
+{
+    
+    "COMPONENTS" : {
+        
+        
+        
+        "NESTED_footer":"",
+        
+        "BG_BOOK_IMAGE" : {
+            "JCom": "JRImageView",
+            "JFrame": [0, 100,-1.1,-1.1],
+            "JSubRender":{
+                "JR_IMG": "Travelmonthfoodallowance_03.png"
+            }
+        },
+        
+        
+        "NESTED_BODY" : {
+            "JFrame": [5, 105, 1000, 570],
+            "COMPONENTS" : {
+                
+                
+                "TABLE_ITEMS_LIST": {
+                    "JCom": "JRRefreshTableView",
+                    "JFrame": [2, 5, 995, 490],
+                    "BORDER": 28,
+                    "JSubRender":{
+                        "BGCOLOR": 0,
+                        "HIDE_SEARCH_BAR": 1,
+                        "headerHeight": 45,
+                        "headerColor": 0,
+                        
+                        
+                        "headers":["applyDate", "employeeNO", "member", "references", "money", "createUser", "app1", "app2"],
+                        "headersX":[10, 150, 250, 400, 520, 650, 780, 900]
+                    }
+                },
+                
+                
+                
+                "summary" : {
+                    "JCom" : "JRLabelCommaTextFieldView",
+                    "JFrame": [800,500,180,40],
+                    "JSubRender": {
+                        "SubRenders":[{},{},{"JR_IMG":"Travelmonthfoodallowance_02.png"}]
+                    }
+                },
+                
+            }
+        }
+        
+        
+        
+        
+        
+        
+    }
+    
+}

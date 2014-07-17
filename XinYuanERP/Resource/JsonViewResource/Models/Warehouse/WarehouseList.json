@@ -1,0 +1,116 @@
+
+{
+   
+    "WHScrapOrder" : {
+        
+        "FIELDS": [["id", "orderNO", "productCode"]],
+        
+        "HEADERS": ["orderNO", "WHScrapOrder.productCode"],
+        "HEADERSX": [80, 280, 500],
+        "VALUESX": [10, 280, 500],
+        
+        
+        "FILTERS": {"0":"FILTER_NIL"}
+        
+    },
+    
+    
+    "WHLendOutOrder" : {
+        
+        "FIELDS": [["id", "orderNO", "productCode"]],
+        
+        "HEADERS": ["orderNO", "WHLendOutOrder.productCode"],
+        "HEADERSX": [80, 280, 500],
+        "VALUESX": [10, 280, 500],
+        
+        
+        "FILTERS": {"0":"FILTER_NIL"}
+        
+    },
+    
+    
+    "WHInventory" : {
+        
+        "FIELDS": [["id", "orderNO", "productCode", "productCategory", "productName", "totalAmount", "lendAmount", "basicUnit"]],
+        
+        "HEADERS": ["WHInventory.productCode", "WHInventory.productCategory", "WHInventory.productName", "WHInventory.totalAmount", "WHInventory.lendAmount", "WHInventory.basicUnit"],
+        "HEADERSX": [20, 150, 280,400,510,620],
+        "VALUESX": [20, 160, 285,420,530,640],
+        
+        
+        "FILTERS": {"0":"FILTER_NIL", "1":"FILTER_NIL"}
+        
+    },
+    
+    
+    "WHPurchaseOrder" : {
+        
+        "FIELDS": [["id", "orderNO"]],
+        
+        "HEADERS": ["orderNO"],
+        "HEADERSX": [80],
+        "VALUESX": [10],
+        
+        
+        "FILTERS": {"0":"FILTER_NIL"}
+        
+    },
+    
+    "WHInventoryCHOrder" : {
+        
+        "FIELDS": [["id", "orderNO"]],
+        
+        "HEADERS": ["orderNO"],
+        "HEADERSX": [80],
+        "VALUESX": [10],
+        
+        
+        "FILTERS": {"0":"FILTER_NIL"}
+        
+    },
+    
+    
+    "WHRecycleInventory" : {
+        
+        "FIELDS": [["id", "productCode" , "productName"]],
+        
+        "HEADERS": ["productCode" , "productName"],
+        "HEADERSX": [20, 150],
+        "VALUESX": [10, 150],
+        
+        
+        "FILTERS": {"0":"FILTER_NIL"}
+        
+    },
+    
+    
+    "WHPickingOrder" : {
+        
+        "FIELDS": [["id", "orderNO"]],
+        
+        "HEADERS": ["orderNO"],
+        "HEADERSX": [80],
+        "VALUESX": [10],
+        
+        
+        "FILTERS": {"0":"FILTER_NIL"}
+        
+    },
+    
+    
+    "WHPickingDetailsOrder" : {
+        
+        "FIELDS": [["id", "orderNO"]],
+        
+        "HEADERS": ["orderNO"],
+        "HEADERSX": [80],
+        "VALUESX": [10],
+        
+        
+        "FILTERS": {"0":"FILTER_NIL"}
+        
+    }
+    
+}
+
+

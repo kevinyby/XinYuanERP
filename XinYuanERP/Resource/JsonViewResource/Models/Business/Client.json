@@ -1,0 +1,581 @@
+{
+    
+    "COMPONENTS" : {
+        "NESTED_footer": "",
+        
+        
+        "NESTED_TABS": {
+            "JFrame": [120, 85, 440, 50 ],
+            "SORTEDKEYS": ["ZZ_TAB_BTNInfo","ZZ_TAB_BTNContact","ZZ_TAB_BTNBorrowOut", "ZZ_TAB_BTNConsult"],
+            "COMPONENTS" : {
+                "ZZ_TAB_BTNInfo" : {
+                    "JCom": "JRButton",
+                    "JFrame": [0,5,100,46],
+                    "BORDER_": 1,
+                    "JSubRender": {
+                        "BORDER": 2
+                        ,"JR_BGN_IMG": "CustomerDataCard_01.png"
+                        ,"JR_BGS_IMG": "CustomerDataCard_01.png"
+                        ,"JR_BGH_IMG": "CustomerDataCard_01.png"
+                        ,"JS_FONT_N_COLOR": [0,0.56,0.8]
+                        ,"JS_FONT_S_COLOR":[0,0,0]
+                        ,"JS_FONT_BOLD": 1,"JR_TITLE_Insets": [0, 0, -10, 0]
+                    }
+                },
+                
+                "ZZ_TAB_BTNContact" : {
+                    "JCom": "JRButton",
+                    "JFrame": [105,5,100,46],
+                    "BORDER_": 1,
+                    "JSubRender": {
+                        "BORDER": 2
+                        ,"JR_BGN_IMG": "CustomerDataCard_01.png"
+                        ,"JR_BGS_IMG": "CustomerDataCard_01.png"
+                        ,"JR_BGH_IMG": "CustomerDataCard_01.png"
+                        ,"JS_FONT_N_COLOR": [0,0.56,0.8]
+                        ,"JS_FONT_S_COLOR":[0,0,0]
+                        ,"JS_FONT_BOLD": 1,"JR_TITLE_Insets": [0, 0, -10, 0]
+                    }
+                },
+                
+                "ZZ_TAB_BTNBorrowOut" : {
+                    "JCom": "JRButton",
+                    "JFrame": [210,5,100,46],
+                    "BORDER_": 1,
+                    "JSubRender": {
+                        "BORDER": 2
+                        ,"JR_BGN_IMG": "CustomerDataCard_01.png"
+                        ,"JR_BGS_IMG": "CustomerDataCard_01.png"
+                        ,"JR_BGH_IMG": "CustomerDataCard_01.png"
+                        ,"JS_FONT_N_COLOR": [0,0.56,0.8]
+                        ,"JS_FONT_S_COLOR":[0,0,0]
+                        ,"JS_FONT_BOLD": 1,"JR_TITLE_Insets": [0, 0, -10, 0]
+                    }
+                },
+                
+                "ZZ_TAB_BTNConsult" : {
+                    "JCom": "JRButton",
+                    "JFrame": [315,5,100,46],
+                    "BORDER_": 1,
+                    "JSubRender": {
+                        "BORDER_": 2
+                        ,"JR_BGN_IMG": "CustomerDataCard_01.png"
+                        ,"JR_BGS_IMG": "CustomerDataCard_01.png"
+                        ,"JR_BGH_IMG": "CustomerDataCard_01.png"
+                        ,"JS_FONT_N_COLOR": [0,0.56,0.8]
+                        ,"JS_FONT_S_COLOR":[0,0,0]
+                        ,"JS_FONT_BOLD": 1,"JR_TITLE_Insets": [0, 0, -10, 0]
+                    }
+                }
+            }
+        },
+        
+        "NESTED_SCROLL":{
+            "JFrame": [0, 135, 4096, 570 ],
+            "SORTEDKEYS": ["NESTED_INFO", "NESTED_CONTRACT", "NESTED_BORROWOUT", "NESTED_CONSULT"],
+            "COMPONENTS" : {
+                
+                "NESTED_INFO":{
+                    "JFrame": [0, 0, 1024, 570 ],
+                    "BORDER": 12,
+                    "COMPONENTS" : {
+                        
+                        "NESTED_MAIN":{
+                            "JFrame": [50, -5, 880, 570 ],
+                            "BORDER_": 11,
+                            "SORTEDKEYS": ["BG_book"],
+                            "COMPONENTS" : {
+                                
+                                "BG_book" : {
+                                    "JCom": "JRImageView",
+                                    "JFrame": [0,-5,-1.1,-1.1],
+                                    "JSubRender":{
+                                        "JR_IMG": "CustomerDataCard_09.png"
+                                    }
+                                },
+                                
+                                "NESTED_BODY":{
+                                    "JFrame": [55, 5, 820, 560 ],
+                                    "BORDER_": 20,
+                                    "COMPONENTS" : {
+                                        
+                                        "NESTED_BODY_UP":{
+                                            "JFrame": [0, 0, 800, 300 ],
+                                            "BORDER_": 12,
+                                            "COMPONENTS" : {
+                                                
+                                                "NESTED_BODY_UP_LEFT":{
+                                                    "JFrame": [50, 15, 330, 280 ],
+                                                    "BORDER_": 9,
+                                                    "COMPONENTS" : {
+                                                        
+                                                        "number": {
+                                                            "JCom" : "JRLabelCommaTextFieldView",
+                                                            "JFrame": [0,0,310,46],
+                                                            "BORDER_":10,
+                                                            "JSubRender": {
+                                                                "frames":[[], [], []],
+                                                                "SubRenders":[{"BORDER_":1,"CH_SPACE": "0"},{},{"BORDER_":2, "JR_IMG":"CustomerDataCard_02.png"}]
+                                                            }
+                                                        },
+                                                        
+                                                        "name": {
+                                                            "JCom" : "JRLabelCommaTextFieldView",
+                                                            "JFrame": [0,47,310,46],
+                                                            "BORDER_":10,
+                                                            "JSubRender": {
+                                                                "frames":[[], [], []],
+                                                                "SubRenders":[{"BORDER_":1,"CH_SPACE": "0"},{},{"BORDER_":2, "JR_IMG":"CustomerDataCard_02.png"}]
+                                                            }
+                                                        },
+                                                        
+                                                        "category": {
+                                                            "JCom" : "JRLabelCommaTextFieldView",
+                                                            "JFrame": [0,94,310,46],
+                                                            "BORDER_":10,
+                                                            "JSubRender": {
+                                                                "frames":[[], [], []],
+                                                                "SubRenders":[{"BORDER_":1,"CH_SPACE": "0"},{},{"BORDER_":2, "JR_IMG":"CustomerDataCard_02.png"}]
+                                                            }
+                                                        },
+                                                        
+                                                        "taxNumber": {
+                                                            "JCom" : "JRLabelCommaTextFieldView",
+                                                            "JFrame": [0,141,310,46],
+                                                            "BORDER_":10,
+                                                            "JSubRender": {
+                                                                "frames":[[], [], []],
+                                                                "SubRenders":[{"BORDER_":1,"CH_SPACE": "0"},{},{"BORDER_":2, "JR_IMG":"CustomerDataCard_02.png"}]
+                                                            }
+                                                        },
+                                                        
+                                                        "bankDeposit": {
+                                                            "JCom" : "JRLabelCommaTextFieldView",
+                                                            "JFrame": [0,188,310,46],
+                                                            "BORDER_":10,
+                                                            "JSubRender": {
+                                                                "frames":[[], [], []],
+                                                                "SubRenders":[{"BORDER_":1,"CH_SPACE": "1|2.1"},{},{"BORDER_":2, "JR_IMG":"CustomerDataCard_02.png"}]
+                                                            }
+                                                        },
+                                                        
+                                                        "bankAccount": {
+                                                            "JCom" : "JRLabelCommaTextFieldView",
+                                                            "JFrame": [0,235,310,46],
+                                                            "BORDER_":10,
+                                                            "JSubRender": {
+                                                                "frames":[[], [], []],
+                                                                "SubRenders":[{"BORDER_":1,"CH_SPACE": "7"},{},{"BORDER_":2, "JR_IMG":"CustomerDataCard_02.png"}]
+                                                            }
+                                                        }
+                                                        
+                                                    }
+                                                    
+                                                    
+                                                },
+                                                
+                                                "NESTED_BODY_UP_RIGHT":{
+                                                    "JFrame": [440, 15, 330, 280 ],
+                                                    "BORDER_": 9,
+                                                    "COMPONENTS" : {
+                                                        
+                                                        "principal": {
+                                                            "JCom" : "JRLabelCommaTextFieldView",
+                                                            "JFrame": [0,0,310,46],
+                                                            "BORDER_":10,
+                                                            "JSubRender": {
+                                                                "frames":[[], [], []],
+                                                                "SubRenders":[{"BORDER_":1,"CH_SPACE": "2"},{},{"BORDER_":2, "JR_IMG":"CustomerDataCard_02.png"}]
+                                                            }
+                                                        },
+                                                        
+                                                        "phoneNO": {
+                                                            "JCom" : "JRLabelCommaTextFieldView",
+                                                            "JFrame": [0,47,310,46],
+                                                            "BORDER_":10,
+                                                            "JSubRender": {
+                                                                "frames":[[], [], []],
+                                                                "SubRenders":[{"BORDER_":1,"CH_SPACE": "7"},{},{"BORDER_":2, "JR_IMG":"CustomerDataCard_02.png"}]
+                                                            }
+                                                        },
+                                                        
+                                                        "faxNO": {
+                                                            "JCom" : "JRLabelCommaTextFieldView",
+                                                            "JFrame": [0,94,310,46],
+                                                            "BORDER_":10,
+                                                            "JSubRender": {
+                                                                "frames":[[], [], []],
+                                                                "SubRenders":[{"BORDER_":1,"CH_SPACE": "7"},{},{"BORDER_":2, "JR_IMG":"CustomerDataCard_02.png"}]
+                                                            }
+                                                        },
+                                                        
+                                                        "address": {
+                                                            "JCom" : "JRLabelCommaTextFieldView",
+                                                            "JFrame": [0,141,310,46],
+                                                            "BORDER_":10,
+                                                            "JSubRender": {
+                                                                "frames":[[], [], []],
+                                                                "SubRenders":[{"BORDER_":1,"CH_SPACE": "7"},{"BORDER_":1},{"BORDER_":2, "JR_IMG":"CustomerDataCard_02.png"}]
+                                                            }
+                                                        },
+                                                        
+                                                        "postcode": {
+                                                            "JCom" : "JRLabelCommaTextFieldView",
+                                                            "JFrame": [0,188,310,46],
+                                                            "BORDER_":10,
+                                                            "JSubRender": {
+                                                                "frames":[[], [], []],
+                                                                "SubRenders":[{"BORDER_":1,"CH_SPACE": "0"},{},{"BORDER_":2, "JR_IMG":"CustomerDataCard_02.png"}]
+                                                            }
+                                                        },
+                                                        
+                                                        "webSite": {
+                                                            "JCom" : "JRLabelCommaTextFieldView",
+                                                            "JFrame": [0,235,310,46],
+                                                            "BORDER_":10,
+                                                            "JSubRender": {
+                                                                "frames":[[], [], []],
+                                                                "SubRenders":[{"BORDER_":1,"CH_SPACE": "7"},{},{"BORDER_":2, "JR_IMG":"CustomerDataCard_02.png"}]
+                                                            }
+                                                        }
+                                                        
+                                                        
+                                                        
+                                                    }
+                                                    
+                                                    
+                                                }
+                                                
+                                            }
+                                        },
+                                        
+                                        
+                                        "NESTED_BODY_DOWN":{
+                                            "JFrame": [5, 305, 800, 163 ],
+                                            "BORDER_": 12,
+                                            "COMPONENTS" : {
+                                                
+                                                "NESTED_BODY_DOWN_LEFT":{
+                                                    
+                                                    "JFrame": [1, 0, 400, 160 ],
+                                                    "BORDER_": 13,
+                                                    "COMPONENTS" : {
+                                                        
+                                                        "NESTED_PHOTO_ONE":{
+                                                            "JFrame": [5, 0, 200, 150 ],
+                                                            "BORDER_": 13,
+                                                            "SORTEDKEYS": ["BG_ConteactPhoto_One","IMG_Photo_One"],
+                                                            "COMPONENTS" : {
+                                                                "BG_ConteactPhoto_One":{
+                                                                    "JCom": "JRImageView",
+                                                                    "JFrame": [25,10,-1.1,-1.1],
+                                                                    "JSubRender":{
+                                                                        "JR_IMG": "CustomerDataCard_03.png"
+                                                                    }
+                                                                },
+                                                                "IMG_Photo_One":{
+                                                                    "JCom": "JRImageView",
+                                                                    "BORDER_" : 3,
+                                                                    "JFrame": [30,13,160,125],
+                                                                    "JSubRender":{
+                                                                        "JR_IMG": "",
+                                                                        "JR_Radius": 8.0
+                                                                    }
+                                                                },
+                                                                "BTN_Take_One" : {
+                                                                    "JCom": "JRButton",
+                                                                    "JFrame": [0,31,-1.1,-1.1],
+                                                                    "JSubRender":{
+                                                                        "JR_BGN_IMG": "CustomerDataCard_04.png"
+                                                                    }
+                                                                }
+                                                            }
+                                                        },
+                                                        
+                                                        "contactOne" : {
+                                                            "JCom" : "JRComplexView",
+                                                            "JFrame": [200, 0, 175, 150 ],
+                                                            "BORDER_": 4,
+                                                            "COMPONENTS": {
+                                                                
+                                                                "contactOne": {
+                                                                    "JCom" : "JRLabelCommaTextFieldView",
+                                                                    "JFrame": [0,0,166,70],
+                                                                    "BORDER_":10,
+                                                                    "JSubRender": {
+                                                                        "frames":[[0,0,-1.1,25], [], [0, 25, -1.1,-1.1]],
+                                                                        "SubRenders":[{"BORDER_":1},{"BORDER_":1},{"BORDER_":2, "JR_IMG":"CustomerDataCard_05.png"}]
+                                                                    }
+                                                                },
+                                                                
+                                                                "phoneNO": {
+                                                                    "JCom" : "JRLabelCommaTextFieldView",
+                                                                    "JFrame": [0,70,166,70],
+                                                                    "BORDER_":10,
+                                                                    "JSubRender": {
+                                                                        "frames":[[0,0,-1.1,25], [], [0, 25, -1.1,-1.1]],
+                                                                        "SubRenders":[{"BORDER_":1},{"BORDER_":1},{"BORDER_":2, "JR_IMG":"CustomerDataCard_05.png"}]
+                                                                    }
+                                                                }
+                                                                
+                                                                
+                                                            }
+                                                        }
+                                                        
+                                                    }
+                                                    
+                                                },
+                                                
+                                                "NESTED_BODY_DOWN_RIGHT":{
+                                                    
+                                                    "JFrame": [415, 0, 382, 160 ],
+                                                    "COMPONENTS" : {
+                                                        
+                                                        "NESTED_PHOTO_TWO":{
+                                                            "JFrame": [5, 0, 200, 150 ],
+                                                            "BORDER_": 13,
+                                                            "SORTEDKEYS": ["BG_ConteactPhoto_Two","IMG_Photo_Two"],
+                                                            "COMPONENTS" : {
+                                                                "BG_ConteactPhoto_Two":{
+                                                                    "JCom": "JRImageView",
+                                                                    "JFrame": [25,10,-1.1,-1.1],
+                                                                    "JSubRender":{
+                                                                        "JR_IMG": "CustomerDataCard_03.png"
+                                                                    }
+                                                                },
+                                                                "IMG_Photo_Two":{
+                                                                    "JCom": "JRImageView",
+                                                                    "BORDER_" : 3,
+                                                                    "JFrame": [30,13,160,125],
+                                                                    "JSubRender":{
+                                                                        "JR_IMG": "",
+                                                                        "JR_Radius": 8.0
+                                                                    }
+                                                                },
+                                                                "BTN_Take_Two" : {
+                                                                    "JCom": "JRButton",
+                                                                    "JFrame": [0,31,-1.1,-1.1],
+                                                                    "JSubRender":{
+                                                                        "JR_BGN_IMG": "CustomerDataCard_04.png"
+                                                                    }
+                                                                }
+                                                            }
+                                                        },
+                                                        
+                                                        "contactTwo" : {
+                                                            "JCom" : "JRComplexView",
+                                                            "JFrame": [200, 0, 175, 150 ],
+                                                            "BORDER_": 4,
+                                                            "COMPONENTS": {
+                                                                
+                                                                "contactTwo": {
+                                                                    "JCom" : "JRLabelCommaTextFieldView",
+                                                                    "JFrame": [0,0,166,70],
+                                                                    "BORDER_":10,
+                                                                    "JSubRender": {
+                                                                        "frames":[[0,0,-1.1,25], [], [0, 25, -1.1,-1.1]],
+                                                                        "SubRenders":[{"BORDER_":1},{"BORDER_":1},{"BORDER_":2, "JR_IMG":"CustomerDataCard_05.png"}]
+                                                                    }
+                                                                },
+                                                                
+                                                                "phoneNO": {
+                                                                    "JCom" : "JRLabelCommaTextFieldView",
+                                                                    "JFrame": [0,70,166,70],
+                                                                    "BORDER_":10,
+                                                                    "JSubRender": {
+                                                                        "frames":[[0,0,-1.1,25], [], [0, 25, -1.1,-1.1]],
+                                                                        "SubRenders":[{"BORDER_":1},{"BORDER_":1},{"BORDER_":2, "JR_IMG":"CustomerDataCard_05.png"}]
+                                                                    }
+                                                                }
+                                                                
+                                                                
+                                                            }
+                                                        }
+                                                        
+                                                    }
+                                                    
+                                                }
+                                                
+                                            }
+                                        },
+                                        
+                                        "NESTED_BODY_FOOTER":{
+                                            "JFrame": [2, 505, 800, 60 ],
+                                            "BORDER_": 13,
+                                            "COMPONENTS" : {
+                                                
+                                                "createDate": {
+                                                    "JCom" : "JRLabelCommaTextFieldView",
+                                                    "JFrame": [150,0,310, 44],
+                                                    "BORDER_":10,
+                                                    "JSubRender": {
+                                                        "frames":[[], [], []],
+                                                        "SubRenders":[{"BORDER_":1},{"BORDER_":2},{"BORDER_":3, "JR_IMG":"CustomerDataCard_06.png","JR_LEFTINSET":20.0}]
+                                                    }
+                                                },
+                                                
+                                                "ZZ_BTNSubmit":  {
+                                                    "JCom": "JRButton",
+                                                    "BORDER_" : 3,
+                                                    "JFrame": [550, 0, -1.1, -1.1],
+                                                    "JSubRender":{
+                                                        "JR_BGN_IMG": "CustomerDataCard_07.png","FONT_SIZE": 25, "JS_FONT_BOLD":1,"JS_FONT_N_COLOR":[255,255,255,1]
+                                                    }
+                                                }
+                                            }
+                                        }
+                                        
+                                    }
+                                }
+                                
+                                
+                            }
+                        }
+                        
+                    }
+                },
+                
+                "NESTED_CONTRACT":{
+                    "JFrame": [1024, 0, 1024, 570 ],
+                    "COMPONENTS" : {
+                        
+                        
+                        "NESTED_MAIN":{
+                            "JFrame": [45, 0, 900, 570 ],
+                            "BORDER_": 16,
+                            "SORTEDKEYS": ["BG_book"],
+                            "COMPONENTS" : {
+                                
+                                "BG_book" : {
+                                    "JCom": "JRImageView",
+                                    "JFrame": [0,-25,-1.1,-1.1],
+                                    "JSubRender":{
+                                        "JR_IMG": "Contract_04.png"
+                                    }
+                                },
+                                
+                                "BTN_CONTRACT_ADD" : {
+                                    "JCom": "JRButton",
+                                    "BORDER_" : 3,
+                                    "JFrame": [745,-2,-1.1,-1.1],
+                                    "JSubRender":{
+                                        "JR_BGN_IMG": "Contract_01.png"
+                                    }
+                                },
+                                
+                                "CONTRACT_TABLE": {
+                                    "JCom": "JRRefreshTableView",
+                                    "JFrame": [67, 52, 800, 460],
+                                    "BORDER_": 28,
+                                    "JSubRender":{
+                                        "JR_CELLBGN_IMG":"Contract_02.png",
+                                        "JR_CELLBGH_IMG":"Contract_03.png",
+                                        "BGCOLOR": 0,
+                                        "HIDE_SEARCH_BAR": 1
+                                    }
+                                }
+                                
+                            }
+                        }
+                        
+                    }
+                },
+                
+                "NESTED_BORROWOUT":{
+                    "JFrame": [2048, 0, 1024, 570 ],
+                    "COMPONENTS" : {
+                        
+                        "NESTED_MAIN":{
+                            "JFrame": [45, 0, 900, 570 ],
+                            "BORDER_": 16,
+                            "SORTEDKEYS": ["BG_book"],
+                            "COMPONENTS" : {
+                                
+                                "BG_book" : {
+                                    "JCom": "JRImageView",
+                                    "JFrame": [0,-25,-1.1,-1.1],
+                                    "JSubRender":{
+                                        "JR_IMG": "Contract_04.png"
+                                    }
+                                },
+                                
+                                "BTN_BORROWOUT_ADD" : {
+                                    "JCom": "JRButton",
+                                    "BORDER_" : 3,
+                                    "JFrame": [745,-2,-1.1,-1.1],
+                                    "JSubRender":{
+                                        "JR_BGN_IMG": "Contract_01.png"
+                                    }
+                                },
+                                
+                                "BORROWOUT_TABLE": {
+                                    "JCom": "JRRefreshTableView",
+                                    "JFrame": [65, 50, 800, 460],
+                                    "JSubRender":{
+                                        "JR_CELLBGN_IMG":"Contract_02.png",
+                                        "JR_CELLBGH_IMG":"Contract_03.png",
+                                        "BGCOLOR": 0,
+                                        "HIDE_SEARCH_BAR": 1
+                                    }
+                                }
+                                
+                            }
+                        }
+                        
+                    }
+                },
+                
+                "NESTED_CONSULT":{
+                    "JFrame": [3072, 0, 1024, 570 ],
+                    "COMPONENTS" : {
+                        
+                        
+                        "NESTED_MAIN":{
+                            "JFrame": [45, 0, 900, 570 ],
+                            "BORDER_": 16,
+                            "SORTEDKEYS": ["BG_book"],
+                            "COMPONENTS" : {
+                                
+                                "BG_book" : {
+                                    "JCom": "JRImageView",
+                                    "JFrame": [0,-25,-1.1,-1.1],
+                                    "JSubRender":{
+                                        "JR_IMG": "Contract_04.png"
+                                    }
+                                },
+                                
+                                "BTN_CONSULT_ADD" : {
+                                    "JCom": "JRButton",
+                                    "BORDER_" : 3,
+                                    "JFrame": [745,-2,-1.1,-1.1],
+                                    "JSubRender":{
+                                        "JR_BGN_IMG": "Contract_01.png"
+                                    }
+                                },
+                                
+                                "CONSULT_TABLE": {
+                                    "JCom": "JRRefreshTableView",
+                                    "JFrame": [65, 50, 800, 460],
+                                    "JSubRender":{
+                                        "JR_CELLBGN_IMG":"Contract_02.png",
+                                        "JR_CELLBGH_IMG":"Contract_03.png",
+                                        "BGCOLOR": 0,
+                                        "HIDE_SEARCH_BAR": 1
+                                    }
+                                }
+                                
+                            }
+                        }
+                        
+                    }
+                },
+            }
+        }
+        
+        
+    },
+    
+    
+    "LETTER_VER_TEXTFIEDS": ["NESTED_BODY_UP_LEFT","NESTED_BODY_UP_RIGHT"],
+    
+}

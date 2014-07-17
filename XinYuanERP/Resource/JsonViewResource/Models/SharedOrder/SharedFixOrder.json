@@ -1,0 +1,245 @@
+{
+    "COMPONENTS":{
+        "NESTED_BODY":{
+            "JFrame":[45,100,930,560],
+            "SORTEDKEYS":["IMG_bg"],
+            "BORDER":10,
+            "COMPONENTS":{
+                "IMG_bg":{
+                    "JCom":"JRImageView",
+                    "JFrame":[-20,0,-1.1,-1.1],
+                    "JSubRender":{
+                        "JR_IMG":"fix_bg.png"
+                    }
+                },
+                "NESTED_TOP":{
+                    "BORDER":9,
+                    "JFrame":[10,15,910,78],
+                    "COMPONENTS":{
+                        "equipNO":{
+                            "JCom" : "JRLabelCommaTextFieldView",
+                            "JFrame": [10,15,300,45],
+                            "BORDER":9,
+                            "JSubRender": {
+                                "frames":[[], [], []],
+                                "SubRenders":[{},{},{"JR_IMG":"fix_input.png"}]
+                            }
+                        },
+                        "objectName":{
+                            "JCom" : "JRLabelCommaTextFieldView",
+                            "JFrame": [310,15,300,30],
+                            "JSubRender": {
+                                "frames":[[], [], [150,0,-1.1,-1.1]],
+                                "SubRenders":[{"CH_SPACE":"6"},{},{"JR_IMG":"fix_input.png"}]
+                            }
+                        },
+                        "location":{
+                            "JCom" : "JRLabelCommaTextFieldView",
+                            "JFrame": [600,15,300,30],
+                            "JSubRender": {
+                                "frames":[[], [], [150,0,-1.1,-1.1]],
+                                "SubRenders":[{"CH_SPACE":"6"},{},{"JR_IMG":"fix_input.png"}]
+                            }
+                        }
+                    }
+                },
+                
+                "NESTED_STACK1":{
+                    "BORDER":9,
+                    "JFrame":[0,100,930,180],
+                    "COMPONENTS":{
+                        "fixInfo":{
+                            "BORDER":20,
+                            "JCom":"JRLabelTextView",
+                            "JFrame":[10,0,260,180],
+                            "JSubRender":{
+                                "frames":[[],[10,32,250,140]],
+                                "SubRenders":[{},{"BORDER":20,"JR_IMG":"fix_text.png"}]
+                            }
+                        },
+                        "mopinion":{
+                            "BORDER":20,
+                            "JCom":"JRLabelTextView",
+                            "JFrame":[290,0,330,180],
+                            "JSubRender":{
+                                "frames":[[],[10,32,310,140]],
+                                "SubRenders":[{},{"BORDER":20,"JR_IMG":"fix_text2.png"}]
+                            }
+                        },
+                        "beforeFix":{
+                            "JCom":"JRLocalizeLabel",
+                            "JFrame":[650,0,-1.1,30]
+                        },
+                        "beforeFix_frame":{
+                            "BORDER":20,
+                            "JCom":"JRImageView",
+                            "JFrame":[650,40,-1.1,-1.1],
+                            "JSubRender":{
+                                "JR_IMG": "fix_photo_frame.png"
+                            }
+                        },
+                        "camButton":{
+                            "JCom":"JRButton",
+                            "JFrame":[865,63,-1.1,-1.1],
+                            "JSubRender":{
+                                "JR_BGN_IMG":"fix_cam.png"
+                            }
+                        }
+                    }
+                },
+                "NESTED_appButton1": {
+                    "JFrame": [ 20, 280, 870, 80 ],
+                    "BORDER_": 2 ,
+                    "COMPONENTS": {
+                        
+                        "createUser": {
+                            "JCom" : "JRButtonTextFieldView",
+                            "JFrame": [700,1,180,60],
+                            
+                            "JSubRender": {
+                                "frames":[[], [83,0,-1.1,-1.1]],
+                                "SubRenders":[{"JR_BGN_IMG":"public_底部按钮.png"},{"JR_IMG":"public_底部名字框.png"}]
+                            }
+                        },
+                        
+                        "app1": {
+                            "JCom" : "JRButtonTextFieldView",
+                            "JFrame": [525,1,180,60],
+                            "JSubRender": {
+                                "frames":[[], [83,0,-1.1,-1.1]],
+                                "SubRenders":[{"JR_BGN_IMG":"public_底部按钮.png"},{"JR_IMG":"public_底部名字框.png"}]
+                            }
+                        },
+                        
+                        "app2": {
+                            "JCom" : "JRButtonTextFieldView",
+                            "JFrame": [350,1,180,60],
+                            "JSubRender": {
+                                "frames":[[], [83,0,-1.1,-1.1]],
+                                "SubRenders":[{"JR_BGN_IMG":"public_底部按钮.png"},{"JR_IMG":"public_底部名字框.png"}]
+                            }
+                        },
+                        
+                        "app3": {
+                            "JCom" : "JRButtonTextFieldView",
+                            "JFrame": [175,1,180,60],
+                            "JSubRender": {
+                                "frames":[[], [83,0,-1.1,-1.1]],
+                                "SubRenders":[{"JR_BGN_IMG":"public_底部按钮.png"},{"JR_IMG":"public_底部名字框.png"}]
+                            }
+                        },
+                        
+                        "app4": {
+                            "JCom" : "JRButtonTextFieldView",
+                            "BORDER_": 10,
+                            "JFrame": [0,1,170,60],
+                            "JSubRender": {
+                                "frames":[[], [83,0,-1.1,-1.1]],
+                                "SubRenders":[{"JR_BGN_IMG":"public_底部按钮.png"},{"JR_IMG":"public_底部名字框.png"}]
+                            }
+                        }
+                        
+                    }
+                },
+                "NESTED_STACK2":{
+                    "BORDER":9,
+                    "JFrame":[0,330,930,180],
+                    "COMPONENTS":{
+                        "fixAdvice":{
+                            "BORDER":20,
+                            "JCom":"JRLabelTextView",
+                            "JFrame":[10,0,260,180],
+                            "JSubRender":{
+                                "frames":[[],[10,32,250,140]],
+                                "SubRenders":[{},{"BORDER":20,"JR_IMG":"fix_text.png"}]
+                            }
+                        },
+                        "fixMaterial":{
+                            "BORDER":20,
+                            "JCom":"JRLabelTextView",
+                            "JFrame":[290,0,330,180],
+                            "JSubRender":{
+                                "frames":[[],[10,32,310,140]],
+                                "SubRenders":[{},{"BORDER":20,"JR_IMG":"fix_text2.png"}]
+                            }
+                        },
+                        "afterFix":{
+                            "JCom":"JRLocalizeLabel",
+                            "JFrame":[650,0,-1.1,30]
+                        },
+                        "afterFix_frame":{
+                            "BORDER":20,
+                            "JCom":"JRImageView",
+                            "JFrame":[650,40,-1.1,-1.1],
+                            "JSubRender":{
+                                "JR_IMG": "fix_photo_frame.png"
+                            }
+                        },
+                        "camButton2":{
+                            "JCom":"JRButton",
+                            "JFrame":[865,63,-1.1,-1.1],
+                            "JSubRender":{
+                                "JR_BGN_IMG":"fix_cam.png"
+                            }
+                        }
+                    }
+                },
+                "NESTED_appButton2": {
+                    "JFrame": [ 0, 510, 870, 80 ],
+                    "BORDER_": 2 ,
+                    "COMPONENTS": {
+                        
+                        "createUser": {
+                            "JCom" : "JRButtonTextFieldView",
+                            "JFrame": [700,1,180,60],
+                            
+                            "JSubRender": {
+                                "frames":[[], [83,0,-1.1,-1.1]],
+                                "SubRenders":[{"JR_BGN_IMG":"public_底部按钮.png"},{"JR_IMG":"public_底部名字框.png"}]
+                            }
+                        },
+                        
+                        "app1": {
+                            "JCom" : "JRButtonTextFieldView",
+                            "JFrame": [525,1,180,60],
+                            "JSubRender": {
+                                "frames":[[], [83,0,-1.1,-1.1]],
+                                "SubRenders":[{"JR_BGN_IMG":"public_底部按钮.png"},{"JR_IMG":"public_底部名字框.png"}]
+                            }
+                        },
+                        
+                        "app2": {
+                            "JCom" : "JRButtonTextFieldView",
+                            "JFrame": [350,1,180,60],
+                            "JSubRender": {
+                                "frames":[[], [83,0,-1.1,-1.1]],
+                                "SubRenders":[{"JR_BGN_IMG":"public_底部按钮.png"},{"JR_IMG":"public_底部名字框.png"}]
+                            }
+                        },
+                        
+                        "app3": {
+                            "JCom" : "JRButtonTextFieldView",
+                            "JFrame": [175,1,180,60],
+                            "JSubRender": {
+                                "frames":[[], [83,0,-1.1,-1.1]],
+                                "SubRenders":[{"JR_BGN_IMG":"public_底部按钮.png"},{"JR_IMG":"public_底部名字框.png"}]
+                            }
+                        },
+                        
+                        "app4": {
+                            "JCom" : "JRButtonTextFieldView",
+                            "BORDER_": 10,
+                            "JFrame": [0,1,170,60],
+                            "JSubRender": {
+                                "frames":[[], [83,0,-1.1,-1.1]],
+                                "SubRenders":[{"JR_BGN_IMG":"public_底部按钮.png"},{"JR_IMG":"public_底部名字框.png"}]
+                            }
+                        }
+                        
+                    }
+                }
+            }
+        },
+        "NESTED_footer":""
+    }
+}

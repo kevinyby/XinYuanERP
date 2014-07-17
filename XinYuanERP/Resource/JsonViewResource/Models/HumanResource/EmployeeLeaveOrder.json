@@ -1,0 +1,275 @@
+{
+    
+    "COMPONENTS" : {
+        
+        
+        "BG_BOOK_IMAGE" : {
+            "JCom": "JRImageView",
+            "JFrame": [0,100,-1.1,-1.1],
+            "JSubRender":{
+                "JR_IMG": "LeaveAlone_08.png"
+            }
+        },
+        
+        
+        "NESTED_BODY": {
+            "JFrame": [ 20, 115, 990, 470 ],
+            "COMPONENTS": {
+                
+                
+                "NESTED_UP": {
+                    "JFrame": [ 55, 10, 900, 45 ],
+                    "COMPONENTS": {
+                        
+                        "orderNO": {
+                            "JCom" : "JRLabelCommaTextFieldView",
+                            "JFrame": [1,3,280,40],
+                            "JSubRender": {
+                                "SubRenders":[{},{},{"JR_ENABLE": 0, "JR_IMG":"LeaveAlone_01.png"}]
+                            }
+                        },
+                        
+                        "createDate": {
+                            "JCom" : "JRLabelCommaTextFieldView",
+                            "JFrame": [600,3,280,40],
+                            "JSubRender": {
+                                "SubRenders":[{},{},{"JR_ENABLE": 0, "JR_IMG":"LeaveAlone_01.png"}]
+                            }
+                        }
+                        
+                    }
+                },
+                
+                
+                
+                
+                "NESTED_MIDDLE_1": {
+                    "JFrame": [ 15, 70, 945, 100 ],
+                    "COMPONENTS": {
+                        
+                        "employeeNO": {
+                            "JCom" : "JRLabelTextFieldView",
+                            "JFrame": [30, 5, 150, 100],
+                            "JSubRender": {
+                                "frames":[ [50, 0], [0, 40, 150, 60]],
+                                "SubRenders":[{"RESERVE_CENTER": 1},{"JR_ENABLE": 0, "JR_LEFTINSET": 20, "JR_BORDERSTYLE": 0 , "BGCOLOR": 0}]
+                            }
+                        },
+                        
+                        "name": {
+                            "JCom" : "JRLabelTextFieldView",
+                            "JFrame": [210, 5, 150, 100],
+                            "JSubRender": {
+                                "frames":[ [50, 0], [0, 40, 150, 60]],
+                                "SubRenders":[{"RESERVE_CENTER": 1},{"JR_ENABLE": 0, "JR_LEFTINSET": 20, "JR_BORDERSTYLE": 0 , "BGCOLOR": 0}]
+                            }
+                        },
+                        
+                        "department": {
+                            "JCom" : "JRLabelTextFieldView",
+                            "JFrame": [380, 5, 150, 100],
+                            "JSubRender": {
+                                "frames":[ [50, 0], [0, 40, 150, 60]],
+                                "SubRenders":[{"RESERVE_CENTER": 1},{"JR_ENABLE": 0, "JR_LEFTINSET": 40, "JR_BORDERSTYLE": 0 , "BGCOLOR": 0}]
+                            }
+                        },
+                        
+                        
+                        "jobTitle": {
+                            "JCom" : "JRLabelTextFieldView",
+                            "JFrame": [580, 5, 150, 100],
+                            "JSubRender": {
+                                "frames":[ [50, 0], [0, 40, 150, 60]],
+                                "SubRenders":[{"RESERVE_CENTER": 1},{"JR_ENABLE": 0, "JR_LEFTINSET": 40, "JR_BORDERSTYLE": 0 , "BGCOLOR": 0}]
+                            }
+                        },
+                        
+                        
+                        "agentEmployeeNO": {
+                            "JCom" : "JRLabelTextFieldView",
+                            "JFrame": [760, 5, 150, 100],
+                            "JSubRender": {
+                                "frames":[ [50, 0], [0, 40, 170, 60]],
+                                "SubRenders":[{"RESERVE_CENTER": 1},{"JR_ENABLE": 0, "JR_LEFTINSET": 20, "JR_BORDERSTYLE": 0 , "BGCOLOR": 0, "JR_ISNAME_NO": 1, "JR_MEMBERTYPE":"Employee"}]
+                            }
+                        },
+                        
+                        
+                        
+                        
+                        
+                        "line1" : {
+                            "JCom": "JRImageView",
+                            "JFrame": [180, 0, 2, 100],
+                            "JSubRender":{
+                                "JR_IMG": "Ver_Line.png"
+                            }
+                        },
+                        "line2" : {
+                            "JCom": "JRImageView",
+                            "JFrame": [360, 0, 2, 100],
+                            "JSubRender":{
+                                "JR_IMG": "Ver_Line.png"
+                            }
+                        },
+                        "line3" : {
+                            "JCom": "JRImageView",
+                            "JFrame": [550, 0, 2, 100],
+                            "JSubRender":{
+                                "JR_IMG": "Ver_Line.png"
+                            }
+                        },
+                        "line4" : {
+                            "JCom": "JRImageView",
+                            "JFrame": [730, 0, 2, 100],
+                            "JSubRender":{
+                                "JR_IMG": "Ver_Line.png"
+                            }
+                        },
+                        
+                    }
+                },
+                
+                
+                
+                
+                "NESTED_MIDDLE_2": {
+                    "JFrame": [ 15, 172, 945, 62 ],
+                    "SORTEDKEYS":["BG_DATETIME_RANGE"],
+                    "COMPONENTS": {
+                        
+                        
+                        "BG_DATETIME_RANGE" : {
+                            "JCom": "JRImageView",
+                            "JFrame": [5,1,-1.1,-1.1],
+                            "JSubRender":{
+                                "JR_IMG": "LeaveAlone_04.png"
+                            }
+                        },
+                        
+                        
+                        "startDate": {
+                            "JCom" : "JRLabelTextFieldView",
+                            "JFrame": [20, 0, 310, 60],
+                            "JSubRender": {
+                                "frames":[ [10, 15], [140, 0, 170, 60]],
+                                "SubRenders":[{"RESERVE_CENTER": 1},{"JR_ENABLE_": 0, "JR_BORDERSTYLE": 0 , "BGCOLOR": 0}]
+                            }
+                        },
+                        
+                        
+                        "endDate": {
+                            "JCom" : "JRLabelTextFieldView",
+                            "JFrame": [350, 0, 240, 60],
+                            "JSubRender": {
+                                "frames":[ [0, 15], [60, 0, 170, 60]],
+                                "SubRenders":[{"RESERVE_CENTER": 1},{"JR_ENABLE_": 0, "JR_BORDERSTYLE": 0 , "BGCOLOR": 0}]
+                            }
+                        },
+                        
+                        
+                        "summary": {
+                            "JCom": "JRLocalizeLabel",
+                            "JFrame": [610, 15,-1.1,30],
+                            "JSubRender": {
+                                "RESERVE_CENTER": 1, "JS_FONT_BOLD":1,"FONT_SIZE":20
+                            }
+                        },
+                        
+                        
+                        
+                        "day": {
+                            "JCom" : "JRLabelTextFieldView",
+                            "JFrame": [685, 0, 120, 60],
+                            "JSubRender": {
+                                "frames":[ [100, 15], [0, 5, 80, 50]],
+                                "SubRenders":[{"RESERVE_CENTER": 1},{"JR_ENABLE_": 0, "JR_BORDERSTYLE": 0 , "BGCOLOR": 0}]
+                            }
+                        },
+                        
+                        "hour": {
+                            "JCom" : "JRLabelTextFieldView",
+                            "JFrame": [835, 0, 80, 60],
+                            "JSubRender": {
+                                "frames":[ [80, 15], [2, 5, 70, 50]],
+                                "SubRenders":[{"RESERVE_CENTER": 1},{"JR_ENABLE_": 0, "JR_BORDERSTYLE": 0 , "BGCOLOR": 0}]
+                            }
+                        },
+                        
+                        
+                    }
+                },
+                
+                
+                
+                
+                "NESTED_DOWN": {
+                    "JFrame": [35, 240, 945, 150 ],
+                    "SORTEDKEYS": ["IMG_Photo","BG_Photo"],
+                    "COMPONENTS": {
+                        
+                        "reason": {
+                            "JCom" : "JRImageLabelCommaTextView",
+                            "JFrame":[0,0,560,150],
+                            "JSubRender": {
+                                "frames":[[], [50,4], [], [12, 32, 545, 105 ]],
+                                "SubRenders":[{"JR_IMG":"LeaveAlone_02.png"}, {},{"HIDDEN":1} ]
+                            }
+                        },
+                        
+                        "Documents": {
+                            "JCom": "JRLocalizeLabel",
+                            "JFrame": [650,4],
+                            "JSubRender": {
+                                
+                            }
+                        },
+
+                        
+                        "BG_Photo" :{
+                            "JCom": "JRImageView",
+                            "JFrame": [600,0],
+                            "JSubRender":{
+                                "JR_IMG": "LeaveAlone_03.png"
+                            }
+                        },
+                        "IMG_Photo" :{
+                            "JCom": "JRImageView",
+                            "JFrame": [611,2,250, 139],
+                            "JSubRender":{
+                                "JR_IMG": "",
+                                "JR_Radius": 8.0
+                            }
+                        },
+                        "BTN_Take" : {
+                            "JCom": "JRButton",
+                            "JFrame": [860,80],
+                            "JSubRender":{
+                                "JR_BGN_IMG": "LeaveAlone_07.png"
+                            }
+                        }
+                        
+                        
+                        
+                        
+                    }
+                },
+                
+                
+                
+                
+                "leaveType": {
+                    "JCom" : "JRLabelCommaTextFieldView",
+                    "JFrame": [300,410,320,50],
+                    "JSubRender": {
+                        "SubRenders":[{},{},{"JR_IMG":"LeaveAlone_01.png", "JR_ISENUM":1, "JR_ENUMVALUES":["Personal_Leave","Sick_Leave", "Annual_Leave", "OTHERS"], "JR_ENUMLOCALIZES":["Personal_Leave","Sick_Leave", "Annual_Leave", "OTHERS"]}]
+                    }
+                },
+                
+                
+                
+            }
+        }
+        
+    }
+}

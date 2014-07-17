@@ -1,0 +1,168 @@
+{
+    
+    
+    "LoginView":
+    {
+        "LETTER_VER_TEXTFIEDS": [["password","username"]],
+        
+        
+        "JCom": "JsonView",
+        "SORTEDKEYS": ["BG_BOTTOM_IMAGE", "BG_LoginLogo"],
+        "COMPONENTS": {
+            
+            "BG_BOTTOM_IMAGE" : {
+                "JCom": "JRImageView",
+                "JFrame": [],
+                "JSubRender":{
+                    "JR_IMG": "Login_BG.png"
+                }
+            },
+            
+            "BG_LoginLogo" : {
+                "JCom": "JRImageView",
+                "BORDER": 1,
+                "JFrame": [ 200, -20],
+                "JSubRender":{
+                    "JR_IMG": "XYLogo.png"
+                }
+            },
+            
+            "NESTED_1": {
+                "JFrame": [ 230, 330, 750, 320 ],
+                "BORDER": 2,
+                "COMPONENTS": {
+                    
+                    "NESTED_ACCOUNT": {
+                        "JFrame": [ 40, 0, 320, 110 ],
+                        "BORDER": 3,
+                        "COMPONENTS": {
+                            "username" : {
+                                "JCom": "JRLabelCommaTextFieldView",
+                                "JFrame": [ 0, 0, 300, 46 ],
+                                "BORDER": 2,
+                                "JSubRender": {
+                                    "frames": [ [], [], [] ],
+                                    "SubRenders":[{},{},{"BORDER_":1, "JR_IMG":"Login_01.png"}]
+                                }
+                                
+                            },
+                            
+                            "password" : {
+                                "JCom": "JRLabelCommaTextFieldView",
+                                "JFrame": [ 0, 60, 300, 46 ],
+                                "BORDER": 2,
+                                "JSubRender": {
+                                    "frames": [ [  ], [], [ ] ],
+                                    "SubRenders":[{"JS_FONT_SIZE_": 18}, {"BORDER_": 1}, {"JR_IMG":"Login_01.png", "JR_PASSWORD": 1}]
+                                }
+                            }
+                        }
+                    },
+                    
+                    "NESTED_VERRIFY_CODE": {
+                        "JFrame": [ 350, 0, 170, 110 ],
+                        "BORDER": 3,
+                        "SORTEDKEYS": ["BG_VerifyCodeImg"],
+                        "COMPONENTS": {
+                            
+                            "BG_VerifyCodeImg" : {
+                                "JCom": "JRImageView",
+                                "JFrame": [],
+                                "JSubRender": {
+                                    "JR_IMG":"Login_03.png"
+                                }
+                            },
+                            
+                            "IMG_VerifyCodeImg" : {
+                                "JCom": "JRImageView",
+                                "JFrame": [ 5, 4, 159, 50 ],
+                                "JSubRender": {
+                                    "JR_Radius": 5.0
+                                }
+                            },
+                            
+                            
+                            "verifyCode" : {
+                                "JCom": "JRTextField",
+                                "JFrame": [ 0, 60],
+                                "JSubRender": {
+                                    "JR_IMG":"Login_02.png"
+                                }
+                            }
+                            
+                        }
+                    },
+                    
+                    
+                    
+                    "NESTED_REMEMBER": {
+                        "JFrame": [ 20, 110, 320, 100 ],
+                        "BORDER": 2,
+                        "COMPONENTS": {
+                            "rememberUserName" : {
+                                "JCom": "JRLabelCheckBoxView",
+                                "JFrame": [ 0, 0, 150, 100 ],
+                                "BORDER": 11,
+                                "JSubRender": {
+                                    "frames":[[60,-1.1,-1.1,50], [20,0,100,50]],
+                                    "SubRenders":[{},{"JR_FGIMG_Insets":[0, 0, 0, 60],"CHECK_IMG":"Login_05.png","UNCHECK_IMG":"Login_04","BORDER": 7}]
+                                }
+                            },
+                            
+                            
+                            "rememberPawword" : {
+                                "JCom": "JRLabelCheckBoxView",
+                                "JFrame": [ 160, 0, 150, 100 ],
+                                "BORDER": 5,
+                                "JSubRender": {
+                                    "frames":[[60,-1.1,-1.1,50], [20,0,100,50]],
+                                    "SubRenders":[{},{"JR_FGIMG_Insets":[0, 0, 0, 60],"CHECK_IMG":"Login_05.png","UNCHECK_IMG":"Login_04","BORDER": 8}]
+                                }
+                            }
+                        }
+                    },
+                    
+                    
+                    
+                    
+                    
+                    
+                    "loginBtn" : {
+                        "JCom": "JRButton",
+                        "JFrame": [ 530, 160, -1.1, -1.1 ],
+                        "JSubRender":{
+                            "JR_BGN_IMG": "Login_07.png"
+                        }
+                    },
+                    
+                    
+                    
+                    "languageSet" : {
+                        "JCom": "JRLabelButtonView",
+                        "JFrame": [ 370, 110, 150, 100 ],
+                        "BORDER": 6,
+                        "JSubRender": {
+                            "frames": [ [60,-1.1,-1.1,50], [20, 0, 100, -1.1 ] ],
+                            "SubRenders":[{},{"BORDER": 7, "JR_FGIMG_Insets":[0, 0, 0, 60],
+                                          "JR_FGN_IMG": "Login_06.png",
+                                          "JR_FGH_IMG": "Login_05.png",
+                                          "JR_FGS_IMG": "Login_04.png"}]
+                        }
+                    }
+                    
+                    
+                }
+                
+            }
+            
+            
+        }
+        
+    }
+    
+    
+    
+    
+    
+    
+}

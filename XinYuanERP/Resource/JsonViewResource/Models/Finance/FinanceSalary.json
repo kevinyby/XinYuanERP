@@ -1,0 +1,206 @@
+
+{
+    "LETTER_VER_TEXTFIEDS": [["employeeNO","department","baseSalary","skillBenefit","fullBenefit"],["name","jobTitle","dutyBenefit","dormBenefit","foodBenefit"]],
+
+    
+        "COMPONENTS" : {
+            
+            "NESTED_footer": {
+                "JFrame": [ 300, 680, 550, 60],
+                "COMPONENTS": {
+                    "createUser": {
+                        "JFrame": [352,1,170,55],
+                    },
+                    "app1": {
+                        "JFrame": [177,1,170,55],
+                    },
+                    "app2": {
+                        "JFrame": [0,1,170,55],
+                    },
+                    
+                    "app3":"",
+                    "app4":""
+                }
+            },
+            
+            "BG_BOOK_IMAGE" : {
+                "JCom": "JRImageView",
+                "JFrame": [85,95, -1.1,-1.1],
+                "JSubRender":{
+                    "JR_IMG": "Salary_06.png"
+                }
+            },
+            
+            "NESTED_MAIN": {
+                "JFrame": [85,95, 852, 500 ],
+                "SORTEDKEYS": ["BG_book"],
+                "COMPONENTS" : {
+                    
+                    "NESTED_Left": {
+                        "JFrame": [170,30, 300, 280 ],
+                        "COMPONENTS" : {
+                            
+                            
+                            "employeeNO": {
+                                "JCom" : "JRLabelCommaTextFieldView",
+                                "JFrame": [0,0,280,40],
+                                "JSubRender": {
+                                    "frames":[[], [], []],
+                                    "SubRenders":[{"CH_SPACE": "7"},{},{"JR_IMG":"Salary_01.png", "JR_ENABLE":0}]
+                                }
+                            },
+                            
+                            
+                            "department": {
+                                "JCom" : "JRLabelCommaTextFieldView",
+                                "JFrame": [0,45,280,40],
+                                "JSubRender": {
+                                    "frames":[[], [], []],
+                                    "SubRenders":[{"CH_SPACE": "0"},{},{"JR_IMG":"Salary_01.png", "JR_ENABLE":0}]
+                                }
+                            },
+                            
+                            
+                            "baseSalary": {
+                                "JCom" : "JRLabelCommaTextFieldView",
+                                "JFrame": [0,90,280,40],
+                                "JSubRender": {
+                                    "frames":[[], [], []],
+                                    "SubRenders":[{"CH_SPACE": "7"},{},{"JR_IMG":"Salary_01.png"}]
+                                }
+                            },
+                            
+                            "skillBenefit": {
+                                "JCom" : "JRLabelCommaTextFieldView",
+                                "JFrame": [0,135,280,40],
+                                "JSubRender": {
+                                    "frames":[[], [], []],
+                                    "SubRenders":[{"CH_SPACE": "0"},{},{"JR_IMG":"Salary_01.png"}]
+                                }
+                            },
+                            
+                            "fullBenefit": {
+                                "JCom" : "JRLabelCommaTextFieldView",
+                                "JFrame": [0,180,280,40],
+                                "JSubRender": {
+                                    "frames":[[], [], []],
+                                    "SubRenders":[{"CH_SPACE": "0"},{},{"JR_IMG":"Salary_01.png"}]
+                                }
+                            },
+                            
+                            "salaryType" : {
+                                "JCom" : "JRLabelCommaTextFieldView",
+                                "JFrame": [0,225,280,40],
+                                "JSubRender": {
+                                    "frames":[[], [], []],
+                                    "SubRenders":[{"CH_SPACE": "0"},{},{"JR_IMG":"Salary_01.png", "JR_ENABLE":0, "JR_ISENUM":1, "JR_ENUMVALUES":["Month_Type","Day_Type"], "JR_ENUMLOCALIZES":["FinanceSalary.Month_Type","FinanceSalary.Day_Type"]}]
+                                }
+                            }
+                            
+                        }
+                    },
+                    
+                    
+                    "NESTED_Right": {
+                        "JFrame": [510,30, 300, 280 ],
+                        "COMPONENTS" : {
+                            
+                            "name": {
+                                "JCom" : "JRLabelCommaTextFieldView",
+                                "JFrame": [0,0,280,40],
+                                "JSubRender": {
+                                    "frames":[[], [], []],
+                                    "SubRenders":[{"CH_SPACE": "7"},{},{"JR_IMG":"Salary_01.png", "JR_ENABLE":0}]
+                                }
+                            },
+                            
+                            
+                            "jobTitle": {
+                                "JCom" : "JRLabelCommaTextFieldView",
+                                "JFrame": [0,45,280,40],
+                                "JSubRender": {
+                                    "frames":[[], [], []],
+                                    "SubRenders":[{"CH_SPACE": "7"},{},{"JR_IMG":"Salary_01.png", "JR_ENABLE":0}]
+                                }
+                            },
+                            
+                            
+                            "dutyBenefit": {
+                                "JCom" : "JRLabelCommaTextFieldView",
+                                "JFrame": [0,90,280,40],
+                                "JSubRender": {
+                                    "frames":[[], [], []],
+                                    "SubRenders":[{"CH_SPACE": "0"},{},{"JR_IMG":"Salary_01.png"}]
+                                }
+                            },
+                            
+                            "dormBenefit": {
+                                "JCom" : "JRLabelCommaTextFieldView",
+                                "JFrame": [0,135,280,40],
+                                "JSubRender": {
+                                    "frames":[[], [], []],
+                                    "SubRenders":[{"CH_SPACE": "0"},{},{"JR_IMG":"Salary_01.png"}]
+                                }
+                            },
+                            
+                            "foodBenefit": {
+                                "JCom" : "JRLabelCommaTextFieldView",
+                                "JFrame": [0,180,280,40],
+                                "JSubRender": {
+                                    "frames":[[], [], []],
+                                    "SubRenders":[{"CH_SPACE": "0"},{},{"JR_IMG":"Salary_01.png"}]
+                                }
+                            },
+                            
+                            
+                            "summary": {
+                                "JCom" : "JRLabelCommaTextFieldView",
+                                "JFrame": [0,225,280,40],
+                                "JSubRender": {
+                                    "frames":[[], [], [75,0,-1.1,-1.1]],
+                                    "SubRenders":[
+                                                  {
+                                                  "CH_SPACE": "1",
+                                                  "FONT_NAME": "MarkerFelt-Wide" ,
+                                                  "FONT_SIZE": 22 ,
+                                                  "JS_FONT_N_COLOR": [ 139, 129, 116, 1 ]
+                                                  }
+                                                  ,{
+                                                  "JS_FONT_N_COLOR": [ 139, 129, 116, 1 ]
+                                                  }
+                                                  ,{"JR_IMG":"Salary_01.png", "JR_ENABLE":0}]
+                                }
+                            },
+                            "BG_silk" : {
+                                "JCom": "JRImageView",
+                                "JFrame": [-50,225,-1.1,-1.1],
+                                "JSubRender":{
+                                    "JR_IMG": "Salary_05.png"
+                                }
+                            }
+                            
+                        }
+                    },
+                    
+                    
+                    
+                    "BTN_Adjust" : {
+                        "JCom": "JRButton",
+                        "JFrame": [20, 310,-1.1,-1.1],
+                        "JSubRender":{
+                            "FONT_SIZE": 18 ,
+                            "JR_BGN_IMG": "Salary_02.png"
+                        }
+                    }
+                    
+                    
+                    
+                }
+                
+                
+            }
+        }
+    
+    
+}
+

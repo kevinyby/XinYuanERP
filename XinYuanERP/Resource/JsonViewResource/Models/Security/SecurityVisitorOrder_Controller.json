@@ -1,0 +1,33 @@
+
+{
+    "SERVER":{
+        
+        "SUBMIT_BUTTONS" : [
+                            {
+                            "passInStack.passIn_time": {
+                            
+                            }
+                            
+                            }
+            
+        ],
+        "CHECK_NOTEMPTY": []
+        
+    },
+    
+    
+    
+    
+    
+    
+    
+    
+    "CLIENT": {
+        
+    }
+    
+    
+}
+
+
+

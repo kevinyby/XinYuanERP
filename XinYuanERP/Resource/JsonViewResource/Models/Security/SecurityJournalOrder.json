@@ -1,0 +1,1582 @@
+{
+    
+    
+    "COMPONENTS":{
+        "NESTED_footer_":"",
+        
+        "NESTED_TABS":{
+            "JFrame": [60, 85, 550, 50 ],
+            "SORTEDKEYS": ["TAB_GUEST","TAB_STAFF","TAB_VEHICLE", "TAB_SHIP","TAB_PURCHASE"],
+            "COMPONENTS":{
+                "TAB_GUEST":{
+                    "JCom": "JRButton",
+                    "JFrame": [0,5,100,46],
+                    "JSubRender": {
+                        "JR_BGN_IMG": "CustomerDataCard_01.png"
+                        ,"JR_BGS_IMG": "CustomerDataCard_01.png"
+                        ,"JR_BGH_IMG": "CustomerDataCard_01.png"
+                        ,"JS_FONT_N_COLOR": [0,0.56,0.8]
+                        ,"JS_FONT_S_COLOR":[0,0,0]
+                        ,"JS_FONT_BOLD": 1,"JR_TITLE_Insets": [0, 0, -10, 0]
+                    }
+                },
+                "TAB_STAFF":{
+                    "JCom": "JRButton",
+                    "JFrame": [105,5,100,46],
+                    "JSubRender": {
+                        "JR_BGN_IMG": "CustomerDataCard_01.png"
+                        ,"JR_BGS_IMG": "CustomerDataCard_01.png"
+                        ,"JR_BGH_IMG": "CustomerDataCard_01.png"
+                        ,"JS_FONT_N_COLOR": [0,0.56,0.8]
+                        ,"JS_FONT_S_COLOR":[0,0,0]
+                        ,"JS_FONT_BOLD": 1,"JR_TITLE_Insets": [0, 0, -10, 0]
+                    }
+                },
+                "TAB_VEHICLE":{
+                    "JCom": "JRButton",
+                    "JFrame": [210,5,100,46],
+                    "JSubRender": {
+                        "JR_BGN_IMG": "CustomerDataCard_01.png"
+                        ,"JR_BGS_IMG": "CustomerDataCard_01.png"
+                        ,"JR_BGH_IMG": "CustomerDataCard_01.png"
+                        ,"JS_FONT_N_COLOR": [0,0.56,0.8]
+                        ,"JS_FONT_S_COLOR":[0,0,0]
+                        ,"JS_FONT_BOLD": 1,"JR_TITLE_Insets": [0, 0, -10, 0]
+                    }
+                },
+                "TAB_SHIP":{
+                    "JCom": "JRButton",
+                    "JFrame": [315,5,100,46],
+                    "JSubRender": {
+                        "JR_BGN_IMG": "CustomerDataCard_01.png"
+                        ,"JR_BGS_IMG": "CustomerDataCard_01.png"
+                        ,"JR_BGH_IMG": "CustomerDataCard_01.png"
+                        ,"JS_FONT_N_COLOR": [0,0.56,0.8]
+                        ,"JS_FONT_S_COLOR":[0,0,0]
+                        ,"JS_FONT_BOLD": 1,"JR_TITLE_Insets": [0, 0, -10, 0]
+                    }
+                },
+
+                "TAB_PURCHASE":{
+                    "JCom": "JRButton",
+                    "JFrame": [420,5,100,46],
+                    "JSubRender": {
+                        "JR_BGN_IMG": "CustomerDataCard_01.png"
+                        ,"JR_BGS_IMG": "CustomerDataCard_01.png"
+                        ,"JR_BGH_IMG": "CustomerDataCard_01.png"
+                        ,"JS_FONT_N_COLOR": [0,0.56,0.8]
+                        ,"JS_FONT_S_COLOR":[0,0,0]
+                        ,"JS_FONT_BOLD": 1,"JR_TITLE_Insets": [0, 0, -10, 0]
+                    }
+                }
+            }
+        },
+        
+        "NESTED_SCROLL":{
+            "JFrame": [0, 75, 4096, 600 ],
+            "SORTEDKEYS": ["NESTED_GUEST", "NESTED_STAFF", "NESTED_VEHICLE", "NESTED_SHIP","NESTED_PURCHASE"],
+            "BORDER_": 11,
+            "COMPONENTS" : {
+                
+                "NESTED_GUEST":{
+                    "BORDER_":6,
+                    "JFrame": [0,0, 1024, 610 ],
+                    "SORTEDKEYS": ["IMG_bg","table","V1","V2","V3","V4","V5","V6","V7","V8","editButton"],
+                    "COMPONENTS": {
+                        
+                        "IMG_bg": {
+                            "JCom" : "JRImageView",
+                            "JFrame": [0,0,-1.1,-1.1],
+                            "BORDER_":5,
+                            "JSubRender": {
+                                "JR_IMG":"Guardlog_bg.png"
+                            }
+                        },
+                        "NESTED_GUEST_one": {
+                            "JFrame": [0, 0, 1024, 610],
+                            "COMPONENTS" : {
+                                "editButton":{
+                                    "JCom":"JRButton",
+                                    "JFrame":[670,0,-1.1,-1.1],
+                                    "JSubRender": {
+                                        "JR_BGN_IMG": "patrol_edit.png","JS_FONT_N_COLOR":[1,1,1],"JS_FONT_BOLD": 1
+                                    }
+                                },
+                                "exComment" : {
+                                    "JCom" : "JRLabelTextView",
+                                    "JFrame":[60,542,880,60],
+                                    "JSubRender":{
+                                        "frames":[[0,0,-1.1,60],[150,0,790,55]],
+                                        "SubRenders":[{"RESERVE_CENTER": 1},{"JR_BORDERSTYLE_": 0 , "BGCOLOR_": 0}]
+                                    }
+                                },
+
+                                
+                                "table":{
+                                    "JCom": "JRRefreshTableView",
+                                    "JFrame": [45, 60, 968, 480],
+                                    "BORDER_": 28,
+                                    "JSubRender":{
+                                        "BGCOLOR": 0,
+                                        "HIDE_SEARCH_BAR": 1,
+                                        "SHOW_LINES":1,
+                                        "HIDE_REFRESH": 1,
+                                        
+                                        "CELL_BGCOLOR": 0,
+                                        
+                                        "headerColor":0,
+                                        "headerHeight": 50,
+                                        "headers":["orderNO","Visitors","Visit","SecurityVisitorOrder.passIn_time","SecurityVisitorOrder.passOut_name","SecurityVisitorOrder.passOut_time","SecurityVisitorOrder.passIn_name","Receipt","Abnormal"],
+                                        "headersX":[30,140,240,320,450,535,655,775,893],
+                                        "headersY":[17],
+                                    }
+                                },
+                                "V1" : {
+                                    "JCom" : "JRComplexView",
+                                    "JFrame": [150, 60, 4, 470 ],
+                                    "BORDER_": 28,
+                                    "JSubRender":{
+                                        "DISABLE_VALUE":1
+                                    },
+                                    "COMPONENTS": {
+                                        
+                                        "top" : {
+                                            "JCom": "JRImageView",
+                                            "JFrame": [0, 0],
+                                            "JSubRender":{
+                                                "JR_IMG": "WHPurchase_线顶部.png"
+                                            }
+                                        },
+                                        "middle" : {
+                                            "JCom": "JRImageView",
+                                            "JFrame": [0, 48,4,364],
+                                            "JSubRender":{
+                                                "JR_IMG": "WHPurchase_线中部.png"
+                                            }
+                                        },
+                                        "bottom" : {
+                                            "JCom": "JRImageView",
+                                            "JFrame": [0, 412],
+                                            "JSubRender":{
+                                                "JR_IMG": "WHPurchase_线底部.png"
+                                            }
+                                        }
+                                    }
+                                },
+                                
+                                "V2" : {
+                                    "JCom" : "JRComplexView",
+                                    "JFrame": [250, 60, 4, 300 ],
+                                    "JSubRender":{
+                                        "DISABLE_VALUE":1
+                                    },
+                                    "COMPONENTS": {
+                                        
+                                        "top" : {
+                                            "JCom": "JRImageView",
+                                            "JFrame": [0, 0],
+                                            "JSubRender":{
+                                                "JR_IMG": "WHPurchase_线顶部.png"
+                                            }
+                                        },
+                                        "middle" : {
+                                            "JCom": "JRImageView",
+                                            "JFrame": [0, 48,4,364],
+                                            "JSubRender":{
+                                                "JR_IMG": "WHPurchase_线中部.png"
+                                            }
+                                        },
+                                        "bottom" : {
+                                            "JCom": "JRImageView",
+                                            "JFrame": [0, 412],
+                                            "JSubRender":{
+                                                "JR_IMG": "WHPurchase_线底部.png"
+                                            }
+                                        }
+                                    }
+                                },
+                                "V3" : {
+                                    "JCom" : "JRComplexView",
+                                    "JFrame": [350, 60, 4, 270 ],
+                                    "JSubRender":{
+                                        "DISABLE_VALUE":1
+                                    },
+                                    "COMPONENTS": {
+                                        
+                                        "top" : {
+                                            "JCom": "JRImageView",
+                                            "JFrame": [0, 0],
+                                            "JSubRender":{
+                                                "JR_IMG": "WHPurchase_线顶部.png"
+                                            }
+                                        },
+                                        "middle" : {
+                                            "JCom": "JRImageView",
+                                            "JFrame": [0, 48,4,364],
+                                            "JSubRender":{
+                                                "JR_IMG": "WHPurchase_线中部.png"
+                                            }
+                                        },
+                                        "bottom" : {
+                                            "JCom": "JRImageView",
+                                            "JFrame": [0, 412],
+                                            "JSubRender":{
+                                                "JR_IMG": "WHPurchase_线底部.png"
+                                            }
+                                        }
+                                    }
+                                },
+                                
+                                "V4" : {
+                                    "JCom" : "JRComplexView",
+                                    "JFrame": [460, 60, 4, 300 ],
+                                    "JSubRender":{
+                                        "DISABLE_VALUE":1
+                                    },
+                                    "COMPONENTS": {
+                                        
+                                        "top" : {
+                                            "JCom": "JRImageView",
+                                            "JFrame": [0, 0],
+                                            "JSubRender":{
+                                                "JR_IMG": "WHPurchase_线顶部.png"
+                                            }
+                                        },
+                                        "middle" : {
+                                            "JCom": "JRImageView",
+                                            "JFrame": [0, 48,4,364],
+                                            "JSubRender":{
+                                                "JR_IMG": "WHPurchase_线中部.png"
+                                            }
+                                        },
+                                        "bottom" : {
+                                            "JCom": "JRImageView",
+                                            "JFrame": [0, 412],
+                                            "JSubRender":{
+                                                "JR_IMG": "WHPurchase_线底部.png"
+                                            }
+                                        }
+                                    }
+                                },
+                                "V5" : {
+                                    "JCom" : "JRComplexView",
+                                    "JFrame": [560, 60, 4, 270 ],
+                                    "JSubRender":{
+                                        "DISABLE_VALUE":1
+                                    },
+                                    "COMPONENTS": {
+                                        
+                                        "top" : {
+                                            "JCom": "JRImageView",
+                                            "JFrame": [0, 0],
+                                            "JSubRender":{
+                                                "JR_IMG": "WHPurchase_线顶部.png"
+                                            }
+                                        },
+                                        "middle" : {
+                                            "JCom": "JRImageView",
+                                            "JFrame": [0, 48,4,364],
+                                            "JSubRender":{
+                                                "JR_IMG": "WHPurchase_线中部.png"
+                                            }
+                                        },
+                                        "bottom" : {
+                                            "JCom": "JRImageView",
+                                            "JFrame": [0, 412],
+                                            "JSubRender":{
+                                                "JR_IMG": "WHPurchase_线底部.png"
+                                            }
+                                        }
+                                    }
+                                },
+                                
+                                "V6" : {
+                                    "JCom" : "JRComplexView",
+                                    "JFrame": [670, 60, 4, 300 ],
+                                    "JSubRender":{
+                                        "DISABLE_VALUE":1
+                                    },
+                                    "COMPONENTS": {
+                                        
+                                        "top" : {
+                                            "JCom": "JRImageView",
+                                            "JFrame": [0, 0],
+                                            "JSubRender":{
+                                                "JR_IMG": "WHPurchase_线顶部.png"
+                                            }
+                                        },
+                                        "middle" : {
+                                            "JCom": "JRImageView",
+                                            "JFrame": [0, 48,4,364],
+                                            "JSubRender":{
+                                                "JR_IMG": "WHPurchase_线中部.png"
+                                            }
+                                        },
+                                        "bottom" : {
+                                            "JCom": "JRImageView",
+                                            "JFrame": [0, 412],
+                                            "JSubRender":{
+                                                "JR_IMG": "WHPurchase_线底部.png"
+                                            }
+                                        }
+                                    }
+                                },
+                                "V7" : {
+                                    "JCom" : "JRComplexView",
+                                    "JFrame": [770, 60, 4, 270 ],
+                                    "JSubRender":{
+                                        "DISABLE_VALUE":1
+                                    },
+                                    "COMPONENTS": {
+                                        
+                                        "top" : {
+                                            "JCom": "JRImageView",
+                                            "JFrame": [0, 0],
+                                            "JSubRender":{
+                                                "JR_IMG": "WHPurchase_线顶部.png"
+                                            }
+                                        },
+                                        "middle" : {
+                                            "JCom": "JRImageView",
+                                            "JFrame": [0, 48,4,364],
+                                            "JSubRender":{
+                                                "JR_IMG": "WHPurchase_线中部.png"
+                                            }
+                                        },
+                                        "bottom" : {
+                                            "JCom": "JRImageView",
+                                            "JFrame": [0, 412],
+                                            "JSubRender":{
+                                                "JR_IMG": "WHPurchase_线底部.png"
+                                            }
+                                        }
+                                    }
+                                },
+                                
+                                "V8" : {
+                                    "JCom" : "JRComplexView",
+                                    "JFrame": [920, 60, 4, 300 ],
+                                    "JSubRender":{
+                                        "DISABLE_VALUE":1
+                                    },
+                                    "COMPONENTS": {
+                                        
+                                        "top" : {
+                                            "JCom": "JRImageView",
+                                            "JFrame": [0, 0],
+                                            "JSubRender":{
+                                                "JR_IMG": "WHPurchase_线顶部.png"
+                                            }
+                                        },
+                                        "middle" : {
+                                            "JCom": "JRImageView",
+                                            "JFrame": [0, 48,4,364],
+                                            "JSubRender":{
+                                                "JR_IMG": "WHPurchase_线中部.png"
+                                            }
+                                        },
+                                        "bottom" : {
+                                            "JCom": "JRImageView",
+                                            "JFrame": [0, 412],
+                                            "JSubRender":{
+                                                "JR_IMG": "WHPurchase_线底部.png"
+                                            }
+                                        }
+                                        
+                                    }
+                                }
+
+                            }
+                        }
+                    }
+                },
+                
+                "NESTED_STAFF":{
+                    "JFrame": [1024, 0, 1024, 610 ],
+                    "BGCOLOR_":2,
+                    "SORTEDKEYS": ["IMG_bg","table","V1","V2","V3","V4","V5","V6","V7","editButton"],
+                    "COMPONENTS": {
+                        
+                        "IMG_bg": {
+                            "JCom" : "JRImageView",
+                            "JFrame": [0,0,-1.1,-1.1],
+                            "BORDER_":5,
+                            "JSubRender": {
+                                "JR_IMG":"Guardlog_bg.png"
+                            }
+                        },
+                        "NESTED_GUEST_one": {
+                            "JFrame": [0, 0, 1024, 610],
+                            "COMPONENTS" : {
+                                "editButton":{
+                                    "JCom":"JRButton",
+                                    "JFrame":[670,0,-1.1,-1.1],
+                                    "JSubRender": {
+                                        "JR_BGN_IMG": "patrol_edit.png","JS_FONT_N_COLOR":[1,1,1],"JS_FONT_BOLD": 1
+                                    }
+                                },
+                                "exComment" : {
+                                    "JCom" : "JRLabelTextView",
+                                    "JFrame":[60,542,880,60],
+                                    "JSubRender":{
+                                        "frames":[[0,0,-1.1,60],[150,0,790,55]],
+                                        "SubRenders":[{"RESERVE_CENTER": 1},{"JR_BORDERSTYLE_": 0 , "BGCOLOR_": 0}]
+                                    }
+                                },
+                                
+                                
+                                "table":{
+                                    "JCom": "JRRefreshTableView",
+                                    "JFrame": [45, 60, 968, 480],
+                                    "BORDER_": 28,
+                                    "JSubRender":{
+                                        "BGCOLOR": 0,
+                                        "HIDE_SEARCH_BAR": 1,
+                                        "SHOW_LINES":1,
+                                        "HIDE_REFRESH": 1,
+                                        
+                                        "CELL_BGCOLOR": 0,
+                                        
+                                        "headerColor":0,
+                                        "headerHeight": 50,
+                                        "headers":["orderNO","EMPLOYEE","SecurityVisitorOrder.passIn_time","SecurityVisitorOrder.passOut_name","SecurityVisitorOrder.passOut_time","SecurityVisitorOrder.passIn_name","Receipt","Abnormal"],
+                                        "headersX":[35,140,225,350,435,555,730,893],
+                                        "headersY":[17],
+                                    }
+                                },
+                                "V1" : {
+                                    "JCom" : "JRComplexView",
+                                    "JFrame": [150, 60, 4, 470 ],
+                                    "BORDER_": 28,
+                                    "JSubRender":{
+                                        "DISABLE_VALUE":1
+                                    },
+                                    "COMPONENTS": {
+                                        
+                                        "top" : {
+                                            "JCom": "JRImageView",
+                                            "JFrame": [0, 0],
+                                            "JSubRender":{
+                                                "JR_IMG": "WHPurchase_线顶部.png"
+                                            }
+                                        },
+                                        "middle" : {
+                                            "JCom": "JRImageView",
+                                            "JFrame": [0, 48,4,364],
+                                            "JSubRender":{
+                                                "JR_IMG": "WHPurchase_线中部.png"
+                                            }
+                                        },
+                                        "bottom" : {
+                                            "JCom": "JRImageView",
+                                            "JFrame": [0, 412],
+                                            "JSubRender":{
+                                                "JR_IMG": "WHPurchase_线底部.png"
+                                            }
+                                        }
+                                    }
+                                },
+                                
+                                "V2" : {
+                                    "JCom" : "JRComplexView",
+                                    "JFrame": [250, 60, 4, 300 ],
+                                    "JSubRender":{
+                                        "DISABLE_VALUE":1
+                                    },
+                                    "COMPONENTS": {
+                                        
+                                        "top" : {
+                                            "JCom": "JRImageView",
+                                            "JFrame": [0, 0],
+                                            "JSubRender":{
+                                                "JR_IMG": "WHPurchase_线顶部.png"
+                                            }
+                                        },
+                                        "middle" : {
+                                            "JCom": "JRImageView",
+                                            "JFrame": [0, 48,4,364],
+                                            "JSubRender":{
+                                                "JR_IMG": "WHPurchase_线中部.png"
+                                            }
+                                        },
+                                        "bottom" : {
+                                            "JCom": "JRImageView",
+                                            "JFrame": [0, 412],
+                                            "JSubRender":{
+                                                "JR_IMG": "WHPurchase_线底部.png"
+                                            }
+                                        }
+                                    }
+                                },
+                                "V3" : {
+                                    "JCom" : "JRComplexView",
+                                    "JFrame": [360, 60, 4, 270 ],
+                                    "JSubRender":{
+                                        "DISABLE_VALUE":1
+                                    },
+                                    "COMPONENTS": {
+                                        
+                                        "top" : {
+                                            "JCom": "JRImageView",
+                                            "JFrame": [0, 0],
+                                            "JSubRender":{
+                                                "JR_IMG": "WHPurchase_线顶部.png"
+                                            }
+                                        },
+                                        "middle" : {
+                                            "JCom": "JRImageView",
+                                            "JFrame": [0, 48,4,364],
+                                            "JSubRender":{
+                                                "JR_IMG": "WHPurchase_线中部.png"
+                                            }
+                                        },
+                                        "bottom" : {
+                                            "JCom": "JRImageView",
+                                            "JFrame": [0, 412],
+                                            "JSubRender":{
+                                                "JR_IMG": "WHPurchase_线底部.png"
+                                            }
+                                        }
+                                    }
+                                },
+                                
+                                "V4" : {
+                                    "JCom" : "JRComplexView",
+                                    "JFrame": [460, 60, 4, 300 ],
+                                    "JSubRender":{
+                                        "DISABLE_VALUE":1
+                                    },
+                                    "COMPONENTS": {
+                                        
+                                        "top" : {
+                                            "JCom": "JRImageView",
+                                            "JFrame": [0, 0],
+                                            "JSubRender":{
+                                                "JR_IMG": "WHPurchase_线顶部.png"
+                                            }
+                                        },
+                                        "middle" : {
+                                            "JCom": "JRImageView",
+                                            "JFrame": [0, 48,4,364],
+                                            "JSubRender":{
+                                                "JR_IMG": "WHPurchase_线中部.png"
+                                            }
+                                        },
+                                        "bottom" : {
+                                            "JCom": "JRImageView",
+                                            "JFrame": [0, 412],
+                                            "JSubRender":{
+                                                "JR_IMG": "WHPurchase_线底部.png"
+                                            }
+                                        }
+                                    }
+                                },
+                                "V5" : {
+                                    "JCom" : "JRComplexView",
+                                    "JFrame": [570, 60, 4, 270 ],
+                                    "JSubRender":{
+                                        "DISABLE_VALUE":1
+                                    },
+                                    "COMPONENTS": {
+                                        
+                                        "top" : {
+                                            "JCom": "JRImageView",
+                                            "JFrame": [0, 0],
+                                            "JSubRender":{
+                                                "JR_IMG": "WHPurchase_线顶部.png"
+                                            }
+                                        },
+                                        "middle" : {
+                                            "JCom": "JRImageView",
+                                            "JFrame": [0, 48,4,364],
+                                            "JSubRender":{
+                                                "JR_IMG": "WHPurchase_线中部.png"
+                                            }
+                                        },
+                                        "bottom" : {
+                                            "JCom": "JRImageView",
+                                            "JFrame": [0, 412],
+                                            "JSubRender":{
+                                                "JR_IMG": "WHPurchase_线底部.png"
+                                            }
+                                        }
+                                    }
+                                },
+                                
+                                "V6" : {
+                                    "JCom" : "JRComplexView",
+                                    "JFrame": [670, 60, 4, 300 ],
+                                    "JSubRender":{
+                                        "DISABLE_VALUE":1
+                                    },
+                                    "COMPONENTS": {
+                                        
+                                        "top" : {
+                                            "JCom": "JRImageView",
+                                            "JFrame": [0, 0],
+                                            "JSubRender":{
+                                                "JR_IMG": "WHPurchase_线顶部.png"
+                                            }
+                                        },
+                                        "middle" : {
+                                            "JCom": "JRImageView",
+                                            "JFrame": [0, 48,4,364],
+                                            "JSubRender":{
+                                                "JR_IMG": "WHPurchase_线中部.png"
+                                            }
+                                        },
+                                        "bottom" : {
+                                            "JCom": "JRImageView",
+                                            "JFrame": [0, 412],
+                                            "JSubRender":{
+                                                "JR_IMG": "WHPurchase_线底部.png"
+                                            }
+                                        }
+                                    }
+                                },
+                                "V7" : {
+                                    "JCom" : "JRComplexView",
+                                    "JFrame": [920, 60, 4, 300 ],
+                                    "JSubRender":{
+                                        "DISABLE_VALUE":1
+                                    },
+                                    "COMPONENTS": {
+                                        
+                                        "top" : {
+                                            "JCom": "JRImageView",
+                                            "JFrame": [0, 0],
+                                            "JSubRender":{
+                                                "JR_IMG": "WHPurchase_线顶部.png"
+                                            }
+                                        },
+                                        "middle" : {
+                                            "JCom": "JRImageView",
+                                            "JFrame": [0, 48,4,364],
+                                            "JSubRender":{
+                                                "JR_IMG": "WHPurchase_线中部.png"
+                                            }
+                                        },
+                                        "bottom" : {
+                                            "JCom": "JRImageView",
+                                            "JFrame": [0, 412],
+                                            "JSubRender":{
+                                                "JR_IMG": "WHPurchase_线底部.png"
+                                            }
+                                        }
+                                        
+                                    }
+                                }
+                                
+                            }
+                        }
+                    }
+                },
+                "NESTED_VEHICLE":{
+                    "JFrame": [2048, 0, 1024, 610 ],
+                    "SORTEDKEYS": ["IMG_bg","table","V1","V2","V3","V4","V5","V6","V7","V8","editButton"],
+                    "BGCOLOR_":3,
+                    "COMPONENTS" : {
+                        
+                        "IMG_bg": {
+                            "JCom" : "JRImageView",
+                            "JFrame": [0,0,-1.1,-1.1],
+                            "BORDER_":5,
+                            "JSubRender": {
+                                "JR_IMG":"Guardlog_bg.png"
+                            }
+                        },
+                        "NESTED_GUEST_one": {
+                            "JFrame": [0, 0, 1024, 610],
+                            "COMPONENTS" : {
+                                "editButton":{
+                                    "JCom":"JRButton",
+                                    "JFrame":[670,0,-1.1,-1.1],
+                                    "JSubRender": {
+                                        "JR_BGN_IMG": "patrol_edit.png","JS_FONT_N_COLOR":[1,1,1],"JS_FONT_BOLD": 1
+                                    }
+                                },
+                                "exComment" : {
+                                    "JCom" : "JRLabelTextView",
+                                    "JFrame":[60,542,880,60],
+                                    "JSubRender":{
+                                        "frames":[[0,0,-1.1,60],[150,0,790,55]],
+                                        "SubRenders":[{"RESERVE_CENTER": 1},{"JR_BORDERSTYLE_": 0 , "BGCOLOR_": 0}]
+                                    }
+                                },
+                                
+                                
+                                "table":{
+                                    "JCom": "JRRefreshTableView",
+                                    "JFrame": [45, 60, 968, 480],
+                                    "BORDER_": 28,
+                                    "JSubRender":{
+                                        "BGCOLOR": 0,
+                                        "HIDE_SEARCH_BAR": 1,
+                                        "SHOW_LINES":1,
+                                        "HIDE_REFRESH": 1,
+                                        
+                                        "CELL_BGCOLOR": 0,
+                                        
+                                        "headerColor":0,
+                                        "headerHeight": 50,
+                                        "headers":["orderNO","Driver","Vehicle","SecurityVisitorOrder.passIn_time","SecurityVisitorOrder.passOut_name","SecurityVisitorOrder.passOut_time","SecurityVisitorOrder.passIn_name","Receipt","Abnormal"],
+                                        "headersX":[30,130,240,320,450,535,655,775,893],
+                                        "headersY":[17],
+                                    }
+                                },
+                                "V1" : {
+                                    "JCom" : "JRComplexView",
+                                    "JFrame": [150, 60, 4, 470 ],
+                                    "BORDER_": 28,
+                                    "JSubRender":{
+                                        "DISABLE_VALUE":1
+                                    },
+                                    "COMPONENTS": {
+                                        
+                                        "top" : {
+                                            "JCom": "JRImageView",
+                                            "JFrame": [0, 0],
+                                            "JSubRender":{
+                                                "JR_IMG": "WHPurchase_线顶部.png"
+                                            }
+                                        },
+                                        "middle" : {
+                                            "JCom": "JRImageView",
+                                            "JFrame": [0, 48,4,364],
+                                            "JSubRender":{
+                                                "JR_IMG": "WHPurchase_线中部.png"
+                                            }
+                                        },
+                                        "bottom" : {
+                                            "JCom": "JRImageView",
+                                            "JFrame": [0, 412],
+                                            "JSubRender":{
+                                                "JR_IMG": "WHPurchase_线底部.png"
+                                            }
+                                        }
+                                    }
+                                },
+                                
+                                "V2" : {
+                                    "JCom" : "JRComplexView",
+                                    "JFrame": [250, 60, 4, 300 ],
+                                    "JSubRender":{
+                                        "DISABLE_VALUE":1
+                                    },
+                                    "COMPONENTS": {
+                                        
+                                        "top" : {
+                                            "JCom": "JRImageView",
+                                            "JFrame": [0, 0],
+                                            "JSubRender":{
+                                                "JR_IMG": "WHPurchase_线顶部.png"
+                                            }
+                                        },
+                                        "middle" : {
+                                            "JCom": "JRImageView",
+                                            "JFrame": [0, 48,4,364],
+                                            "JSubRender":{
+                                                "JR_IMG": "WHPurchase_线中部.png"
+                                            }
+                                        },
+                                        "bottom" : {
+                                            "JCom": "JRImageView",
+                                            "JFrame": [0, 412],
+                                            "JSubRender":{
+                                                "JR_IMG": "WHPurchase_线底部.png"
+                                            }
+                                        }
+                                    }
+                                },
+                                "V3" : {
+                                    "JCom" : "JRComplexView",
+                                    "JFrame": [350, 60, 4, 270 ],
+                                    "JSubRender":{
+                                        "DISABLE_VALUE":1
+                                    },
+                                    "COMPONENTS": {
+                                        
+                                        "top" : {
+                                            "JCom": "JRImageView",
+                                            "JFrame": [0, 0],
+                                            "JSubRender":{
+                                                "JR_IMG": "WHPurchase_线顶部.png"
+                                            }
+                                        },
+                                        "middle" : {
+                                            "JCom": "JRImageView",
+                                            "JFrame": [0, 48,4,364],
+                                            "JSubRender":{
+                                                "JR_IMG": "WHPurchase_线中部.png"
+                                            }
+                                        },
+                                        "bottom" : {
+                                            "JCom": "JRImageView",
+                                            "JFrame": [0, 412],
+                                            "JSubRender":{
+                                                "JR_IMG": "WHPurchase_线底部.png"
+                                            }
+                                        }
+                                    }
+                                },
+                                
+                                "V4" : {
+                                    "JCom" : "JRComplexView",
+                                    "JFrame": [460, 60, 4, 300 ],
+                                    "JSubRender":{
+                                        "DISABLE_VALUE":1
+                                    },
+                                    "COMPONENTS": {
+                                        
+                                        "top" : {
+                                            "JCom": "JRImageView",
+                                            "JFrame": [0, 0],
+                                            "JSubRender":{
+                                                "JR_IMG": "WHPurchase_线顶部.png"
+                                            }
+                                        },
+                                        "middle" : {
+                                            "JCom": "JRImageView",
+                                            "JFrame": [0, 48,4,364],
+                                            "JSubRender":{
+                                                "JR_IMG": "WHPurchase_线中部.png"
+                                            }
+                                        },
+                                        "bottom" : {
+                                            "JCom": "JRImageView",
+                                            "JFrame": [0, 412],
+                                            "JSubRender":{
+                                                "JR_IMG": "WHPurchase_线底部.png"
+                                            }
+                                        }
+                                    }
+                                },
+                                "V5" : {
+                                    "JCom" : "JRComplexView",
+                                    "JFrame": [560, 60, 4, 270 ],
+                                    "JSubRender":{
+                                        "DISABLE_VALUE":1
+                                    },
+                                    "COMPONENTS": {
+                                        
+                                        "top" : {
+                                            "JCom": "JRImageView",
+                                            "JFrame": [0, 0],
+                                            "JSubRender":{
+                                                "JR_IMG": "WHPurchase_线顶部.png"
+                                            }
+                                        },
+                                        "middle" : {
+                                            "JCom": "JRImageView",
+                                            "JFrame": [0, 48,4,364],
+                                            "JSubRender":{
+                                                "JR_IMG": "WHPurchase_线中部.png"
+                                            }
+                                        },
+                                        "bottom" : {
+                                            "JCom": "JRImageView",
+                                            "JFrame": [0, 412],
+                                            "JSubRender":{
+                                                "JR_IMG": "WHPurchase_线底部.png"
+                                            }
+                                        }
+                                    }
+                                },
+                                
+                                "V6" : {
+                                    "JCom" : "JRComplexView",
+                                    "JFrame": [670, 60, 4, 300 ],
+                                    "JSubRender":{
+                                        "DISABLE_VALUE":1
+                                    },
+                                    "COMPONENTS": {
+                                        
+                                        "top" : {
+                                            "JCom": "JRImageView",
+                                            "JFrame": [0, 0],
+                                            "JSubRender":{
+                                                "JR_IMG": "WHPurchase_线顶部.png"
+                                            }
+                                        },
+                                        "middle" : {
+                                            "JCom": "JRImageView",
+                                            "JFrame": [0, 48,4,364],
+                                            "JSubRender":{
+                                                "JR_IMG": "WHPurchase_线中部.png"
+                                            }
+                                        },
+                                        "bottom" : {
+                                            "JCom": "JRImageView",
+                                            "JFrame": [0, 412],
+                                            "JSubRender":{
+                                                "JR_IMG": "WHPurchase_线底部.png"
+                                            }
+                                        }
+                                    }
+                                },
+                                "V7" : {
+                                    "JCom" : "JRComplexView",
+                                    "JFrame": [770, 60, 4, 270 ],
+                                    "JSubRender":{
+                                        "DISABLE_VALUE":1
+                                    },
+                                    "COMPONENTS": {
+                                        
+                                        "top" : {
+                                            "JCom": "JRImageView",
+                                            "JFrame": [0, 0],
+                                            "JSubRender":{
+                                                "JR_IMG": "WHPurchase_线顶部.png"
+                                            }
+                                        },
+                                        "middle" : {
+                                            "JCom": "JRImageView",
+                                            "JFrame": [0, 48,4,364],
+                                            "JSubRender":{
+                                                "JR_IMG": "WHPurchase_线中部.png"
+                                            }
+                                        },
+                                        "bottom" : {
+                                            "JCom": "JRImageView",
+                                            "JFrame": [0, 412],
+                                            "JSubRender":{
+                                                "JR_IMG": "WHPurchase_线底部.png"
+                                            }
+                                        }
+                                    }
+                                },
+                                
+                                "V8" : {
+                                    "JCom" : "JRComplexView",
+                                    "JFrame": [920, 60, 4, 300 ],
+                                    "JSubRender":{
+                                        "DISABLE_VALUE":1
+                                    },
+                                    "COMPONENTS": {
+                                        
+                                        "top" : {
+                                            "JCom": "JRImageView",
+                                            "JFrame": [0, 0],
+                                            "JSubRender":{
+                                                "JR_IMG": "WHPurchase_线顶部.png"
+                                            }
+                                        },
+                                        "middle" : {
+                                            "JCom": "JRImageView",
+                                            "JFrame": [0, 48,4,364],
+                                            "JSubRender":{
+                                                "JR_IMG": "WHPurchase_线中部.png"
+                                            }
+                                        },
+                                        "bottom" : {
+                                            "JCom": "JRImageView",
+                                            "JFrame": [0, 412],
+                                            "JSubRender":{
+                                                "JR_IMG": "WHPurchase_线底部.png"
+                                            }
+                                        }
+                                        
+                                    }
+                                }
+                                
+                            }
+                        }
+                    }
+                },
+                "NESTED_SHIP":{
+                    "JFrame": [3072, 0, 1024, 610 ],
+                    "SORTEDKEYS": ["IMG_bg","table","V1","V2","V3","V4","V5","V6","V7","V8","editButton"],
+                    "BGCOLOR_":4,
+                    "COMPONENTS" : {
+                        
+                        "IMG_bg": {
+                            "JCom" : "JRImageView",
+                            "JFrame": [0,0,-1.1,-1.1],
+                            "BORDER_":5,
+                            "JSubRender": {
+                                "JR_IMG":"Guardlog_bg.png"
+                            }
+                        },
+                        "NESTED_GUEST_one": {
+                            "JFrame": [0, 0, 1024, 610],
+                            "COMPONENTS" : {
+                                "editButton":{
+                                    "JCom":"JRButton",
+                                    "JFrame":[670,0,-1.1,-1.1],
+                                    "JSubRender": {
+                                        "JR_BGN_IMG": "patrol_edit.png","JS_FONT_N_COLOR":[1,1,1],"JS_FONT_BOLD": 1
+                                    }
+                                },
+                                "exComment" : {
+                                    "JCom" : "JRLabelTextView",
+                                    "JFrame":[60,542,880,60],
+                                    "JSubRender":{
+                                        "frames":[[0,0,-1.1,60],[150,0,790,55]],
+                                        "SubRenders":[{"RESERVE_CENTER": 1},{"JR_BORDERSTYLE_": 0 , "BGCOLOR_": 0}]
+                                    }
+                                },
+                                
+                                
+                                "table":{
+                                    "JCom": "JRRefreshTableView",
+                                    "JFrame": [45, 60, 968, 480],
+                                    "BORDER_": 28,
+                                    "JSubRender":{
+                                        "BGCOLOR": 0,
+                                        "HIDE_SEARCH_BAR": 1,
+                                        "SHOW_LINES":1,
+                                        "HIDE_REFRESH": 1,
+                                        
+                                        "CELL_BGCOLOR": 0,
+                                        
+                                        "headerColor":0,
+                                        "headerHeight": 50,
+                                        "headers":["CLIENT","SecurityVisitorOrder.vehicleNO","SecurityVisitorOrder.passIn_time","SecurityVisitorOrder.passOut_name","SecurityVisitorOrder.passOut_time","SecurityVisitorOrder.passIn_name","Receipt","Abnormal"],
+                                        "headersX":[35,140,225,350,435,555,730,893],
+                                        "headersY":[17],
+                                    }
+                                },
+                                "V1" : {
+                                    "JCom" : "JRComplexView",
+                                    "JFrame": [150, 60, 4, 470 ],
+                                    "BORDER_": 28,
+                                    "JSubRender":{
+                                        "DISABLE_VALUE":1
+                                    },
+                                    "COMPONENTS": {
+                                        
+                                        "top" : {
+                                            "JCom": "JRImageView",
+                                            "JFrame": [0, 0],
+                                            "JSubRender":{
+                                                "JR_IMG": "WHPurchase_线顶部.png"
+                                            }
+                                        },
+                                        "middle" : {
+                                            "JCom": "JRImageView",
+                                            "JFrame": [0, 48,4,364],
+                                            "JSubRender":{
+                                                "JR_IMG": "WHPurchase_线中部.png"
+                                            }
+                                        },
+                                        "bottom" : {
+                                            "JCom": "JRImageView",
+                                            "JFrame": [0, 412],
+                                            "JSubRender":{
+                                                "JR_IMG": "WHPurchase_线底部.png"
+                                            }
+                                        }
+                                    }
+                                },
+                                
+                                "V2" : {
+                                    "JCom" : "JRComplexView",
+                                    "JFrame": [250, 60, 4, 300 ],
+                                    "JSubRender":{
+                                        "DISABLE_VALUE":1
+                                    },
+                                    "COMPONENTS": {
+                                        
+                                        "top" : {
+                                            "JCom": "JRImageView",
+                                            "JFrame": [0, 0],
+                                            "JSubRender":{
+                                                "JR_IMG": "WHPurchase_线顶部.png"
+                                            }
+                                        },
+                                        "middle" : {
+                                            "JCom": "JRImageView",
+                                            "JFrame": [0, 48,4,364],
+                                            "JSubRender":{
+                                                "JR_IMG": "WHPurchase_线中部.png"
+                                            }
+                                        },
+                                        "bottom" : {
+                                            "JCom": "JRImageView",
+                                            "JFrame": [0, 412],
+                                            "JSubRender":{
+                                                "JR_IMG": "WHPurchase_线底部.png"
+                                            }
+                                        }
+                                    }
+                                },
+                                "V3" : {
+                                    "JCom" : "JRComplexView",
+                                    "JFrame": [360, 60, 4, 270 ],
+                                    "JSubRender":{
+                                        "DISABLE_VALUE":1
+                                    },
+                                    "COMPONENTS": {
+                                        
+                                        "top" : {
+                                            "JCom": "JRImageView",
+                                            "JFrame": [0, 0],
+                                            "JSubRender":{
+                                                "JR_IMG": "WHPurchase_线顶部.png"
+                                            }
+                                        },
+                                        "middle" : {
+                                            "JCom": "JRImageView",
+                                            "JFrame": [0, 48,4,364],
+                                            "JSubRender":{
+                                                "JR_IMG": "WHPurchase_线中部.png"
+                                            }
+                                        },
+                                        "bottom" : {
+                                            "JCom": "JRImageView",
+                                            "JFrame": [0, 412],
+                                            "JSubRender":{
+                                                "JR_IMG": "WHPurchase_线底部.png"
+                                            }
+                                        }
+                                    }
+                                },
+                                
+                                "V4" : {
+                                    "JCom" : "JRComplexView",
+                                    "JFrame": [460, 60, 4, 300 ],
+                                    "JSubRender":{
+                                        "DISABLE_VALUE":1
+                                    },
+                                    "COMPONENTS": {
+                                        
+                                        "top" : {
+                                            "JCom": "JRImageView",
+                                            "JFrame": [0, 0],
+                                            "JSubRender":{
+                                                "JR_IMG": "WHPurchase_线顶部.png"
+                                            }
+                                        },
+                                        "middle" : {
+                                            "JCom": "JRImageView",
+                                            "JFrame": [0, 48,4,364],
+                                            "JSubRender":{
+                                                "JR_IMG": "WHPurchase_线中部.png"
+                                            }
+                                        },
+                                        "bottom" : {
+                                            "JCom": "JRImageView",
+                                            "JFrame": [0, 412],
+                                            "JSubRender":{
+                                                "JR_IMG": "WHPurchase_线底部.png"
+                                            }
+                                        }
+                                    }
+                                },
+                                "V5" : {
+                                    "JCom" : "JRComplexView",
+                                    "JFrame": [570, 60, 4, 270 ],
+                                    "JSubRender":{
+                                        "DISABLE_VALUE":1
+                                    },
+                                    "COMPONENTS": {
+                                        
+                                        "top" : {
+                                            "JCom": "JRImageView",
+                                            "JFrame": [0, 0],
+                                            "JSubRender":{
+                                                "JR_IMG": "WHPurchase_线顶部.png"
+                                            }
+                                        },
+                                        "middle" : {
+                                            "JCom": "JRImageView",
+                                            "JFrame": [0, 48,4,364],
+                                            "JSubRender":{
+                                                "JR_IMG": "WHPurchase_线中部.png"
+                                            }
+                                        },
+                                        "bottom" : {
+                                            "JCom": "JRImageView",
+                                            "JFrame": [0, 412],
+                                            "JSubRender":{
+                                                "JR_IMG": "WHPurchase_线底部.png"
+                                            }
+                                        }
+                                    }
+                                },
+                                
+                                "V6" : {
+                                    "JCom" : "JRComplexView",
+                                    "JFrame": [670, 60, 4, 300 ],
+                                    "JSubRender":{
+                                        "DISABLE_VALUE":1
+                                    },
+                                    "COMPONENTS": {
+                                        
+                                        "top" : {
+                                            "JCom": "JRImageView",
+                                            "JFrame": [0, 0],
+                                            "JSubRender":{
+                                                "JR_IMG": "WHPurchase_线顶部.png"
+                                            }
+                                        },
+                                        "middle" : {
+                                            "JCom": "JRImageView",
+                                            "JFrame": [0, 48,4,364],
+                                            "JSubRender":{
+                                                "JR_IMG": "WHPurchase_线中部.png"
+                                            }
+                                        },
+                                        "bottom" : {
+                                            "JCom": "JRImageView",
+                                            "JFrame": [0, 412],
+                                            "JSubRender":{
+                                                "JR_IMG": "WHPurchase_线底部.png"
+                                            }
+                                        }
+                                    }
+                                },
+                                "V7" : {
+                                    "JCom" : "JRComplexView",
+                                    "JFrame": [920, 60, 4, 300 ],
+                                    "JSubRender":{
+                                        "DISABLE_VALUE":1
+                                    },
+                                    "COMPONENTS": {
+                                        
+                                        "top" : {
+                                            "JCom": "JRImageView",
+                                            "JFrame": [0, 0],
+                                            "JSubRender":{
+                                                "JR_IMG": "WHPurchase_线顶部.png"
+                                            }
+                                        },
+                                        "middle" : {
+                                            "JCom": "JRImageView",
+                                            "JFrame": [0, 48,4,364],
+                                            "JSubRender":{
+                                                "JR_IMG": "WHPurchase_线中部.png"
+                                            }
+                                        },
+                                        "bottom" : {
+                                            "JCom": "JRImageView",
+                                            "JFrame": [0, 412],
+                                            "JSubRender":{
+                                                "JR_IMG": "WHPurchase_线底部.png"
+                                            }
+                                        }
+                                        
+                                    }
+                                }
+                                
+                            }
+                        }
+                    }
+                },
+
+                "NESTED_PURCHASE":{
+                    "JFrame": [4096, 0, 1024, 610 ],
+                    "SORTEDKEYS": ["IMG_bg","table","V1","V2","V3","V4","V5","V6","V7","V8","editButton"],
+                    "BGCOLOR_":4,
+                    "COMPONENTS" : {
+                        
+                        "IMG_bg": {
+                            "JCom" : "JRImageView",
+                            "JFrame": [0,0,-1.1,-1.1],
+                            "BORDER_":5,
+                            "JSubRender": {
+                                "JR_IMG":"Guardlog_bg.png"
+                            }
+                        },
+                        "NESTED_GUEST_one": {
+                            "JFrame": [0, 0, 1024, 610],
+                            "COMPONENTS" : {
+                                "editButton":{
+                                    "JCom":"JRButton",
+                                    "JFrame":[670,0,-1.1,-1.1],
+                                    "JSubRender": {
+                                        "JR_BGN_IMG": "patrol_edit.png","JS_FONT_N_COLOR":[1,1,1],"JS_FONT_BOLD": 1
+                                    }
+                                },
+                                "exComment" : {
+                                    "JCom" : "JRLabelTextView",
+                                    "JFrame":[60,542,880,60],
+                                    "JSubRender":{
+                                        "frames":[[0,0,-1.1,60],[150,0,790,55]],
+                                        "SubRenders":[{"RESERVE_CENTER": 1},{"JR_BORDERSTYLE_": 0 , "BGCOLOR_": 0}]
+                                    }
+                                },
+                                
+                                
+                                "table":{
+                                    "JCom": "JRRefreshTableView",
+                                    "JFrame": [45, 60, 968, 480],
+                                    "BORDER_": 28,
+                                    "JSubRender":{
+                                        "BGCOLOR": 0,
+                                        "HIDE_SEARCH_BAR": 1,
+                                        "SHOW_LINES":1,
+                                        "HIDE_REFRESH": 1,
+                                        
+                                        "CELL_BGCOLOR": 0,
+                                        
+                                        "headerColor":0,
+                                        "headerHeight": 50,
+                                        "headers":["vendor","SecurityVisitorOrder.vehicleNO","productName","SecurityVisitorOrder.passIn_time","SecurityVisitorOrder.passOut_name","SecurityVisitorOrder.passOut_time","SecurityVisitorOrder.passIn_name","Receipt","Abnormal"],
+                                        "headersX":[30,140,240,320,450,535,655,775,893],
+                                        "headersY":[17],
+                                    }
+                                },
+                                "V1" : {
+                                    "JCom" : "JRComplexView",
+                                    "JFrame": [150, 60, 4, 470 ],
+                                    "BORDER_": 28,
+                                    "JSubRender":{
+                                        "DISABLE_VALUE":1
+                                    },
+                                    "COMPONENTS": {
+                                        
+                                        "top" : {
+                                            "JCom": "JRImageView",
+                                            "JFrame": [0, 0],
+                                            "JSubRender":{
+                                                "JR_IMG": "WHPurchase_线顶部.png"
+                                            }
+                                        },
+                                        "middle" : {
+                                            "JCom": "JRImageView",
+                                            "JFrame": [0, 48,4,364],
+                                            "JSubRender":{
+                                                "JR_IMG": "WHPurchase_线中部.png"
+                                            }
+                                        },
+                                        "bottom" : {
+                                            "JCom": "JRImageView",
+                                            "JFrame": [0, 412],
+                                            "JSubRender":{
+                                                "JR_IMG": "WHPurchase_线底部.png"
+                                            }
+                                        }
+                                    }
+                                },
+                                
+                                "V2" : {
+                                    "JCom" : "JRComplexView",
+                                    "JFrame": [250, 60, 4, 300 ],
+                                    "JSubRender":{
+                                        "DISABLE_VALUE":1
+                                    },
+                                    "COMPONENTS": {
+                                        
+                                        "top" : {
+                                            "JCom": "JRImageView",
+                                            "JFrame": [0, 0],
+                                            "JSubRender":{
+                                                "JR_IMG": "WHPurchase_线顶部.png"
+                                            }
+                                        },
+                                        "middle" : {
+                                            "JCom": "JRImageView",
+                                            "JFrame": [0, 48,4,364],
+                                            "JSubRender":{
+                                                "JR_IMG": "WHPurchase_线中部.png"
+                                            }
+                                        },
+                                        "bottom" : {
+                                            "JCom": "JRImageView",
+                                            "JFrame": [0, 412],
+                                            "JSubRender":{
+                                                "JR_IMG": "WHPurchase_线底部.png"
+                                            }
+                                        }
+                                    }
+                                },
+                                "V3" : {
+                                    "JCom" : "JRComplexView",
+                                    "JFrame": [350, 60, 4, 270 ],
+                                    "JSubRender":{
+                                        "DISABLE_VALUE":1
+                                    },
+                                    "COMPONENTS": {
+                                        
+                                        "top" : {
+                                            "JCom": "JRImageView",
+                                            "JFrame": [0, 0],
+                                            "JSubRender":{
+                                                "JR_IMG": "WHPurchase_线顶部.png"
+                                            }
+                                        },
+                                        "middle" : {
+                                            "JCom": "JRImageView",
+                                            "JFrame": [0, 48,4,364],
+                                            "JSubRender":{
+                                                "JR_IMG": "WHPurchase_线中部.png"
+                                            }
+                                        },
+                                        "bottom" : {
+                                            "JCom": "JRImageView",
+                                            "JFrame": [0, 412],
+                                            "JSubRender":{
+                                                "JR_IMG": "WHPurchase_线底部.png"
+                                            }
+                                        }
+                                    }
+                                },
+                                
+                                "V4" : {
+                                    "JCom" : "JRComplexView",
+                                    "JFrame": [460, 60, 4, 300 ],
+                                    "JSubRender":{
+                                        "DISABLE_VALUE":1
+                                    },
+                                    "COMPONENTS": {
+                                        
+                                        "top" : {
+                                            "JCom": "JRImageView",
+                                            "JFrame": [0, 0],
+                                            "JSubRender":{
+                                                "JR_IMG": "WHPurchase_线顶部.png"
+                                            }
+                                        },
+                                        "middle" : {
+                                            "JCom": "JRImageView",
+                                            "JFrame": [0, 48,4,364],
+                                            "JSubRender":{
+                                                "JR_IMG": "WHPurchase_线中部.png"
+                                            }
+                                        },
+                                        "bottom" : {
+                                            "JCom": "JRImageView",
+                                            "JFrame": [0, 412],
+                                            "JSubRender":{
+                                                "JR_IMG": "WHPurchase_线底部.png"
+                                            }
+                                        }
+                                    }
+                                },
+                                "V5" : {
+                                    "JCom" : "JRComplexView",
+                                    "JFrame": [560, 60, 4, 270 ],
+                                    "JSubRender":{
+                                        "DISABLE_VALUE":1
+                                    },
+                                    "COMPONENTS": {
+                                        
+                                        "top" : {
+                                            "JCom": "JRImageView",
+                                            "JFrame": [0, 0],
+                                            "JSubRender":{
+                                                "JR_IMG": "WHPurchase_线顶部.png"
+                                            }
+                                        },
+                                        "middle" : {
+                                            "JCom": "JRImageView",
+                                            "JFrame": [0, 48,4,364],
+                                            "JSubRender":{
+                                                "JR_IMG": "WHPurchase_线中部.png"
+                                            }
+                                        },
+                                        "bottom" : {
+                                            "JCom": "JRImageView",
+                                            "JFrame": [0, 412],
+                                            "JSubRender":{
+                                                "JR_IMG": "WHPurchase_线底部.png"
+                                            }
+                                        }
+                                    }
+                                },
+                                
+                                "V6" : {
+                                    "JCom" : "JRComplexView",
+                                    "JFrame": [670, 60, 4, 300 ],
+                                    "JSubRender":{
+                                        "DISABLE_VALUE":1
+                                    },
+                                    "COMPONENTS": {
+                                        
+                                        "top" : {
+                                            "JCom": "JRImageView",
+                                            "JFrame": [0, 0],
+                                            "JSubRender":{
+                                                "JR_IMG": "WHPurchase_线顶部.png"
+                                            }
+                                        },
+                                        "middle" : {
+                                            "JCom": "JRImageView",
+                                            "JFrame": [0, 48,4,364],
+                                            "JSubRender":{
+                                                "JR_IMG": "WHPurchase_线中部.png"
+                                            }
+                                        },
+                                        "bottom" : {
+                                            "JCom": "JRImageView",
+                                            "JFrame": [0, 412],
+                                            "JSubRender":{
+                                                "JR_IMG": "WHPurchase_线底部.png"
+                                            }
+                                        }
+                                    }
+                                },
+                                "V7" : {
+                                    "JCom" : "JRComplexView",
+                                    "JFrame": [770, 60, 4, 270 ],
+                                    "JSubRender":{
+                                        "DISABLE_VALUE":1
+                                    },
+                                    "COMPONENTS": {
+                                        
+                                        "top" : {
+                                            "JCom": "JRImageView",
+                                            "JFrame": [0, 0],
+                                            "JSubRender":{
+                                                "JR_IMG": "WHPurchase_线顶部.png"
+                                            }
+                                        },
+                                        "middle" : {
+                                            "JCom": "JRImageView",
+                                            "JFrame": [0, 48,4,364],
+                                            "JSubRender":{
+                                                "JR_IMG": "WHPurchase_线中部.png"
+                                            }
+                                        },
+                                        "bottom" : {
+                                            "JCom": "JRImageView",
+                                            "JFrame": [0, 412],
+                                            "JSubRender":{
+                                                "JR_IMG": "WHPurchase_线底部.png"
+                                            }
+                                        }
+                                    }
+                                },
+                                
+                                "V8" : {
+                                    "JCom" : "JRComplexView",
+                                    "JFrame": [920, 60, 4, 300 ],
+                                    "JSubRender":{
+                                        "DISABLE_VALUE":1
+                                    },
+                                    "COMPONENTS": {
+                                        
+                                        "top" : {
+                                            "JCom": "JRImageView",
+                                            "JFrame": [0, 0],
+                                            "JSubRender":{
+                                                "JR_IMG": "WHPurchase_线顶部.png"
+                                            }
+                                        },
+                                        "middle" : {
+                                            "JCom": "JRImageView",
+                                            "JFrame": [0, 48,4,364],
+                                            "JSubRender":{
+                                                "JR_IMG": "WHPurchase_线中部.png"
+                                            }
+                                        },
+                                        "bottom" : {
+                                            "JCom": "JRImageView",
+                                            "JFrame": [0, 412],
+                                            "JSubRender":{
+                                                "JR_IMG": "WHPurchase_线底部.png"
+                                            }
+                                        }
+                                        
+                                    }
+                                }
+                                
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+}

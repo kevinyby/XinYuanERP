@@ -1,0 +1,152 @@
+{
+    
+    "COMPONENTS" : {
+        "SORTEDKEYS": ["NESTED_Line", "NESTED_LEFT"],
+        "BG_BOOK_IMAGE" : {
+            "JCom": "JRImageView",
+            "JFrame": [50,150,-1.1,-1.1],
+            "JSubRender":{
+                "JR_IMG": "Scrap_表单背景"
+            }
+        },
+        
+        "NESTED_LEFT": {
+            "JFrame": [60,160, 600, 320],
+            "BORDER": 11,
+            "COMPONENTS" : {
+                
+                "productCode": {
+                    "JCom" : "JRLabelTextFieldView",
+                    "JFrame": [40,20,520,40],
+                    "JSubRender": {
+                        "frames":[[-1.1,-1.1,110, 40],  [150,-1.1,360, 40]],
+                        "SubRenders":[{},{"JR_BORDERSTYLE" : 0}]
+                    }
+                },
+                "productName": {
+                    "JCom" : "JRLabelTextFieldView",
+                    "JFrame": [40,105,520,40],
+                    "JSubRender": {
+                        "frames":[[-1.1,-1.1,110, 40],  [150,-1.1,360, 40]],
+                        "SubRenders":[{"CH_SPACE": "7"},{"JR_BORDERSTYLE" : 0}]
+                    }
+                },
+                
+                "scrapAmount": {
+                    "JCom" : "JRLabelTextFieldView",
+                    "JFrame": [40,185,520,40],
+                    "JSubRender": {
+                        "frames":[[-1.1,-1.1,110, 40],  [150,-1.1,360, 40]],
+                        "SubRenders":[{"CH_SPACE": "7"},{"JR_BORDERSTYLE" : 0}]
+                    }
+                },
+                
+                "scrapTime": {
+                    "JCom" : "JRLabelTextFieldView",
+                    "JFrame": [40,255,520,40],
+                    "JSubRender": {
+                        "frames":[[-1.1,-1.1,110, 40],  [150,-1.1,360, 40]],
+                        "SubRenders":[{},{"JR_BORDERSTYLE" : 0}]
+                    }
+                },
+                
+            }
+        },
+        "NESTED_Line":{
+            "JFrame":[65,240,600,200],
+            "COMPONENTS":{
+                "Line_1" : {
+                    "JCom": "JRImageView",
+                    "JFrame": [0,0],
+                    "JSubRender":{
+                        "JR_IMG": "Scrap_左栏横线.png"
+                    }
+                },
+                "Line_2" : {
+                    "JCom": "JRImageView",
+                    "JFrame": [0,80],
+                    "JSubRender":{
+                        "JR_IMG": "Scrap_左栏横线.png"
+                    }
+                },
+                "Line_3" : {
+                    "JCom": "JRImageView",
+                    "JFrame": [0,160],
+                    "JSubRender":{
+                        "JR_IMG": "Scrap_左栏横线.png"
+                    }
+                },
+                "Line_4" : {
+                    "JCom": "JRImageView",
+                    "JFrame": [145,0],
+                    "JSubRender":{
+                        "JR_IMG": "Scrap_右栏横线.png"
+                    }
+                },
+                "Line_5" : {
+                    "JCom": "JRImageView",
+                    "JFrame": [145,80],
+                    "JSubRender":{
+                        "JR_IMG": "Scrap_右栏横线.png"
+                    }
+                },
+                "Line_6" : {
+                    "JCom": "JRImageView",
+                    "JFrame": [145,160],
+                    "JSubRender":{
+                        "JR_IMG": "Scrap_右栏横线.png"
+                    }
+                },
+
+
+
+            }
+        },
+        "NESTED_RIGHT": {
+            "JFrame": [680,160, 260, 320],
+            "SORTEDKEYS": ["BG_Photo","IMG_Photo","BG_TextView"],
+            "COMPONENTS" : {
+                
+                "BG_Photo" :{
+                    "JCom": "JRImageView",
+                    "JFrame": [10,10,-1.1,-1.1],
+                    "JSubRender":{
+                        "JR_IMG": "Scrap_相片框"
+                    }
+                },
+                
+                "IMG_Photo" :{
+                    "JCom": "JRImageView",
+                    "JFrame": [14,13,240,150],
+                    "JSubRender":{
+                        "JR_IMG": "",
+                        "JR_Radius": 8.0
+                    }
+                },
+                "BTN_Take_Scrap" : {
+                    "JCom": "JRButton",
+                    "JFrame": [215,57,-1.1,-1.1],
+                    "JSubRender":{
+                        "JR_BGN_IMG": "Scrap_拍照按钮"
+                    }
+                },
+                "BG_TextView" :{
+                    "JCom": "JRImageView",
+                    "JFrame": [10,210,-1.1,-1.1],
+                    "JSubRender":{
+                        "JR_IMG": "Scrap_报废原因框"
+                    }
+                },
+                "scrapReason": {
+                    "JCom" : "JRLabelTextView",
+                    "JFrame": [15, 180,230,140],
+                    "JSubRender": {
+                        "frames":[[20,5,-1.1,-1.1],[10,35,230,90]],
+                        "SubRenders":[{},{}]
+                    }
+                },
+            }
+        },
+    }
+    
+}

@@ -1,0 +1,68 @@
+
+{
+    "SERVER":{
+        
+        "SUBMIT_BUTTONS" : [
+                            
+                            {
+                            "NESTED_footer.createUser": {
+                            "MODEL_APPFROM" : "createUser",
+                            "MODEL_APPTO" : "app1"
+                            },
+                            "NESTED_footer.app1": {
+                            "BUTTON_TYPE" : 1,
+                            "MODEL_APPFROM" : "app1",
+                            "MODEL_APPTO" : "app2"
+                            },
+                            "NESTED_footer.app2": {
+                            "BUTTON_TYPE" : 1,
+                            "MODEL_APPFROM" : "app2",
+                            "MODEL_APPTO" : "createUser"
+                            },
+                            "NESTED_footer.app3": "",
+                            "NESTED_footer.app4":""
+                            }
+                            ],
+        
+        
+        "CHECK_NOTEMPTY": [
+                            "employeeNO", "baseSalary","salaryType"
+                            ]
+        
+    },
+    
+    
+    
+    
+    
+    
+    
+    
+    "CLIENT": {
+        
+        "CONTROL_MODE" : {
+            
+            "DEFAULT_MODE_SUB":{
+                "ENABLE":[],
+                "UNENABLE":["NESTED_Left", "NESTED_Right", "BTN_Adjust"]
+            },
+            
+            "CREAT_MODE_SUB":{
+                "ENABLE":["NESTED_Left", "NESTED_Right"],
+                "UNENABLE":[]
+            },
+            
+            "MODIFY_MODE_SUB":{
+                "ENABLE":["NESTED_Left", "NESTED_Right"],
+                "UNENABLE":["employeeNO"]
+            },
+            
+            
+            "READ_MODE_SUB":{
+                "ENABLE":["BTN_Adjust"],
+                "UNENABLE":[]
+            }
+        }
+        
+    }
+}

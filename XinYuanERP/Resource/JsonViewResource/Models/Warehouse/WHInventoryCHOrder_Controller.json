@@ -1,0 +1,71 @@
+{
+    "IMAGES" : {
+        
+        "IMAGES_LOAD": ["IMG_QRCode"],
+        
+        "IMAGES_NAMES": {
+            "IMG_QRCode": {
+                "PRE": "",
+                "MAINNAME": ["orderNO", ""],
+                "SUF":"QRCode.png"
+            }
+        },
+        "IMAGES_DATAS": {
+            "IMG_QRCode": {
+                "IS_SAVE_AS_PNG_DATA": 1
+            }
+        },
+        "IMAGES_PREVIEWS":{
+            "IMG_QRCode":{}
+        }
+        
+    },
+    
+    "SERVER":{
+        
+        
+    },
+    
+    
+    
+    "CLIENT":{
+        
+        "QRCODES_BUTTONS" : [
+                     {
+                     "button":"BTN_CreateQR",
+                     "image":"IMG_QRCode",
+                     "contentKeys":["productCode_N", "productName_N"],
+                     "tipsKeys": ["productCode", "productName" ],
+                     "width":100
+                     }
+                     ],
+        
+        "CONTROL_MODE" : {
+            
+            "CREAT_MODE_SUB":{
+                "ENABLE":[],
+                "UNENABLE":[
+                            "productName_O",
+                            "totalAmount_O",
+                            "lendAmount_O",
+                            "basicUnit_O",
+                            "oneUnit_O",
+                            "amount_O",
+                            "unit_O",
+                            "priceBasicUnit_O",
+                            "productLocation_O",
+                            "productDesc_O",
+                            "productDescPDF_O",
+                            ]
+            }
+            
+           
+        }
+        
+        
+    }
+    
+    
+    
+    
+}

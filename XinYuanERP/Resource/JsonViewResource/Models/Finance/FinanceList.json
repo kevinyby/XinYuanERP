@@ -1,0 +1,62 @@
+
+{
+    
+    "FinanceSalary" : {
+        "FIELDS": [["id" , "employeeNO", "name"]],
+        
+        "HEADERS": ["employeeNO", "name"],
+        "HEADERSX": [50, 360],
+        "VALUESX":  [50, 360],
+        "SORTS": [["employeeNO.ASC"]],
+        
+        
+        "FILTERS": {"0":"FILTER_NIL"}
+    },
+    
+    "FinanceSalaryCHOrder" : {
+        "FIELDS": [["id", "adjustDate" , "employeeNO", "name"]],
+        
+        "HEADERS": [ "FinanceSalaryCHOrder.adjustDate" ,"employeeNO", "name"],
+        "HEADERSX": [50, 300, 520],
+        "VALUESX":  [50, 300, 520],
+        
+        
+        "FILTERS": {"0":"FILTER_NIL", "1":"FILTER_Date"}
+    },
+    
+    "FinancePaymentOrder" : {
+        "FIELDS": [["id" , "staffCategory", "staffNO"]],
+        
+        "HEADERS": ["staffCategory", "number", "name"],
+        "HEADERSX": [50, 260],
+        "VALUESX":  [50, 260],
+        
+        "FILTERS": {"0":"FILTER_NIL", "1": "FILTER_LocalizeUpperCase", "2":"FILTER_NumberName"}
+    },
+    
+    "FinanceAccount" : {
+        "FIELDS": [["id" , "number", "name"]],
+        
+        "HEADERS": ["FinanceAccount.number", "FinanceAccount.name"],
+        "HEADERSX": [50, 260],
+        "VALUESX":  [50, 260],
+        
+        "FILTERS": {"0":"FILTER_NIL"}
+    },
+    
+    
+    "FinanceAccountCHOrder" : {
+        "FIELDS": [["id" , "orderNO"]],
+        
+        "HEADERS": ["orderNO"],
+        "HEADERSX": [50, 260],
+        "VALUESX":  [50, 260],
+        
+        "FILTERS": {"0":"FILTER_NIL"}
+    }
+    
+    
+    
+}
+
+

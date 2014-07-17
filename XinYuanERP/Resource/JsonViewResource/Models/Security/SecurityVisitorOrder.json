@@ -1,0 +1,277 @@
+{
+    "COMPONENTS" : {
+        "sample_":{
+            "JCom":"JRImageView",
+            "JFrame":[0,0,-1.1,-1.1],
+            "JSubRender":{
+                "JR_IMG":"visitor_sample.jpg"
+            }
+        },
+        "NESTED_BODY": {
+            "BORDER":6,
+            "JFrame": [ 0,80, 980, 600 ],
+            "SORTEDKEYS": ["IMG_bg"],
+            "COMPONENTS": {
+                "IMG_bg": {
+                    "JCom" : "JRImageView",
+                    "JFrame": [0,0,-1.1,-1.1],
+                    "JSubRender": {
+                        "JR_IMG":"visotor_bg.png"
+                    }
+                },
+                "NESTED_content":{
+                    "JFrame":[70,10,920,430],
+                    "BORDER":9,
+                    "COMPONENTS":{
+                        "orderNO": {
+                            "JCom" : "JRLabelCommaTextFieldView",
+                            "JFrame": [200,5,500,50],
+                            "JSubRender": {
+                                "frames":[[], [],[]],
+                                "SubRenders":[{"JS_FONT_N_COLOR": [ 0, 0, 0, 1 ]},{"JS_FONT_N_COLOR": [ 0, 0, 0, 1 ]},{"JR_IMG":"visotor_order.png"}]
+                            }
+                        },
+                        "visitor":{
+                            "JCom":"JRLabelTextFieldView",
+                            "JFrame":[50,85,500,40],
+                            "JSubRender":{
+                                "frames":[[0,0,-1.1,40],[125,0,350,40]],
+                                "SubRenders":[{"CH_SPACE":"2"}]
+                            }
+                        },
+                        "vehicleNO":{
+                            "JCom":"JRLabelTextFieldView",
+                            "JFrame":[50,145,500,40],
+                            "JSubRender":{
+                                "frames":[[0,0,-1.1,40],[125,0,350,40]],
+                                "SubRenders":[{"CH_SPACE":"2"}]
+                            }
+                        },
+                        "personNUM":{
+                            "JCom":"JRLabelTextFieldView",
+                            "JFrame":[50,200,500,40],
+                            "JSubRender":{
+                                "frames":[[0,0,-1.1,40],[125,0,350,40]],
+                                "SubRenders":[{"CH_SPACE":"2"}]
+                            }
+                        },
+                        "visit":{
+                            "JCom":"JRLabelTextFieldView",
+                            "JFrame":[50,255,500,40],
+                            "JSubRender":{
+                                "frames":[[0,0,-1.1,40],[125,0,350,40]],
+                                "SubRenders":[{"CH_SPACE":"2"}]
+                            }
+                        },
+                        "reason":{
+                            "JCom":"JRLabelTextView",
+                            "JFrame":[50,315,500,90],
+                            "JSubRender":{
+                                "frames":[[0,0,-1.1,40],[125,0,350,100]],
+                                "SubRenders":[{"CH_SPACE":"2"},{"JR_IMG":"cahier_input2.png"}]
+                            }
+                        },
+                        "photoStack":{
+                            "JFrame":[580,70,300,170],
+                            "BORDER":10,
+                            "SORTEDKEYS":["photo_bg","photoFrame"],
+                            "COMPONENTS":{
+                                "photo_bg":{
+                                    "JCom":"JRImageView",
+                                    "JFrame":[15,5,259,155],
+                                    "JSubRender":{
+                                        "JR_IMG":"visitor_photo_frame.png"
+                                    }
+                                },
+                                "photoFrame":{
+                                    "JCom":"JRImageView",
+                                    "JFrame":[15,5,259,155],
+                                    "BORDER":9
+                                },
+                                "camButton":{
+                                    "JCom":"JRButton",
+                                    "JFrame":[236,57,50,50],
+                                    "BORDER_":20,
+                                    "JSubRender":{
+                                        "JR_BGN_IMG":"visitor_cam.png"
+                                    }
+                                }
+                            }
+                        },
+                        
+                        "stuffTalbe":{
+                            "JFrame":[580,240,300,170],
+                            "BORDER":10,
+                            "SORTEDKEYS":["stuff_bg"],
+                            "COMPONENTS":{
+                                "stuff_bg":{
+                                    "JCom":"JRImageView",
+                                    "JFrame":[15,5,259,155],
+                                    "JSubRender":{
+                                        "JR_IMG":"visitor_table_frame.png"
+                                    }
+                                },
+                                "stuff_title":{
+                                    "JCom": "JRLocalizeLabel",
+                                    "JFrame":[100,20,-1.1,20],
+                                    "BORDER":20,
+                                    "JSubRender":{
+                                        "JS_FONT_N_COLOR":[ 0, 0, 0, 1]
+                                    }
+                                },
+                                "stuff_button":{
+                                    "JCom":"JRButton",
+                                    "JFrame":[230,10,40,40],
+                                    "BORDER":10,
+                                    "JSubRender":{
+                                        "JR_BGN_IMG":"visitor_add.png"
+                                    }
+                                },
+                                
+                                "stuff_table":{
+                                    "JCom":"JRHeaderTableView",
+                                    "JFrame":[20,47,250,105],
+                                    "BORDER":9
+                                }
+                            },
+
+                        }
+                    }
+                },
+                "buttons":{
+                    "JFrame":[140,450,635,170],
+                    "BORDER":9,
+                    "COMPONENTS":{
+                        "doneStack":{
+                            "JFrame":[0,0,350,60],
+                            "SORTEDKEYS":["frame_bg"],
+                            "COMPONENTS":{
+                                "doneButton":{
+                                    "JCom": "JRButtonTextFieldView",
+                                    "JFrame":[0,0,115,40],
+                                    "JSubRender":{
+                                        "frames":[[0,0,128,48],[115,0,-1.1,-1.1]],
+                                        "SubRenders":[{"FONT_SIZE":19,"JR_BGN_IMG":"visitor_button2.png"},
+                                                      {"JR_IMG":"visitor_label.png",
+                                                      "JR_ENABLE":0}]
+                                    }
+                                }
+                            }
+                        },
+                        
+                        "passInStack":{
+                            "JFrame":[0,50,485,50],
+                            "SORTEDKEYS":["frame_bg"],
+                            "COMPONENTS":{
+                                "frame_bg":{
+                                    "JCom":"JRImageView",
+                                    "JFrame":[117,5,375,40],
+                                    "JSubRender":{
+                                        "JR_IMG":"visitor_label2.png"
+                                    }
+                                },
+                                "passIn_time":{
+                                    "JCom":"JRButtonTextFieldView",
+                                    "JFrame":[0,0,128,40],
+                                    "BRODER":9,
+                                    "JSubRender":{
+                                        "frames":[[0,0,128,48],[110,0,100,40]],
+                                        "SubRenders":[{"FONT_SIZE":19,"JR_BGN_IMG":"visitor_button2.png"},{"JR_BORDERSTYLE": 0, "JR_ENABLE":0,"BGCOLOR":0}]
+                                    }
+                                },
+                                
+                                "passIn_name":{
+                                    "JCom":"JRLabelTextFieldView",
+                                    "JFrame":[280,5,210,40],
+                                    "BORDER":20,
+                                    "JSubRender":{
+                                        "frames":[[0,0,-1.1,40],[60,2,150,40]],
+                                        "SubRenders":[{"CH_SPACE":"0|2.6"},{"JR_BORDERSTYLE": 0,"JR_ENABLE":0,"BGCOLOR":0}]
+                                        
+                                    }
+                                }
+                            }
+                        },
+                        
+                        "passOutStack":{
+                            "JFrame":[0,100,485,50],
+                            "SORTEDKEYS":["frame_bg"],
+                            "COMPONENTS":{
+                                "frame_bg":{
+                                    "JCom":"JRImageView",
+                                    "JFrame":[117,5,375,40],
+                                    "JSubRender":{
+                                        "JR_IMG":"visitor_label2.png"
+                                    }
+                                },
+                                
+                                "passOut_time":{
+                                    "JCom":"JRButtonTextFieldView",
+                                    "JFrame":[0,0,128,40],
+                                    "BRODER-":9,
+                                    "JSubRender":{
+                                        "frames":[[0,0,128,48],[110,0,100,40]],
+                                        "SubRenders":[{"FONT_SIZE":19,"JR_BGN_IMG":"visitor_button2.png"},{"JR_BORDERSTYLE": 0, "JR_ENABLE":0,"BGCOLOR":0}]
+                                    }
+                                },
+
+                                "passOut_name":{
+                                    "JCom":"JRLabelTextFieldView",
+                                    "JFrame":[280,5,210,40],
+                                    "BORDER":20,
+                                    "JSubRender":{
+                                        "frames":[[0,0,-1.1,40],[60,2,150,40]],
+                                        "SubRenders":[{"CH_SPACE":"0|2.6"},{"JR_BORDERSTYLE": 0,"JR_ENABLE":0,"BGCOLOR":0}]
+                                        
+                                    }
+                                }
+                            }
+                        }
+                        
+                    }
+                }
+            }
+        },
+        
+        "NESTED_footer":"",
+        
+        "NESTED_footer_": {
+            "JFrame": [ 120, 590, 980, 300 ],
+            "SORTEDKEYS": [],
+            "COMPONENTS": {
+                
+                "createUser": {
+                    "JFrame": [600,100,180,30]
+                },
+                
+                "app1": {
+                    "JFrame": [400,100,180,30]
+                },
+                
+                "app2": {
+                    "JFrame": [200,100,180,30]
+                },
+                
+                "app3": {
+                    "JFrame": [0,100,180,30]
+                },
+                
+                "app4":""
+            }
+        }
+    }
+
+
+
+
+
+}
+
+
+
+
+
+
+
+
+

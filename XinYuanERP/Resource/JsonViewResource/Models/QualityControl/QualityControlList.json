@@ -1,0 +1,19 @@
+
+{
+    
+    
+    "QCReworkNoticeOrder" : {
+        "FIELDS": [["id", "orderNO", "projectName"]],
+        
+        "HEADERS": [ "orderNO", "projectName" ],
+        "HEADERSX": [20, 220],
+        "VALUESX":  [20, 270],
+        
+        
+        "FILTERS": {"0":"FILTER_NIL"}
+    }
+    
+    
+}
+
+
