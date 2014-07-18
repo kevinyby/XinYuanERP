@@ -78,9 +78,11 @@
         NSArray* needFields = @[@"productCode",@"productName",@"totalAmount",@"lendAmount",@"basicUnit"];
         PickerModelTableView* pickView = [PickerModelTableView popupWithRequestModel:MODEL_WHInventory fields:needFields willDimissBlock:nil];
         pickView.tableView.headersXcoordinates = @[@(20), @(150),@(280),@(400),@(520)];
-        pickView.titleHeaderViewDidSelectAction = ^void(JRTitleHeaderTableView* headerTableView, NSIndexPath* indexPath, TableViewBase* tableView){
+        pickView.titleHeaderViewDidSelectAction = ^void(JRTitleHeaderTableView* headerTableView, NSIndexPath* indexPath){
             
-            NSArray* array = [tableView realContentForIndexPath: indexPath];
+            FilterTableView* filterTableView = (FilterTableView*)headerTableView.tableView.tableView;
+            NSIndexPath* realIndexPath = [filterTableView getRealIndexPathInFilterMode: indexPath];
+            NSArray* array = [filterTableView realContentForIndexPath: realIndexPath];
             
             jrTextField.text = [array objectAtIndex:1];
             productNameTxtField.text = [array objectAtIndex:2];
@@ -233,7 +235,7 @@
         UIViewController* viewController = [VIEW.navigator.viewControllers objectAtIndex: VIEW.navigator.viewControllers.count - 2];
         if ([viewController isKindOfClass:[OrderSearchListViewController class]]) {
             OrderSearchListViewController* list = (OrderSearchListViewController* )viewController;
-            orderNO = [[list.headerTableView.tableView realContentForIndexPath: list.selectedIndexPath] objectAtIndex: 1];
+            orderNO = [[list.headerTableView.tableView realContentForIndexPath: list.selectedRealIndexPath] objectAtIndex: 1];
         }
     }
     

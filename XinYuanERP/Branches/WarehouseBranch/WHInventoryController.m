@@ -126,9 +126,11 @@
         
         NSArray* needFields = @[@"number",@"name"];
         PickerModelTableView* pickView = [PickerModelTableView popupWithRequestModel:@"Vendor" fields:needFields willDimissBlock:nil];
-        pickView.titleHeaderViewDidSelectAction = ^void(JRTitleHeaderTableView* headerTableView, NSIndexPath* indexPath, TableViewBase* tableView){
+        pickView.titleHeaderViewDidSelectAction = ^void(JRTitleHeaderTableView* headerTableView, NSIndexPath* indexPath){
             
-            NSArray* array = [tableView realContentForIndexPath: indexPath];
+            FilterTableView* filterTableView = (FilterTableView*)headerTableView.tableView.tableView;
+            NSIndexPath* realIndexPath = [filterTableView getRealIndexPathInFilterMode: indexPath];
+            NSArray* array = [filterTableView realContentForIndexPath: realIndexPath];
             
             NSString* attribute = supplierTableView.attribute;
             if (!supplierTableView.contentsDictionary) supplierTableView.contentsDictionary = [NSMutableDictionary dictionaryWithObject:[NSMutableArray array] forKey:attribute];

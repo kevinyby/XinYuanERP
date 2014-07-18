@@ -68,8 +68,12 @@
         
         self.textFieldDidClickAction = ^void(JRTextField* nameNOTextfield) {
             PickerModelTableView* pickView = [PickerModelTableView popupWithModel:nameNOTextfield.memberType willDimissBlock:nil];
-            pickView.titleHeaderViewDidSelectAction = ^void(JRTitleHeaderTableView* headerTableView, NSIndexPath* indexPath, TableViewBase* tableView){
-                NSString* employeeNO = [tableView realContentForIndexPath: indexPath];
+            pickView.titleHeaderViewDidSelectAction = ^void(JRTitleHeaderTableView* headerTableView, NSIndexPath* indexPath){
+                
+                FilterTableView* filterTableView = (FilterTableView*)headerTableView.tableView.tableView;
+                NSIndexPath* realIndexPath = [filterTableView getRealIndexPathInFilterMode: indexPath];
+                
+                NSString* employeeNO = [filterTableView realContentForIndexPath: realIndexPath];
                 [nameNOTextfield setValue: employeeNO];
                 [PickerModelTableView dismiss];
             };

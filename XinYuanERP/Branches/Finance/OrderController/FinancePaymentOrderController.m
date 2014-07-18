@@ -443,8 +443,12 @@
 -(void) popupMembersPicker:(NSString*)memberType textField:(JRTextField*)textField
 {
     PickerModelTableView *pickerTableView = [PickerModelTableView popupWithModel: memberType willDimissBlock:nil];
-    pickerTableView.titleHeaderViewDidSelectAction = ^void(JRTitleHeaderTableView* headerTableView, NSIndexPath* indexPath, TableViewBase* tableView){
-        NSString* number = [tableView realContentForIndexPath: indexPath];
+    pickerTableView.titleHeaderViewDidSelectAction = ^void(JRTitleHeaderTableView* headerTableView, NSIndexPath* indexPath){
+        
+        FilterTableView* filterTableView = (FilterTableView*)headerTableView.tableView.tableView;
+        NSIndexPath* realIndexPath = [filterTableView getRealIndexPathInFilterMode: indexPath];
+        
+        NSString* number = [filterTableView realContentForIndexPath: realIndexPath];
         [textField setValue: number];
         [PickerModelTableView dismiss];
     };

@@ -31,10 +31,13 @@
         // popup a users table
         PickerModelTableView* pickView = [PickerModelTableView popupWithModel:MODEL_EMPLOYEE willDimissBlock:nil];
         
-        pickView.titleHeaderViewDidSelectAction = ^void(JRTitleHeaderTableView* headerTableView, NSIndexPath* indexPath, TableViewBase* tableView){
+        pickView.titleHeaderViewDidSelectAction = ^void(JRTitleHeaderTableView* headerTableView, NSIndexPath* indexPath){
             [PickerModelTableView dismiss];
             
-            NSString* employeeNO = [tableView realContentForIndexPath: indexPath];
+            FilterTableView* filterTableView = (FilterTableView*)headerTableView.tableView.tableView;
+            NSIndexPath* realIndexPath = [filterTableView getRealIndexPathInFilterMode: indexPath];
+            
+            NSString* employeeNO = [filterTableView realContentForIndexPath: realIndexPath];
             NSDictionary* objects = @{PROPERTY_EMPLOYEENO: employeeNO};
             [VIEW.progress show];
             [AppServerRequester readModel: MODEL_EMPLOYEE department:DEPARTMENT_HUMANRESOURCE objects:objects completeHandler:^(ResponseJsonModel *data, NSError *error) {

@@ -25,7 +25,6 @@
 #import "JRLabelTextView.h"
 #import "JRLabelTextFieldView.h"
 #import "JRLabelCommaTextView.h"
-#import "JRLabelTextAutoView.h"
 
 #import "JRLabelCommaView.h"
 #import "JRLabelCommaTextFieldView.h"

@@ -182,9 +182,10 @@
                 [editTextField setOriginX: [label originX]];
             }
         };
-        jobLevelEditTableView.titleHeaderViewDidSelectAction = ^void(JRTitleHeaderTableView* headerTableView, NSIndexPath* indexPath, TableViewBase* tableView){
+        jobLevelEditTableView.titleHeaderViewDidSelectAction = ^void(JRTitleHeaderTableView* headerTableView, NSIndexPath* indexPath){
             if (isEditing) return;
-            NSArray* value = [tableView contentForIndexPath:indexPath];
+            FilterTableView* filterTableView = (FilterTableView*)headerTableView.tableView.tableView;
+            NSArray* value = [filterTableView contentForIndexPath:indexPath];
             [jrTextField setValue: [value firstObject]];
             [PopupViewHelper dissmissCurrentPopView];
         };

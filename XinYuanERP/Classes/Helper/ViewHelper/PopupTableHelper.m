@@ -105,8 +105,9 @@
     }];
     
     searchTableView.tableView.headersXcoordinates = @[@(50),@(150)];
-    searchTableView.titleHeaderViewDidSelectAction = ^void(JRTitleHeaderTableView* headerTableView, NSIndexPath* indexPath, TableViewBase* tableView){
-        NSArray* value = [tableView contentForIndexPath:indexPath];
+    searchTableView.titleHeaderViewDidSelectAction = ^void(JRTitleHeaderTableView* headerTableView, NSIndexPath* indexPath){
+        FilterTableView* filterTableView = (FilterTableView*)headerTableView.tableView.tableView;
+        NSArray* value = [filterTableView contentForIndexPath:indexPath];
         [jrTextField setValue: [value firstObject]];
         [PopupViewHelper dissmissCurrentPopView];
     };
@@ -132,8 +133,9 @@
     searchTableView.rightButton.hidden = YES;
     searchTableView.leftButton.hidden = YES;
     
-    searchTableView.titleHeaderViewDidSelectAction = ^void(JRTitleHeaderTableView* headerTableView, NSIndexPath* indexPath, TableViewBase* tableView){
-        id value = [tableView contentForIndexPath:indexPath];
+    searchTableView.titleHeaderViewDidSelectAction = ^void(JRTitleHeaderTableView* headerTableView, NSIndexPath* indexPath){
+        FilterTableView* filterTableView = (FilterTableView*)headerTableView.tableView.tableView;
+        id value = [filterTableView contentForIndexPath:indexPath];
         [textField setValue: value];
         [PopupViewHelper dissmissCurrentPopView];
     };

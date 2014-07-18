@@ -75,6 +75,8 @@
     NSDictionary* objects = [RequestModelHelper getModelIdentities: self.identification];
     if (! objects) return;
     
+    self.controlMode = JsonControllerModeRead;
+    
     [VIEW.progress show];
     RequestJsonModel* requestModel = [self assembleReadRequest: objects];
     [DATA.requester startPostRequestWithAlertTips:requestModel completeHandler:^(HTTPRequester* requester, ResponseJsonModel *data, NSHTTPURLResponse *httpURLReqponse, NSError *error) {

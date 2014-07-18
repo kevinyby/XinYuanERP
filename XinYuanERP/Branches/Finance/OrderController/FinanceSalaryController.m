@@ -58,8 +58,12 @@
         // popup a table
         PickerModelTableView* pickView = [PickerModelTableView popupWithModel:MODEL_EMPLOYEE willDimissBlock:nil];
         
-        pickView.titleHeaderViewDidSelectAction = ^void(JRTitleHeaderTableView* headerTableView, NSIndexPath* indexPath, TableViewBase* tableView){
-            NSString* employeeNO = [tableView realContentForIndexPath: indexPath];
+        pickView.titleHeaderViewDidSelectAction = ^void(JRTitleHeaderTableView* headerTableView, NSIndexPath* indexPath){
+            
+            FilterTableView* filterTableView = (FilterTableView*)headerTableView.tableView.tableView;
+            NSIndexPath* realIndexPath = [filterTableView getRealIndexPathInFilterMode: indexPath];
+            
+            NSString* employeeNO = [filterTableView realContentForIndexPath: realIndexPath];
             NSDictionary* objects = @{PROPERTY_EMPLOYEENO: employeeNO};
             NSArray* fields = @[PROPERTY_EMPLOYEENO, PROPERTY_EMPLOYEE_NAME, PROPERTY_EMPLOYEE_DEPARTMENT, PROPERTY_EMPLOYEE_JOBTITLE];
             

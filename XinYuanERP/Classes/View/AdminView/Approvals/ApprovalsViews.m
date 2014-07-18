@@ -112,10 +112,11 @@
             [ViewHelper setShadowWithCorner:pickView config:@{@"CornerRadius":@(5.0)}];
             
             
-            pickView.titleHeaderViewDidSelectAction = ^void(JRTitleHeaderTableView* headerTableView, NSIndexPath* indexPath, TableViewBase* tableView){
-                FilterTableView* filterTableView = (FilterTableView*)tableView;
-                NSArray* contents = [filterTableView contentForIndexPath: filterTableView.seletedVisibleIndexPath];
-                id userNumber = [filterTableView realContentForIndexPath: indexPath];
+            pickView.titleHeaderViewDidSelectAction = ^void(JRTitleHeaderTableView* headerTableView, NSIndexPath* indexPath){
+                FilterTableView* filterTableView = (FilterTableView*)headerTableView.tableView.tableView;
+                NSIndexPath* realIndexPath = [filterTableView getRealIndexPathInFilterMode: indexPath];
+                NSArray* contents = [filterTableView contentForIndexPath: indexPath];
+                id userNumber = [filterTableView realContentForIndexPath: realIndexPath];
                 // popup to ask sure
                 [PopupViewHelper popAlert: nil message:LOCALIZE_MESSAGE_FORMAT(@"AskSureToAddApproval", DATA.usersNONames[userNumber]) style:0 actionBlock:^(UIView *popView, NSInteger index) {
                     if (index == 1) {

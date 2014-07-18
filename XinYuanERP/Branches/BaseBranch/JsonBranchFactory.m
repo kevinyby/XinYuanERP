@@ -27,11 +27,10 @@
         
     };
     
-    listController.appTableDidSelectRowBlock = ^void(AppSearchTableViewController* controller ,NSIndexPath* indexPath)
+    listController.appTableDidSelectRowBlock = ^void(AppSearchTableViewController* controller ,NSIndexPath* realIndexPath)
     {
-        NSArray* realSectionContents = [controller.headerTableView.tableView realContentsForSection: indexPath.section];
         // set identification
-        id identification = [[realSectionContents objectAtIndex: indexPath.row] firstObject];
+        id identification = [controller getIdentification: realIndexPath];
         JsonController* jsonController = [weakInstance getJsonController: order identification:identification ];
         [VIEW.navigator pushViewController: jsonController animated:YES];
     };
