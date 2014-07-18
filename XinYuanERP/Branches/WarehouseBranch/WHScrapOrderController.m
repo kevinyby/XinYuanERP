@@ -27,9 +27,12 @@
         
         NSArray* needFields = @[@"productCode",@"productName",@"productCategory"];
         PickerModelTableView* pickView = [PickerModelTableView getPickerModelView:MODEL_WHInventory fields:needFields criterias:@{@"and": [NSMutableDictionary dictionaryWithDictionary:@{@"productCategory": @"EQ<>设备"}]}];
-        pickView.titleHeaderViewDidSelectAction = ^void(JRTitleHeaderTableView* headerTableView, NSIndexPath* indexPath, TableViewBase* tableView){
+        pickView.titleHeaderViewDidSelectAction = ^void(JRTitleHeaderTableView* headerTableView, NSIndexPath* indexPath){
             
-            NSArray* array = [tableView realContentForIndexPath: indexPath];
+            FilterTableView* filterTableView = (FilterTableView*)headerTableView.tableView.tableView;
+            NSIndexPath* realIndexPath = [filterTableView getRealIndexPathInFilterMode: indexPath];
+            
+            NSArray* array = [filterTableView realContentForIndexPath: realIndexPath];
             weakProductCodeTxtField.text = [array objectAtIndex:1];
             productNameTxtField.text = [array objectAtIndex:2];
             

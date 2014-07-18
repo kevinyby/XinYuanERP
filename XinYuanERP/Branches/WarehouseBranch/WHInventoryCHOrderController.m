@@ -55,8 +55,10 @@
         
         NSArray* needFields = @[@"productCode", @"productName", @"productCategory"];
         PickerModelTableView* pickView = [PickerModelTableView popupWithRequestModel:MODEL_WHInventory fields:needFields willDimissBlock:nil];
-        pickView.titleHeaderViewDidSelectAction = ^void(JRTitleHeaderTableView* headerTableView, NSIndexPath* indexPath, TableViewBase* tableView){
-            id idetification = [[tableView realContentForIndexPath: indexPath] firstObject];
+        pickView.titleHeaderViewDidSelectAction = ^void(JRTitleHeaderTableView* headerTableView, NSIndexPath* indexPath){
+            FilterTableView* filterTableView = (FilterTableView*)headerTableView.tableView.tableView;
+            NSIndexPath* realIndexPath = [filterTableView getRealIndexPathInFilterMode: indexPath];
+            id idetification = [[filterTableView realContentForIndexPath: realIndexPath] firstObject];
             NSDictionary* objects = @{PROPERTY_IDENTIFIER: idetification};
             
             [VIEW.progress show];

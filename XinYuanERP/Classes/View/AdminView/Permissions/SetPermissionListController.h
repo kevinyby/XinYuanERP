@@ -1,6 +1,6 @@
-#import "AppModelListController.h"
+#import "AppSearchTableViewController.h"
 
-@interface SetPermissionListController : AppModelListController
+@interface SetPermissionListController : AppSearchTableViewController
 
 @property (assign) NSMutableDictionary* orderPermissions;
 

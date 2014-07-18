@@ -4,10 +4,6 @@
 // For Single Department,  Single Order
 @interface AppModelListController : AppRefreshTableViewController
 
-
-@property (strong) NSString* order;                 // order or model
-@property (strong) NSString* department;            // departments or categories
-
 @property (assign) int amounts;                     // the current visible count
 @property (assign) int currentRow;
 @property (assign) NSIndexPath* selectedRealIndexPath;

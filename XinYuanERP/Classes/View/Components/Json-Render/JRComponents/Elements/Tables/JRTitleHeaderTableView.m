@@ -157,7 +157,9 @@
 #pragma mark - TableViewBaseTableProxy Methods
 - (void)tableViewBase:(TableViewBase *)tableViewObj didSelectIndexPath:(NSIndexPath*)indexPath
 {
-    if (self.titleHeaderViewDidSelectAction) self.titleHeaderViewDidSelectAction(self, indexPath, tableViewObj);
+    if (self.titleHeaderViewDidSelectAction) {
+        self.titleHeaderViewDidSelectAction(self, indexPath);
+    }
 }
 
 

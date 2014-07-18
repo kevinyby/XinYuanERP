@@ -61,13 +61,15 @@
     _titleOld.textFieldDidClickAction = ^void(JRTextField* sender) {
           NSArray* needFields = @[@"title"];
           PickerModelTableView* pickView = [PickerModelTableView popupWithRequestModel:@"ArticlesOrder" fields:needFields willDimissBlock:nil];
-          pickView.titleHeaderViewDidSelectAction = ^void(JRTitleHeaderTableView* headerTableView, NSIndexPath* indexPath, TableViewBase* tableView){
-            
+          pickView.titleHeaderViewDidSelectAction = ^void(JRTitleHeaderTableView* headerTableView, NSIndexPath* indexPath){
+              FilterTableView* filterTableView = (FilterTableView*)headerTableView.tableView.tableView;
+              NSIndexPath* realIndexPath = [filterTableView getRealIndexPathInFilterMode: indexPath];
+              
                blockSelf-> _textScrollViewNew.textStorage.editTextStatus = YES;
               [blockSelf->_textScrollViewOld.textView.placeHolderLabel setHidden:YES];
               [blockSelf->_textScrollViewNew.textView.placeHolderLabel setHidden:YES];
               
-              id idetification = [[tableView realContentForIndexPath: indexPath] firstObject];
+              id idetification = [[filterTableView realContentForIndexPath: realIndexPath] firstObject];
               NSDictionary* objects = @{PROPERTY_IDENTIFIER: idetification};
               
               [VIEW.progress show];

@@ -70,9 +70,11 @@
         NSArray* needFields = @[@"productCode",@"productName",@"productCategory"];
         PickerModelTableView* pickView = [PickerModelTableView getPickerModelView:MODEL_WHInventory fields:needFields criterias:@{@"and" : criteriasDic}];
         pickView.tableView.headersXcoordinates = @[@(20), @(170),@(300)];
-        pickView.titleHeaderViewDidSelectAction = ^void(JRTitleHeaderTableView* headerTableView, NSIndexPath* indexPath, TableViewBase* tableView){
+        pickView.titleHeaderViewDidSelectAction = ^void(JRTitleHeaderTableView* headerTableView, NSIndexPath* indexPath){
+            FilterTableView* filterTableView = (FilterTableView*)headerTableView.tableView.tableView;
+            NSIndexPath* realIndexPath = [filterTableView getRealIndexPathInFilterMode: indexPath];
             
-            id idetification = [[tableView realContentForIndexPath: indexPath] firstObject];
+            id idetification = [[filterTableView realContentForIndexPath: realIndexPath] firstObject];
             NSDictionary* objects = @{PROPERTY_IDENTIFIER: idetification};
             
             [VIEW.progress show];
@@ -88,7 +90,7 @@
                 
             }];
             
-            NSArray* array = [tableView realContentForIndexPath: indexPath];
+            NSArray* array = [filterTableView realContentForIndexPath: indexPath];
             jrTextField.text = [array objectAtIndex:1];
             productNameTxtField.text = [array objectAtIndex:2];
             productCategoryTxtField.text = [array objectAtIndex:3];
@@ -105,8 +107,10 @@
     pickingStaffTxtField.textFieldDidClickAction = ^void(JRTextField* jrTextField){
         
         PickerModelTableView* pickView = [PickerModelTableView popupWithModel:MODEL_EMPLOYEE willDimissBlock:nil];
-        pickView.titleHeaderViewDidSelectAction = ^void(JRTitleHeaderTableView* headerTableView, NSIndexPath* indexPath, TableViewBase* tableView){
-            jrTextField.text = [DATA.usersNONames objectForKey:[tableView realContentForIndexPath: indexPath]];
+        pickView.titleHeaderViewDidSelectAction = ^void(JRTitleHeaderTableView* headerTableView, NSIndexPath* indexPath){
+            FilterTableView* filterTableView = (FilterTableView*)headerTableView.tableView.tableView;
+            NSIndexPath* realIndexPath = [filterTableView getRealIndexPathInFilterMode: indexPath];
+            jrTextField.text = [DATA.usersNONames objectForKey:[filterTableView realContentForIndexPath: realIndexPath]];
             [PickerModelTableView dismiss];
         };
         
@@ -146,8 +150,9 @@
             }
             NSString* model = orderTypes[selectedIndex];
             PickerModelTableView* pickView = [PickerModelTableView popupWithRequestModel:model fields:needFields willDimissBlock:nil];
-            pickView.titleHeaderViewDidSelectAction = ^void(JRTitleHeaderTableView* headerTableView, NSIndexPath* indexPath, TableViewBase* tableView){
-                NSArray* array = [tableView contentForIndexPath: indexPath];
+            pickView.titleHeaderViewDidSelectAction = ^void(JRTitleHeaderTableView* headerTableView, NSIndexPath* indexPath){
+                FilterTableView* filterTableView = (FilterTableView*)headerTableView.tableView.tableView;
+                NSArray* array = [filterTableView contentForIndexPath: indexPath];
                 jrTextField.text = [array objectAtIndex:0];
                 applicationDescTxtField.text = [array objectAtIndex:1];
                 [PickerModelTableView dismiss];

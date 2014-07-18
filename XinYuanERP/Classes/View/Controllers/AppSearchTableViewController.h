@@ -9,7 +9,7 @@
 @class AppSearchTableViewController;
 
 
-typedef void(^AppTableControllerDidSelectRowBlock) (AppSearchTableViewController* controller ,NSIndexPath* indexPath);
+typedef void(^AppTableControllerDidSelectRowBlock) (AppSearchTableViewController* controller ,NSIndexPath* realIndexPath);
 typedef void(^WillShowCellBlock) (AppSearchTableViewController* controller ,NSIndexPath* indexPath, UITableViewCell* cell);
 
 @interface AppSearchTableViewController : BaseController <TableViewBaseTableProxy>
@@ -46,5 +46,9 @@ typedef void(^WillShowCellBlock) (AppSearchTableViewController* controller ,NSIn
 -(id) valueForIndexPath: (NSIndexPath*)indexPath;
 -(id) getIdentification: (NSIndexPath*)indexPath;
 
+
+#pragma mark - For Subclass Override Methods
+
+-(void) appSearchTableViewController: (AppSearchTableViewController*)controller didSelectIndexPath:(NSIndexPath*)indexPath;
 
 @end

@@ -75,9 +75,11 @@
         NSArray* needFields = @[@"application",@"productCode",@"productName",@"pickingAmount",@"unit",@"pickingStaff",@"recycleAmount"];
         PickerModelTableView* pickView = [PickerModelTableView popupWithRequestModel:ORDER_WHPickingOrder fields:needFields willDimissBlock:nil];
         pickView.tableView.headersXcoordinates = @[@(20), @(120),@(230),@(300),@(400),@(460),@(560)];
-        pickView.titleHeaderViewDidSelectAction = ^void(JRTitleHeaderTableView* headerTableView, NSIndexPath* indexPath, TableViewBase* tableView){
+        pickView.titleHeaderViewDidSelectAction = ^void(JRTitleHeaderTableView* headerTableView, NSIndexPath* indexPath){
+            FilterTableView* filterTableView = (FilterTableView*)headerTableView.tableView.tableView;
+            NSIndexPath* realIndexPath = [filterTableView getRealIndexPathInFilterMode: indexPath];
             
-            NSArray* array = [tableView realContentForIndexPath: indexPath];
+            NSArray* array = [filterTableView realContentForIndexPath: realIndexPath];
             
             weakSelf.projectNameTxtField.text   =  OBJECT_EMPYT([array objectAtIndex:1]) ? @"" : [array objectAtIndex:1];
             weakSelf.productCodeTxtField.text   =  OBJECT_EMPYT([array objectAtIndex:2]) ? @"" : [array objectAtIndex:2];

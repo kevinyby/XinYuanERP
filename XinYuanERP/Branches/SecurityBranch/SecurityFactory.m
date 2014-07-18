@@ -74,7 +74,7 @@
         
         //We should avoid entering the tracker controloller(default behaviour)
         //instead, rewritting the select event is a better trick.
-        orderlist.appTableDidSelectRowBlock = ^void(AppSearchTableViewController* controller ,NSIndexPath* indexPath)
+        orderlist.appTableDidSelectRowBlock = ^void(AppSearchTableViewController* controller ,NSIndexPath* realIndexPath)
         {
             //grab the data from previous list.
             NSArray* controllers = VIEW.navigator.viewControllers;

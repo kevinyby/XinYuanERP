@@ -57,10 +57,12 @@
         NSArray* needFields = @[@"number",@"name"];
         PickerModelTableView* pickView = [PickerModelTableView popupWithRequestModel:MODEL_CLIENT fields:needFields willDimissBlock:nil];
         pickView.tableView.headersXcoordinates = @[@(20), @(200)];
-        pickView.titleHeaderViewDidSelectAction = ^void(JRTitleHeaderTableView* headerTableView, NSIndexPath* indexPath, TableViewBase* tableView){
+        pickView.titleHeaderViewDidSelectAction = ^void(JRTitleHeaderTableView* headerTableView, NSIndexPath* indexPath){
             
+            FilterTableView* filterTableView = (FilterTableView*)headerTableView.tableView.tableView;
+            NSIndexPath* realIndexPath = [filterTableView getRealIndexPathInFilterMode: indexPath];
             
-            NSArray* array = [tableView contentForIndexPath: indexPath];
+            NSArray* array = [filterTableView contentForIndexPath: indexPath];
             jrTextField.text = [array objectAtIndex:0];
             nameTxtField.text = [array objectAtIndex:1];
 
@@ -129,8 +131,11 @@
     JRTextField* salesManTxtField = ((JRLabelTextFieldView*)[self.jsonView getView:@"salesMan"]).textField;
     salesManTxtField.textFieldDidClickAction = ^void(JRTextField* jrTextField){
         PickerModelTableView* pickView = [PickerModelTableView popupWithModel:MODEL_EMPLOYEE willDimissBlock:nil];
-        pickView.titleHeaderViewDidSelectAction = ^void(JRTitleHeaderTableView* headerTableView, NSIndexPath* indexPath, TableViewBase* tableView){
-            jrTextField.text = [DATA.usersNONames objectForKey:[tableView realContentForIndexPath: indexPath]];
+        pickView.titleHeaderViewDidSelectAction = ^void(JRTitleHeaderTableView* headerTableView, NSIndexPath* indexPath){
+            FilterTableView* filterTableView = (FilterTableView*)headerTableView.tableView.tableView;
+            NSIndexPath* realIndexPath = [filterTableView getRealIndexPathInFilterMode: indexPath];
+            
+            jrTextField.text = [DATA.usersNONames objectForKey:[filterTableView realContentForIndexPath: realIndexPath]];
             [PickerModelTableView dismiss];
         };
     };

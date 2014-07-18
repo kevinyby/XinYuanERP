@@ -97,9 +97,12 @@
         
         PickerModelTableView* pickView = [PickerModelTableView popupWithModel:MODEL_EMPLOYEE willDimissBlock:nil];
         
-        pickView.titleHeaderViewDidSelectAction = ^void(JRTitleHeaderTableView* headerTableView, NSIndexPath* indexPath, TableViewBase* tableView){
-            NSString* employeeNO = [tableView realContentForIndexPath: indexPath];
-            NSArray* contents = [headerTableView.tableView.tableView contentForIndexPath: headerTableView.tableView.tableView.seletedVisibleIndexPath];
+        pickView.titleHeaderViewDidSelectAction = ^void(JRTitleHeaderTableView* headerTableView, NSIndexPath* indexPath){
+            FilterTableView* filterTableView = (FilterTableView*)headerTableView.tableView.tableView;
+            NSIndexPath* realIndexPath = [headerTableView.tableView.tableView getRealIndexPathInFilterMode: indexPath];
+            
+            NSString* employeeNO = [filterTableView realContentForIndexPath: realIndexPath];
+            NSArray* contents = [filterTableView contentForIndexPath: indexPath];
             
             [PopupViewHelper popAlert: nil message:LOCALIZE_MESSAGE_FORMAT(@"AskSureToAddApproval", DATA.usersNONames[employeeNO]) style:0 actionBlock:^(UIView *popView, NSInteger index) {
                 if (index == 1) {

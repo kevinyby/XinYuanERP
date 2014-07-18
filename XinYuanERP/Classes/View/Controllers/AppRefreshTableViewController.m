@@ -194,7 +194,7 @@
             [requestJsonModel.limits addObject: innerLimits];
             
             // add limit count
-            [innerLimits addObjectsFromArray:@[@(0), @(15)]];
+            [innerLimits addObjectsFromArray:@[@(0), @(30)]];
         }
         
         

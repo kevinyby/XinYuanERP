@@ -91,9 +91,12 @@
     employeeNOBTN.textFieldDidClickAction = ^void(JRTextField* sender) {
         // popup a table
         PickerModelTableView* pickView = [PickerModelTableView popupWithModel:MODEL_EMPLOYEE willDimissBlock:nil];
-        pickView.titleHeaderViewDidSelectAction = ^void(JRTitleHeaderTableView* headerTableView, NSIndexPath* indexPath, TableViewBase* tableView){
+        pickView.titleHeaderViewDidSelectAction = ^void(JRTitleHeaderTableView* headerTableView, NSIndexPath* indexPath){
             
-            NSString* employeeNO = [tableView realContentForIndexPath: indexPath];
+            FilterTableView* filterTableView = (FilterTableView*)headerTableView.tableView.tableView;
+            NSIndexPath* realIndexPath = [filterTableView getRealIndexPathInFilterMode: indexPath];
+            
+            NSString* employeeNO = [filterTableView realContentForIndexPath: realIndexPath];
             [weakInstance fetchEmployeeNumberData: employeeNO];
             
             [PickerModelTableView dismiss];

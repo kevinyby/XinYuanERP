@@ -30,8 +30,11 @@
         NSMutableArray* numbers = [ArrayHelper deepCopy: [DATA.usersNONames allKeys]];
         [PickerModelTableView setEmployeesNumbersNames:pickView.tableView.tableView numbers:numbers];
         
-        pickView.titleHeaderViewDidSelectAction = ^void(JRTitleHeaderTableView* headerTableView, NSIndexPath* indexPath, TableViewBase* tableView){
-            NSString* employeeNO = [tableView realContentForIndexPath: indexPath];
+        pickView.titleHeaderViewDidSelectAction = ^void(JRTitleHeaderTableView* headerTableView, NSIndexPath* indexPath){
+            FilterTableView* filterTableView = (FilterTableView*)headerTableView.tableView.tableView;
+            NSIndexPath* realIndexPath = [filterTableView getRealIndexPathInFilterMode: indexPath];
+            
+            NSString* employeeNO = [filterTableView realContentForIndexPath: realIndexPath];
             NSDictionary* objects = @{PROPERTY_EMPLOYEENO: employeeNO};
             [VIEW.progress show];
             [AppServerRequester readModel: MODEL_EMPLOYEE department:DEPARTMENT_HUMANRESOURCE objects:objects completeHandler:^(ResponseJsonModel *data, NSError *error) {

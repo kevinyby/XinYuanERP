@@ -7,7 +7,8 @@
 
 @class TableViewBase;
 @class JRTitleHeaderTableView;
-typedef void(^JRTitleHeaderTableViewDidSelectAction)(JRTitleHeaderTableView* headerTableView, NSIndexPath* indexPath, TableViewBase* tableView);
+
+typedef void(^JRTitleHeaderTableViewDidSelectAction)(JRTitleHeaderTableView* headerTableView, NSIndexPath* indexPath);
 
 
 

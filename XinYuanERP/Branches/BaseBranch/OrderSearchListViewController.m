@@ -3,19 +3,15 @@
 
 @implementation OrderSearchListViewController
 
-
 - (void)viewDidLoad
 {
     [super viewDidLoad];
 	// Do any additional setup after loading the view.
     [self setRightBarButtonItems];
-    
 }
 
 - (void)setRightBarButtonItems
 {
-    // add button item
-    
     // QRCode button item
     UIImage* qrCodeScanImage = IMAGEINIT(@"public_QRCodeScan.png");
     UIImage* qrCodeHightImage =  [ImageHelper applyingAlphaToImage: qrCodeScanImage alpha:0.5];
@@ -38,10 +34,10 @@
 
 
 #pragma mark - Override Super Class Methods
-- (void)tableViewBase:(TableViewBase *)tableViewObj didSelectIndexPath:(NSIndexPath*)indexPath
+-(void) appSearchTableViewController: (AppSearchTableViewController*)controller didSelectIndexPath:(NSIndexPath*)indexPath
 {
     if([PermissionChecker checkSignedUserWithAlert:self.department order:self.order permission:PERMISSION_READ]) {
-        [super tableViewBase:tableViewObj didSelectIndexPath:indexPath];
+        [super appSearchTableViewController: controller didSelectIndexPath:indexPath];
     }
 }
 
@@ -56,15 +52,16 @@
     __weak OrderSearchListViewController* weakInstance = self;
     NSString* orderType = self.order;
     NSString* department = self.department;
-    id identification = [[tableViewObj realContentForIndexPath:indexPath] firstObject];
-    NSString* tips = [[tableViewObj realContentForIndexPath:indexPath] safeObjectAtIndex: 1];
+    NSIndexPath* realIndexPath = [((FilterTableView*)tableViewObj) getRealIndexPathInFilterMode: indexPath];
+    id identification = [[tableViewObj realContentForIndexPath:realIndexPath] firstObject];
+    NSString* tips = [[tableViewObj realContentForIndexPath:realIndexPath] safeObjectAtIndex: 1];
     
     
     [OrderSearchListViewController deleteWithCheckPermission: orderType deparment:department identification:identification tips:tips handler:^(bool isSuccess) {
         if (isSuccess) {
     
             // delete the images
-            NSString* imagesFolderName = [weakInstance getImageFolderName: indexPath];
+            NSString* imagesFolderName = [OrderSearchListViewController getImageFolderName: weakInstance indexPath:realIndexPath];
             if (! OBJECT_EMPYT(imagesFolderName)) {
                 NSString* fullFolderName = [[JsonControllerHelper getImagesHomeFolder: orderType department:department] stringByAppendingPathComponent: imagesFolderName];
                 [VIEW.progress show];
@@ -75,7 +72,7 @@
             }
             
             // Important!!!! put it behide !!! it will affect get image name ....
-            [tableViewObj deleteIndexPath: indexPath];
+            [tableViewObj deleteIndexPathWithAnimation: indexPath];
         }
     }];
     
@@ -86,10 +83,13 @@
 
 #pragma mark - Util
 
--(NSString*) getImageFolderName: (NSIndexPath*)indexPath
++(NSString*) getImageFolderName:(OrderSearchListViewController*)listController indexPath:(NSIndexPath*)realIndexPath
 {
-    NSArray* fields = self.requestModel.fields;
-    NSString* imagesFolderProperty = [OrderSearchListViewController getDeleteImageFolderProperty: self.department order:self.order];
+    NSString* order = listController.order;
+    NSString* department = listController.department;
+    NSArray* fields = listController.requestModel.fields;
+    FilterTableView* tableViewObj = (FilterTableView*)listController.headerTableView.tableView;
+    NSString* imagesFolderProperty = [OrderSearchListViewController getDeleteImageFolderProperty: department order:order];
     int imagesFolderValueIndex = 1;     // the id is 0 , the 1 is ... (maybe orderNO)
     for (int i = 0; i < fields.count; i++) {
         NSArray* innerFields = fields[i];
@@ -99,7 +99,7 @@
             break;
         }
     }
-    NSArray* realRowContents = [self valueForIndexPath: indexPath];
+    NSArray* realRowContents = [tableViewObj realContentForIndexPath: realIndexPath];
     NSString* imagesFolderName = [realRowContents objectAtIndex: imagesFolderValueIndex];
     
     return imagesFolderName;
@@ -143,14 +143,11 @@
 // delete -------------------
 
 
-
-
 #pragma mark - Action
 
 -(void)createNewOrder:(id)sender
 {
     if(! [PermissionChecker checkSignedUserWithAlert: self.department order:self.order permission:PERMISSION_CREATE]) return;
-    
     self.isPopNeedRefreshRequest = YES;
     if (self.didTapAddNewOrderBlock) self.didTapAddNewOrderBlock(self,sender);
 }
@@ -163,7 +160,6 @@
         self.headerTableView.tableView.filterText = result;
     };
     [self.navigationController presentModalViewController:QRReadVC animated:YES];
-    
 }
 
 

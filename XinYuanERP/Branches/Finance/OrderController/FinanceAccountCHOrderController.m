@@ -40,8 +40,12 @@
         PickerModelTableView* pickView = [PickerModelTableView popupWithRequestModel:MODEL_FinanceAccount fields:needFields willDimissBlock:nil];
         
         // when select
-        pickView.titleHeaderViewDidSelectAction = ^void(JRTitleHeaderTableView* headerTableView, NSIndexPath* indexPath, TableViewBase* tableView){
-            NSString* identifier = [[tableView realContentForIndexPath: indexPath] firstObject];
+        pickView.titleHeaderViewDidSelectAction = ^void(JRTitleHeaderTableView* headerTableView, NSIndexPath* indexPath){
+            
+            FilterTableView* filterTableView = (FilterTableView*)headerTableView.tableView.tableView;
+            NSIndexPath* realIndexPath = [filterTableView getRealIndexPathInFilterMode: indexPath];
+            
+            NSString* identifier = [[filterTableView realContentForIndexPath: realIndexPath] firstObject];
             NSDictionary* objects = @{PROPERTY_IDENTIFIER: identifier};
             [VIEW.progress show];
             [AppServerRequester readModel: MODEL_FinanceAccount department:DEPARTMENT_FINANCE objects:objects completeHandler:^(ResponseJsonModel *data, NSError *error) {
