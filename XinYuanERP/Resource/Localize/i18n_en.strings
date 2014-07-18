@@ -129,6 +129,7 @@
 "WARNING"="Warning";
 "WEB_FWYC"="Web Request Error";
 "WEB_LJSB"="Web Connect Error";
+"WHCheckOrder"="Check Order";
 "WHInventory"="Inventory Order";
 "WHInventoryCHOrder"="Single-stock transaction";
 "WHLendOutBill"="Return Order";
