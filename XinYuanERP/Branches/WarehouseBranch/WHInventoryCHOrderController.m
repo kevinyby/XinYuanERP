@@ -110,7 +110,7 @@
             
             PopPDFViewController* popView = [[PopPDFViewController alloc] init];
             popView.title = LOCALIZE_KEY(LOCALIZE_CONNECT_KEYS(MODEL_WHInventory,@"productDesc"));
-            popView.pathArray = @[@{@"PATH":@"ProductDescPDF/"}];
+            popView.pathArray = @[@{@"PATH":PRODUCTPDF_PREFIXPATH}];
             popView.selectedMarks = _selectedPDFArray;
             popView.selectBlock = ^(NSMutableArray* selectArray){
                 _selectedPDFArray = selectArray;
@@ -124,7 +124,7 @@
             
             if (isEmptyString(jrTextField.text)) return;
             [PopBubbleView popTableBubbleView:jrTextField title:LOCALIZE_KEY(LOCALIZE_CONNECT_KEYS(MODEL_WHInventory,@"productDesc")) dataSource:_selectedPDFArray selectedBlock:^(NSInteger selectedIndex, NSString *selectedValue) {
-                WebViewController* web = [[WebViewController alloc]initWithUrlString:selectedValue];
+                WebViewController* web = [[WebViewController alloc]initWithUrlString:PRODUCTPDF_PATH(selectedValue)];
                 [self presentModalViewController:web animated:YES];
                 
             }];

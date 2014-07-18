@@ -6,9 +6,6 @@
 //  Copyright (c) 2014年 Xinyuan4. All rights reserved.
 //
 
-/*测试的路径*/
-static NSString *testUrl = @"ProductDescPDF";
-
 #import "WebViewController.h"
 #import "MBProgressHUD.h"
 #import "AppInterface.h"

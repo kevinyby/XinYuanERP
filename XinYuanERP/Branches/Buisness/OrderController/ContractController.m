@@ -104,7 +104,7 @@
         
         PopPDFViewController* popView = [[PopPDFViewController alloc] init];
         popView.title = LOCALIZE_KEY(LOCALIZE_CONNECT_KEYS(@"Contract",@"attachFile"));
-        popView.pathArray = @[@{@"PATH":@"ContractPDF/"}];
+        popView.pathArray = @[@{@"PATH":CONTRACTPDF_PREFIXPATH}];
         popView.selectedMarks = _selectedPDFArray;
         popView.selectBlock = ^(NSMutableArray* selectArray){
             _selectedPDFArray = selectArray;
@@ -118,8 +118,7 @@
         if (isEmptyString(jrTextField.text)) return;
         [PopBubbleView popTableBubbleView:jrTextField title:LOCALIZE_KEY(LOCALIZE_CONNECT_KEYS(@"Contract",@"attachFile"))
                                dataSource:_selectedPDFArray selectedBlock:^(NSInteger selectedIndex, NSString *selectedValue) {
-            NSString* webloadingUrl = [NSString stringWithFormat:@"%@/%@",@"ContractPDF",selectedValue];
-            WebViewController* web = [[WebViewController alloc]initWithUrlString:webloadingUrl];
+            WebViewController* web = [[WebViewController alloc]initWithUrlString:CONTRACTPDF_PATH(selectedValue)];
             [self presentModalViewController:web animated:YES];
             
         }];

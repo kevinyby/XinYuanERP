@@ -694,7 +694,7 @@
 }
 +(NSString*)getImagesHomeFolder: (NSString*)order department:(NSString*)department
 {
-    return [NSString stringWithFormat:@"%@/%@/", department, order];
+    return [NSString stringWithFormat:@"IMAGES/%@/%@/", department, order];
 }
 
 // the main name array (folder and name (the last on is name) )
