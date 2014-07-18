@@ -513,7 +513,9 @@
             
             // choose, the pop action to select
             pickerTableView.tableView.tableView.tableViewBaseDidSelectAction = ^void(TableViewBase* tablViewBaseObject, NSIndexPath* indexPath) {
-                id referenceOrderNOid = [[tablViewBaseObject realContentForIndexPath: indexPath] objectAtIndex: [fields indexOfObject:PROPERTY_ORDERNO]];  //
+                NSIndexPath* realIndexPath = [(FilterTableView*)tablViewBaseObject getRealIndexPathInFilterMode: indexPath];
+                
+                id referenceOrderNOid = [[tablViewBaseObject realContentForIndexPath: realIndexPath] objectAtIndex: [fields indexOfObject:PROPERTY_ORDERNO]];  //
                 
                 [PopupViewHelper popAlert: LOCALIZE_MESSAGE(@"SelectAnAction") message:nil style:0 actionBlock:^(UIView *popView, NSInteger index) {
                     // read
@@ -526,7 +528,7 @@
                         
                         // then really add it
                         if (result == NSNotFound) {
-                            id totalShouldPay = [[tablViewBaseObject realContentForIndexPath: indexPath] objectAtIndex: [fields indexOfObject: ReferenceOrder_Attr_TotalShouldPay]];
+                            id totalShouldPay = [[tablViewBaseObject realContentForIndexPath: realIndexPath] objectAtIndex: [fields indexOfObject: ReferenceOrder_Attr_TotalShouldPay]];
                             
                             // get the previous bills , to caculate the money have been paid
                             RequestJsonModel* requestModel = [RequestJsonModel getJsonModel];

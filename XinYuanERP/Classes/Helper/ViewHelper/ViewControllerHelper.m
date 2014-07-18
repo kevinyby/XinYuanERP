@@ -48,7 +48,8 @@
     [PickerModelTableView setEmployeesNumbersNames:searchTableView.tableView.tableView numbers:users];
     
     searchTableView.tableView.tableView.tableViewBaseDidSelectAction = ^void(TableViewBase* tableViewObj, NSIndexPath* indexPath) {
-        selectNumber = [tableViewObj realContentForIndexPath: indexPath];
+        NSIndexPath* realIndexPath = [(FilterTableView*)tableViewObj getRealIndexPathInFilterMode: indexPath];
+        selectNumber = [tableViewObj realContentForIndexPath: realIndexPath];
         if (selectAction) selectAction(selectNumber);
     };
     searchTableView.tableView.headerTableViewHeaderHeightAction = ^CGFloat(HeaderTableView* tableViewObj) {
