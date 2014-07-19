@@ -129,6 +129,7 @@
 "WARNING"="警告";
 "WEB_FWYC"="访问出现异常";
 "WEB_LJSB"="网络连接失败";
+"WHCheckOrder"="盘点单";
 "WHInventory"="仓库库存";
 "WHInventoryCHOrder"="仓库库存异动单";
 "WHLendOutBill"="还入单";
