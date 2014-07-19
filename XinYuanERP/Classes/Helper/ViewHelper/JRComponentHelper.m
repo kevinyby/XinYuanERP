@@ -112,27 +112,78 @@
 {
     for (NSString* key in config) {
         NSString* attribute = config[key];
-        UIView* buttonView = [jsonview getView: key];
+        UIView* interactiveView = [jsonview getView: key];
         UIView* imageView = [jsonview getView: attribute];
-        if ([buttonView isKindOfClass:[JRButton class]] && [imageView isKindOfClass:[JRImageView class]]) {
-            JRButton* jrbutton = (JRButton*)buttonView;
+        if ([interactiveView isKindOfClass:[JRButton class]] && [imageView isKindOfClass:[JRImageView class]]) {
             JRImageView* jrImageView =(JRImageView*)imageView;
-            [self setupPhotoPickerWithInteractivView: jrbutton completeHandler:^void(UIImagePickerController* controller, UIImage* image) {
+            [self setupPhotoPickerWithInteractivView: interactiveView completeHandler:^void(UIImagePickerController* controller, UIImage* image) {
+                [controller dismissViewControllerAnimated:YES completion:^{}];
                 jrImageView.image = image;
             }];
         }
     }
 }
 
-+(void) setupPhotoPickerWithInteractivView:(JRButton*)button completeHandler:(void(^)(UIImagePickerController* controller, UIImage* image))completeHandler
++(void) setupPhotoPickerWithInteractivView:(UIView*)interactiveView completeHandler:(void(^)(UIImagePickerController* controller, UIImage* image))completeHandler
 {
-    button.didClikcButtonAction = ^void(JRButton* button) {
-        if([UIImagePickerController isSourceTypeAvailable:UIImagePickerControllerSourceTypeCamera]) {
-            AppImagePickerController* imagePickerController = [[AppImagePickerController alloc] init];
-            imagePickerController.didFinishPickingImage = completeHandler;
-            [VIEW.navigator.topViewController presentViewController:imagePickerController animated:YES completion: NULL];
+    if ([interactiveView isKindOfClass:[JRButton class]]) {
+        ((JRButton*)interactiveView).didClikcButtonAction = ^void(JRButton* bt) {
+            [JRComponentHelper showImagePickerWithCompleteHandler: completeHandler];
+        };
+        
+    } else if ([interactiveView isKindOfClass:[JRLocalizeLabel class]]) {
+        ((JRLocalizeLabel*)interactiveView).jrLocalizeLabelDidClickAction = ^void(JRLocalizeLabel* lb) {
+            [JRComponentHelper showImagePickerWithCompleteHandler: completeHandler];
+        };
+    } else if ([interactiveView isKindOfClass:[JRTextField class]]) {
+        ((JRTextField*)interactiveView).textFieldDidClickAction = ^void(JRTextField* tx) {
+            [JRComponentHelper showImagePickerWithCompleteHandler: completeHandler];
+        };
+    } else if ([interactiveView isKindOfClass:[JRImageView class]]) {
+        
+        JRImageView* imageView = (JRImageView*)interactiveView;
+        if (imageView.image) {
+            imageView.doubleClickAction = ^void(JRImageView* iv) {
+                [JRComponentHelper showImagePickerWithCompleteHandler: completeHandler];
+            };
         }
-    };
+        
+    }
+    
+}
+
++(void) showImagePickerWithCompleteHandler:(void(^)(UIImagePickerController* controller, UIImage* image))completeHandler
+{
+    NSString* takePhotoString = LOCALIZE_KEY(@"takePhoto");
+    NSString* photoLibString = LOCALIZE_KEY(@"photoLibrary");
+    NSMutableArray* actionButtons = [NSMutableArray arrayWithObjects: takePhotoString, photoLibString, nil];
+    if (UI_USER_INTERFACE_IDIOM() == UIUserInterfaceIdiomPhone)  [actionButtons addObject: LOCALIZE_KEY(@"CANCEL")];
+    UIActionSheet* actionSheet = [PopupViewHelper popSheet: nil inView:[ViewHelper getTopView] actionBlock:^(UIView *view, NSInteger buttonIndex){
+        if(buttonIndex < 0) return ;
+        
+        NSString* clickButtonTitle = [(UIActionSheet*)view buttonTitleAtIndex: buttonIndex];
+        
+        UIImagePickerControllerSourceType type = UIImagePickerControllerSourceTypeSavedPhotosAlbum;
+        if ([clickButtonTitle isEqualToString:takePhotoString] ) {
+            if([UIImagePickerController isSourceTypeAvailable:UIImagePickerControllerSourceTypeCamera]) {
+                type = UIImagePickerControllerSourceTypeCamera;
+            }
+        } else if ([clickButtonTitle isEqualToString:photoLibString]) {
+            type = UIImagePickerControllerSourceTypePhotoLibrary;
+        } else {
+            return ;
+        }
+        AppImagePickerController* imagePickerController = [[AppImagePickerController alloc] init];
+        imagePickerController.didFinishPickingImage = completeHandler;
+        imagePickerController.sourceType = type;
+        imagePickerController.didCancelPickingImage = ^void(UIImagePickerController* ctl) {
+            [ctl dismissViewControllerAnimated:YES completion:nil];
+        };
+        [VIEW.navigator.topViewController presentViewController:imagePickerController animated:YES completion: NULL];
+
+    } buttonTitles: actionButtons];
+    if (UI_USER_INTERFACE_IDIOM() == UIUserInterfaceIdiomPhone) actionSheet.cancelButtonIndex = actionSheet.numberOfButtons - 1;
+    
 }
 
 #pragma mark - Photos Preview

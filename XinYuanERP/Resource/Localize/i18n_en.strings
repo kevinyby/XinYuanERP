@@ -214,6 +214,7 @@
 "permission"="Permission";
 "petrol"="Petrol";
 "phoneNO"="Phone";
+"photoLibrary"="Photo Library";
 "please"="Please";
 "productCode"="Product code";
 "productName"="Name";
@@ -239,6 +240,7 @@
 "success"="success";
 "summary"="Summary";
 "system"="Symtem";
+"takePhoto"="Take Photo";
 "this"="This";
 "time"="Time";
 "to"="To";
