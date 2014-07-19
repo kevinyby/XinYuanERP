@@ -88,16 +88,35 @@
 -(RequestJsonModel*) assembleReadRequest:(NSDictionary*)objects
 {
     
-    OrderSearchListViewController* list = [VIEW.navigator.viewControllers objectAtIndex: VIEW.navigator.viewControllers.count - 2];
-    NSString* orderNO = [[list.headerTableView.tableView realContentForIndexPath: list.selectedRealIndexPath] objectAtIndex: 1];
-    
+    OrderSearchListViewController* listController = [VIEW.navigator.viewControllers objectAtIndex: VIEW.navigator.viewControllers.count - 2];
+    FilterTableView* tableViewObj = listController.headerTableView.tableView;
+    NSIndexPath* selectedRealIndexPath = [tableViewObj getRealIndexPathInFilterMode: [tableViewObj indexPathForSelectedRow]];
+    NSString* orderNO = [[tableViewObj realContentForIndexPath: selectedRealIndexPath] objectAtIndex: 1];
     RequestJsonModel* requestModel = [OrderJsonModelFactory factoryMultiJsonModels:@[@"Warehouse.WHPurchaseOrder",@"Finance.FinancePaymentBill",@"Finance.FinancePaymentOrder"]
                                                                            objects:@[@{PROPERTY_ORDERNO:orderNO},@{@"referenceOrderNO":orderNO},@{}]
                                                                               path:DEPARTMENT_HTTPURL(SUPERBRANCH, PERMISSION_READ)];
     [requestModel.fields addObjectsFromArray:@[@[],@[@"paymentOrderNO",@"realPaid"],@[@"createDate"]]];
     [requestModel.joins addObjectsFromArray:@[@{},@{@"FinancePaymentBill.paymentOrderNO":@"EQ<>FinancePaymentOrder.orderNO"}]];
     
+//    RequestJsonModel* requestModel = [[RequestJsonModel alloc] init];
+//    requestModel.path = DEPARTMENT_HTTPURL(SUPERBRANCH, PERMISSION_READ);
+//    [requestModel addObject:[RequestModelHelper getModelIdentities: self.identification]];
+//    [requestModel.models addObjectsFromArray: @[@".Warehouse.WHPurchaseOrder",@".Finance.FinancePaymentBill", @".Finance.FinancePaymentOrder"]];
+//
+//    [requestModel.fields addObjectsFromArray: @[[self getOrderFields], @[@"paymentOrderNO",@"realPaid"], @[@"createDate"]]];
+//    [requestModel.joins addObjectsFromArray: @[@{@"WHPurchaseOrder.orderNO":@"EQ<>FinancePaymentBill.referenceOrderNO"},@{@"FinancePaymentBill.paymentOrderNO":@"EQ<>FinancePaymentOrder.orderNO"}]];
+    
     return requestModel;
+}
+
+
+-(NSArray*) getOrderFields{
+    NSDictionary* WHPurchaseOrderStructs = [DATA.modelsStructure getModelStructure: @"WHPurchaseOrder"];
+    NSMutableArray* WHPurchaseOrderFields = [[DictionaryHelper getSortedKeys: WHPurchaseOrderStructs] mutableCopy];
+    [WHPurchaseOrderFields removeObject: @"WHPurchaseBills"];
+    [WHPurchaseOrderFields removeObject: @"createDate"];
+    
+    return WHPurchaseOrderFields;
 }
 
 
@@ -119,9 +138,16 @@
     NSArray* results = response.results;
     NSMutableDictionary* responseObject = [NSMutableDictionary dictionary];
     
+//    NSArray* financePayMentArr = [[results firstObject] firstObject];
+//    NSMutableArray* allResults = [financePayMentArr mutableCopy];
+//    NSArray* fistPart = [allResults subarrayWithRange: NSMakeRange(0, allResults.count - 3)];
+//    NSArray* secondPart = [allResults subarrayWithRange: NSMakeRange(allResults.count - 3, 3)];
+//    NSMutableDictionary* purchaseDictioanry = [DictionaryHelper convert: fistPart keys:[self getOrderFields]];
+//    [responseObject setObject:purchaseDictioanry forKey:@"purchase"];
+//    [responseObject setObject:secondPart forKey:@"finance"];
+    
     NSArray* financePayMentArr = [results firstObject];
     NSArray* purchaseArr = [results lastObject];
-    
     [responseObject setObject:financePayMentArr forKey:@"finance"];
     [responseObject setObject:[purchaseArr firstObject] forKey:@"purchase"];
     

@@ -1,6 +1,10 @@
 
 {
-    
+    "Temp": {
+        "MODELS": [".Warehouse.WHPurchaseOrder",".Finance.FinancePaymentBill", "Finance.FinancePaymentOrder"],
+        "FIELDS": [["*"], ["paymentOrderNO","realPaid"], ["createDate"]],
+        "JOINS": [{"WHPurchaseOrder.orderNO":"EQ<>FinancePaymentBill.referenceOrderNO"},{"FinancePaymentBill.paymentOrderNO":"EQ<>FinancePaymentOrder.orderNO"}]
+    },
     
     "Employee": {
         "PATH": "Super",

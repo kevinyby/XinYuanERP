@@ -68,7 +68,6 @@
 
 -(void) appSearchTableViewController: (AppSearchTableViewController*)controller didSelectIndexPath:(NSIndexPath*)indexPath
 {
-    self.selectedRealIndexPath = [controller.headerTableView.tableView getRealIndexPathInFilterMode: indexPath];
     self.currentRow = indexPath.row;
     // update amounts
     self.amounts = [[self.headerTableView.tableView realContentsForSection: 0] count];
