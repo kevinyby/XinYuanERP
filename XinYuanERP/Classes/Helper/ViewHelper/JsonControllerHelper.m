@@ -675,7 +675,8 @@
     NSString* directory = [self getImagesHomeFolder: order department:department];       // HumanResource/Employee/
     NSString* mainPathsAndName = [self getImageNamePath: jsoncontroller mainnames:mainnames prefix:pprefix suffix:suffix ];
     NSString* wholeName = [directory stringByAppendingPathComponent: mainPathsAndName];
-    NSString* result = [wholeName stringByAddingPercentEscapesUsingEncoding: NSUTF8StringEncoding];
+    NSString* result =  wholeName;
+//    result = [result stringByAddingPercentEscapesUsingEncoding: NSUTF8StringEncoding];
     return result;
 }
 

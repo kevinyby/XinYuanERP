@@ -34,8 +34,8 @@
         "FIELDS": [["id", "orderNO", "productCode", "productCategory", "productName", "totalAmount", "lendAmount", "basicUnit"]],
         
         "HEADERS": ["WHInventory.productCode", "WHInventory.productCategory", "WHInventory.productName", "WHInventory.totalAmount", "WHInventory.lendAmount", "WHInventory.basicUnit"],
-        "HEADERSX": [20, 150, 280,400,510,620],
-        "VALUESX": [20, 160, 285,420,530,640],
+        "HEADERSX": [20, 180, 330, 500, 610,720],
+        "VALUESX": [20, 190, 335, 510, 625,740],
         
         
         "FILTERS": {"0":"FILTER_NIL", "1":"FILTER_NIL"}

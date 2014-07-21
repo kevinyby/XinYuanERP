@@ -11,6 +11,11 @@
 	// Do any additional setup after loading the view.
     JsonView* jsonView = self.jsonView;
     
+    JRTextField* categoryTxtFidld = ((JRLabelTextFieldView*)[self.jsonView getView:@"NESTED_INFO.category"]).textField;
+    categoryTxtFidld.textFieldDidClickAction = ^void(JRTextField* jrTextField) {
+        [WarehouseHelper popTableView:jrTextField settingModel:APPSettings_PURCHASE_VENDOR_CATEGORY];
+    };
+    
     
     //----------- Another Tabs Views
     JRRefreshTableView* goodInTableView = (JRRefreshTableView*)[jsonView getView:@"NESTED_GOODIN.GOODIN_TABLE"];

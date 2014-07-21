@@ -119,6 +119,7 @@
 "UPLOAD"="上傳";
 "User_Permissions_Settings"="用戶權限設定";
 "VENDOR"="廠商";
+"VENDOR_CATEGORY"="廠商類別";
 "Vehicle"="車輛";
 "VehicleApplyOrder"="車輛使用申請單";
 "VehicleInfoOrder"="車籍資料";
@@ -129,6 +130,7 @@
 "WARNING"="警告";
 "WEB_FWYC"="訪問出現異常";
 "WEB_LJSB"="網絡連接失敗";
+"WHCheckOrder"="盤點單";
 "WHInventory"="倉庫庫存";
 "WHInventoryCHOrder"="倉庫庫存異動單";
 "WHLendOutBill"="還入單";

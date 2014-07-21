@@ -119,6 +119,7 @@
 "UPLOAD"="上传";
 "User_Permissions_Settings"="用户权限设置";
 "VENDOR"="厂商";
+"VENDOR_CATEGORY"="厂商类别";
 "Vehicle"="车辆";
 "VehicleApplyOrder"="车辆使用申请单";
 "VehicleInfoOrder"="车籍资料";
@@ -129,6 +130,7 @@
 "WARNING"="警告";
 "WEB_FWYC"="访问出现异常";
 "WEB_LJSB"="网络连接失败";
+"WHCheckOrder"="盘点单";
 "WHInventory"="仓库库存";
 "WHInventoryCHOrder"="仓库库存异动单";
 "WHLendOutBill"="还入单";

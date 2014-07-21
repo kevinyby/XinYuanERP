@@ -276,6 +276,8 @@ static NSMutableArray* mwPhotos;
             }
         } else {
             NSString* loadPath = loadImagePathsRepository[attribute];
+            loadPath = [loadPath stringByAddingPercentEscapesUsingEncoding: NSUTF8StringEncoding];
+
             mwPhoto = [[MWPhoto alloc] initWithURL:[NSURL URLWithString:[NSString stringWithFormat:@"%@?%@",IMAGE_URL(DOWNLOAD),loadPath]]];
         }
         

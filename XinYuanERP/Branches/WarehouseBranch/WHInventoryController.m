@@ -56,7 +56,7 @@
     
     JRTextField* editCategoryTxtFidld = ((JRLabelTextFieldView*)[self.jsonView getView:@"productCategory"]).textField;
     editCategoryTxtFidld.textFieldDidClickAction = ^void(JRTextField* jrTextField) {
-        [WarehouseHelper popTableView:jrTextField settingModel:@"PRODUCT_CATEGORY"];
+        [WarehouseHelper popTableView:jrTextField settingModel:APPSettings_WHAREHOUSE_PRODUCT_CATEGORY];
     };
     
     
@@ -96,6 +96,10 @@
         return [FrameTranslater convertFontSize: 30];
     };
     
+    supplierTableView.tableViewBaseCanEditIndexPathAction = ^BOOL(TableViewBase* tableViewObj, NSIndexPath* indexPath){
+        return YES;
+    };
+ 
     supplierTableView.JRTableViewSetValue = ^void(JRTableView* tableView, id value){
         NSMutableArray* contents = [ArrayHelper deepCopy: [value componentsSeparatedByString:KEY_COMMA]];
         tableView.contentsDictionary = [NSMutableDictionary dictionaryWithObject: contents forKey:tableView.attribute];
@@ -124,7 +128,7 @@
     JRButton* buttonAdd = (JRButton*)[self.jsonView getView: @"NESTED_RIGHT.BTN_AddSupplier"];
     buttonAdd.didClikcButtonAction = ^void(JRButton* buttonAdd) {
         
-        NSArray* needFields = @[@"number",@"name"];
+        NSArray* needFields = @[@"number",@"name",@"category"];
         PickerModelTableView* pickView = [PickerModelTableView popupWithRequestModel:@"Vendor" fields:needFields willDimissBlock:nil];
         pickView.titleHeaderViewDidSelectAction = ^void(JRTitleHeaderTableView* headerTableView, NSIndexPath* indexPath){
             
@@ -186,6 +190,10 @@
         }
         
     };
+    
+    if (self.controlMode == JsonControllerModeCreate) {
+        _lendAmountTxtField.text = [@(0) stringValue];
+    }
     
 }
 
