@@ -464,6 +464,25 @@
 
 +(void) setUserInterfaceEnable: (UIView*)view enable:(BOOL)enable
 {
+    
+    if ([view isKindOfClass:[JsonDivView class]] && enable == NO) {
+        
+        [JsonViewIterateHelper iterateTopLevelJRComponentProtocal:view handler:^BOOL(id<JRComponentProtocal> jrProtocalView) {
+            if ([jrProtocalView isKindOfClass:[JRImageView class]] ) {
+                ((JRImageView*) jrProtocalView).userInteractionEnabled = YES;
+            }else{
+                ((UIView*)jrProtocalView).userInteractionEnabled = enable;
+            }
+            
+            return NO;
+        }];
+        
+        
+    }
+    
+    // JRButton , JRTextField ...
+    else
+        
     if ([view isKindOfClass:[UIControl class]]) {
         ((UIControl*)view).enabled = enable;
     }
