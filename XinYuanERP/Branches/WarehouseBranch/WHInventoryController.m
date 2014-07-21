@@ -97,8 +97,11 @@
     };
     
     supplierTableView.tableViewBaseCanEditIndexPathAction = ^BOOL(TableViewBase* tableViewObj, NSIndexPath* indexPath){
-        return YES;
+        if (self.controlMode == JsonControllerModeCreate) return YES;
+        return [PermissionChecker checkSignedUser: DEPARTMENT_PURCHASE order:MODEL_VENDOR permission:PERMISSION_DELETE];
     };
+    
+
  
     supplierTableView.JRTableViewSetValue = ^void(JRTableView* tableView, id value){
         NSMutableArray* contents = [ArrayHelper deepCopy: [value componentsSeparatedByString:KEY_COMMA]];
@@ -127,6 +130,14 @@
     
     JRButton* buttonAdd = (JRButton*)[self.jsonView getView: @"NESTED_RIGHT.BTN_AddSupplier"];
     buttonAdd.didClikcButtonAction = ^void(JRButton* buttonAdd) {
+        
+        if (self.controlMode!=JsonControllerModeCreate) {
+            if (!([PermissionChecker checkSignedUser: DEPARTMENT_PURCHASE order:MODEL_VENDOR permission:PERMISSION_CREATE]||
+                  [PermissionChecker checkSignedUser: DEPARTMENT_PURCHASE order:MODEL_VENDOR permission:PERMISSION_DELETE])) {
+                return;
+            }
+            
+        }
         
         NSArray* needFields = @[@"number",@"name",@"category"];
         PickerModelTableView* pickView = [PickerModelTableView popupWithRequestModel:@"Vendor" fields:needFields willDimissBlock:nil];
@@ -215,8 +226,8 @@
     _unitTxtField.delegate = self;
     _priceBasicUnitTxtField.delegate = self;
     _priceUnitTxtField.delegate = self;
-    _lendAmountTxtField.delegate = self;
-    
+//    _lendAmountTxtField.delegate = self;
+    _totalAmountTxtField.delegate = self;
     
     _unitTxtField.enabled = NO;
     _priceUnitTxtField.enabled = NO;
@@ -277,12 +288,8 @@
         _priceUnitTxtField.text = [AppMathUtility calculateDivision:_priceBasicUnitTxtField.text dividend:_amountTxtField.text];
     }
     
-    if (textField == _lendAmountTxtField) {
-        
-        if (isEmptyString(_totalAmountTxtField.text)) {
-            [self showAlterMessage:@"totalAmount"];
-            return;
-        }
+    if (textField == _totalAmountTxtField) {
+        if (isEmptyString(_lendAmountTxtField.text))return;
         _remainAmountTxtField.text = [AppMathUtility calculateSubtraction:_totalAmountTxtField.text minuend:_lendAmountTxtField.text];
         
     }

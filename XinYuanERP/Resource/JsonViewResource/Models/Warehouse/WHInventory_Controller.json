@@ -73,10 +73,6 @@
                              ],
         
         "CONTROL_MODE" : {
-            "DEFAULT_MODE_SUB":{
-                "ENABLE":[],
-                "UNENABLE":[]
-            },
 
             
             "READ_MODE_SUB":{
