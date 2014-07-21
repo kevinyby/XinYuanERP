@@ -119,6 +119,7 @@
 "UPLOAD"="上传";
 "User_Permissions_Settings"="用户权限设置";
 "VENDOR"="厂商";
+"VENDOR_CATEGORY"="厂商类别";
 "Vehicle"="车辆";
 "VehicleApplyOrder"="车辆使用申请单";
 "VehicleInfoOrder"="车籍资料";

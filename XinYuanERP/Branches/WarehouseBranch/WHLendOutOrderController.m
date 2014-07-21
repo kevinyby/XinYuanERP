@@ -25,13 +25,13 @@
     
 }
 
-@property (assign) int _incrementInt;
+@property (nonatomic,assign) int incrementInt;
 
 @end
 
 @implementation WHLendOutOrderController
 
-@synthesize _incrementInt;
+//@synthesize _incrementInt;
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
@@ -131,8 +131,8 @@
     
     JRButton* returnButton = ((JRButton*)[self.jsonView getView:@"NESTED_BOTTOM.BTN_ReturnNum"]);
     returnButton.didClikcButtonAction =  ^void(JRButton* button){
-        [WHLendOutOrderController deriveReturnViews: weakSelf index:weakSelf._incrementInt];
-        weakSelf._incrementInt++;
+        [WHLendOutOrderController deriveReturnViews: weakSelf index:weakSelf.incrementInt];
+        weakSelf.incrementInt++;
         
         // override preview
         NSString* LASTimageKey = [NSString stringWithFormat:@"%@%d.%@",@"NESTED_MIDDLE_INCREMENT_",_incrementInt-1,@"IMG_Photo_Return"];
@@ -143,7 +143,7 @@
     };
     
     [WHLendOutOrderController deriveReturnViews: self index:0];
-    weakSelf._incrementInt++;
+    weakSelf.incrementInt++;
 }
 
 +(void) removerDeriveReturnViews: (WHLendOutOrderController*)controller index:(int)index
@@ -303,7 +303,7 @@
     NSMutableDictionary* resultsObj = [DictionaryHelper deepCopy: responseObject];
     self.valueObjects = resultsObj[@"order"];
     
-    DBLOG(@"resultsObj === %@", resultsObj);
+//    DBLOG(@"resultsObj === %@", resultsObj);
     
     return resultsObj;
     
@@ -335,25 +335,25 @@
     NSArray* bills = [objects objectForKey:@"bills"];
     
     int billCount = bills.count;
-    int previousBillCount = self._incrementInt;
+    int previousBillCount = self.incrementInt;
     int substract = billCount - previousBillCount;
     
     if (substract < 0) {
         for (int i = 0; i < abs(substract); i++) {
             [WHLendOutOrderController removerDeriveReturnViews: self index: previousBillCount - (i+1)];
-            self._incrementInt -- ;
+            self.incrementInt -- ;
         }
     } else {
         
         for (int i = 0; i < substract; ++i) {
             [WHLendOutOrderController deriveReturnViews: self index: previousBillCount + i];
-            self._incrementInt ++ ;
+            self.incrementInt ++ ;
         }
     }
     
     if ([bills count] == 0) {
         [WHLendOutOrderController deriveReturnViews: self index: 0];
-        self._incrementInt ++ ;
+        self.incrementInt ++ ;
     }
     
     

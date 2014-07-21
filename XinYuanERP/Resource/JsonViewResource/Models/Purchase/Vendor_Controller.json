@@ -51,8 +51,9 @@
         
         "CHECK_NOTEMPTY": [
                             "number","name","category",
-                            "principal","NESTED_BODY_UP_RIGHT.phoneNO","address","postcode",
-                            "IMG_Photo_One","contactOne"
+                            "principal","NESTED_BODY_UP_RIGHT.phoneNO","faxNO","address",
+                            "IMG_Photo_One","NESTED_BODY_DOWN.NESTED_BODY_DOWN_LEFT.contactOne",
+                            "NESTED_BODY_DOWN.NESTED_BODY_DOWN_LEFT.phoneNO",
                             ],
         
     },

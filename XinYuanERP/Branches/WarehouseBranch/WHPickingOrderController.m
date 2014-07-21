@@ -46,7 +46,7 @@
     /*select productCategory*/
     JRTextField* productCategoryTxtField= ((JRLabelTextFieldView*)[self.jsonView getView:@"productCategory"]).textField;
     productCategoryTxtField.textFieldDidClickAction = ^void(JRTextField* jrTextField){
-        [WarehouseHelper popTableView:jrTextField settingModel:@"PRODUCT_CATEGORY"];
+        [WarehouseHelper popTableView:jrTextField settingModel:APPSettings_WHAREHOUSE_PRODUCT_CATEGORY];
         
         JRButtonsHeaderTableView* modelTableView = (JRButtonsHeaderTableView*)[[ViewHelper getTopView] viewWithTag: POPUP_TABLEVIEW_TAG];
         [modelTableView.rightButton setHidden:YES];
