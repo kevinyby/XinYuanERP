@@ -467,7 +467,7 @@
     
     if ([view isKindOfClass:[JsonDivView class]] ) {
         
-        [JsonViewIterateHelper iterateTopLevelJRComponentProtocal:view handler:^BOOL(id<JRComponentProtocal> jrProtocalView) {
+        [JsonModelHelper iterateTopLevelJRComponentProtocalWithValue:view handler:^BOOL(id<JRComponentProtocal> jrProtocalView) {
             if ([jrProtocalView isKindOfClass:[JRImageView class]] ) {
                 ((JRImageView*) jrProtocalView).userInteractionEnabled = YES;
             }else{
