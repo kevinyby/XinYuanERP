@@ -218,7 +218,7 @@
     for (int i = 0; i < images.count; i++) {
         NSData* imageData = images[i];
         NSString* path = paths[i];
-        NSDictionary* param = @{UPLOAD_Data: imageData, UPLOAD_FileName: path} ;
+        NSDictionary* param = @{UPLOAD_Data: imageData, UPLOAD_FileName: [path stringByAddingPercentEscapesUsingEncoding:NSUTF8StringEncoding]} ;
         [parameters addObject: param];
     }
     

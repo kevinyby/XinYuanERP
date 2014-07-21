@@ -12,9 +12,9 @@
 
 //#define kURL @"http://192.168.0.202"        // Dan
 
-#define kURL @"http://192.168.0.204"        // Bo
-
-//#define kURL @"http://192.168.0.203"        // Isaacs
+//#define kURL @"http://192.168.0.204"        // Bo
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                         
+#define kURL @"http://192.168.0.203"        // Isaacs
 
 #endif
 
