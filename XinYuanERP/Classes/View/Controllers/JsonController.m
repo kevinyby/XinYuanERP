@@ -114,16 +114,16 @@
 
     // Toggle Buttons
     [JRComponentHelper setupToggleButtons: varJsonView components:clientConfig[kController_TOGGLES_BUTTONS]];
-    // QRCode Components
-    [JRComponentHelper setupQRCodeComponents: varJsonView components:clientConfig[kController_QRCODES_BUTTONS]];
     // Date Pickers & Date Patterns
     [JRComponentHelper setupDatePickerComponents: varJsonView pickers:clientConfig[kController_DATEPICKERS] patterns:clientConfig[kController_DATEPATTERNS]];
+    // QRCode Components
+    [JRComponentHelper setupQRCodeComponents: varJsonView components:clientConfig[kController_QRCODES_BUTTONS]];
+    // Signature
+    [JRComponentHelper setupSignaturePicker: varJsonView config:clientConfig[kController_SIGNATURESBUTTONS]];
     // Photos Picker
     [JRComponentHelper setupPhotoPickerComponents: varJsonView config:imagesConfig[kController_IMAGE_PICKER]];
     // Photos Previews
     [JRComponentHelper setupPreviewImageComponents: self config:imagesConfig[kController_IMAGES_PREVIEWS]];
-    // Signature
-    [JRComponentHelper setupSignaturePicker: varJsonView config:clientConfig[kController_SIGNATURESBUTTONS]];
     // Popup Tables
     [PopupTableHelper setupPopTableViewsInJsonView: varJsonView config:clientConfig[kController_ValuesPicker]];
     

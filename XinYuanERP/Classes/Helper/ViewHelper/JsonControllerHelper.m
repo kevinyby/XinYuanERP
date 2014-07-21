@@ -551,11 +551,9 @@
             NSString* imagePath = imagePathsRepository[attribute];
             if ([identification isEqualToString: imagePath]) {
                 JRImageView* imageView = (JRImageView*)[jsonController.jsonView getView: attribute];
-                imageView.image = image;
+                [imageView setValue: image];
                 if (!image) {
                     DLOG(@"No Image : %@", imagePath);
-                } else {
-                    DLOG(@"Have Image : %@", imagePath);
                 }
                 // hide indicator
                 [AppViewHelper stopIndicatorInView: imageView];
@@ -573,8 +571,14 @@
 
     for (int i = 0; i < attributes.count; i++) {
         
-        // Paths
+        UIImage* image = uiImages[i];
         NSString* attribute = attributes[i];
+        
+        if (!image.isNewGenerated) {
+            continue;
+        }
+        
+        // Paths
         NSDictionary* nameConfig = imageNamesConfigs[attribute];
         
         if (!nameConfig) {
@@ -591,7 +595,6 @@
         
         
         // Data
-        UIImage* image = uiImages[i];
         NSDictionary* dataConfig = [imageDatasConfigs objectForKey:attribute];
         
         // fixed orientation

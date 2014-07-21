@@ -30,7 +30,8 @@
 
 - (void)imagePickerController:(UIImagePickerController *)picker didFinishPickingMediaWithInfo:(NSDictionary *)info{
     if (self.didFinishPickingImage) {
-        self.didFinishPickingImage(picker, [info objectForKey:UIImagePickerControllerOriginalImage]);
+        UIImage* pickedImage = [info objectForKey:UIImagePickerControllerOriginalImage];
+        self.didFinishPickingImage(picker, pickedImage);
     }
 }
 

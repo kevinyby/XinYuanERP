@@ -84,7 +84,7 @@
         float width = config[QRImageWidth] ? [config[QRImageWidth] floatValue] : 600;
         
         JRButton* createQRBTN = (JRButton*)[jsonView getView:buttonKey];
-        JRImageView* QRCodeIMGView = (JRImageView*)[jsonView getView:imageViewKey];
+        JRImageView* jrQRCodeIMGView = (JRImageView*)[jsonView getView:imageViewKey];
         
         createQRBTN.didClikcButtonAction = ^void(JRButton* createQRBTN) {
             
@@ -99,8 +99,8 @@
             UIImage* image = [QRCodeString QRCodeFrom: assembleContents keys:tipsKeys sizeWidth: width];
             image = [[UIImage alloc] initWithData: UIImageJPEGRepresentation(image, 1)];
             if (image) {
-                QRCodeIMGView.image = image;
-//                QRCodeIMGView.backgroundColor = [UIColor whiteColor];
+                image.isNewGenerated = YES;
+                [jrQRCodeIMGView setValue: image];
             }
         };
         
@@ -117,8 +117,9 @@
         if ([interactiveView isKindOfClass:[JRButton class]] && [imageView isKindOfClass:[JRImageView class]]) {
             JRImageView* jrImageView =(JRImageView*)imageView;
             [self setupPhotoPickerWithInteractivView: interactiveView completeHandler:^void(UIImagePickerController* controller, UIImage* image) {
-                [controller dismissViewControllerAnimated:YES completion:^{}];
-                jrImageView.image = image;
+                [controller dismissViewControllerAnimated:YES completion: nil];
+                image.isNewGenerated = YES;
+                [jrImageView setValue: image];
             }];
         }
     }
@@ -507,11 +508,14 @@ static const char* CONST_DataPickerType = "PickerType";
         [weaksignatureView erase];
     };
     cancelBTN.didClikcButtonAction = ^void(id sender) {
-//        containerImageView.image = nil;
         [PopupViewHelper dissmissCurrentPopView];
     };
     saveBTN.didClikcButtonAction = ^void(id sender) {
-        if (weaksignatureView.signatureImage) containerImageView.image = weaksignatureView.signatureImage;
+        UIImage* image = weaksignatureView.signatureImage;
+        if (image) {
+            image.isNewGenerated = YES;
+            containerImageView.image = image;
+        }
         [PopupViewHelper dissmissCurrentPopView];
     };
     

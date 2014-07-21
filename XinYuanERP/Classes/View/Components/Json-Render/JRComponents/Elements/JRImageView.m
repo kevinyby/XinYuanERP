@@ -3,6 +3,28 @@
 #import "JRComponents.h"
 #import "ClassesInterface.h"
 
+
+@implementation UIImage (NewGenerate)
+
+
+const char* isNewGeneratedKey = "isNewGeneratedKey";
+
+-(BOOL) isNewGenerated
+{
+    NSNumber* isNewNum = objc_getAssociatedObject(self, isNewGeneratedKey);
+    return [isNewNum boolValue];
+}
+
+-(void) setIsNewGenerated: (BOOL) isNew
+{
+    NSNumber* isNewNum = [NSNumber numberWithBool: isNew];
+    objc_setAssociatedObject(self, isNewGeneratedKey, isNewNum, OBJC_ASSOCIATION_RETAIN);
+}
+
+@end
+
+
+
 @interface JRImageView ()
 {
     UITapGestureRecognizer* tapGestureRecognizer;

@@ -118,12 +118,11 @@
 
 // View Helper
 #import "ViewControllerHelper.h"
+#import "JRComponentHelper.h"
 #import "JsonControllerHelper.h"
 #import "JsonControllerSeverHelper.h"
 #import "ListViewControllerHelper.h"
 #import "AppPageViewHelper.h"
-#import "ComponentHelper.h"
-#import "JRComponentHelper.h"
 
 #import "AppViewHelper.h"
 
