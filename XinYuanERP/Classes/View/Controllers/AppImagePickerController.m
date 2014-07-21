@@ -18,12 +18,6 @@
     return self;
 }
 
-
-//-(UIInterfaceOrientation)preferredInterfaceOrientationForPresentation
-//{
-//    return UIInterfaceOrientationLandscapeLeft | UIInterfaceOrientationLandscapeRight;
-//}
-
 - (void)didRotateFromInterfaceOrientation:(UIInterfaceOrientation)fromInterfaceOrientation
 {
     if (self.didRotateFromOrientation) {
