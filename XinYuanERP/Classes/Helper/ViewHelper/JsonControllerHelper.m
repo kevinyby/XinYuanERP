@@ -465,7 +465,7 @@
 +(void) setUserInterfaceEnable: (UIView*)view enable:(BOOL)enable
 {
     
-    if ([view isKindOfClass:[JsonDivView class]] && enable == NO) {
+    if ([view isKindOfClass:[JsonDivView class]] ) {
         
         [JsonViewIterateHelper iterateTopLevelJRComponentProtocal:view handler:^BOOL(id<JRComponentProtocal> jrProtocalView) {
             if ([jrProtocalView isKindOfClass:[JRImageView class]] ) {
@@ -476,7 +476,6 @@
             
             return NO;
         }];
-        
         
     }
     
