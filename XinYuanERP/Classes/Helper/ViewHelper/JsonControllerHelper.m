@@ -554,6 +554,8 @@
                 imageView.image = image;
                 if (!image) {
                     DLOG(@"No Image : %@", imagePath);
+                } else {
+                    DLOG(@"Have Image : %@", imagePath);
                 }
                 // hide indicator
                 [AppViewHelper stopIndicatorInView: imageView];
@@ -676,7 +678,6 @@
     NSString* mainPathsAndName = [self getImageNamePath: jsoncontroller mainnames:mainnames prefix:pprefix suffix:suffix ];
     NSString* wholeName = [directory stringByAppendingPathComponent: mainPathsAndName];
     NSString* result =  wholeName;
-//    result = [result stringByAddingPercentEscapesUsingEncoding: NSUTF8StringEncoding];
     return result;
 }
 

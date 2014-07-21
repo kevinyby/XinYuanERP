@@ -103,19 +103,19 @@
 
 #pragma mark - NetWork Methods
 
-+(void) startBatchDownloadRequest: (NSArray*)models url:(NSString*)url identifications:(NSArray*)identifications delegate:(id<HTTPRequesterDelegate>)delegate completeHandler:(HTTPRequesterCompleteHandler)completeHandler
++(void) startBatchDownloadRequest: (NSArray*)parameters url:(NSString*)url identifications:(NSArray*)identifications delegate:(id<HTTPRequesterDelegate>)delegate completeHandler:(HTTPRequesterCompleteHandler)completeHandler
 {
     BatchOperation* operation = [[BatchOperation alloc] init];
-    NSArray* requesters = [self obtainRequesters: operation count:models.count identifications:identifications delegate:delegate];
+    NSArray* requesters = [self obtainRequesters: operation count:parameters.count identifications:identifications delegate:delegate];
     
     NSOperationQueue* operationQueue = [[NSOperationQueue alloc] init];
     [operationQueue setMaxConcurrentOperationCount: 3];
     [operation addExecutionBlock:^{
         NSRunLoop* loop = [NSRunLoop currentRunLoop];
-        for (int i = 0; i < models.count; i++) {
-            NSDictionary* model = [models objectAtIndex: i];
+        for (int i = 0; i < parameters.count; i++) {
+            NSDictionary* parameter = [parameters objectAtIndex: i];
             HTTPBatchRequester* batchRequester = [requesters objectAtIndex: i];
-            [batchRequester startDownloadRequest:url parameters:model completeHandler:completeHandler];
+            [batchRequester startDownloadRequest:url parameters:parameter completeHandler:completeHandler];
         }
         [loop run];
     }];
