@@ -119,6 +119,7 @@
 "UPLOAD"="Upload";
 "User_Permissions_Settings"="User Permissions";
 "VENDOR"="Vendor";
+"VENDOR_CATEGORY"="Vendor Category";
 "Vehicle"="Vehicle";
 "VehicleApplyOrder"="Requisition vehicles";
 "VehicleInfoOrder"="Vehicle registration";

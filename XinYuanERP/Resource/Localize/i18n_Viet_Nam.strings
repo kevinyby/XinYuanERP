@@ -119,6 +119,7 @@
 "UPLOAD"="tải lên";
 "User_Permissions_Settings"="người sử dụng Quyền";
 "VENDOR"="công ty";
+"VENDOR_CATEGORY"="";
 "Vehicle"="xe";
 "VehicleApplyOrder"="Xe trưng dụng";
 "VehicleInfoOrder"="Dữ liệu đăng ký xe";
