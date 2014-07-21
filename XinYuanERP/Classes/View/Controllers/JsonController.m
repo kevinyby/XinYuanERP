@@ -39,6 +39,15 @@
     }
 }
 
+-(void)viewDidAppear:(BOOL)animated
+{
+    [super viewDidAppear:animated];
+    
+    if (self.controlMode == JsonControllerModeCreate) {
+        
+    }
+}
+
 - (void)viewWillAppear:(BOOL)animated
 {
     [super viewWillAppear:animated];
@@ -440,6 +449,9 @@
             if (! orderNO) {
                 orderNO = self.valueObjects[PROPERTY_ORDERNO];
             }
+            if (! orderNO) {
+                orderNO = self.valueObjects[PROPERTY_IDENTIFIER];
+            }
         }
         NSString* forwardUser = objects[PROPERTY_FORWARDUSER];
         [self startSendCreateImagesRequest: imagesObjects orderNO:orderNO forwardUser:forwardUser];
@@ -476,13 +488,13 @@
         return;
     };
     
-    NSMutableDictionary* differObjects = [JsonControllerHelper differObjects:valueObjects objects:currentViewObjects];
+    NSMutableDictionary* differObjectsWithoutImages = [JsonControllerHelper differObjects:valueObjects objects:currentViewObjects];
     
     // returned value
     if ([valueObjects[PROPERTY_RETURNED] boolValue]) {
-        [differObjects setObject:[NSNumber numberWithBool: NO] forKey:PROPERTY_RETURNED];
+        [differObjectsWithoutImages setObject:[NSNumber numberWithBool: NO] forKey:PROPERTY_RETURNED];
     }
-    *objects = differObjects;
+    *objects = differObjectsWithoutImages;
 }
 
 -(void) didSuccessApplyOrder: (NSString*)orderType appFrom:(NSString*)appFrom appTo:(NSString*)appTo divViewKey:(NSString*)divViewKey forwarduser:(NSString*)forwardUser
@@ -559,20 +571,8 @@
     NSMutableArray* jrImageViewAttributes = [NSMutableArray array];
     NSMutableArray* uploadUIImges = [NSMutableArray array];
     NSDictionary* imageDatasConfig = self.specifications[kController_IMAGES][kController_IMAGES_DATAS];
-    for (NSString* key  in imagesObjects) {
-        
-        BOOL flag = NO;
-        for (NSString* imagePathKey in imageDatasConfig) {
-            if([JRComponentHelper isJRAttributesTheSame: key with:imagePathKey]){
-                flag = YES;
-                break;
-            }
-        }
-        if (! flag) continue; // image with datas specification in datas config will be upload
-        
-        [jrImageViewAttributes addObject: key];
-        [uploadUIImges addObject: imagesObjects[key]];
-    }
+    [JsonControllerHelper feedUploadAttributes: jrImageViewAttributes uploadUIImges:uploadUIImges imagesObjects:imagesObjects imageDatasConfig:imageDatasConfig];
+    
     NSMutableArray* imagesDatas = [NSMutableArray array];
     NSMutableArray* imagesPaths = [NSMutableArray array];
     NSMutableArray* imagesThumbnailsDatas = [NSMutableArray array];
@@ -580,9 +580,14 @@
     [JsonControllerHelper getImagesDatasAndPaths:self datas:imagesDatas thumbnailDatas:imagesThumbnailsDatas paths:imagesPaths thumbnailPaths:imagesThumbnailsPaths attributes:jrImageViewAttributes uiImages:uploadUIImges];
     [imagesDatas addObjectsFromArray: imagesThumbnailsDatas];
     [imagesPaths addObjectsFromArray: imagesThumbnailsPaths];
-    DLOG(@"assemble images paths: %@", imagesPaths);
+    DLOG(@"Assemble images paths: %@", imagesPaths);
+    
     if (imagesPaths.count == 0) {
-        DLog(@"ERRORRRRRR!!!!!!");
+        DLog(@"Image Paths Count = 0");
+    }
+    
+    if (imagesPaths.count != imagesDatas.count) {
+        DLog(@"Upload Images Count ---- Have Error , check it out !!!");
     }
     
     // send the request

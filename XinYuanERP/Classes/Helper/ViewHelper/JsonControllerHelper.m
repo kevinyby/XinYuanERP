@@ -529,7 +529,24 @@
     }
 }
 
-
+#pragma mark - Filter Upload Images Names and Datas
++(void) feedUploadAttributes: (NSMutableArray*)uploadAttributes uploadUIImges:(NSMutableArray*)uploadUIImges imagesObjects:(NSDictionary*)imagesObjects imageDatasConfig:(NSDictionary*)imageDatasConfig
+{
+    for (NSString* key  in imagesObjects) {
+        
+        BOOL flag = NO;
+        for (NSString* imagePathKey in imageDatasConfig) {
+            if([JRComponentHelper isJRAttributesTheSame: key with:imagePathKey]){
+                flag = YES;
+                break;
+            }
+        }
+        if (! flag) continue; // image with datas specification in datas config will be upload
+        
+        [uploadAttributes addObject: key];
+        [uploadUIImges addObject: imagesObjects[key]];
+    }
+}
 
 #pragma mark - Images Names and Datas
 +(void) loadImagesToJsonView: (JsonController*)jsonController objects:(NSDictionary*)objects

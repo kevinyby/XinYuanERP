@@ -56,8 +56,15 @@
 +(void) setUserInterfaceEnable: (id<JRTopViewProtocal>)jsonTopView keys:(NSArray*)keys enable:(BOOL)enable;
 +(void) setUserInterfaceEnable: (UIView*)view enable:(BOOL)enable;
     
-    
+
+
+#pragma mark - Filter Upload Images Names and Datas
+
++(void) feedUploadAttributes: (NSMutableArray*)uploadAttributes uploadUIImges:(NSMutableArray*)uploadUIImges imagesObjects:(NSDictionary*)imagesObjects imageDatasConfig:(NSDictionary*)imageDatasConfig;
+
+
 #pragma mark - Images Names and Datas
+
 +(void) loadImagesToJsonView: (JsonController*)jsonController objects:(NSDictionary*)objects;
 
 +(void) getImagesDatasAndPaths: (JsonController*)jsonController datas:(NSMutableArray*)datasRepository thumbnailDatas:(NSMutableArray*)thumbnailDatas paths:(NSMutableArray*)pathsRepository thumbnailPaths:(NSMutableArray*)thumbnailPaths attributes:(NSArray*)attributes uiImages:(NSArray*)uiImages;
