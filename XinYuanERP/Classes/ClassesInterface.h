@@ -122,7 +122,7 @@
 #import "JsonControllerHelper.h"
 #import "JsonControllerSeverHelper.h"
 #import "ListViewControllerHelper.h"
-#import "AppPageViewHelper.h"
+#import "AppTableContentsHelper.h"
 
 #import "AppViewHelper.h"
 

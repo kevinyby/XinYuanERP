@@ -141,7 +141,7 @@
         if (! isNoNewData) {
             // integrate the data
             NSMutableDictionary* realContentsDictionary = refreshTableView.tableView.realContentsDictionary;
-            NSArray* insertIndexPaths = [AppPageViewHelper insertValues: realContentsDictionary partRealContentDictionary:newPartRealContentDictionary isTop:isTop];    // put it before assemble
+            NSArray* insertIndexPaths = [AppTableContentsHelper insertValues: realContentsDictionary partRealContentDictionary:newPartRealContentDictionary isTop:isTop];    // put it before assemble
             
             refreshTableView.tableView.contentsDictionary = [ListViewControllerHelper convertRealToVisualContents: realContentsDictionary filter:filter];
             UITableViewRowAnimation animationType = isTop ? UITableViewRowAnimationLeft : UITableViewRowAnimationTop;

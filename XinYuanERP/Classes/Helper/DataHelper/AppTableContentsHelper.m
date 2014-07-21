@@ -1,7 +1,7 @@
-#import "AppPageViewHelper.h"
+#import "AppTableContentsHelper.h"
 #import "ClassesInterface.h"
 
-@implementation AppPageViewHelper
+@implementation AppTableContentsHelper
 
 /**
  *

@@ -131,9 +131,27 @@ nil
 
 
 
+#pragma mark - Refresh Localize By Selected Language
+
++(void) refreshLocalizeTextBySelectLanguage: (JsonView*)jsonview
+{
+    NSArray* localizeLanguages = [LocalizeHelper localize: LANGUAGES];
+    [PopupViewHelper popSheet: LOCALIZE_MESSAGE(MESSAGE_SelectALanguage) inView:[ViewHelper getTopView] actionBlock:^(UIView *popView, NSInteger index) {
+        if (index >= 0 && index < LANGUAGES.count) {
+            NSString* languageSelected = LANGUAGES[index];
+            // Set Preference Language
+            [[NSUserDefaults standardUserDefaults] setObject: languageSelected forKey: PREFERENCE_LANGUAGE];
+            [[NSUserDefaults standardUserDefaults] synchronize];
+            
+            [CategoriesLocalizer setCurrentLanguage: languageSelected];
+            [JsonViewHelper refreshJsonViewLocalizeText: jsonview];
+        }
+    } buttonTitles: localizeLanguages];
+}
 
 
-#pragma makr -
+
+#pragma mark -
 
 +(UIActivityIndicatorView*) showIndicatorInViewAndDisableInteraction: (UIView*)view
 {

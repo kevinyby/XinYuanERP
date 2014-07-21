@@ -7,6 +7,18 @@
 void uncaughtExceptionHandler(NSException *exception) {
     NSLog(@"Crash : %@ %@ %@", exception.name, exception.reason, exception.userInfo);
     NSLog(@"Stacks Traces : %@", [exception callStackSymbols]);
+    
+    // send email
+    NSString* exceptionName = exception.name;
+    NSString* exceptionReason = exception.reason;
+//    NSDictionary* exceptionUserInfo = exception.userInfo;
+    NSArray* callStackSymbols = exception.callStackSymbols;
+    
+    NSString* format = @"mailto://413677195@qq.com?subject=？？？crash report&body=感谢您的配合!<br><br><br> 错误详情:<br>%@<br>--------------------------<br>%@<br>---------------------<br>%@";
+    NSString *urlStr = [NSString stringWithFormat:format, exceptionName,exceptionReason,[callStackSymbols componentsJoinedByString:@"<br>"]];
+    
+    NSString* encodeURL = [urlStr stringByAddingPercentEscapesUsingEncoding:NSUTF8StringEncoding];
+    [[UIApplication sharedApplication] openURL:[NSURL URLWithString: encodeURL]];
 }
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
