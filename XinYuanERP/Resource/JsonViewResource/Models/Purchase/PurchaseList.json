@@ -4,9 +4,9 @@
     "Vendor" : {
         "FIELDS": [["id", "number","name"]],
         
-        "HEADERS": ["Vendor.number", "Vendor.name"],
-        "HEADERSX": [50, 260],
-        "VALUESX":  [50, 260],
+        "HEADERS": ["Vendor.number","Vendor.category","Vendor.name"],
+        "HEADERSX": [50, 260,420],
+        "VALUESX":  [50, 260,420],
         
         
         "FILTERS": {"0":"FILTER_NIL"}
