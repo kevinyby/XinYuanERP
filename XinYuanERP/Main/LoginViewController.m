@@ -1,7 +1,7 @@
 #import "LoginViewController.h"
 #import "AppInterface.h"
 
-#define ScheduledActionTime 10
+#define ScheduledTaskTime 10
 
 
 @interface LoginViewController () <UITextFieldDelegate, UIGestureRecognizerDelegate>
@@ -224,7 +224,6 @@
 
 -(void)loginRequest
 {
-    [((NSArray*)userNameTextField.text) objectAtIndex: 0];
     NSString* verifyCode = verifyCodeTextField.text ? verifyCodeTextField.text : @"" ;
 //    if (OBJECT_EMPYT(verifyCode)) {
 //        [ACTION alertWarning: @"Verify Code Cannot Be Empty!"];
@@ -294,9 +293,10 @@
     static BOOL flag = NO;
     if (! flag) {
         flag = !flag;
-        [ScheduledAction initializeScheduledTask];
-        [ScheduledAction registerSchedule:self timeElapsed:ScheduledActionTime repeats:0];
-        [ScheduledAction start];
+        ScheduledTask* scheduledTask = [[ScheduledTask alloc] initWithTimeInterval: 2];
+        [ScheduledTask setSharedInstance: scheduledTask];
+        [scheduledTask registerSchedule:self timeElapsed:ScheduledTaskTime repeats:0];
+        [scheduledTask start];
     }
 }
 
@@ -389,7 +389,7 @@
 
 #pragma mark - Scheduled Action
 
--(void) scheduledAction
+-(void) scheduledTask
 {
     if ([VIEW isTestDevice]) return;
     

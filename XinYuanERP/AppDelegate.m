@@ -9,16 +9,14 @@ void uncaughtExceptionHandler(NSException *exception) {
     NSLog(@"Stacks Traces : %@", [exception callStackSymbols]);
     
     // send email
-    NSString* exceptionName = exception.name;
-    NSString* exceptionReason = exception.reason;
-//    NSDictionary* exceptionUserInfo = exception.userInfo;
+    NSString* name = exception.name;
+    NSString* reason = exception.reason;
+    NSDictionary* userInfo = exception.userInfo;
     NSArray* callStackSymbols = exception.callStackSymbols;
     
-    NSString* format = @"mailto://413677195@qq.com?subject=？？？crash report&body=感谢您的配合!<br><br><br> 错误详情:<br>%@<br>--------------------------<br>%@<br>---------------------<br>%@";
-    NSString *urlStr = [NSString stringWithFormat:format, exceptionName,exceptionReason,[callStackSymbols componentsJoinedByString:@"<br>"]];
-    
-    NSString* encodeURL = [urlStr stringByAddingPercentEscapesUsingEncoding:NSUTF8StringEncoding];
-    [[UIApplication sharedApplication] openURL:[NSURL URLWithString: encodeURL]];
+    NSString* format = @"mailto://413677195@qq.com?subject=%@ %@'s Crash Report&body=<br>%@<br> %@<br> %@<br> %@<br><br>";
+    NSString *urlStr = [NSString stringWithFormat:format, [NSDate date], [[UIDevice currentDevice] name], name, reason, userInfo, callStackSymbols];
+    [[UIApplication sharedApplication] openURL:[NSURL URLWithString: [urlStr stringByAddingPercentEscapesUsingEncoding:NSUTF8StringEncoding]]];
 }
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
