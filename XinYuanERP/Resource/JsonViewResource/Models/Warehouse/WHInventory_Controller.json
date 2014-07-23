@@ -73,10 +73,21 @@
                              ],
         
         "CONTROL_MODE" : {
+
             
             "READ_MODE_SUB":{
                 "ENABLE":[],
                 "UNENABLE":["NESTED_MaterialInfo"]
+            },
+            
+            "MODIFY_MODE_SUB":{
+                "ENABLE":["NESTED_MaterialInfo"],
+                "UNENABLE":[]
+            },
+            
+            "APPLY_MODE_SUB":{
+                "ENABLE":["NESTED_MaterialInfo"],
+                "UNENABLE":[]
             }
             
         }

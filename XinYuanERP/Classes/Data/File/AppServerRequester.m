@@ -242,7 +242,7 @@
         NSString* path = imagePaths[i];
         NSDictionary* param = @{@"PATH": path, @"ThumbnailPrefered": @(1)} ;
         [parameters addObject: param];
-    }
+    }	
     
     __block int count = 0;
     int totalCount = imagePaths.count;

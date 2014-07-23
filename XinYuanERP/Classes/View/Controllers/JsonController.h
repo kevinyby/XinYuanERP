@@ -1,18 +1,5 @@
 #import "BaseController.h"
-
-typedef enum {
-    JsonControllerModeNull = -1,
-    JsonControllerModeCreate = 0,
-    JsonControllerModeRead,
-    JsonControllerModeApply,
-    JsonControllerModeModify
-} JsonControllerMode;
-
-typedef enum {
-    JsonControllerSubmitButtonTypeSaveOrUpdate = 0 ,
-    JsonControllerSubmitButtonTypeApprove = 1
-} JsonControllerSubmitButtonType;
-
+#import "JsonControllerSepcification.h"
 
 @class JsonView;
 @class JsonDivView;

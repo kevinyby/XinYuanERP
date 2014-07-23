@@ -19,16 +19,19 @@
     JRButton* _priorPageButton;
     JRButton* _nextPageButton;
     
-    int _incrementInt;
     
     JRTextField* _productCodeTxtField;
     float _remainInventory;
     
 }
 
+@property (nonatomic,assign) int incrementInt;
+
 @end
 
 @implementation WHLendOutOrderController
+
+//@synthesize _incrementInt;
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
@@ -114,10 +117,10 @@
     [WarehouseHelper constraint:app1View condition:createUserView];
     [WarehouseHelper constraint:app2View condition:app1View];
     
-    JRButton* BTN_ReturnNumButton = (JRButton*)[self.jsonView getView:@"NESTED_BOTTOM.BTN_ReturnNum"];
-    [self constraint:app2View complete:^(BOOL success){
-        BTN_ReturnNumButton.userInteractionEnabled = success;
-    }];
+//    JRButton* BTN_ReturnNumButton = (JRButton*)[self.jsonView getView:@"NESTED_BOTTOM.BTN_ReturnNum"];
+//    [self constraint:app2View complete:^(BOOL success){
+//        BTN_ReturnNumButton.userInteractionEnabled = success;
+//    }];
     
     
     _incrementInt = 0;
@@ -128,7 +131,8 @@
     
     JRButton* returnButton = ((JRButton*)[self.jsonView getView:@"NESTED_BOTTOM.BTN_ReturnNum"]);
     returnButton.didClikcButtonAction =  ^void(JRButton* button){
-        [weakSelf deriveReturnViews];
+        [WHLendOutOrderController deriveReturnViews: weakSelf index:weakSelf.incrementInt];
+        weakSelf.incrementInt++;
         
         // override preview
         NSString* LASTimageKey = [NSString stringWithFormat:@"%@%d.%@",@"NESTED_MIDDLE_INCREMENT_",_incrementInt-1,@"IMG_Photo_Return"];
@@ -138,19 +142,29 @@
         };
     };
     
-    [self deriveReturnViews];
+    [WHLendOutOrderController deriveReturnViews: self index:0];
+    weakSelf.incrementInt++;
 }
 
-
--(void) deriveReturnViews
++(void) removerDeriveReturnViews: (WHLendOutOrderController*)controller index:(int)index
 {
-    NSDictionary* specifications = self.jsonView.specifications[@"COMPONENTS"][@"NESTED_MIDDLE_INCREMENT_"];
+    NSString* NESTEDTAG = [NSString stringWithFormat:@"%@%d",@"NESTED_MIDDLE_INCREMENT_",index];
+    JsonDivView* nestedDivView = (JsonDivView*)[controller.jsonView getView: NESTEDTAG] ;
+    [nestedDivView removeFromSuperview];
+    if (index != 0) {
+        [controller baseSuperViewMove:- [nestedDivView sizeHeight]];
+    }
+}
+
++(void) deriveReturnViews: (WHLendOutOrderController*)controller index:(int)index
+{
+    NSDictionary* specifications = controller.jsonView.specifications[@"COMPONENTS"][@"NESTED_MIDDLE_INCREMENT_"];
     
-    NSString* NESTEDTAG = [NSString stringWithFormat:@"%@%d",@"NESTED_MIDDLE_INCREMENT_",_incrementInt];
+    NSString* NESTEDTAG = [NSString stringWithFormat:@"%@%d",@"NESTED_MIDDLE_INCREMENT_",index];
     JsonDivView* nestedDivView = (JsonDivView*)[JsonViewRenderHelper render:NESTEDTAG specifications:specifications];
-    [self.jsonView addSubviewToContentView:nestedDivView];
+    [controller.jsonView addSubviewToContentView:nestedDivView];
     
-    [nestedDivView addOriginY: [nestedDivView sizeHeight] * _incrementInt];
+    [nestedDivView addOriginY: [nestedDivView sizeHeight] * index];
     
     
     JRButtonTextFieldView* createUserView = (JRButtonTextFieldView*)[nestedDivView getView:@"createUser"];
@@ -163,30 +177,30 @@
     
     // --- DATE
     NSString* deferedReturAttribute = [NSString stringWithFormat:@"%@.%@", NESTEDTAG, @"returnDate"];
-    [self.specifications[@"CLIENT"][@"COMS_DATE_PICKERS"] addObject:deferedReturAttribute];
-    [self.specifications[@"CLIENT"][@"COMS_DATE_PATTERNS"] setObject: deferedReturAttribute forKey:@"yyyy-MM-dd"];
+    [controller.specifications[@"CLIENT"][@"COMS_DATE_PICKERS"] addObject:deferedReturAttribute];
+    [controller.specifications[@"CLIENT"][@"COMS_DATE_PATTERNS"] setObject: deferedReturAttribute forKey:@"yyyy-MM-dd"];
     
     // --- IMAGE PICKER
     NSString* deferedImageAttribute = [NSString stringWithFormat:@"%@.%@", NESTEDTAG, @"BTN_Take_Return"];
     NSString* deferedImageViewAttribute = [NSString stringWithFormat:@"%@.%@", NESTEDTAG, @"IMG_Photo_Return"];
-    [self.specifications[@"IMAGES"][@"IMAGES_PREVIEWS"] setObject:@{} forKey:deferedImageViewAttribute ];
-    [self.specifications[@"IMAGES"][@"IMAGE_PICKER"] setObject: deferedImageViewAttribute forKey:deferedImageAttribute];
+    [controller.specifications[@"IMAGES"][@"IMAGES_PREVIEWS"] setObject:@{} forKey:deferedImageViewAttribute ];
+    [controller.specifications[@"IMAGES"][@"IMAGE_PICKER"] setObject: deferedImageViewAttribute forKey:deferedImageAttribute];
     
     
     NSString* returnDateKey = [NSString stringWithFormat:@"%@.%@", NESTEDTAG, @"returnDate"];
-    [self.specifications[@"IMAGES"][@"IMAGES_NAMES"] setObject:@{@"MAINNAME": @[@"orderNO", returnDateKey],
+    [controller.specifications[@"IMAGES"][@"IMAGES_NAMES"] setObject:@{@"MAINNAME": @[@"orderNO", returnDateKey],
                                                                  @"SUF":@"ReturnProduct.png"} forKey:deferedImageViewAttribute  ];
-    [self.specifications[@"IMAGES"][@"IMAGES_DATAS"] setObject:@{} forKey:deferedImageViewAttribute  ];
+    [controller.specifications[@"IMAGES"][@"IMAGES_DATAS"] setObject:@{} forKey:deferedImageViewAttribute  ];
     
     
     NSString* returnDateImageLoadKey = [NSString stringWithFormat:@"%@.%@", NESTEDTAG, @"IMG_Photo_Return"];
-    [self.specifications[@"IMAGES"][@"IMAGES_LOAD"] addObject:returnDateImageLoadKey];
+    [controller.specifications[@"IMAGES"][@"IMAGES_LOAD"] addObject:returnDateImageLoadKey];
     
     
     // ---------- Sever
     NSString* creatorButtonKey = [NESTEDTAG stringByAppendingFormat:@".%@",@"createUser"];
     
-    [self.specifications[@"SERVER"][@"SUBMIT_BUTTONS"] addObject:@{@"MODEL_SENDVIEW" : NESTEDTAG,
+    [controller.specifications[@"SERVER"][@"SUBMIT_BUTTONS"] addObject:@{@"MODEL_SENDVIEW" : NESTEDTAG,
                                                                    @"MODEL_SENDORDER" : @"WHLendOutBill",
                                                                    
                                                                    creatorButtonKey: @{ @"MODEL_APPTO" : @"app1"},
@@ -211,16 +225,15 @@
     
     
     // refresh event
-    [self setupClientEvents];
-    [self setupServerEvents];
+    [controller setupClientEvents];
+    [controller setupServerEvents];
     
     
     
     
-    if (_incrementInt != 0) {
-        [self baseSuperViewMove:[nestedDivView sizeHeight]];
+    if (index != 0) {
+        [controller baseSuperViewMove:[nestedDivView sizeHeight]];
     }
-    _incrementInt++;
 }
 
 #pragma mark -
@@ -228,20 +241,13 @@
 
 -(RequestJsonModel*) assembleReadRequest:(NSDictionary*)objects
 {
-    NSString* orderNO = nil;
-    if ([self.identification isKindOfClass: [NSString class]]) {
-        orderNO = self.identification;
-    }else{
-        UIViewController* viewController = [VIEW.navigator.viewControllers objectAtIndex: VIEW.navigator.viewControllers.count - 2];
-        if ([viewController isKindOfClass:[OrderSearchListViewController class]]) {
-            OrderSearchListViewController* list = (OrderSearchListViewController* )viewController;
-            orderNO = [[list.headerTableView.tableView realContentForIndexPath: list.selectedRealIndexPath] objectAtIndex: 1];
-        }
-    }
-    
-    RequestJsonModel* requestModel = [OrderJsonModelFactory factoryMultiJsonModels:@[BILL_WHLendOutBill,ORDER_WHLendOutOrder]
-                                                                           objects:@[@{@"billNO":orderNO},@{PROPERTY_ORDERNO:orderNO}]
+    NSString* orderNO = self.identification;
+    RequestJsonModel* requestModel = [OrderJsonModelFactory factoryMultiJsonModels:@[ORDER_WHLendOutOrder, BILL_WHLendOutBill]
+                                                                           objects:@[[RequestModelHelper getModelIdentities: orderNO], @{}]
                                                                               path:PATH_LOGIC_READ(self.department)];
+    
+    [requestModel.preconditions addObjectsFromArray: @[@{}, @{@"billNO": @"0-0-orderNO"}]];
+    
     return requestModel;
 }
 
@@ -288,8 +294,8 @@
     NSArray* results = response.results;
     NSMutableDictionary* responseObject = [NSMutableDictionary dictionary];
     
-    NSDictionary* orderObject = [[results lastObject] firstObject];
-    NSArray* billArray = [results firstObject];
+    NSDictionary* orderObject = [[results firstObject] firstObject];
+    NSArray* billArray = [results lastObject];
     
     [responseObject setObject:orderObject forKey:@"order"];
     [responseObject setObject:billArray forKey:@"bills"];
@@ -297,7 +303,7 @@
     NSMutableDictionary* resultsObj = [DictionaryHelper deepCopy: responseObject];
     self.valueObjects = resultsObj[@"order"];
     
-    //    DBLOG(@"resultsObj === %@", resultsObj);
+//    DBLOG(@"resultsObj === %@", resultsObj);
     
     return resultsObj;
     
@@ -327,11 +333,29 @@
     notReturnAmountTxtField.text = [[NSNumber numberWithFloat:lendAmount] stringValue];
     
     NSArray* bills = [objects objectForKey:@"bills"];
-    if ([bills count] == 0) return;
     
-    for (int i = 0; i < [bills count] - 1; ++i) {
-        [self deriveReturnViews];
+    int billCount = bills.count;
+    int previousBillCount = self.incrementInt;
+    int substract = billCount - previousBillCount;
+    
+    if (substract < 0) {
+        for (int i = 0; i < abs(substract); i++) {
+            [WHLendOutOrderController removerDeriveReturnViews: self index: previousBillCount - (i+1)];
+            self.incrementInt -- ;
+        }
+    } else {
+        
+        for (int i = 0; i < substract; ++i) {
+            [WHLendOutOrderController deriveReturnViews: self index: previousBillCount + i];
+            self.incrementInt ++ ;
+        }
     }
+    
+    if ([bills count] == 0) {
+        [WHLendOutOrderController deriveReturnViews: self index: 0];
+        self.incrementInt ++ ;
+    }
+    
     
     for (int j = 0; j<[bills count]; ++j) {
         
@@ -348,7 +372,6 @@
     }
     
     notReturnAmountTxtField.text = [[NSNumber numberWithFloat:lendAmount] stringValue];
-    
 }
 
 

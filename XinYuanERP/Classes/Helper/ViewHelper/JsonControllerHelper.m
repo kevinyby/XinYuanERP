@@ -464,6 +464,24 @@
 
 +(void) setUserInterfaceEnable: (UIView*)view enable:(BOOL)enable
 {
+    
+    if ([view isKindOfClass:[JsonDivView class]] ) {
+        
+        [JsonModelHelper iterateTopLevelJRComponentProtocalWithValue:view handler:^BOOL(id<JRComponentProtocal> jrProtocalView) {
+            if ([jrProtocalView isKindOfClass:[JRImageView class]] ) {
+                ((JRImageView*) jrProtocalView).userInteractionEnabled = YES;
+            }else{
+                ((UIView*)jrProtocalView).userInteractionEnabled = enable;
+            }
+            
+            return NO;
+        }];
+        
+    }
+    
+    // JRButton , JRTextField ...
+    else
+        
     if ([view isKindOfClass:[UIControl class]]) {
         ((UIControl*)view).enabled = enable;
     }
@@ -529,7 +547,24 @@
     }
 }
 
-
+#pragma mark - Filter Upload Images Names and Datas
++(void) feedUploadAttributes: (NSMutableArray*)uploadAttributes uploadUIImges:(NSMutableArray*)uploadUIImges imagesObjects:(NSDictionary*)imagesObjects imageDatasConfig:(NSDictionary*)imageDatasConfig
+{
+    for (NSString* key  in imagesObjects) {
+        
+        BOOL flag = NO;
+        for (NSString* imagePathKey in imageDatasConfig) {
+            if([JRComponentHelper isJRAttributesTheSame: key with:imagePathKey]){
+                flag = YES;
+                break;
+            }
+        }
+        if (! flag) continue; // image with datas specification in datas config will be upload
+        
+        [uploadAttributes addObject: key];
+        [uploadUIImges addObject: imagesObjects[key]];
+    }
+}
 
 #pragma mark - Images Names and Datas
 +(void) loadImagesToJsonView: (JsonController*)jsonController objects:(NSDictionary*)objects
@@ -551,7 +586,7 @@
             NSString* imagePath = imagePathsRepository[attribute];
             if ([identification isEqualToString: imagePath]) {
                 JRImageView* imageView = (JRImageView*)[jsonController.jsonView getView: attribute];
-                imageView.image = image;
+                [imageView setValue: image];
                 if (!image) {
                     DLOG(@"No Image : %@", imagePath);
                 }
@@ -571,8 +606,14 @@
 
     for (int i = 0; i < attributes.count; i++) {
         
-        // Paths
+        UIImage* image = uiImages[i];
         NSString* attribute = attributes[i];
+        
+        if (!image.isNewGenerated) {
+            continue;
+        }
+        
+        // Paths
         NSDictionary* nameConfig = imageNamesConfigs[attribute];
         
         if (!nameConfig) {
@@ -589,7 +630,6 @@
         
         
         // Data
-        UIImage* image = uiImages[i];
         NSDictionary* dataConfig = [imageDatasConfigs objectForKey:attribute];
         
         // fixed orientation
@@ -675,7 +715,7 @@
     NSString* directory = [self getImagesHomeFolder: order department:department];       // HumanResource/Employee/
     NSString* mainPathsAndName = [self getImageNamePath: jsoncontroller mainnames:mainnames prefix:pprefix suffix:suffix ];
     NSString* wholeName = [directory stringByAppendingPathComponent: mainPathsAndName];
-    NSString* result = [wholeName stringByAddingPercentEscapesUsingEncoding: NSUTF8StringEncoding];
+    NSString* result =  wholeName;
     return result;
 }
 

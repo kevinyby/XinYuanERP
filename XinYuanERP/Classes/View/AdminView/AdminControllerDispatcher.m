@@ -196,8 +196,8 @@
             if (UI_USER_INTERFACE_IDIOM() == UIUserInterfaceIdiomPhone)  [actionButtons addObject: LOCALIZE_KEY(@"CANCEL")];
             UIActionSheet* actionSheet =
              [PopupViewHelper popSheet: LOCALIZE_MESSAGE(@"SelectAnAction") inView:wheel.view actionBlock:^(UIView *view, NSInteger buttonIndex) {
-                 UIActionSheet* actionSheet = (UIActionSheet*)view;
                  if (buttonIndex < 0 ) return ;
+                 UIActionSheet* actionSheet = (UIActionSheet*)view;
                  NSString* clickButtonTitle = [actionSheet buttonTitleAtIndex: buttonIndex];
                  
                  

@@ -56,7 +56,7 @@
     
     JRTextField* editCategoryTxtFidld = ((JRLabelTextFieldView*)[self.jsonView getView:@"productCategory"]).textField;
     editCategoryTxtFidld.textFieldDidClickAction = ^void(JRTextField* jrTextField) {
-        [WarehouseHelper popTableView:jrTextField settingModel:@"PRODUCT_CATEGORY"];
+        [WarehouseHelper popTableView:jrTextField settingModel:APPSettings_WHAREHOUSE_PRODUCT_CATEGORY];
     };
     
     
@@ -96,6 +96,13 @@
         return [FrameTranslater convertFontSize: 30];
     };
     
+    supplierTableView.tableViewBaseCanEditIndexPathAction = ^BOOL(TableViewBase* tableViewObj, NSIndexPath* indexPath){
+        if (self.controlMode == JsonControllerModeCreate) return YES;
+        return [PermissionChecker checkSignedUser: DEPARTMENT_PURCHASE order:MODEL_VENDOR permission:PERMISSION_DELETE];
+    };
+    
+
+ 
     supplierTableView.JRTableViewSetValue = ^void(JRTableView* tableView, id value){
         NSMutableArray* contents = [ArrayHelper deepCopy: [value componentsSeparatedByString:KEY_COMMA]];
         tableView.contentsDictionary = [NSMutableDictionary dictionaryWithObject: contents forKey:tableView.attribute];
@@ -124,7 +131,15 @@
     JRButton* buttonAdd = (JRButton*)[self.jsonView getView: @"NESTED_RIGHT.BTN_AddSupplier"];
     buttonAdd.didClikcButtonAction = ^void(JRButton* buttonAdd) {
         
-        NSArray* needFields = @[@"number",@"name"];
+        if (self.controlMode!=JsonControllerModeCreate) {
+            if (!([PermissionChecker checkSignedUser: DEPARTMENT_PURCHASE order:MODEL_VENDOR permission:PERMISSION_CREATE]||
+                  [PermissionChecker checkSignedUser: DEPARTMENT_PURCHASE order:MODEL_VENDOR permission:PERMISSION_DELETE])) {
+                return;
+            }
+            
+        }
+        
+        NSArray* needFields = @[@"number",@"name",@"category"];
         PickerModelTableView* pickView = [PickerModelTableView popupWithRequestModel:@"Vendor" fields:needFields willDimissBlock:nil];
         pickView.titleHeaderViewDidSelectAction = ^void(JRTitleHeaderTableView* headerTableView, NSIndexPath* indexPath){
             
@@ -187,6 +202,10 @@
         
     };
     
+    if (self.controlMode == JsonControllerModeCreate) {
+        _lendAmountTxtField.text = [@(0) stringValue];
+    }
+    
 }
 
 -(void)setUpTextFields
@@ -207,8 +226,8 @@
     _unitTxtField.delegate = self;
     _priceBasicUnitTxtField.delegate = self;
     _priceUnitTxtField.delegate = self;
-    _lendAmountTxtField.delegate = self;
-    
+//    _lendAmountTxtField.delegate = self;
+    _totalAmountTxtField.delegate = self;
     
     _unitTxtField.enabled = NO;
     _priceUnitTxtField.enabled = NO;
@@ -269,12 +288,8 @@
         _priceUnitTxtField.text = [AppMathUtility calculateDivision:_priceBasicUnitTxtField.text dividend:_amountTxtField.text];
     }
     
-    if (textField == _lendAmountTxtField) {
-        
-        if (isEmptyString(_totalAmountTxtField.text)) {
-            [self showAlterMessage:@"totalAmount"];
-            return;
-        }
+    if (textField == _totalAmountTxtField) {
+        if (isEmptyString(_lendAmountTxtField.text))return;
         _remainAmountTxtField.text = [AppMathUtility calculateSubtraction:_totalAmountTxtField.text minuend:_lendAmountTxtField.text];
         
     }

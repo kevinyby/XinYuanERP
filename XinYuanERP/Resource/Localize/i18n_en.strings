@@ -119,6 +119,7 @@
 "UPLOAD"="Upload";
 "User_Permissions_Settings"="User Permissions";
 "VENDOR"="Vendor";
+"VENDOR_CATEGORY"="Vendor Category";
 "Vehicle"="Vehicle";
 "VehicleApplyOrder"="Requisition vehicles";
 "VehicleInfoOrder"="Vehicle registration";
@@ -129,6 +130,7 @@
 "WARNING"="Warning";
 "WEB_FWYC"="Web Request Error";
 "WEB_LJSB"="Web Connect Error";
+"WHCheckOrder"="Check Order";
 "WHInventory"="Inventory Order";
 "WHInventoryCHOrder"="Single-stock transaction";
 "WHLendOutBill"="Return Order";
@@ -214,6 +216,7 @@
 "permission"="Permission";
 "petrol"="Petrol";
 "phoneNO"="Phone";
+"photoLibrary"="Photo Library";
 "please"="Please";
 "productCode"="Product code";
 "productName"="Name";
@@ -239,6 +242,7 @@
 "success"="success";
 "summary"="Summary";
 "system"="Symtem";
+"takePhoto"="Take Photo";
 "this"="This";
 "time"="Time";
 "to"="To";

@@ -115,7 +115,7 @@ static ViewManager* sharedInstance;
     if ([[[UIDevice currentDevice] model] rangeOfString: @"Simulator"].location != NSNotFound) {
         return YES;
     }
-    NSArray* testDeviceNames = @[@"Justin的iPad2"];
+    NSArray* testDeviceNames = @[@"iPad mini"];
     NSString* currentDeviceName = [[UIDevice currentDevice] name];
     if ([testDeviceNames containsObject:currentDeviceName]) {
         return YES;

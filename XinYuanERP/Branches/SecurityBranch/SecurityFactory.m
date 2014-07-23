@@ -79,7 +79,9 @@
             //grab the data from previous list.
             NSArray* controllers = VIEW.navigator.viewControllers;
             OrderSearchListViewController* listController = (OrderSearchListViewController*)[controllers lastObject] ;
-            NSIndexPath* selectIndexPath = listController.selectedRealIndexPath;
+            FilterTableView* tableViewObj = listController.headerTableView.tableView;
+            NSIndexPath* selectIndexPath = [tableViewObj getRealIndexPathInFilterMode: [tableViewObj indexPathForSelectedRow]];
+            
             NSArray* realValues = [listController valueForIndexPath: selectIndexPath];
             
             NSString* date = [NSString stringWithString:realValues[2]];

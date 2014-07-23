@@ -9,6 +9,7 @@
 
 
 
+@class JsonView;
 @class AppWheelViewController;
 
 
@@ -25,7 +26,12 @@
 +(BOOL) isCurrentLanguageEnglish;
 
 
-#pragma makr -
+#pragma mark - Refresh Localize By Selected Language
+
++(void) refreshLocalizeTextBySelectLanguage: (JsonView*)jsonview;
+
+
+#pragma mark -
 
 +(UIActivityIndicatorView*) showIndicatorInViewAndDisableInteraction: (UIView*)view;
 +(UIActivityIndicatorView*) showIndicatorInView: (UIView*)view;

@@ -22,7 +22,7 @@
 #pragma mark - Photo
 +(void) setupPhotoPickerComponents: (JsonView*)jsonview config:(NSDictionary*)config;
 
-+(void) setupPhotoPickerWithInteractivView:(JRButton*)button completeHandler:(void(^)(UIImagePickerController* controller, UIImage* image))completeHandler;
++(void) setupPhotoPickerWithInteractivView:(UIView*)interactiveView completeHandler:(void(^)(UIImagePickerController* controller, UIImage* image))completeHandler;
 
 +(void) setupPreviewImageComponents: (JsonController*)jsoncontroller config:(NSDictionary*)config;
 

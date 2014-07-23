@@ -3,9 +3,32 @@
 #import "JRComponents.h"
 #import "ClassesInterface.h"
 
+
+@implementation UIImage (NewGenerate)
+
+
+const char* isNewGeneratedKey = "isNewGeneratedKey";
+
+-(BOOL) isNewGenerated
+{
+    NSNumber* isNewNum = objc_getAssociatedObject(self, isNewGeneratedKey);
+    return [isNewNum boolValue];
+}
+
+-(void) setIsNewGenerated: (BOOL) isNew
+{
+    NSNumber* isNewNum = [NSNumber numberWithBool: isNew];
+    objc_setAssociatedObject(self, isNewGeneratedKey, isNewNum, OBJC_ASSOCIATION_RETAIN);
+}
+
+@end
+
+
+
 @interface JRImageView ()
 {
     UITapGestureRecognizer* tapGestureRecognizer;
+    UITapGestureRecognizer* doubleTapGestureRecognizer;
 }
 
 @end
@@ -68,7 +91,9 @@
     
     if (didClickAction) {
         self.userInteractionEnabled = YES;
-        tapGestureRecognizer = [[UITapGestureRecognizer alloc] initWithTarget: self action:@selector(tapAction:)];
+        if (!tapGestureRecognizer) {
+            tapGestureRecognizer = [[UITapGestureRecognizer alloc] initWithTarget: self action:@selector(tapAction:)];
+        }
         [self addGestureRecognizer: tapGestureRecognizer];
     } else {
         self.userInteractionEnabled = NO;
@@ -76,9 +101,38 @@
     }
 }
 
+
+-(void) setDoubleClickAction:(JRImageViewDidClickAction)doubleClickAction
+{
+    _doubleClickAction = doubleClickAction;
+    
+    if (doubleClickAction) {
+        self.userInteractionEnabled = YES;
+        if (!doubleTapGestureRecognizer) {
+            doubleTapGestureRecognizer = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(doubleClickAction:)];
+            doubleTapGestureRecognizer.numberOfTapsRequired = 2 ;
+        }
+        [self addGestureRecognizer: doubleTapGestureRecognizer];
+    } else {
+        self.userInteractionEnabled = NO;
+        [self removeGestureRecognizer: doubleTapGestureRecognizer];
+    }
+    
+    
+}
+
+#pragma mark - Action
+
 -(void) tapAction: (UITapGestureRecognizer *)tapGesture {
     if (self.didClickAction) {
         self.didClickAction(self);
+    }
+}
+
+-(void) doubleTapAction: (UITapGestureRecognizer*)tapGesture
+{
+    if (self.doubleClickAction) {
+        self.doubleClickAction(self);
     }
 }
 

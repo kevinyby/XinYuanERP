@@ -1,12 +1,7 @@
 #import "LoginViewController.h"
 #import "AppInterface.h"
 
-
-#define ScheduledActionTime 10
-
-#define LANGUAGES @[LANGUAGE_zh_TW, LANGUAGE_zh_CN, LANGUAGE_en, LANGUAGE_Viet_Nam]
-
-
+#define ScheduledTaskTime 10
 
 
 @interface LoginViewController () <UITextFieldDelegate, UIGestureRecognizerDelegate>
@@ -182,35 +177,21 @@
     
     // lauguage setting
     JRButton* languageButton = ((JRLabelButtonView*)[jsonview getView: @"languageSet"]).button;
+    __weak JsonView* weakJsonView = jsonview;
     languageButton.didClikcButtonAction = ^(id button) {
-        [self selectLanguage];
+        [AppViewHelper refreshLocalizeTextBySelectLanguage: weakJsonView];
     };
     
     // login button
     JRButton* loginButton = (JRButton*)[jsonview getView: @"loginBtn"];
     loginButton.didClikcButtonAction = ^(id sender) {
-        [self loginRequest];
+        [weakInstance loginRequest];
     };
     
     [JsonViewHelper refreshJsonViewLocalizeText: jsonview];
 }
 
 #pragma mark - Private Methods
--(void) selectLanguage
-{
-    NSArray* localizeLanguages = [LocalizeHelper localize: LANGUAGES];
-    [PopupViewHelper popSheet: LOCALIZE_MESSAGE(MESSAGE_SelectALanguage) inView:self.view actionBlock:^(UIView *popView, NSInteger index) {
-        if (index >= 0 && index < LANGUAGES.count) {
-            NSString* languageSelected = LANGUAGES[index];
-            // Set Preference Language
-            [[NSUserDefaults standardUserDefaults] setObject: languageSelected forKey: PREFERENCE_LANGUAGE];
-            [[NSUserDefaults standardUserDefaults] synchronize];
-            
-            [CategoriesLocalizer setCurrentLanguage: languageSelected];
-            [JsonViewHelper refreshJsonViewLocalizeText: jsonview];
-        }
-    } buttonTitles: localizeLanguages];
-}
 
 -(void) getConnectToServer
 {
@@ -287,7 +268,6 @@
     [model.parameters setObject:verifyCode forKey:@"VERIFYCODE"];
     [model addModels: CATEGORIE_USER, nil];
     
-    
     password = [AppRSAHelper encrypt: password];
     [model addObjects: @{@"username":username, @"password":  password} ,nil];
 
@@ -321,15 +301,11 @@
     static BOOL flag = NO;
     if (! flag) {
         flag = !flag;
-        [ScheduledAction initializeScheduledTask];
-        [ScheduledAction start];
-        [ScheduledAction registerSchedule:self timeElapsed:ScheduledActionTime repeats:0];
+        ScheduledTask* scheduledTask = [[ScheduledTask alloc] initWithTimeInterval: 2];
+        [ScheduledTask setSharedInstance: scheduledTask];
+        [scheduledTask registerSchedule:self timeElapsed:ScheduledTaskTime repeats:0];
+        [scheduledTask start];
     }
-}
--(void) scheduledAction
-{
-    if ([VIEW isTestDevice]) return;
-    [AppDataHelper refreshServerBasicData:nil];
 }
 
 -(void) accessIntoWheels
@@ -427,6 +403,16 @@
         [VIEW.navigator pushViewController:departmentWheel animated:YES];
     }
     
+}
+
+
+#pragma mark - Scheduled Action
+
+-(void) scheduledTask
+{
+    if ([VIEW isTestDevice]) return;
+    
+    [AppDataHelper refreshServerBasicData:nil];
 }
 
 @end

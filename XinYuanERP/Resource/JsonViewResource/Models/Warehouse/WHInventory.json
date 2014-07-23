@@ -147,13 +147,7 @@
                                             }
                                         },
                                         
-                                        "BTN_EditCategory_" : {
-                                            "JCom": "JRButton",
-                                            "JFrame": [450,135,-1.1,-1.1],
-                                            "JSubRender":{
-                                                "JR_BGN_IMG": "WarehouseInventory_编辑类别按钮","JS_FONT_BOLD":1,"JS_FONT_N_COLOR":[0,0,0,1], "FONT_SIZE": 17
-                                            }
-                                        },
+                                        
                                         
                                         "totalAmount": {
                                             "JCom" : "JRLabelTextFieldView",
@@ -178,7 +172,7 @@
                                             "JFrame": [40,235,350,40],
                                             "JSubRender": {
                                                 "frames":[[-1.1,-1.1,140, 40],  [160,-1.1,200, 40]],
-                                                "SubRenders":[{},{"JR_BORDERSTYLE" : 0}]
+                                                "SubRenders":[{},{"JR_BORDERSTYLE" : 0,"JR_ENABLE": 0}]
                                             }
                                         },
                                         
