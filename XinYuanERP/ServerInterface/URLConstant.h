@@ -4,7 +4,7 @@
 
 #ifdef DEBUG
 
-#define kURL @"http://61.143.227.60"        // WAN Server
+//#define kURL @"http://61.143.227.60"        // WAN Server
 
 //#define kURL @"http://192.168.0.161"        // LAN Server
 
