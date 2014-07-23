@@ -1,8 +1,19 @@
 #import "AppDelegate.h"
 #import "AppInterface.h"
+#import "Store.h"
 
 @implementation AppDelegate
-
+@synthesize Store = _Store;
+-(id<DataProvider>)Store{
+    if (_Store == nil){
+        _Store = [[Store alloc] init];
+    }
+    return _Store;
+}
++ (instancetype)sharedDelegate
+{
+    return (AppDelegate*)[UIApplication sharedApplication].delegate;
+}
 // for debug , to be remved in production
 void uncaughtExceptionHandler(NSException *exception) {
     NSLog(@"Crash : %@ %@ %@", exception.name, exception.reason, exception.userInfo);

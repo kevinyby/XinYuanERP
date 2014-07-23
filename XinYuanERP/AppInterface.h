@@ -13,7 +13,8 @@
 #import "MWPhotoBrowser.h"
 
 
-#import "BrowserManager.h"
+//#import "BrowserManager.h"
+#import "BusinesscardsStarter.h"
 #import "ExplodeExecutor.h"
 
 // Common Class

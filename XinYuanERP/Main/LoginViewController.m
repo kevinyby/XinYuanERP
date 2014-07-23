@@ -123,9 +123,17 @@
 //    JsonController* jsonController = [[JsonController alloc] initWithOrder:@"FinanceSalary" department:DEPARTMENT_FINANCE];
 //    UIViewController* jsonController = [AdminControllerDispatcher dispatchToOtherSettingsController];
     
-    [VIEW.navigator pushViewController: jsonController animated:YES];
-    [jsonController.view addSubview: langurageButton];
-    [ColorHelper setBorderRecursive: jsonController.jsonView];
+    NSString* sbname = @"Main_iPhone";
+    if ([UIDevice currentDevice].userInterfaceIdiom == UIUserInterfaceIdiomPad){
+        sbname = @"Main_iPad";
+    }
+    UIStoryboard* sb = [UIStoryboard storyboardWithName:sbname bundle:nil];
+    assert(sb != nil);
+    UIViewController* controller = [sb instantiateViewControllerWithIdentifier:@"Cards"];
+    [self presentViewController:controller animated:YES completion:nil];
+//    [VIEW.navigator pushViewController: jsonController animated:YES];
+//    [jsonController.view addSubview: langurageButton];
+//    [ColorHelper setBorderRecursive: jsonController.jsonView];
 
    
 }
@@ -367,9 +375,16 @@
             
             if ([department isEqualToString: CATEGORIE_CARDS]) {
                 
-                controller = [[BrowserManager alloc] init];
-                
-                
+//                controller = [[BrowserManager alloc] init];
+//                UIStoryboard* sb = [UIStoryboard storyboardWithName:@"Main_iPhone" bundle:nil];
+//                controller = [sb instantiateViewControllerWithIdentifier:@"Cards"];
+                NSString* sbname = @"Main_iPhone";
+                if ([UIDevice currentDevice].userInterfaceIdiom == UIUserInterfaceIdiomPad){
+                    sbname = @"Main_iPad";
+                }
+                UIStoryboard* sb = [UIStoryboard storyboardWithName:sbname bundle:nil];
+                assert(sb != nil);
+                controller = [sb instantiateViewControllerWithIdentifier:@"Cards"];
                 
             } else if ([department isEqualToString: CATEGORIE_APPROVAL] || [department isEqualToString: WHEEL_TRACE_STATUS_FILE]) {
                 
@@ -402,7 +417,11 @@
                 
             }
             
-            [VIEW.navigator pushViewController: controller animated:YES];
+            if ([controller isKindOfClass:[UINavigationController class]]){
+                [self presentViewController:controller animated:YES completion:nil];
+            }else{
+                [VIEW.navigator pushViewController: controller animated:YES];
+            }
         };
         
         [VIEW.navigator pushViewController:departmentWheel animated:YES];
