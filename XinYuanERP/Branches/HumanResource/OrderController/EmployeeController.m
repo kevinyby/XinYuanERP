@@ -459,8 +459,8 @@
         [objects setObject: encryptWordMask forKey:@"wordMask"];
     }
     //
-    if (objects[@"idCard"]) [objects setObject:[RSAKeysKeeper simpleEncrypty:objects[@"idCard"]] forKey:@"idCard"];
-    if (objects[@"livingAddress"]) [objects setObject:[RSAKeysKeeper simpleEncrypty:objects[@"livingAddress"]] forKey:@"livingAddress"];
+    if (objects[@"idCard"]) [objects setObject:[AppRSAKeysKeeper simpleEncrypty:objects[@"idCard"]] forKey:@"idCard"];
+    if (objects[@"livingAddress"]) [objects setObject:[AppRSAKeysKeeper simpleEncrypty:objects[@"livingAddress"]] forKey:@"livingAddress"];
 }
 
 -(void)translateReceiveObjects:(NSMutableDictionary *)objects
@@ -475,8 +475,8 @@
     
     //rsa
     //
-    if (objects[@"idCard"]) [objects setObject:[RSAKeysKeeper simpleDecrypt:objects[@"idCard"]] forKey:@"idCard"];
-    if (objects[@"livingAddress"]) [objects setObject:[RSAKeysKeeper simpleDecrypt:objects[@"livingAddress"]] forKey:@"livingAddress"];
+    if (objects[@"idCard"]) [objects setObject:[AppRSAKeysKeeper simpleDecrypt:objects[@"idCard"]] forKey:@"idCard"];
+    if (objects[@"livingAddress"]) [objects setObject:[AppRSAKeysKeeper simpleDecrypt:objects[@"livingAddress"]] forKey:@"livingAddress"];
 }
 
 

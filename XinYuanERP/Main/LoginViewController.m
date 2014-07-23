@@ -224,6 +224,7 @@
 
 -(void)loginRequest
 {
+//    [((NSArray*)userNameTextField.text) objectAtIndex:0];
     NSString* verifyCode = verifyCodeTextField.text ? verifyCodeTextField.text : @"" ;
 //    if (OBJECT_EMPYT(verifyCode)) {
 //        [ACTION alertWarning: @"Verify Code Cannot Be Empty!"];
@@ -293,10 +294,9 @@
     static BOOL flag = NO;
     if (! flag) {
         flag = !flag;
-        ScheduledTask* scheduledTask = [[ScheduledTask alloc] initWithTimeInterval: 2];
-        [ScheduledTask setSharedInstance: scheduledTask];
-        [scheduledTask registerSchedule:self timeElapsed:ScheduledTaskTime repeats:0];
-        [scheduledTask start];
+        [ScheduledTask setSharedInstance: [[ScheduledTask alloc] initWithTimeInterval: 1]];
+        [ScheduledTask.sharedInstance registerSchedule:self timeElapsed:ScheduledTaskTime repeats:0];
+        [ScheduledTask.sharedInstance start];
     }
 }
 

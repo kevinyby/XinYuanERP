@@ -578,8 +578,8 @@
     NSMutableArray* imagesThumbnailsDatas = [NSMutableArray array];
     NSMutableArray* imagesThumbnailsPaths = [NSMutableArray array];
     [JsonControllerHelper getImagesDatasAndPaths:self datas:imagesDatas thumbnailDatas:imagesThumbnailsDatas paths:imagesPaths thumbnailPaths:imagesThumbnailsPaths attributes:jrImageViewAttributes uiImages:uploadUIImges];
-    [imagesDatas addObjectsFromArray: imagesThumbnailsDatas];
-    [imagesPaths addObjectsFromArray: imagesThumbnailsPaths];
+//    [imagesDatas addObjectsFromArray: imagesThumbnailsDatas];
+//    [imagesPaths addObjectsFromArray: imagesThumbnailsPaths];
     DLOG(@"Assemble images paths: %@", imagesPaths);
     
     if (imagesPaths.count == 0) {
