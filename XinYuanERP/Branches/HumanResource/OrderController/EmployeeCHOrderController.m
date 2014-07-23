@@ -44,7 +44,7 @@
                 } else {
                     NSDictionary* employeeInfo = [[data.results firstObject] firstObject];
                     NSMutableDictionary* objects = [DictionaryHelper deepCopy: employeeInfo];
-                    if (objects[@"livingAddress"]) [objects setObject:[RSAKeysKeeper simpleDecrypt:objects[@"livingAddress"]] forKey:@"livingAddress"];
+                    if (objects[@"livingAddress"]) [objects setObject:[AppRSAKeysKeeper simpleDecrypt:objects[@"livingAddress"]] forKey:@"livingAddress"];
                     NSArray* excepts = @[PROPERTY_EMPLOYEENO];
                     
                     NSMutableDictionary* oldModel = [DictionaryHelper tailKeys: objects with:OLD_SUFFIX excepts:excepts];
@@ -114,8 +114,8 @@
         }
     }
     //
-    if (objects[@"livingAddress_O"]) [objects setObject:[RSAKeysKeeper simpleEncrypty:objects[@"livingAddress_O"]] forKey:@"livingAddress_O"];
-    if (objects[@"livingAddress_N"]) [objects setObject:[RSAKeysKeeper simpleEncrypty:objects[@"livingAddress_N"]] forKey:@"livingAddress_N"];
+    if (objects[@"livingAddress_O"]) [objects setObject:[AppRSAKeysKeeper simpleEncrypty:objects[@"livingAddress_O"]] forKey:@"livingAddress_O"];
+    if (objects[@"livingAddress_N"]) [objects setObject:[AppRSAKeysKeeper simpleEncrypty:objects[@"livingAddress_N"]] forKey:@"livingAddress_N"];
 }
 
 -(void)translateReceiveObjects:(NSMutableDictionary *)objects
@@ -128,8 +128,8 @@
     }
     
     //
-    if (objects[@"livingAddress_O"]) [objects setObject:[RSAKeysKeeper simpleDecrypt:objects[@"livingAddress_O"]] forKey:@"livingAddress_O"];
-    if (objects[@"livingAddress_N"]) [objects setObject:[RSAKeysKeeper simpleDecrypt:objects[@"livingAddress_N"]] forKey:@"livingAddress_N"];
+    if (objects[@"livingAddress_O"]) [objects setObject:[AppRSAKeysKeeper simpleDecrypt:objects[@"livingAddress_O"]] forKey:@"livingAddress_O"];
+    if (objects[@"livingAddress_N"]) [objects setObject:[AppRSAKeysKeeper simpleDecrypt:objects[@"livingAddress_N"]] forKey:@"livingAddress_N"];
 }
 
 

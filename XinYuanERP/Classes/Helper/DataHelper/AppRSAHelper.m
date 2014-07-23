@@ -1,5 +1,5 @@
 #import "AppRSAHelper.h"
-#import "RSAKeysKeeper.h"
+#import "AppRSAKeysKeeper.h"
 #import "AppInterface.h"
 
 @implementation AppRSAHelper
@@ -11,8 +11,8 @@ static RSAEncryptor* rsaEncryptor = nil;
     if (self == [AppRSAHelper class]) {
         rsaEncryptor = [[RSAEncryptor alloc] init];
         
-        [rsaEncryptor loadPublicKeyFromData: [NSData dataFromBase64String: [RSAKeysKeeper derKey]]];
-        [rsaEncryptor loadPrivateKeyFromData: [NSData dataFromBase64String: [RSAKeysKeeper p12Key]] password: [RSAKeysKeeper p12Password]];
+        [rsaEncryptor loadPublicKeyFromData: [NSData dataFromBase64String: [AppRSAKeysKeeper derKey]]];
+        [rsaEncryptor loadPrivateKeyFromData: [NSData dataFromBase64String: [AppRSAKeysKeeper p12Key]] password: [AppRSAKeysKeeper p12Password]];
         RSAEncryptor.sharedInstance = rsaEncryptor;
     }
 }
@@ -24,7 +24,7 @@ static RSAEncryptor* rsaEncryptor = nil;
     
     NSString* result = string;
     @try {
-        result = [rsaEncryptor rsaEncryptString: string];
+        result = [rsaEncryptor rsaBase64EncryptString: string];
     }
     @catch (NSException *exception) {
         
@@ -38,7 +38,7 @@ static RSAEncryptor* rsaEncryptor = nil;
     if (OBJECT_EMPYT(string)) return string;
     NSString* result = string;
     @try {
-        result = [rsaEncryptor rsaDecryptString: string];
+        result = [rsaEncryptor rsaBase64DecryptString: string];
     }
     @catch (NSException *exception) {
         
