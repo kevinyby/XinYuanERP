@@ -4,7 +4,7 @@
 
 #import "LocalizeKeys.h"
 
-#import "_RSA.h"
+#import "_Encrypt.h"
 
 
 #import "TextFormatter.h"
@@ -13,7 +13,8 @@
 #import "MWPhotoBrowser.h"
 
 
-#import "BrowserManager.h"
+//#import "BrowserManager.h"
+#import "BusinesscardsStarter.h"
 #import "ExplodeExecutor.h"
 
 // Common Class

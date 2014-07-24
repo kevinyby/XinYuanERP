@@ -1,8 +1,19 @@
 #import "AppDelegate.h"
 #import "AppInterface.h"
+#import "Store.h"
 
 @implementation AppDelegate
-
+@synthesize Store = _Store;
+-(id<DataProvider>)Store{
+    if (_Store == nil){
+        _Store = [[Store alloc] init];
+    }
+    return _Store;
+}
++ (instancetype)sharedDelegate
+{
+    return (AppDelegate*)[UIApplication sharedApplication].delegate;
+}
 // for debug , to be remved in production
 void uncaughtExceptionHandler(NSException *exception) {
     NSLog(@"Crash : %@ %@ %@", exception.name, exception.reason, exception.userInfo);
@@ -21,7 +32,7 @@ void uncaughtExceptionHandler(NSException *exception) {
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
-    LOG(@"didFinishLaunchingWithOptions launchOptions: %@",launchOptions);
+    DLOG(@"didFinishLaunchingWithOptions launchOptions: %@",launchOptions);
     
     // for debug , to be remved in production
     NSSetUncaughtExceptionHandler(&uncaughtExceptionHandler);
@@ -53,8 +64,10 @@ void uncaughtExceptionHandler(NSException *exception) {
     return YES;
 }
 
+
 - (BOOL)application:(UIApplication *)application openURL:(NSURL *)url sourceApplication:(NSString *)sourceApplication annotation:(id)annotation {
     [DropboxSyncAPIManager authorizeURLCallback: url];
+    DLog(@"application openURL: %@ . %@ . %@", url, sourceApplication, annotation);
     return YES;
 }
 
