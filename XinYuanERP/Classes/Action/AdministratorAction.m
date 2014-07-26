@@ -6,10 +6,15 @@
 
 -(void) savePermissions: (NSString*)username permissions:(NSString*)permission categories:(NSString*)categories completeHandler:(void (^)(NSError* errorObj))completeHandler {
     // Save the user's permission
+    NSString* path = PATH_ADMIN(@"modifyUserPermissions");
     NSArray* objects = @[@{@"permissions":permission,@"categories":categories}];
-    NSArray* model = @[PATH_ADMIN(@"modifyUserPermissions"), @{req_MODELS:@[DOT_CATEGORY_DOT_MODEL(CATEGORIE_USER,MODEL_USER)], req_OBJECTS:objects, req_IDENTITYS:@[@{@"username":username}]}];
+    NSDictionary* json = @{req_MODELS:@[DOT_CATEGORY_DOT_MODEL(CATEGORIE_USER,MODEL_USER)], req_OBJECTS:objects, req_IDENTITYS:@[@{@"username":username}]};
+
+    RequestJsonModel* requestJsonModel = [RequestJsonModel getJsonModel];
+    [requestJsonModel feedJSON: json];
+    requestJsonModel.path = path;
     
-    [DATA.requester startPostRequest:(RequestJsonModel*)model completeHandler:^(HTTPRequester* requester, ResponseJsonModel *data, NSHTTPURLResponse *httpURLReqponse, NSError *error) {
+    [DATA.requester startPostRequest:requestJsonModel completeHandler:^(HTTPRequester* requester, ResponseJsonModel *data, NSHTTPURLResponse *httpURLReqponse, NSError *error) {
         if (completeHandler) completeHandler(error);
     }];
 }

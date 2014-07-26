@@ -93,6 +93,7 @@
                     NSString* attribute = label.attribute;
                     NSMutableArray* outterSorts = listController.requestModel.sorts;
                     
+                    // if click 'resign'
                     if ([attribute rangeOfString: @"resign"].location != NSNotFound) {
                         NSString* resignSorting =  [[outterSorts firstObject] firstObject];
                         NSString* newSortString = [JsonBranchHelper reverseSortString: resignSorting];
@@ -102,9 +103,13 @@
                         
                         NSMutableArray* firstInnerSorts = [outterSorts firstObject];
                         
+                        
+                        // if clikc 'employeeNO'
                         if ([attribute rangeOfString: @"employeeNO"].location != NSNotFound) {
                             NSString* employeeSortString = @"employeeNO.ASC";   // default
                             int employeeStortIndex = 1;                         // default
+                            
+                            // get if already in sort fields
                             for (int i = 0; i < firstInnerSorts.count; i++) {
                                 NSString* string = firstInnerSorts[i];
                                 if ([string rangeOfString: @"employeeNO"].location != NSNotFound) {

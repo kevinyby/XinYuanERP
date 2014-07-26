@@ -31,7 +31,7 @@
     return [[RequestJsonModel alloc] init];
 }
 
--(NSDictionary*) getJSON {
+-(NSDictionary*) json {
     // make sure the models.count == objects.count
     int diffMO = models.count - objects.count;
     for (int i = 0; i < diffMO; i++) [self addObject: [NSDictionary dictionary]];
@@ -60,8 +60,10 @@
     NSString* jsonStrings = [CollectionHelper convertJSONObjectToJSONString: contents];
 #endif
     
-    return [NSDictionary dictionaryWithObject:jsonStrings forKey:req_JSON];
+    NSString* base64JsonString = [jsonStrings base64Encode];
+    return [NSDictionary dictionaryWithObject:base64JsonString forKey:req_JSON];
 }
+
 
 
 - (id)init
@@ -80,6 +82,36 @@
     return self;
 }
 
+
+
+
+-(void) feedJSON: (NSDictionary*)json
+{
+    if (json[req_MODELS])[self.models addObjectsFromArray: json[req_MODELS]];
+    if (json[req_OBJECTS])[self.objects addObjectsFromArray: json[req_OBJECTS]];
+
+    if (json[req_FIELDS])[self.fields addObjectsFromArray: json[req_FIELDS]];
+    if (json[req_JOINS])[self.joins addObjectsFromArray: json[req_JOINS]];
+    if (json[req_SORTS])[self.sorts addObjectsFromArray: json[req_SORTS]];
+    if (json[req_LIMITS])[self.limits addObjectsFromArray: json[req_LIMITS]];
+    
+    if (json[req_CRITERIAS])[self.criterias addObjectsFromArray: json[req_CRITERIAS]];
+    if (json[req_IDENTITYS])[self.identities addObjectsFromArray: json[req_IDENTITYS]];
+    if (json[req_PRECONDITIONS])[self.preconditions addObjectsFromArray: json[req_PRECONDITIONS]];
+    if (json[req_PARAMETERS])[DictionaryHelper combine:self.parameters with:json[req_PARAMETERS]];
+    
+    if (json[req_PASSWORDS])[self.passwords addObjectsFromArray: json[req_PASSWORDS]];
+    if (json[req_APNS_CONTENTS])[self.apns_contents addObjectsFromArray: json[req_APNS_CONTENTS]];
+    if (json[req_APNS_FORWARDS])[self.apns_forwards addObjectsFromArray: json[req_APNS_FORWARDS]];
+    
+}
+
+
+
+
+
+
+#pragma mark -
 
 // --
 -(void) addModel:(id)obj {

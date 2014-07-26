@@ -32,12 +32,6 @@
         if (binaryLength != 0) binaryData = [NSData dataWithBytes:(const void *)[data bytes] length:binaryLength] ;
         NSData* jsonData = [NSData dataWithBytesNoCopy:(void *)[data bytes] + binaryLength length:jsonLenght freeWhenDone:NO];
         
-//        const unsigned char *ptr = [jsonData bytes];
-//        for(int i=0; i<[jsonData length]; ++i) {
-//            unsigned char c = *ptr++;
-//            NSLog(@"char=%c hex=%x", c, c);
-//        }
-        
         NSError *error = nil;
         NSDictionary* dictionary = [NSJSONSerialization JSONObjectWithData:jsonData options:NSJSONReadingMutableLeaves|NSJSONReadingAllowFragments error:&error];
         if (error) {

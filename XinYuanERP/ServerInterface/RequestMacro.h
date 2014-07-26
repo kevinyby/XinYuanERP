@@ -3,21 +3,7 @@
 #define XinYuanERP_RequestMacro_h
 
 
-#define JSON_STATUS_SUCCESS   @"1"
-#define JSON_STATUS_FAILURE   @"0"
-
-
-
-#define REQUEST_JSON          @"JSON"
-#define REQUEST_MODELS        @"MODELS"
-#define REQUEST_PARAMETERS    @"PARAMETERS"
-#define REQUEST_OBJECTS       @"OBJECTS"
-#define REQUEST_FIELDS        @"FIELDS"
-#define REQUEST_IDENTITYS     @"IDENTITYS"
-#define REQUEST_CONDITION     @"JOINS"
-#define REQUEST_PASSWORDS     @"PASSWORDS"
-#define REQUEST_APNS_FORWARDS @"APNS_FORWARDS"
-#define REQUEST_APNS_CONTENTS @"APNS_CONTENTS"
+#pragma mark - APNS
 
 // APPLE
 #define REQUEST_APNS_ALERT    @"alert"
@@ -36,6 +22,7 @@
 
 
 
+#pragma mark - 
 
 #define REQUEST_PARA_APPLEVEL   @"APPLEVEL"
 
