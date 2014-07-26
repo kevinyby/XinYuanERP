@@ -649,21 +649,21 @@
         [datasRepository addObject: imageData];
         
         
-        // Thumbnail paths and data
-        NSString* thumbnailImagePath = [self appendThumbnailPath: fullPath];
-        [thumbnailPaths addObject: thumbnailImagePath];
-        
-        UIImage* thumbnailImage = [ImageHelper resizeImage: image scale:0.2];
-        // fixed orientation
-        thumbnailImage = [UIImage fixOrientation: thumbnailImage];
-        NSData* thumbnailImageData = nil;
-        // png and jpeg
-        if (isPNGData) {
-            thumbnailImageData = UIImagePNGRepresentation(thumbnailImage);
-        } else {
-            thumbnailImageData = UIImageJPEGRepresentation(thumbnailImage, 0.5);
-        }
-        [thumbnailDatas addObject: thumbnailImageData];
+//        // Thumbnail paths and data
+//        NSString* thumbnailImagePath = [self appendThumbnailPath: fullPath];
+//        [thumbnailPaths addObject: thumbnailImagePath];
+//        
+//        UIImage* thumbnailImage = [ImageHelper resizeImage: image scale:0.2];
+//        // fixed orientation
+//        thumbnailImage = [UIImage fixOrientation: thumbnailImage];
+//        NSData* thumbnailImageData = nil;
+//        // png and jpeg
+//        if (isPNGData) {
+//            thumbnailImageData = UIImagePNGRepresentation(thumbnailImage);
+//        } else {
+//            thumbnailImageData = UIImageJPEGRepresentation(thumbnailImage, 0.5);
+//        }
+//        [thumbnailDatas addObject: thumbnailImageData];
         
     }
 }

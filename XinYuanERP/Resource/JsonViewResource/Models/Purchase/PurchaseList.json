@@ -2,7 +2,7 @@
 {
     
     "Vendor" : {
-        "FIELDS": [["id", "number","name"]],
+        "FIELDS": [["id", "number","category","name"]],
         
         "HEADERS": ["Vendor.number","Vendor.category","Vendor.name"],
         "HEADERSX": [50, 260,420],
