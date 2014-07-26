@@ -40,7 +40,7 @@
 
 -(void)initiateWithComplete:(void(^)(NSError* error))callback{
     //start request
-    HTTPPostRequest* request = [[HTTPPostRequest alloc] initWithURLString:[self rest_api_with:@"struct"] parameters:@{}];
+    HTTPPostRequest* request = [[HTTPPostRequest alloc] initWithURLString:[self rest_api_with:@"struct"] parameters:@{@"PATH":@"BusinessCards"}];
     [request startAsynchronousRequest:^(NSURLResponse *response, NSData *data, NSError *connectionError) {
         if (!connectionError){
             self.rawData = [NSJSONSerialization JSONObjectWithData:data options:kNilOptions error:nil];
@@ -323,7 +323,7 @@
     NSMutableDictionary* moveParam = [[NSMutableDictionary alloc] initWithCapacity:names.count];
     NSMutableArray* validNames = [NSMutableArray arrayWithArray:names];
     for (NSString* name in names){
-        if ([[_curlevelPath stringByAppendingPathComponent:name] isEqualToString:path]){
+        if ([path hasPrefix:[_curlevelPath stringByAppendingPathComponent:name]]){
             [validNames removeObject:name];
             continue;
         }
@@ -436,7 +436,7 @@
         UIImage* compressedImage = [UIImage imageWithData:compressedData];
         
         NSArray* sep = [path componentsSeparatedByString:@"/"];
-        NSString* fileName = [[path stringByAppendingPathExtension:@"jpg"] stringByAddingPercentEscapesUsingEncoding:NSUTF8StringEncoding];
+        NSString* fileName = [path stringByAppendingPathExtension:@"jpg"];
         dispatch_sync(dispatch_get_main_queue(), ^{
             HTTPRequestBase* request = [[HTTPUploader alloc] initWithURLString:[test_ip stringByAppendingPathComponent: @"upload"] parameters:@{UPLOAD_Data: imageData, UPLOAD_FileName: fileName,UPLOAD_MIMEType: @"image/jpeg",UPLOAD_FormParameters: @{@"key": @"1"}}];
             
