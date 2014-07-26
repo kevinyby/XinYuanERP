@@ -93,11 +93,11 @@
     NSArray* tabs = [tabsButtonsView subviews];
     
     // Add swipe gesture
-    UISwipeGestureRecognizer* swipGesture = [[UISwipeGestureRecognizer alloc] initWithTarget: self action:@selector(swipTabs:)];
-    swipGesture.direction = UISwipeGestureRecognizerDirectionRight ;
+    UISwipeGestureRecognizer* swipGestureRight = [[UISwipeGestureRecognizer alloc] initWithTarget: self action:@selector(swipTabs:)];
+    swipGestureRight.direction = UISwipeGestureRecognizerDirectionRight ;
     UISwipeGestureRecognizer* swipGestureLeft = [[UISwipeGestureRecognizer alloc] initWithTarget: self action:@selector(swipTabs:)];
-    swipGesture.direction = UISwipeGestureRecognizerDirectionLeft ;
-    [scrollDivView addGestureRecognizer: swipGesture];
+    swipGestureLeft.direction = UISwipeGestureRecognizerDirectionLeft ;
+    [scrollDivView addGestureRecognizer: swipGestureRight];
     [scrollDivView addGestureRecognizer: swipGestureLeft];
     
     // default , display the first tab infomation , a tint

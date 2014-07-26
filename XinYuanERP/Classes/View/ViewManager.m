@@ -27,7 +27,6 @@ static ViewManager* sharedInstance;
 //        NSNumber* nsmu = [NSNumber numberWithFloat:2];
 //        BOOL isEqual = [nsmu isEqual: @(2)];
 
-        
         NSLog(@"");
     }
     return self;

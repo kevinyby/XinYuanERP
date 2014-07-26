@@ -4,7 +4,7 @@
 @implementation ViewControllerHelper
 
 +(void) setBounds: (UIViewController*)controller {
-   controller.view.bounds = [ViewHelper getScreenBoundsByOrientation];
+   controller.view.bounds = [ViewHelper getScreenBoundsByCurrentOrientation];
 }
 
 /** @prama dictionary ,which is two dimesion, first dimension element is NSMutableDictionary , second dimesion element is NSArray*/

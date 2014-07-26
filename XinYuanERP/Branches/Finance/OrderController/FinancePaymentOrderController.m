@@ -220,14 +220,16 @@
     
     // button ,  take photo to list
     JRButton* takePhotoButton = (JRButton*)[jsonView getView: @"ZZ_BTNTake_Picture"];
-    [JRComponentHelper setupPhotoPickerWithInteractivView: takePhotoButton completeHandler:^(UIImagePickerController *controller, UIImage *image) {
-        [tableRightContentsImages addObject: image];
-        
-        NSInteger index = [[tableRightSectionContents lastObject] integerValue];
-        NSString* imageName = [NSString stringWithFormat: @"%d", ++index];
-        [tableRightSectionContents addObject: imageName];
-        
-        [tableRight reloadTableData];
+    [JRComponentHelper setupPhotoPickerWithInteractivView: takePhotoButton handler:^(AppImagePickerController *imagePickerController) {
+        imagePickerController.didFinishPickingImage = ^void(UIImagePickerController* controller, UIImage* image) {
+            [tableRightContentsImages addObject: image];
+            
+            NSInteger index = [[tableRightSectionContents lastObject] integerValue];
+            NSString* imageName = [NSString stringWithFormat: @"%d", ++index];
+            [tableRightSectionContents addObject: imageName];
+            
+            [tableRight reloadTableData];
+        };
     }];
     // Table Right   ------------ End ---------------------------------
     

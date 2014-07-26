@@ -111,41 +111,86 @@
 +(void) setupPhotoPickerComponents: (JsonView*)jsonview config:(NSDictionary*)config
 {
     for (NSString* key in config) {
-        NSString* attribute = config[key];
         UIView* interactiveView = [jsonview getView: key];
-        UIView* imageView = [jsonview getView: attribute];
-        if ([interactiveView isKindOfClass:[JRButton class]] && [imageView isKindOfClass:[JRImageView class]]) {
-            JRImageView* jrImageView =(JRImageView*)imageView;
-            [self setupPhotoPickerWithInteractivView: interactiveView completeHandler:^void(UIImagePickerController* controller, UIImage* image) {
+        NSString* attribute = config[key];
+        
+        UIView* certainedView = nil;
+        NSDictionary* specfication = nil;
+        if ([attribute isKindOfClass: [NSDictionary class]]) {
+            specfication = (NSDictionary*)attribute;
+            certainedView = [jsonview getView: specfication[@"VIEW"]];
+        } else {
+            certainedView = [jsonview getView: attribute];
+        }
+        
+        if (![certainedView isKindOfClass:[UIImageView class]]) {
+            continue;
+        }
+        UIImageView* imageView = (UIImageView*)certainedView;
+       
+        [self setupPhotoPickerWithInteractivView: interactiveView handler:^void(AppImagePickerController* imagePickerController) {
+            imagePickerController.didFinishPickingImage = ^void(UIImagePickerController* controller, UIImage* image){
                 [controller dismissViewControllerAnimated:YES completion: nil];
                 image.isNewGenerated = YES;
-                [jrImageView setValue: image];
-            }];
-        }
+                
+                if ([imageView isKindOfClass:[JRImageView class]])  {
+                    [((JRImageView*)imageView) setValue: image];
+                } else {
+                    imageView.image = image;
+                }
+                
+            };
+            
+            if (specfication[@"MASK"]) {
+                imagePickerController.willShowViewController = ^void(UIImagePickerController* controller, BOOL animated) {
+                    if (controller.sourceType != UIImagePickerControllerSourceTypeCamera) {
+                        return;
+                    }
+                    UIImageView* maskImageView = [[UIImageView alloc] initWithImage:[UIImage imageNamed: specfication[@"MASK"]]];
+                    [maskImageView setSize: [ViewHelper getScreenBoundsByOrientation: (UIDeviceOrientation)controller.interfaceOrientation].size];
+                    [controller.view addSubview: maskImageView];
+                };
+            }
+            if (specfication[@"PER_ORIEN"]) {
+                imagePickerController.preferredInterfaceOrientationForPresentationAction = ^UIInterfaceOrientation(AppImagePickerController* controller){
+                    return [specfication[@"PER_ORIEN"] integerValue];
+                };
+            }
+            if (specfication[@"SUP_ORIEN"]) {
+                imagePickerController.supportedInterfaceOrientationsAction = ^NSUInteger(AppImagePickerController* controller) {
+                    return [specfication[@"SUP_ORIEN"] integerValue];
+                };
+            }
+            imagePickerController.didCancelPickingImage = ^void(UIImagePickerController* controller) {
+                [controller dismissViewControllerAnimated:YES completion:nil];
+            };
+            
+        }];
+        
     }
 }
 
-+(void) setupPhotoPickerWithInteractivView:(UIView*)interactiveView completeHandler:(void(^)(UIImagePickerController* controller, UIImage* image))completeHandler
++(void) setupPhotoPickerWithInteractivView:(UIView*)interactiveView handler:(void(^)(AppImagePickerController* imagePickerController))handler
 {
     if ([interactiveView isKindOfClass:[JRButton class]]) {
         ((JRButton*)interactiveView).didClikcButtonAction = ^void(JRButton* bt) {
-            [JRComponentHelper showImagePickerWithCompleteHandler: completeHandler];
+            [JRComponentHelper showImagePickerWithHandler: handler];
         };
         
     } else if ([interactiveView isKindOfClass:[JRLocalizeLabel class]]) {
         ((JRLocalizeLabel*)interactiveView).jrLocalizeLabelDidClickAction = ^void(JRLocalizeLabel* lb) {
-            [JRComponentHelper showImagePickerWithCompleteHandler: completeHandler];
+            [JRComponentHelper showImagePickerWithHandler: handler];
         };
     } else if ([interactiveView isKindOfClass:[JRTextField class]]) {
         ((JRTextField*)interactiveView).textFieldDidClickAction = ^void(JRTextField* tx) {
-            [JRComponentHelper showImagePickerWithCompleteHandler: completeHandler];
+            [JRComponentHelper showImagePickerWithHandler: handler];
         };
     } else if ([interactiveView isKindOfClass:[JRImageView class]]) {
         
         JRImageView* imageView = (JRImageView*)interactiveView;
         if (imageView.image) {
             imageView.doubleClickAction = ^void(JRImageView* iv) {
-                [JRComponentHelper showImagePickerWithCompleteHandler: completeHandler];
+                [JRComponentHelper showImagePickerWithHandler: handler];
             };
         }
         
@@ -153,7 +198,7 @@
     
 }
 
-+(void) showImagePickerWithCompleteHandler:(void(^)(UIImagePickerController* controller, UIImage* image))completeHandler
++(void) showImagePickerWithHandler:(void(^)(AppImagePickerController* imagePickerController))handler
 {
     NSString* takePhotoString = LOCALIZE_KEY(@"takePhoto");
     NSString* photoLibString = LOCALIZE_KEY(@"photoLibrary");
@@ -175,11 +220,10 @@
             return ;
         }
         AppImagePickerController* imagePickerController = [[AppImagePickerController alloc] init];
-        imagePickerController.didFinishPickingImage = completeHandler;
         imagePickerController.sourceType = type;
-        imagePickerController.didCancelPickingImage = ^void(UIImagePickerController* ctl) {
-            [ctl dismissViewControllerAnimated:YES completion:nil];
-        };
+        if (handler) {
+            handler(imagePickerController);
+        }
         [VIEW.navigator.topViewController presentViewController:imagePickerController animated:YES completion: NULL];
 
     } buttonTitles: actionButtons];

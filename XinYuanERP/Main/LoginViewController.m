@@ -145,7 +145,7 @@
 #pragma mark - Json View
     __weak LoginViewController* weakInstance = self;
     jsonview =  (JsonView*)[JsonViewRenderHelper renderFile:@"Views" specificationsKey:@"LoginView"];
-    [jsonview setViewFrame: [ViewHelper getScreenBoundsByOrientation]];
+    [jsonview setViewFrame: [ViewHelper getScreenBoundsByCurrentOrientation]];
     [ColorHelper clearBorderRecursive: jsonview];
     
     [self.view addSubview: jsonview];

@@ -4,16 +4,16 @@
 
 @implementation AppRSAHelper
 
-static RSAEncryptor* rsaEncryptor = nil;
+static RSABase64Cryptor* rsaEncryptor = nil;
 
 +(void)initialize
 {
     if (self == [AppRSAHelper class]) {
-        rsaEncryptor = [[RSAEncryptor alloc] init];
+        rsaEncryptor = [[RSABase64Cryptor alloc] init];
         
-        [rsaEncryptor loadPublicKeyFromData: [NSData dataFromBase64String: [AppRSAKeysKeeper derKey]]];
-        [rsaEncryptor loadPrivateKeyFromData: [NSData dataFromBase64String: [AppRSAKeysKeeper p12Key]] password: [AppRSAKeysKeeper p12Password]];
-        RSAEncryptor.sharedInstance = rsaEncryptor;
+        [rsaEncryptor loadPublicKeyFromString: [AppRSAKeysKeeper derKey]];
+        [rsaEncryptor loadPrivateKeyFromString: [AppRSAKeysKeeper p12Key] password: [AppRSAKeysKeeper p12Password]];
+        RSABase64Cryptor.sharedInstance = rsaEncryptor;
     }
 }
 
