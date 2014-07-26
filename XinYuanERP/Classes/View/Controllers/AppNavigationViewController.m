@@ -21,7 +21,8 @@
 	// Do any additional setup after loading the view.
 }
 
-- (NSUInteger)supportedInterfaceOrientations{
+- (NSUInteger)supportedInterfaceOrientations
+{
     return UIInterfaceOrientationMaskLandscape;
 }
 

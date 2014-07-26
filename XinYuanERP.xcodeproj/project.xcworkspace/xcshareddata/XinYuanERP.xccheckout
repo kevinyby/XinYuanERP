@@ -5,19 +5,21 @@
 	<key>IDESourceControlProjectFavoriteDictionaryKey</key>
 	<false/>
 	<key>IDESourceControlProjectIdentifier</key>
-	<string>98D90D2B-744E-4455-A4A3-31B5B8E93EC0</string>
+	<string>5F6EAC45-3C7E-402F-9BB4-0E569F4DE507</string>
 	<key>IDESourceControlProjectName</key>
 	<string>XinYuanERP</string>
 	<key>IDESourceControlProjectOriginsDictionary</key>
 	<dict>
 		<key>12ED0659-76B6-4AF8-B3D2-27E7A3B0662E</key>
 		<string>https://github.com/kevinyby/XinYuanERP.git</string>
+		<key>13B088A6-0BB2-4072-8168-AA6C2D7E12F7</key>
+		<string>https://github.com/isaacselement/Frameworks.git</string>
 		<key>3DCFBFF2-DFAC-49B9-A4EB-7B7079CF71F0</key>
 		<string>https://github.com/isaacselement/Modules.git</string>
 		<key>A88B5E44-4187-49FD-A738-DA4E14E24658</key>
 		<string>https://github.com/wdanxna/Libraries.git</string>
-		<key>B973B0EA-6AE1-4D43-8FA0-38641F94A511</key>
-		<string>https://github.com/mwaterfall/MWPhotoBrowser.git</string>
+		<key>E4372864-2B5B-444A-8D06-18F7C51B89D3</key>
+		<string>svn://192.168.0.161/TMDResources</string>
 	</dict>
 	<key>IDESourceControlProjectPath</key>
 	<string>XinYuanERP.xcodeproj/project.xcworkspace</string>
@@ -25,12 +27,19 @@
 	<dict>
 		<key>12ED0659-76B6-4AF8-B3D2-27E7A3B0662E</key>
 		<string>../..</string>
+		<key>13B088A6-0BB2-4072-8168-AA6C2D7E12F7</key>
+		<string>../../../../Frameworks</string>
 		<key>3DCFBFF2-DFAC-49B9-A4EB-7B7079CF71F0</key>
 		<string>../../../../Modules</string>
 		<key>A88B5E44-4187-49FD-A738-DA4E14E24658</key>
 		<string>../../../../Libraries</string>
-		<key>B973B0EA-6AE1-4D43-8FA0-38641F94A511</key>
-		<string>../../../../../mywork/Photolib/third_parts/MWPhotoBrowser</string>
+		<key>E4372864-2B5B-444A-8D06-18F7C51B89D3</key>
+		<string>../../../TMDResources</string>
+	</dict>
+	<key>IDESourceControlProjectRepositoryRootDictionary</key>
+	<dict>
+		<key>E4372864-2B5B-444A-8D06-18F7C51B89D3</key>
+		<string>svn://192.168.0.161</string>
 	</dict>
 	<key>IDESourceControlProjectURL</key>
 	<string>https://github.com/kevinyby/XinYuanERP.git</string>
@@ -40,6 +49,14 @@
 	<string>12ED0659-76B6-4AF8-B3D2-27E7A3B0662E</string>
 	<key>IDESourceControlProjectWCConfigurations</key>
 	<array>
+		<dict>
+			<key>IDESourceControlRepositoryExtensionIdentifierKey</key>
+			<string>public.vcs.git</string>
+			<key>IDESourceControlWCCIdentifierKey</key>
+			<string>13B088A6-0BB2-4072-8168-AA6C2D7E12F7</string>
+			<key>IDESourceControlWCCName</key>
+			<string>Frameworks</string>
+		</dict>
 		<dict>
 			<key>IDESourceControlRepositoryExtensionIdentifierKey</key>
 			<string>public.vcs.git</string>
@@ -58,11 +75,11 @@
 		</dict>
 		<dict>
 			<key>IDESourceControlRepositoryExtensionIdentifierKey</key>
-			<string>public.vcs.git</string>
+			<string>public.vcs.subversion</string>
 			<key>IDESourceControlWCCIdentifierKey</key>
-			<string>B973B0EA-6AE1-4D43-8FA0-38641F94A511</string>
+			<string>E4372864-2B5B-444A-8D06-18F7C51B89D3</string>
 			<key>IDESourceControlWCCName</key>
-			<string>MWPhotoBrowser</string>
+			<string>TMDResources</string>
 		</dict>
 		<dict>
 			<key>IDESourceControlRepositoryExtensionIdentifierKey</key>

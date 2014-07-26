@@ -42,7 +42,16 @@
                 if (error) {
                     [ACTION alertError: error];
                 } else {
+                    
                     NSDictionary* employeeInfo = [[data.results firstObject] firstObject];
+                    
+                    BOOL isEmployeeInfoAllApplied = [JsonControllerHelper isAllApplied: MODEL_EMPLOYEE valueObjects:employeeInfo];
+                    if (!isEmployeeInfoAllApplied) {
+                        [JsonOrderCreateHelper cannotCreateAlert:weakInstance.order causeOrder:MODEL_EMPLOYEE department:DEPARTMENT_HUMANRESOURCE identifier:employeeInfo[PROPERTY_IDENTIFIER] employeeNO:employeeInfo[PROPERTY_EMPLOYEENO] objects:employeeInfo];
+                        return ;
+                    }
+                    
+                    
                     NSMutableDictionary* objects = [DictionaryHelper deepCopy: employeeInfo];
                     if (objects[@"livingAddress"]) [objects setObject:[AppRSAKeysKeeper simpleDecrypt:objects[@"livingAddress"]] forKey:@"livingAddress"];
                     NSArray* excepts = @[PROPERTY_EMPLOYEENO];

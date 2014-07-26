@@ -28,7 +28,12 @@
             }
         },
         "IMAGE_PICKER":{
-            "BTN_Take":"IMG_Photo",
+            "BTN_Take": {
+                "VIEW": "IMG_Photo",
+                "MASK": "Face_Mask.png",
+                "PER_ORIEN": 1,
+                "SUP_ORIEN": 3
+            }
         },
         "IMAGES_PREVIEWS":{
             "IMG_Photo":{
