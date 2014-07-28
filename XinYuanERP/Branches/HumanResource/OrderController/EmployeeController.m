@@ -367,7 +367,6 @@
                 NSMutableDictionary* contents = [DictionaryHelper convertToOneDimensionDictionary: pendingApprovals];
                 NSMutableDictionary* realContentsDictionary = [DictionaryHelper filter:contents filter:^BOOL(id value) { return ((NSArray*)value).count == 0;}];
                 [weakInstance assembleResults: realContentsDictionary tableView:tableView];
-                
             }];
             
             

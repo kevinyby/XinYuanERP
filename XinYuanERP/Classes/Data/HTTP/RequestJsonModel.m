@@ -60,8 +60,8 @@
     NSString* jsonStrings = [CollectionHelper convertJSONObjectToJSONString: contents];
 #endif
     
-    NSString* base64JsonString = [jsonStrings base64Encode];
-    return [NSDictionary dictionaryWithObject:base64JsonString forKey:req_JSON];
+//    jsonStrings = [jsonStrings base64Encode];
+    return [NSDictionary dictionaryWithObject:jsonStrings forKey:req_JSON];
 }
 
 

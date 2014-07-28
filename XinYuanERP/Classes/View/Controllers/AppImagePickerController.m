@@ -30,7 +30,7 @@
     if (self.preferredInterfaceOrientationForPresentationAction) {
         return self.preferredInterfaceOrientationForPresentationAction(self);
     } else {
-        return UIInterfaceOrientationLandscapeRight;
+        return self.interfaceOrientation;
     }
 }
 

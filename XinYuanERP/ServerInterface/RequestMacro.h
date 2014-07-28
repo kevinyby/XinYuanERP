@@ -11,13 +11,11 @@
 #define REQUEST_APNS_BADGE    @"badge"
 
 // CUSTOM
-#define REQUEST_APNS_INFOS      @"APNS_INFOS"
-#define APNS_INFOS_ACTION       @"A"
-#define APNS_INFOS_CATEGORY     @"C"
-#define APNS_INFOS_MODEL        @"M"
-#define APNS_INFOS_ID           @"ID"
-#define APNS_INFOS_USER_FROM    @"U_F"
-#define APNS_INFOS_USER_TO      @"U_T"
+#define REQUEST_APNS_INFOS              @"IS"
+#define APNS_INFOS_CATEGORY_MODEL       @"CM"
+#define APNS_INFOS_ID                   @"ID"
+#define APNS_INFOS_USER_FROM            @"F"
+#define APNS_INFOS_USER_TO              @"T"
 
 
 

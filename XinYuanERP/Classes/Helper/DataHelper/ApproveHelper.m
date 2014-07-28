@@ -12,13 +12,12 @@
     }
     RequestJsonModel* requestModel = [RequestJsonModel getJsonModel];
     requestModel.path = PATH_LOGIC_READ(CATEGORIE_APPROVAL);
-    [requestModel.fields addObject:@[@"pendingApprovals"]];
+    [requestModel.fields addObject:@[@"pendingApprovalsCount"]];
     [requestModel.models addObjectsFromArray:@[@".Approvals"]];
     [requestModel addObject:@{PROPERTY_EMPLOYEENO: user}];
     [DATA.requester startPostRequest:requestModel completeHandler:^(HTTPRequester* requester, ResponseJsonModel *data, NSHTTPURLResponse *httpURLReqponse, NSError *error) {
         NSArray* results = [data.results firstObject];
-        int approvalCount = 0 ;
-        if ([results count]) approvalCount = [self getPendingOrdersCount: [results firstObject]];
+        int approvalCount = [[results firstObject] intValue] ;
         [[UIApplication sharedApplication] setApplicationIconBadgeNumber:approvalCount];
         
     }];

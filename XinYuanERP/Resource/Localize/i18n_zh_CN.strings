@@ -213,6 +213,7 @@
 "order"="表单";
 "orderNO"="单号";
 "password"="密码";
+"pendingApprovalsCount"="待批文件数";
 "permission"="权限";
 "petrol"="汽油";
 "phoneNO"="电话";
