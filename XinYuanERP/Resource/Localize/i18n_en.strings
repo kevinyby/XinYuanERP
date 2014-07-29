@@ -213,6 +213,7 @@
 "order"="Order";
 "orderNO"="Order NO.";
 "password"="Password";
+"pendingApprovalsCount"="Pendings Count";
 "permission"="Permission";
 "petrol"="Petrol";
 "phoneNO"="Phone";

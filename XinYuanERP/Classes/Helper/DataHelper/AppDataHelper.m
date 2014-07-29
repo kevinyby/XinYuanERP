@@ -138,8 +138,8 @@
     
     // Custom Information
     NSMutableDictionary* informations = [NSMutableDictionary dictionary];
-    if (department) [informations setObject: department forKey:APNS_INFOS_CATEGORY];
-    if (order) [informations setObject: order forKey:APNS_INFOS_MODEL];
+    if (department) [informations setObject: DOT_CONNENT(department, order)  forKey:APNS_INFOS_CATEGORY_MODEL];
+    
     if (identities) [informations setObject: identities forKey:APNS_INFOS_ID];
     
     [informations setObject: DATA.signedUserName forKey:APNS_INFOS_USER_FROM];

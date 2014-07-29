@@ -8,6 +8,16 @@
     return @[@"ZZ_TAB_BTNPending", @"TraceStatus"];
 }
 
+
+-(void) swipAction:(UISwipeGestureRecognizer*)gestureRecognizer
+{
+    if (gestureRecognizer.direction == UISwipeGestureRecognizerDirectionUp) {
+        [JsonControllerHelper flipPage: self isNextPage:NO];
+    } else if (gestureRecognizer.direction == UISwipeGestureRecognizerDirectionDown) {
+        [JsonControllerHelper flipPage: self isNextPage:YES];
+    }
+}
+
 - (void)viewDidLoad
 {
     [super viewDidLoad];
@@ -17,10 +27,22 @@
     
     JsonView* jsonView = self.jsonView;
     
-    //----------- Info View
+    //---------------------- INFO ---------------------------------
+    
+    JsonDivView* infoNestedView = (JsonDivView*)[jsonView getView: @"NESTED_SCROLL.NESTED_INFO"];
+    // Add swipe gesture
+    UISwipeGestureRecognizer* swipupGestureUP = [[UISwipeGestureRecognizer alloc] initWithTarget: self action:@selector(swipAction:)];
+    swipupGestureUP.direction = UISwipeGestureRecognizerDirectionUp ;
+    UISwipeGestureRecognizer* swipGestureDown = [[UISwipeGestureRecognizer alloc] initWithTarget: self action:@selector(swipAction:)];
+    swipGestureDown.direction = UISwipeGestureRecognizerDirectionDown ;
+    [infoNestedView addGestureRecognizer: swipupGestureUP];
+    [infoNestedView addGestureRecognizer: swipGestureDown];
+    
+    
+    // LEFT ________________________
     
     // edit departments
-    JRTextField* editDepartmentTx = ((JRLabelCommaTextFieldView*)[jsonView getView:@"department"]).textField;
+    JRTextField* editDepartmentTx = ((JRLabelCommaTextFieldView*)[infoNestedView getView:@"department"]).textField;
     editDepartmentTx.textFieldDidClickAction = ^void(JRTextField* jrTextField) {
         NSString* contentKey = @"department";
         __block BOOL isNeedToSaveToServer = NO;
@@ -108,7 +130,7 @@
     
     
     // edit joblevel
-    JRTextField* editJobLevelTx = ((JRLabelCommaTextFieldView*)[jsonView getView:@"jobLevel"]).textField;
+    JRTextField* editJobLevelTx = ((JRLabelCommaTextFieldView*)[infoNestedView getView:@"jobLevel"]).textField;
     editJobLevelTx.textFieldDidClickAction = ^void(JRTextField* jrTextField) {
         NSString* contentKey = @"jobLevel";
         __block BOOL isNeedToSaveToServer = NO;
@@ -222,14 +244,12 @@
     };
     
     
+
     
-    
-    
-    
-    // Right
+    // Right ________________________
     
     // birthday and employeeDate
-    JRTextField* birthdayTextField = ((JRLabelCommaTextFieldView*)[jsonView getView: @"birthday"]).textField;
+    JRTextField* birthdayTextField = ((JRLabelCommaTextFieldView*)[infoNestedView getView: @"birthday"]).textField;
     birthdayTextField.textFieldDidSetTextBlock = ^void(NormalTextField* tx, NSString* oldText) {
         NSString* newText = tx.text;
         if (!OBJECT_EMPYT(newText)) {
@@ -238,7 +258,7 @@
             [((id<JRComponentProtocal>)[jsonView getView:@"age"]) setValue: @(age)];
         }
     };
-    JRTextField* employDateTextField = ((JRLabelCommaTextFieldView*)[jsonView getView: @"employDate"]).textField;
+    JRTextField* employDateTextField = ((JRLabelCommaTextFieldView*)[infoNestedView getView: @"employDate"]).textField;
     employDateTextField.textFieldDidSetTextBlock = ^void(NormalTextField* tx, NSString* oldText) {
         NSString* newText = tx.text;
         if (!OBJECT_EMPYT(newText)) {
@@ -251,7 +271,7 @@
     
     
     // experience view
-    JRComplexView* experienceView = (JRComplexView*)[jsonView getView: @"work_experience"];
+    JRComplexView* experienceView = (JRComplexView*)[infoNestedView getView: @"work_experience"];
     JRTableView* expTableView = (JRTableView*)[experienceView getView: @"TBL_Contents"];
     
     expTableView.tableViewBaseCellForIndexPathAction = ^UITableViewCell*(TableViewBase* tableViewObj, NSIndexPath* indexPath, UITableViewCell* oldCell){
@@ -347,7 +367,6 @@
                 NSMutableDictionary* contents = [DictionaryHelper convertToOneDimensionDictionary: pendingApprovals];
                 NSMutableDictionary* realContentsDictionary = [DictionaryHelper filter:contents filter:^BOOL(id value) { return ((NSArray*)value).count == 0;}];
                 [weakInstance assembleResults: realContentsDictionary tableView:tableView];
-                
             }];
             
             

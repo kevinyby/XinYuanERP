@@ -18,6 +18,23 @@
     return self;
 }
 
+- (NSUInteger)supportedInterfaceOrientations {
+    if (self.supportedInterfaceOrientationsAction) {
+        return self.supportedInterfaceOrientationsAction(self);
+    } else {
+        return UIInterfaceOrientationMaskAll;
+    }
+}
+
+- (UIInterfaceOrientation)preferredInterfaceOrientationForPresentation {
+    if (self.preferredInterfaceOrientationForPresentationAction) {
+        return self.preferredInterfaceOrientationForPresentationAction(self);
+    } else {
+        return self.interfaceOrientation;
+    }
+}
+
+
 - (void)didRotateFromInterfaceOrientation:(UIInterfaceOrientation)fromInterfaceOrientation
 {
     if (self.didRotateFromOrientation) {
@@ -31,14 +48,14 @@
 - (void)imagePickerController:(UIImagePickerController *)picker didFinishPickingMediaWithInfo:(NSDictionary *)info{
     if (self.didFinishPickingImage) {
         UIImage* pickedImage = [info objectForKey:UIImagePickerControllerOriginalImage];
-        self.didFinishPickingImage(picker, pickedImage);
+        self.didFinishPickingImage(self, pickedImage);
     }
 }
 
 - (void)imagePickerControllerDidCancel:(UIImagePickerController *)picker
 {
     if (self.didCancelPickingImage) {
-        self.didCancelPickingImage(picker);
+        self.didCancelPickingImage(self);
     }
 }
 

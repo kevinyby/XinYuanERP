@@ -118,16 +118,8 @@
     }];
 }
 -(void) startPostRequest: (RequestJsonModel*)model completeHandler:(HTTPRequesterCompleteHandler)completeHandler {
-    NSString* urlString = nil;
-    NSDictionary* parameters = nil;
-    if ([model isKindOfClass: [RequestJsonModel class]]) {
-        urlString = model.path;
-        parameters = [model getJSON];
-    } else if ([model isKindOfClass:[NSArray class]]) {
-        NSArray* array = (NSArray*)model;
-        urlString = MODEL_URL([array firstObject]);
-        parameters = @{req_JSON:[CollectionHelper convertJSONObjectToJSONString: [array lastObject]]};
-    }
+    NSString* urlString = model.path;
+    NSDictionary* parameters = model.json;
     
     self.internalHttpRequest = [[HTTPPostRequest alloc] initWithURLString:urlString parameters:parameters];
     if (DATA.cookies)[(NSMutableURLRequest*)self.internalHttpRequest.request addValue: DATA.cookies forHTTPHeaderField:HTTP_REQ_HEADER_COOKIE];

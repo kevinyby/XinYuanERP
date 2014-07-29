@@ -297,7 +297,7 @@
     pi = [UIImage fixOrientation:pi];
     _processedImageData = UIImageJPEGRepresentation(pi, 1);
     [[UIApplication sharedApplication] setStatusBarHidden:YES];
-    YIPopupTextView* popup = [[YIPopupTextView alloc] initWithPlaceHolder:@"输入名称" maxCount:10];
+    YIPopupTextView* popup = [[YIPopupTextView alloc] initWithPlaceHolder:@"输入名字" maxCount:10];
     popup.tag = 12345;
     popup.delegate = self;
     [popup showInView:self.view];

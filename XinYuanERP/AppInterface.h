@@ -4,7 +4,7 @@
 
 #import "LocalizeKeys.h"
 
-#import "_Encrypt.h"
+#import "_Crypto.h"
 
 
 #import "TextFormatter.h"

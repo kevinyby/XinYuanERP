@@ -4,8 +4,9 @@
 @class JsonView;
 @class JRButton;
 @class JRTextField;
-@class JsonController;
 @class JRImageView;
+@class JsonController;
+@class AppImagePickerController;
 
 @interface JRComponentHelper : NSObject
 
@@ -22,7 +23,9 @@
 #pragma mark - Photo
 +(void) setupPhotoPickerComponents: (JsonView*)jsonview config:(NSDictionary*)config;
 
-+(void) setupPhotoPickerWithInteractivView:(UIView*)interactiveView completeHandler:(void(^)(UIImagePickerController* controller, UIImage* image))completeHandler;
++(void) setupPhotoPickerWithInteractivView:(UIView*)interactiveView handler:(void(^)(AppImagePickerController* imagePickerController))handler;
+
+
 
 +(void) setupPreviewImageComponents: (JsonController*)jsoncontroller config:(NSDictionary*)config;
 

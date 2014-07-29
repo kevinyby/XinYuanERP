@@ -17,14 +17,11 @@
             if (elementIndex == 0 || elementIndex == 5){
                 return ;
                 
-            // pendingApprovals
-            // the last one , note that , in setExceptionAttributes: add "exception" column/field
+                // pendingApprovals
+                // the last one , note that , in setExceptionAttributes: add "exception" column/field
             } else if(elementIndex == innerCount-1) {
-                int pendingCount = [ApproveHelper getPendingOrdersCount: cellElement];
-                if (pendingCount == 0) {
+                if ([cellElement intValue] == 0) {
                     cellElement = EMPTY_STRING;
-                } else {
-                    cellElement = [NSString stringWithFormat:@"%d", pendingCount];
                 }
             }
             
@@ -83,28 +80,49 @@
     
     if ([order isEqualToString: MODEL_EMPLOYEE]) {
         [JsonBranchFactory iterateHeaderJRLabel:listController handler:^BOOL(JRLocalizeLabel *label, int index, NSString *attribute) {
-            if ([label.attribute isEqualToString: @"pendingApprovals"]) {
-                label.jrLocalizeLabelDidClickAction = ^void(JRLocalizeLabel* label) {
-                    [ACTION alertMessage: @"This Function is in implementation"];
-                };
-            } else {
-                label.jrLocalizeLabelDidClickAction = ^void(JRLocalizeLabel* label) {
+            label.jrLocalizeLabelDidClickAction = ^void(JRLocalizeLabel* label) {
+                
+                NSString* attribute = label.attribute;
+                NSMutableArray* outterSorts = listController.requestModel.sorts;
+                
+                
+                
+                // if click 'pendingApprovalsCount'
+                if ([attribute rangeOfString: @"pendingApprovalsCount"].location != NSNotFound) {
                     
-                    NSString* attribute = label.attribute;
-                    NSMutableArray* outterSorts = listController.requestModel.sorts;
+                    NSString* secondString = [[outterSorts firstObject] safeObjectAtIndex: 1];
+        
+                    if ([secondString rangeOfString: @"pendingApprovalsCount"].location == NSNotFound) {
+                        secondString = [@"Approvals.pendingApprovalsCount" stringByAppendingFormat:@".%@", SORT_ASC];
+                    }
+                    NSString* newSortString = [JsonBranchHelper reverseSortString: secondString];
                     
+                    [self insertOrReplaceInSortsInEmployee: outterSorts newSortString:newSortString];
+                }
+                
+                else {
+                    
+                    NSMutableArray* firstInnerSorts = [outterSorts firstObject];
+                    
+                    // if click 'resign'
                     if ([attribute rangeOfString: @"resign"].location != NSNotFound) {
-                        NSString* resignSorting =  [[outterSorts firstObject] firstObject];
+                        NSString* resignSorting =  [firstInnerSorts firstObject];
                         NSString* newSortString = [JsonBranchHelper reverseSortString: resignSorting];
-                        [[outterSorts firstObject] replaceObjectAtIndex: 0 withObject: newSortString];
+                        [firstInnerSorts replaceObjectAtIndex: 0 withObject: newSortString];
+                    }
+                    
+                    else
                         
-                    } else{
+                    {
                         
-                        NSMutableArray* firstInnerSorts = [outterSorts firstObject];
                         
+                        
+                        // if clikc 'employeeNO'
                         if ([attribute rangeOfString: @"employeeNO"].location != NSNotFound) {
                             NSString* employeeSortString = @"employeeNO.ASC";   // default
                             int employeeStortIndex = 1;                         // default
+                            
+                            // get if already in sort fields
                             for (int i = 0; i < firstInnerSorts.count; i++) {
                                 NSString* string = firstInnerSorts[i];
                                 if ([string rangeOfString: @"employeeNO"].location != NSNotFound) {
@@ -117,7 +135,9 @@
                             [firstInnerSorts replaceObjectAtIndex: employeeStortIndex withObject:employeeSortString];
                             [firstInnerSorts exchangeObjectAtIndex: 1 withObjectAtIndex:employeeStortIndex];
                             
-                        } else {
+                        }
+                        
+                        else {
                             NSString* secondString = [[outterSorts firstObject] safeObjectAtIndex: 1];
                             
                             NSString* newSortString = nil;
@@ -126,25 +146,50 @@
                             } else {
                                 newSortString = [attribute stringByAppendingFormat:@".%@", SORT_ASC];
                             }
-                            if ([secondString rangeOfString: @"employeeNO"].location != NSNotFound) {
-                                [firstInnerSorts insertObject: newSortString atIndex:1];
-                            } else {
-                                [firstInnerSorts replaceObjectAtIndex: 1 withObject:newSortString];
+                            
+                            
+                            if (
+                                [newSortString rangeOfString: @"name"].location != NSNotFound ||
+                                [newSortString rangeOfString: @"department"].location != NSNotFound ||
+                                [newSortString rangeOfString: @"jobTitle"].location != NSNotFound
+                                )
+                            {
+                                if ([newSortString rangeOfString: @"GBK"].location == NSNotFound) {
+                                    newSortString = [newSortString stringByAppendingString: @":GBK"];
+                                }
                             }
+                            
+                            
+                            [self insertOrReplaceInSortsInEmployee: outterSorts newSortString:newSortString];
                         }
                     }
-                    
-
-                    [listController requestForDataFromServer];
-                    
-                };
-            }
+                }
+                
+                
+                
+                [listController requestForDataFromServer];
+                
+            };
             return NO;
         }];
         
     } else {
         
         [super setHeadersSortAction:listController order:order];
+    }
+}
+
+
+-(void) insertOrReplaceInSortsInEmployee: (NSMutableArray*)outterSorts newSortString:(NSString*)newSortString
+{
+    // set in firstInnerSorts
+    NSString* secondString = [[outterSorts firstObject] safeObjectAtIndex: 1];
+    NSMutableArray* firstInnerSorts = [outterSorts firstObject];
+    
+    if ([secondString rangeOfString: @"employeeNO"].location != NSNotFound) {
+        [firstInnerSorts insertObject: newSortString atIndex:1];
+    } else {
+        [firstInnerSorts replaceObjectAtIndex: 1 withObject:newSortString];
     }
 }
 

@@ -27,7 +27,7 @@ static ViewManager* sharedInstance;
 //        NSNumber* nsmu = [NSNumber numberWithFloat:2];
 //        BOOL isEqual = [nsmu isEqual: @(2)];
 
-        
+
         NSLog(@"");
     }
     return self;
@@ -88,8 +88,10 @@ static ViewManager* sharedInstance;
     NSString* message = [appleContents objectForKey: REQUEST_APNS_ALERT];
     
     [UIAlertView alertViewWithTitle:LOCALIZE_KEY(@"Push_Notifications") message:message cancelButtonTitle:LOCALIZE_KEY(@"skip") ensureButtonTitle:LOCALIZE_KEY(@"read") onCancel:nil onEnsure:^{
-        NSString* department = [informations objectForKey: APNS_INFOS_CATEGORY];
-        NSString* order = [informations objectForKey: APNS_INFOS_MODEL];
+        NSString* departmentDotModel = [informations objectForKey: APNS_INFOS_CATEGORY_MODEL];
+        NSArray* departmentModels = [departmentDotModel componentsSeparatedByString: DOT];
+        NSString* department = [departmentModels firstObject];
+        NSString* order =  [departmentModels lastObject];
         NSDictionary* identities = [informations objectForKey: APNS_INFOS_ID];
         id identification = [RequestModelHelper getModelIdentification: identities];
         

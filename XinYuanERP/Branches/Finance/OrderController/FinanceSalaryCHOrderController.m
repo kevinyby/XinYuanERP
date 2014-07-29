@@ -147,7 +147,7 @@
             
             // check
             if (! [JsonControllerHelper isAllApplied: ORDER_FinanceSalary  valueObjects:salaryInfo]) {
-                [self cannotCreateAlert: ORDER_FinanceSalary department:department identifier:salaryInfo[PROPERTY_IDENTIFIER] employeeNO:employeeNO objects:salaryInfo];
+                [JsonOrderCreateHelper cannotCreateAlert:self.order causeOrder:ORDER_FinanceSalary department:department identifier:salaryInfo[PROPERTY_IDENTIFIER] employeeNO:employeeNO objects:salaryInfo];
                 return ;
             }
             
@@ -160,7 +160,7 @@
             // check
             if (lastSalaryCHInfo) {
                 if (! [JsonControllerHelper isAllApplied: ORDER_FinanceSalaryCHOrder valueObjects:lastSalaryCHInfo]) {
-                    [self cannotCreateAlert: ORDER_FinanceSalaryCHOrder department:department identifier:lastSalaryCHId employeeNO:employeeNO objects:lastSalaryCHInfo];
+                    [JsonOrderCreateHelper cannotCreateAlert:self.order causeOrder: ORDER_FinanceSalaryCHOrder department:department identifier:lastSalaryCHId employeeNO:employeeNO objects:lastSalaryCHInfo];
                     return ;
                 }
                 
@@ -187,22 +187,6 @@
 
 
 #pragma mark - Private Methods
-
-///////_____________________________________________ Pop Cannot Create Alert ____________________________
--(void) cannotCreateAlert: (NSString*)orderType department:(NSString*)department identifier:(id)identifier employeeNO:(NSString*)employeeNO objects:(NSDictionary*)objects
-{
-    NSString* currentApprovingLevel = [JsonControllerHelper getCurrentApprovingLevel: orderType valueObjects:objects];
-    
-    NSString* message = LOCALIZE_MESSAGE_FORMAT(@"HaveAnOrderApproving", employeeNO, LOCALIZE_KEY(orderType), LOCALIZE_KEY(currentApprovingLevel));
-    message = [message stringByAppendingFormat:@", %@", APPLOCALIZE_KEYS(@"cannot", @"create", self.order)];
-    
-    [PopupViewHelper popAlert: nil message:message style:0 actionBlock:^(UIView *popView, NSInteger index) {
-        if (index == 1) {
-            [JsonBranchFactory navigateToOrderController: department order:orderType identifier:identifier];
-        }
-    } dismissBlock:nil buttons:LOCALIZE_KEY(KEY_CANCEL), LOCALIZE_KEY(@"read"), nil];
-}
-
 
 ///////_____________________________________________ Begin Caculate ____________________________
 

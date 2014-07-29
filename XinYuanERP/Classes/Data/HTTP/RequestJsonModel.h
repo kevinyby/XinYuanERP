@@ -18,9 +18,9 @@
 #define req_MODELS @"MODELS"
 #define req_OBJECTS @"OBJECTS"
 
+#define req_FIELDS @"FIELDS"
 #define req_JOINS @"JOINS"
 #define req_SORTS @"SORTS"
-#define req_FIELDS @"FIELDS"
 #define req_LIMITS @"LIMITS"
 
 #define req_CRITERIAS @"CRITERIAS"
@@ -60,7 +60,14 @@
 
 
 +(RequestJsonModel*) getJsonModel ;
--(NSDictionary*) getJSON ;
+
+-(NSDictionary*)json ;
+
+-(void) feedJSON: (NSDictionary*)json;
+
+
+
+#pragma mark -
 
 -(void) addModel:(id)obj ;
 -(void) addModelsFromArray: (NSArray*)array;

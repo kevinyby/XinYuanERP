@@ -56,7 +56,7 @@
 "ValueNotTheSame"="' %@ ' 值与 ' %@ ' 值不一致";
 "ValueOnlyBeNumber"="' %@ ' 只能为数字";
 "VerifyCode_Error"="验证码错误";
-"YouHaveNewOrderToApply"="%@, 您有新的 %@ 需要 %@";
+"YouHaveNewOrderToApply"="%@,您有新的 %@ 需要 %@";
 "YouHaveNoPermissionToDo"="你没有 %@ 的 %@ 权限 ";
-"YourOrderHaveBeenApplied"="%@, 您 %@的 %@ 得到了 %@";
-"YourOrderHaveBeenReturned"="%@, 您 %@的 %@ 被 %@ 了";
+"YourOrderHaveBeenApplied"="%@,您 %@的 %@ 得到了 %@";
+"YourOrderHaveBeenReturned"="%@,您 %@的 %@ 被 %@ 了";
