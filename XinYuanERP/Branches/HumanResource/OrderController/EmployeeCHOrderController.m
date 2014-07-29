@@ -37,18 +37,27 @@
             NSString* employeeNO = [filterTableView realContentForIndexPath: realIndexPath];
             NSDictionary* objects = @{PROPERTY_EMPLOYEENO: employeeNO};
             [VIEW.progress show];
-            [AppServerRequester readModel: MODEL_EMPLOYEE department:DEPARTMENT_HUMANRESOURCE objects:objects completeHandler:^(ResponseJsonModel *data, NSError *error) {
+            
+            [AppServerRequester readModels: @[MODEL_EMPLOYEE, ORDER_EmployeeCHOrder] department:DEPARTMENT_HUMANRESOURCE objects:@[objects,objects] fields:nil limits:@[@[],@[@(0),@(1)]] sorts:@[@[],@[DOT_CONNENT(@"createDate", SORT_DESC)]] completeHandler:^(ResponseJsonModel *response, NSError *error) {
+                
                 [VIEW.progress hide];
                 if (error) {
                     [ACTION alertError: error];
                 } else {
                     
-                    NSDictionary* employeeInfo = [[data.results firstObject] firstObject];
                     
-                    BOOL isEmployeeInfoAllApplied = [JsonControllerHelper isAllApplied: MODEL_EMPLOYEE valueObjects:employeeInfo];
-                    if (!isEmployeeInfoAllApplied) {
+                    // info
+                    NSDictionary* employeeInfo = [[response.results firstObject] firstObject];
+                    if (![JsonControllerHelper isAllApplied: MODEL_EMPLOYEE valueObjects:employeeInfo]) {
                         [JsonOrderCreateHelper cannotCreateAlert:weakInstance.order causeOrder:MODEL_EMPLOYEE department:DEPARTMENT_HUMANRESOURCE identifier:employeeInfo[PROPERTY_IDENTIFIER] employeeNO:employeeInfo[PROPERTY_EMPLOYEENO] objects:employeeInfo];
                         return ;
+                    }
+                    
+                    // ch info
+                    NSDictionary* employeeChInfo = [[response.results lastObject] firstObject];
+                    if (employeeChInfo && ! [JsonControllerHelper isAllApplied: ORDER_EmployeeCHOrder valueObjects:employeeChInfo]) {
+                        [JsonOrderCreateHelper cannotCreateAlert:weakInstance.order causeOrder:ORDER_EmployeeCHOrder department:DEPARTMENT_HUMANRESOURCE identifier:employeeChInfo[PROPERTY_IDENTIFIER] employeeNO:employeeChInfo[PROPERTY_EMPLOYEENO] objects:employeeChInfo];
+                        return;
                     }
                     
                     
