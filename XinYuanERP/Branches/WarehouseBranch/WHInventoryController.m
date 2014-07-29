@@ -13,6 +13,9 @@
 #import "PopPDFViewController.h"
 #import "PopBubbleView.h"
 
+#import "PDFMainViewController.h"
+#import "PDFDataManager.h"
+
 
 @interface WHInventoryController ()<UITextFieldDelegate>
 {
@@ -52,6 +55,7 @@
     __weak WHInventoryController* weakSelf = self;
     
     
+    
     [self setUpTextFields];
     
     JRTextField* editCategoryTxtFidld = ((JRLabelTextFieldView*)[self.jsonView getView:@"productCategory"]).textField;
@@ -64,21 +68,39 @@
     JRButton* addNewDescButton = (JRButton*)[self.jsonView getView:@"BTN_AddPDF"];
     addNewDescButton.didClikcButtonAction = ^void(JRButton* jrButton){
         
-        PopPDFViewController* popView = [[PopPDFViewController alloc] init];
-        popView.title = LOCALIZE_KEY(LOCALIZE_CONNECT_KEYS(MODEL_WHInventory,@"productDesc"));
-        popView.pathArray = @[@{@"PATH":PRODUCTPDF_PREFIXPATH}];
-        popView.selectedMarks = _selectedPDFArray;
-        popView.selectBlock = ^(NSMutableArray* selectArray){
-            _selectedPDFArray = selectArray;
-           productDescTxtField.text = [_selectedPDFArray componentsJoinedByString:KEY_COMMA];
-           [self dismissPopupViewControllerAnimated:YES completion:^{}];
-        };
-        [self presentPopupViewController:popView animated:YES completion:nil];
+    [[PDFDataManager sharedManager] requestWithParameter:@"ProductPDF" WithComplete:^(NSError *error) {
+        if (!error) {
+            NSLog(@"success ---");
+            
+            PDFMainViewController* mainVC = [[PDFMainViewController alloc] init];
+            mainVC.PDFSelectArray = _selectedPDFArray;
+            mainVC.selectBlock = ^(NSMutableArray* selectArray){
+                _selectedPDFArray = selectArray;
+                productDescTxtField.text = [_selectedPDFArray componentsJoinedByString:KEY_COMMA];
+            };
+            [self.navigationController pushViewController:mainVC animated:YES];
+            
+            
+        }
+    }];
+        
+//        PopPDFViewController* popView = [[PopPDFViewController alloc] init];
+//        popView.title = LOCALIZE_KEY(LOCALIZE_CONNECT_KEYS(MODEL_WHInventory,@"productDesc"));
+//        popView.pathArray = @[@{@"PATH":PRODUCTPDF_PREFIXPATH}];
+//        popView.selectedMarks = _selectedPDFArray;
+//        popView.selectBlock = ^(NSMutableArray* selectArray){
+//            _selectedPDFArray = selectArray;
+//           productDescTxtField.text = [_selectedPDFArray componentsJoinedByString:KEY_COMMA];
+//           [self dismissPopupViewControllerAnimated:YES completion:^{}];
+//        };
+//        [self presentPopupViewController:popView animated:YES completion:nil];
+        
     };
     
     productDescTxtField.textFieldDidClickAction = ^void(JRTextField* jrTextField){
         if (isEmptyString(jrTextField.text)) return;
        [PopBubbleView popTableBubbleView:jrTextField title:LOCALIZE_KEY(LOCALIZE_CONNECT_KEYS(MODEL_WHInventory,@"productDesc")) dataSource:_selectedPDFArray selectedBlock:^(NSInteger selectedIndex, NSString *selectedValue) {
+           
            WebViewController* web = [[WebViewController alloc]initWithUrlString:PRODUCTPDF_PATH(selectedValue)];
            [self presentModalViewController:web animated:YES];
 

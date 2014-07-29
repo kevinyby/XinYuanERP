@@ -45,14 +45,18 @@
     [cancelButton setFrame:rect];
     [self.view addSubview:cancelButton];
     
-//    NSString* webloadingUrl = [NSString stringWithFormat:@"%@/%@",testUrl,self.loadingUrlString];
-    [DATA.requester startDownloadRequest:IMAGE_URL(DOWNLOAD) parameters:@{@"PATH":self.loadingUrlString} completeHandler:^(HTTPRequester *requester, ResponseJsonModel *model, NSHTTPURLResponse *httpURLReqponse, NSError *error) {
-//        NSString* mimeType = [httpURLReqponse MIMEType];
-//         NSLog(@"mimeType  === %@",mimeType);
+    NSString* webloadingUrl;
+    if (![self.loadingUrlString hasSuffix:@".pdf"]) {
+        webloadingUrl = [NSString stringWithFormat:@"%@%@",self.loadingUrlString,@".pdf"];
+    }else{
+        webloadingUrl = self.loadingUrlString;
+    }
+    [DATA.requester startDownloadRequest:IMAGE_URL(DOWNLOAD) parameters:@{@"PATH":webloadingUrl}
+                         completeHandler:^(HTTPRequester *requester, ResponseJsonModel *model,
+                                           NSHTTPURLResponse *httpURLReqponse, NSError *error)
+    {
+        
         NSData* pdfData = model.binaryData;
-        NSString* name = [self contentTypeForImageData:pdfData];
-        NSLog(@"name  === %@",name);
-        [self.webView loadData:pdfData MIMEType:@"image/jpeg" textEncodingName:nil baseURL: nil];
         [self.webView loadData:pdfData MIMEType:@"application/pdf" textEncodingName:nil baseURL: nil];
         
     }];
@@ -60,23 +64,23 @@
 }
 
 
-- (NSString *)contentTypeForImageData:(NSData *)data {
-    uint8_t c;
-    [data getBytes:&c length:1];
-    
-    switch (c) {
-        case 0xFF:
-            return @"image/jpeg";
-        case 0x89:
-            return @"image/png";
-        case 0x47:
-            return @"image/gif";
-        case 0x49:
-        case 0x4D:
-            return @"image/tiff";
-    }
-    return nil;
-}
+//- (NSString *)contentTypeForImageData:(NSData *)data {
+//    uint8_t c;
+//    [data getBytes:&c length:1];
+//    
+//    switch (c) {
+//        case 0xFF:
+//            return @"image/jpeg";
+//        case 0x89:
+//            return @"image/png";
+//        case 0x47:
+//            return @"image/gif";
+//        case 0x49:
+//        case 0x4D:
+//            return @"image/tiff";
+//    }
+//    return nil;
+//}
 
 #pragma mark -
 #pragma mark - WebView
