@@ -1,7 +1,7 @@
-#import "DataParserHelper.h"
+#import "AppDataParserHelper.h"
 #import "AppInterface.h"
 
-@implementation DataParserHelper
+@implementation AppDataParserHelper
 
 
 +(NSMutableDictionary*) parseUserPermissions:(NSArray*)permissions {

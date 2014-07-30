@@ -1,6 +1,6 @@
 #import <Foundation/Foundation.h>
 
-@interface DataParserHelper : NSObject
+@interface AppDataParserHelper : NSObject
 
 +(NSMutableDictionary*) parseUserPermissions:(NSArray*)permissions ;
 

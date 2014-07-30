@@ -287,7 +287,7 @@
 -(void)getUserAuthoritysWithObject:(NSDictionary*)permissionsJsons
 {
     DATA.signedUserId = [[permissionsJsons objectForKey: USER_IDENTIFIER ] integerValue];
-    DATA.usersNOPermissions = [DataParserHelper parseUserPermissions: [permissionsJsons objectForKey: ALL_USERS_PERMISSIONS]];
+    DATA.usersNOPermissions = [AppDataParserHelper parseUserPermissions: [permissionsJsons objectForKey: ALL_USERS_PERMISSIONS]];
     
     
     // get the refresh data first time
@@ -351,9 +351,6 @@
             
             if ([department isEqualToString: CATEGORIE_CARDS]) {
                 
-//                controller = [[BrowserManager alloc] init];
-//                UIStoryboard* sb = [UIStoryboard storyboardWithName:@"Main_iPhone" bundle:nil];
-//                controller = [sb instantiateViewControllerWithIdentifier:@"Cards"];
                 NSString* sbname = @"Main_iPhone";
                 if ([UIDevice currentDevice].userInterfaceIdiom == UIUserInterfaceIdiomPad){
                     sbname = @"Main_iPad";

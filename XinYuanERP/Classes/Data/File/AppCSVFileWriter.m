@@ -52,7 +52,7 @@
 +(NSString*) getCSVSaveFullPath: (NSString*)model department:(NSString*)department orderNO:(NSString*)orderNO {
     NSString* relativePath = [self getCSVSaveRelativePath:model department:department orderNO:orderNO];
     NSString* fullPath = [[FileManager documentsPath] stringByAppendingPathComponent: relativePath];
-    [FileManager createFolderIfNotExist: fullPath];
+    [FileManager createFolderWhileNotExist: fullPath];
     return fullPath;
 }
 

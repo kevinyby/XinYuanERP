@@ -306,12 +306,12 @@
     if ([DATA.signedUserName isEqualToString: objects[lastHasApproval]]) {
         
         // Enable and Disable the Submit Buttons For Returned Status
-        [JsonControllerHelper enableSubmitButtonsForReturnedStatus: jsoncontroller lastHasApprovalLevel:lastHasApproval];
+        [JsonControllerHelper enableSubmitButtonsForReturnedStatusByLastApprovedLevel: jsoncontroller lastHasApprovalLevel:lastHasApproval];
         
     }
 }
 
-+(void) enableSubmitButtonsForReturnedStatus:(JsonController *)jsoncontroller lastHasApprovalLevel:(NSString*)lastHasApprovalLevel
++(void) enableSubmitButtonsForReturnedStatusByLastApprovedLevel:(JsonController *)jsoncontroller lastHasApprovalLevel:(NSString*)lastHasApprovalLevel
 {
     // Enable and Disable the Submit Buttons For Returned Status
     [JsonControllerHelper iterateJsonControllerSubmitButtonsConfig: jsoncontroller  handler:^BOOL(NSString* buttonKey, JRButton *submitBTN, NSString *departmentType, NSString *orderType, NSString *sendNestedViewKey, NSString *appTo, NSString *appFrom, JsonControllerSubmitButtonType buttonType) {

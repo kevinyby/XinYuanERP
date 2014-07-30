@@ -44,8 +44,16 @@
     [super viewDidAppear:animated];
     
     if (self.controlMode == JsonControllerModeCreate) {
-        
+        [ScheduledTask.sharedInstance registerSchedule:self timeElapsed:20 repeats:0];
     }
+}
+
+#pragma mark - Scheduled Action
+
+-(void) scheduledTask
+{
+//    NSData* data = [FileManager getDataFromDocument: ];
+//    objects = data ? [NSJSONSerialization JSONObjectWithData: data options:NSJSONReadingAllowFragments error:&error] : nil;
 }
 
 - (void)viewWillAppear:(BOOL)animated
@@ -360,6 +368,7 @@
 
 -(void) renderWithReceiveObjects: (NSMutableDictionary*)objects
 {
+    [self.jsonView clearModel];
     [self.jsonView setModel: objects];
 }
 

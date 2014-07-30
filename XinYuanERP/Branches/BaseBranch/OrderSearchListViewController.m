@@ -89,8 +89,10 @@
     NSString* department = listController.department;
     NSArray* fields = listController.requestModel.fields;
     FilterTableView* tableViewObj = (FilterTableView*)listController.headerTableView.tableView;
-    NSString* imagesFolderProperty = [OrderSearchListViewController getDeleteImageFolderProperty: department order:order];
-    int imagesFolderValueIndex = 1;     // the id is 0 , the 1 is ... (maybe orderNO)
+    NSString* imagesFolderProperty = [JsonBranchFactory getModelsListSpecification: department order:order][@"__Delete_Images_Folder"];
+    if (! imagesFolderProperty) return nil;
+    
+    int imagesFolderValueIndex = -1;     // the id is 0 , the 1 is ... (maybe orderNO)
     for (int i = 0; i < fields.count; i++) {
         NSArray* innerFields = fields[i];
         if ([innerFields containsObject: imagesFolderProperty]) {
@@ -99,20 +101,15 @@
             break;
         }
     }
+    if (imagesFolderValueIndex == -1) return nil;
+    
     NSArray* realRowContents = [tableViewObj realContentForIndexPath: realIndexPath];
     NSString* imagesFolderName = [realRowContents objectAtIndex: imagesFolderValueIndex];
     
     return imagesFolderName;
 }
 
-+(NSString*) getDeleteImageFolderProperty: (NSString*)department order:(NSString*)order
-{
-    NSString* imagesFolderProperty = [JsonBranchFactory getModelsListSpecification: department order:order][@"__Delete_Images_Folder"];
-    if (! imagesFolderProperty) {
-        imagesFolderProperty = PROPERTY_ORDERNO;
-    }
-    return imagesFolderProperty;
-}
+
 
 +(void) deleteWithCheckPermission:(NSString*)orderType deparment:(NSString*)department identification:(id)identification tips:(NSString*)tips handler:(void(^)(bool isSuccess))handler
 {
