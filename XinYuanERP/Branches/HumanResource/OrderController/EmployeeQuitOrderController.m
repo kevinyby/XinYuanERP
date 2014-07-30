@@ -204,15 +204,8 @@
     // to do ..... , the returned button
     
     // check if is returned, then enable and disable the Submit Buttons
-    if ([objects[PROPERTY_RETURNED] boolValue]) {
-        // Enable Submit Buttons By Returned Status
-        [JsonControllerHelper enableSubmitButtonsForReturnedStatus: self order:ORDER_EmployeeQuitOrder withObjects:employeeQuitObjects];
-        [JsonControllerHelper enableSubmitButtonsForReturnedStatus: self order:ORDER_EmployeeQuitPassOrder withObjects:employeeQuitPassObjects];
-    } else {
-        // Enable Submit Buttons By ForwardUser
-        [JsonControllerHelper enableSubmitButtonsForApplyMode: self withObjects:employeeQuitObjects order:ORDER_EmployeeQuitOrder];
-        [JsonControllerHelper enableSubmitButtonsForApplyMode: self withObjects:employeeQuitPassObjects order:ORDER_EmployeeQuitPassOrder];
-    }
+    [JsonControllerHelper enableSubmitButtonsForApplyMode: self withObjects:employeeQuitObjects order:ORDER_EmployeeQuitOrder];
+    [JsonControllerHelper enableSubmitButtonsForApplyMode: self withObjects:employeeQuitPassObjects order:ORDER_EmployeeQuitPassOrder];
     
     BOOL isQuitAllApproved = [JsonControllerHelper isAllApplied: ORDER_EmployeeQuitOrder valueObjects:employeeQuitObjects];
     BOOL isQuitPassAllApproved = [JsonControllerHelper isAllApplied: ORDER_EmployeeQuitPassOrder valueObjects:employeeQuitPassObjects];

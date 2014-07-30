@@ -298,79 +298,87 @@
     }
 }
 
-+(void) enableSubmitButtonsForReturnedStatus:(JsonController *)jsoncontroller order:(NSString*)order withObjects:(NSDictionary*)objects
-{
-    jsoncontroller.controlMode = JsonControllerModeModify;
-    // then enable the Submit Buttons
-    NSString* lastHasApproval = [JsonControllerHelper getCurrentHasApprovedLevel: order valueObjects:objects];
-    if ([DATA.signedUserName isEqualToString: objects[lastHasApproval]]) {
-        
-        // Enable and Disable the Submit Buttons For Returned Status
-        [JsonControllerHelper enableSubmitButtonsForReturnedStatusByLastApprovedLevel: jsoncontroller lastHasApprovalLevel:lastHasApproval];
-        
-    }
-}
-
-+(void) enableSubmitButtonsForReturnedStatusByLastApprovedLevel:(JsonController *)jsoncontroller lastHasApprovalLevel:(NSString*)lastHasApprovalLevel
-{
-    // Enable and Disable the Submit Buttons For Returned Status
-    [JsonControllerHelper iterateJsonControllerSubmitButtonsConfig: jsoncontroller  handler:^BOOL(NSString* buttonKey, JRButton *submitBTN, NSString *departmentType, NSString *orderType, NSString *sendNestedViewKey, NSString *appTo, NSString *appFrom, JsonControllerSubmitButtonType buttonType) {
-        
-        if ([lastHasApprovalLevel isEqualToString: PROPERTY_CREATEUSER]) {
-            if (buttonType == JsonControllerSubmitButtonTypeSaveOrUpdate) {
-                [submitBTN setTitleColor: [UIColor redColor] forState:UIControlStateNormal];
-                [JsonControllerHelper setUserInterfaceEnable: submitBTN enable:YES];
-                return YES;
-            }
-        } else {
-            if ([buttonKey rangeOfString: lastHasApprovalLevel].location != NSNotFound) {
-                [submitBTN setTitleColor: [UIColor redColor] forState:UIControlStateNormal];
-                [JsonControllerHelper setUserInterfaceEnable: submitBTN enable:YES];
-                return YES;
-            }
-            
-        }
-        
-        return NO;
-    }];
-}
 
 +(void) enableSubmitButtonsForApplyMode: (JsonController*)jsoncontroller withObjects:(NSDictionary*)objects order:(NSString*)order
 {
+    
+    BOOL isReturned = [objects[PROPERTY_RETURNED] boolValue];
+    
+    NSString* lastHasApprovalLevel = nil;
+    BOOL isReturnedToSignedUser = NO;
+    if (isReturned) {
+        jsoncontroller.controlMode = JsonControllerModeModify;
+        lastHasApprovalLevel = [JsonControllerHelper getCurrentHasApprovedLevel: order valueObjects:objects];
+        isReturnedToSignedUser = [DATA.signedUserName isEqualToString: objects[lastHasApprovalLevel]];
+    }
+    
+    
     [JsonControllerHelper iterateJsonControllerSubmitButtonsConfig: jsoncontroller handler:^BOOL(NSString* buttonKey, JRButton *submitBTN, NSString *departmentType, NSString *orderType, NSString *sendNestedViewKey, NSString *appTo, NSString *appFrom, JsonControllerSubmitButtonType buttonType) {
         
-        [JsonControllerHelper setUserInterfaceEnable: submitBTN enable:NO];
-        
-        if (![order isEqualToString: orderType]) {
-            return NO;
-        }
-        
-        if (buttonType != JsonControllerSubmitButtonTypeApprove) {
-            return NO;;
-        }
-        
-        if (![DATA.signedUserName isEqualToString: objects[PROPERTY_FORWARDUSER]]) {
-            return NO;;
-        }
-        
-        NSString* applevel = appFrom;
-        NSString* previousLevel = [JsonControllerHelper getPreviousAppLevel: applevel];
-        
-        if (!OBJECT_EMPYT(objects[applevel])) {
-            return NO;;
-        }
-        
-        if (! previousLevel) {
-            return NO;;
-        }
-        
-        if (OBJECT_EMPYT(objects[previousLevel])) {
-            return NO;;
-        }
-        
-        if (jsoncontroller.controlMode != JsonControllerModeApply) {
-            jsoncontroller.controlMode = JsonControllerModeApply;
-            [JsonControllerHelper setUserInterfaceEnable: submitBTN enable:YES];
+        if (isReturned) {
+            // for returned mode
+            
+            if (isReturnedToSignedUser) {
+                
+                if ([lastHasApprovalLevel isEqualToString: PROPERTY_CREATEUSER]) {
+                    if (buttonType == JsonControllerSubmitButtonTypeSaveOrUpdate) {
+                        [submitBTN setTitleColor: [UIColor redColor] forState:UIControlStateNormal];
+                        [JsonControllerHelper setUserInterfaceEnable: submitBTN enable:YES];
+                        return YES;
+                    }
+                } else {
+                    if ([buttonKey rangeOfString: lastHasApprovalLevel].location != NSNotFound) {
+                        [submitBTN setTitleColor: [UIColor redColor] forState:UIControlStateNormal];
+                        [JsonControllerHelper setUserInterfaceEnable: submitBTN enable:YES];
+                        return YES;
+                    }
+                    
+                }
+                
+            }
+            
+            
+        } else {
+            
+            // cause returned mode change the color
+            if ([submitBTN titleColorForState: UIControlStateNormal] == [UIColor redColor]) {
+                [submitBTN setTitleColor: [UIColor blackColor] forState:UIControlStateNormal];
+            }
+            
+            // for apply mode
+            [JsonControllerHelper setUserInterfaceEnable: submitBTN enable:NO];
+            
+            if (![order isEqualToString: orderType]) {
+                return NO;
+            }
+            
+            if (buttonType != JsonControllerSubmitButtonTypeApprove) {
+                return NO;;
+            }
+            
+            if (![DATA.signedUserName isEqualToString: objects[PROPERTY_FORWARDUSER]]) {
+                return NO;;
+            }
+            
+            NSString* applevel = appFrom;
+            NSString* previousLevel = [JsonControllerHelper getPreviousAppLevel: applevel];
+            
+            if (!OBJECT_EMPYT(objects[applevel])) {
+                return NO;;
+            }
+            
+            if (! previousLevel) {
+                return NO;;
+            }
+            
+            if (OBJECT_EMPYT(objects[previousLevel])) {
+                return NO;;
+            }
+            
+            if (jsoncontroller.controlMode != JsonControllerModeApply) {
+                jsoncontroller.controlMode = JsonControllerModeApply;
+                [JsonControllerHelper setUserInterfaceEnable: submitBTN enable:YES];
+            }
         }
         
         return NO;

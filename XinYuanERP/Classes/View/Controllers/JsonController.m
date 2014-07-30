@@ -345,13 +345,8 @@
     // this two go first , will cause render controlle mode
     
     // check if is returned, then enable and disable the Submit Buttons
-    if ([objects[PROPERTY_RETURNED] boolValue]) {
-        // Enable Submit Buttons By Returned Status
-        [JsonControllerHelper enableSubmitButtonsForReturnedStatus: self order:self.order withObjects:objects];
-    } else {
-        // Enable Submit Buttons By ForwardUser
-        [JsonControllerHelper enableSubmitButtonsForApplyMode: self withObjects:objects order:self.order];
-    }
+    // Enable Submit Buttons By ForwardUser
+    [JsonControllerHelper enableSubmitButtonsForApplyMode: self withObjects:objects order:self.order];
     
     // exception and delete button
     [JsonControllerHelper enableExceptionButtonAfterFinalApprovas:self objects:objects];
