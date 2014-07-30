@@ -155,12 +155,9 @@
             
             // last salary change info
             NSDictionary* lastSalaryCHInfo = [[response.results lastObject] firstObject];
-            id lastSalaryCHId = [lastSalaryCHInfo objectForKey: PROPERTY_IDENTIFIER];
-            
-            // check
             if (lastSalaryCHInfo) {
                 if (! [JsonControllerHelper isAllApplied: ORDER_FinanceSalaryCHOrder valueObjects:lastSalaryCHInfo]) {
-                    [JsonOrderCreateHelper cannotCreateAlert:self.order causeOrder: ORDER_FinanceSalaryCHOrder department:department identifier:lastSalaryCHId employeeNO:employeeNO objects:lastSalaryCHInfo];
+                    [JsonOrderCreateHelper cannotCreateAlert:self.order causeOrder: ORDER_FinanceSalaryCHOrder department:department identifier:lastSalaryCHInfo[PROPERTY_IDENTIFIER] employeeNO:employeeNO objects:lastSalaryCHInfo];
                     return ;
                 }
                 
