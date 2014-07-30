@@ -19,7 +19,7 @@
 "DeletingStuffAndWait"="正在刪除 %@, 請稍等";
 "DuplicateEntry"="請換一個值， %@ 已經存在";
 "HAVING_APPROVALS"="該員工有 待批文件 沒審核完";
-"HaveAnOrderApproving"="z";
+"HaveAnOrderApproving"="有一張關於 '%@' 的%@正在被";
 "ImageCannotEmpty"="' %@ ' 圖片不能為空";
 "InstallmentOutOfRate"="分期付款金額超過比例";
 "LendAmountOutOfLimit"="借出數量大於庫存數量";

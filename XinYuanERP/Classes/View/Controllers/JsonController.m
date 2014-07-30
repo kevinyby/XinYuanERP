@@ -363,7 +363,6 @@
 
 -(void) renderWithReceiveObjects: (NSMutableDictionary*)objects
 {
-    [self.jsonView clearModel];
     [self.jsonView setModel: objects];
 }
 

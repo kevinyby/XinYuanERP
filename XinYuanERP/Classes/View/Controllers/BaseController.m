@@ -14,7 +14,7 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    [ViewControllerHelper setBounds: self];
+    [ViewControllerHelper setLandscapeBounds: self];
     self.view.backgroundColor = [UIColor whiteColor];
     
     //

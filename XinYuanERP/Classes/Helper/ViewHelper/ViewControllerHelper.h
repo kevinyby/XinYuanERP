@@ -5,7 +5,7 @@
 
 @interface ViewControllerHelper : NSObject
 
-+(void) setBounds: (UIViewController*)controller ;
++(void) setLandscapeBounds: (UIViewController*)controller ;
 
 +(void) filterDictionaryEmptyElement: (NSMutableDictionary*)dictionary ;
 

@@ -67,7 +67,7 @@
     [IterateHelper iterate: numbers handler:^BOOL(int index, id obj, int count) {
         NSString* name = DATA.usersNONames[obj];
         if (! name){
-            name = @"<no name???>";
+            name = @"<Deleted ???>";
         }
         [contentsTemp addObject: @[obj, name]];
         return NO;

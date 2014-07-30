@@ -3,8 +3,12 @@
 
 @implementation ViewControllerHelper
 
-+(void) setBounds: (UIViewController*)controller {
-   controller.view.bounds = [ViewHelper getScreenBoundsByCurrentOrientation];
++(void) setLandscapeBounds: (UIViewController*)controller {
+    CGRect rect = [ViewHelper getScreenBoundsByCurrentOrientation];
+    CGFloat longWidth = MAX(rect.size.width, rect.size.height);
+    CGFloat shortHeight = MIN(rect.size.width, rect.size.height);
+    CGRect landScapeRect = CGRectMake(0, 0, longWidth, shortHeight);
+    controller.view.bounds = landScapeRect;
 }
 
 /** @prama dictionary ,which is two dimesion, first dimension element is NSMutableDictionary , second dimesion element is NSArray*/
@@ -113,7 +117,7 @@
             i--;
         }
     }
-    return users;
+    return [ArrayHelper eliminateDuplicates: users];
 }
 
 
