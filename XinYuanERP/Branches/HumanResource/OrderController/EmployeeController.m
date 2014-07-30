@@ -18,6 +18,70 @@
     }
 }
 
+
+
+#define CachePath [[[[[FileManager tempPath] stringByAppendingPathComponent: @"Writing"]stringByAppendingPathComponent: self.department] stringByAppendingPathComponent: self.order] stringByAppendingPathComponent: @"writing.txt"]
+-(void)viewDidAppear:(BOOL)animated
+{
+    [super viewDidAppear:animated];
+    
+    if (self.controlMode == JsonControllerModeCreate) {
+        // start
+        [ScheduledTask.sharedInstance registerSchedule:self timeElapsed:20 repeats:0];
+        
+        // get and set to view
+        NSData* data = [NSData dataWithContentsOfFile:CachePath];
+        if (! data)  return;
+        
+        NSString* jsonString = [[NSString alloc] initWithData: data encoding:NSUTF8StringEncoding];
+        NSDictionary* objects = [CollectionHelper convertJSONStringToJSONObject: jsonString];
+        if ([self needToWriteOrRenderCache: objects]) {
+            [self.jsonView setModel: objects];
+        }
+    }
+}
+
+-(void)viewWillDisappear:(BOOL)animated
+{
+    [ScheduledTask.sharedInstance unRegisterSchedule: self];
+}
+
+-(void)didSuccessSendObjects:(NSMutableDictionary *)objects response:(ResponseJsonModel *)response
+{
+    [super didSuccessSendObjects:objects response:response];
+    
+    [FileManager deleteFile: CachePath];
+}
+
+/// pragma mark - Scheduled Action
+
+-(void) scheduledTask
+{
+    if (self.controlMode != JsonControllerModeCreate) return;
+    
+    NSDictionary* objects = [self.jsonView getModel];
+    if ([self needToWriteOrRenderCache: objects]) {
+        NSString* jsonString = [CollectionHelper convertJSONObjectToJSONString: objects];
+        [FileManager writeDataToFile: CachePath data: [jsonString dataUsingEncoding: NSUTF8StringEncoding]];
+    }
+}
+
+
+-(BOOL) needToWriteOrRenderCache: (NSDictionary*)objects
+{
+    int notEmptyCount = 0;
+    for (NSString* key in objects) {
+        if (!OBJECT_EMPYT(objects[key])) {
+            notEmptyCount++;
+        }
+    }
+    return notEmptyCount >= 5;
+}
+
+
+
+
+
 - (void)viewDidLoad
 {
     [super viewDidLoad];
@@ -139,7 +203,7 @@
         // popup departments
         UIView* superView = [PopupTableHelper getCommonPopupTableView];
         JRButtonsHeaderTableView* jobLevelEditTableView = (JRButtonsHeaderTableView*)[superView viewWithTag: POPUP_TABLEVIEW_TAG];
-        jobLevelEditTableView.tableView.headersXcoordinates = @[@(50),@(150)];
+        jobLevelEditTableView.tableView.headersXcoordinates = @[@(50),@(100)];
         jobLevelEditTableView.titleLabel.text = LOCALIZE_KEY(VALUES_PICKER_jobLevel);
 
         // cancel button

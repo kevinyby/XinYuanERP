@@ -23,7 +23,7 @@
 {
     NSError* error = nil ;
     if (!objects || !objects.count) {
-        NSData* data = [FileManager getDataFromDocument: SignedInBasicDataPath];
+        NSData* data = [NSData dataWithContentsOfFile: [FileManager.documentsPath stringByAppendingPathComponent: SignedInBasicDataPath ]];
         objects = data ? [NSJSONSerialization JSONObjectWithData: data options:NSJSONReadingAllowFragments error:&error] : nil;
     }
     
@@ -31,7 +31,7 @@
     
     NSData* objectsData = [NSJSONSerialization dataWithJSONObject: objects options:NSJSONWritingPrettyPrinted error:&error];
     if (objectsData) {
-        [FileManager writeDataToDocument: SignedInBasicDataPath data:objectsData];
+        [FileManager writeDataToFile: [FileManager.documentsPath stringByAppendingPathComponent: SignedInBasicDataPath ] data:objectsData];
     }
     
     NSMutableDictionary* usersNONames = [NSMutableDictionary dictionary];

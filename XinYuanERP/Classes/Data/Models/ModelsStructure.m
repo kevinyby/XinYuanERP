@@ -9,7 +9,7 @@
     
     if (! dictionary || [dictionary count] == 0) {
         
-        NSData* data = [FileManager getDataFromDocument: ModelsStructurePath];
+        NSData* data = [NSData dataWithContentsOfFile: [FileManager.documentsPath stringByAppendingPathComponent: ModelsStructurePath ]];
         NSDictionary* dictionary = data ? [NSJSONSerialization JSONObjectWithData: data options:NSJSONReadingAllowFragments error:&error] : nil;
         if (dictionary) [_categoryModels setDictionary: dictionary];
         
@@ -37,7 +37,9 @@
         }
         
         NSData* data = [NSJSONSerialization dataWithJSONObject: _categoryModels options:NSJSONWritingPrettyPrinted error:&error];
-        if (data)[FileManager writeDataToDocument: ModelsStructurePath data:data];
+        if (data) {
+            [FileManager writeDataToFile: [FileManager.documentsPath stringByAppendingPathComponent: ModelsStructurePath ] data:data];
+        }
     }
 }
 

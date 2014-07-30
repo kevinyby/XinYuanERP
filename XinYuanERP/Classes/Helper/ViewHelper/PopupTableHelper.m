@@ -104,7 +104,7 @@
         [searchTableView.tableView reloadTableData];
     }];
     
-    searchTableView.tableView.headersXcoordinates = @[@(50),@(150)];
+    searchTableView.tableView.headersXcoordinates = @[@(50),@(100)];
     searchTableView.titleHeaderViewDidSelectAction = ^void(JRTitleHeaderTableView* headerTableView, NSIndexPath* indexPath){
         FilterTableView* filterTableView = (FilterTableView*)headerTableView.tableView.tableView;
         NSArray* value = [filterTableView contentForIndexPath:indexPath];
