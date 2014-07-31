@@ -126,6 +126,8 @@
 
 +(void) startBatchUploadRequest: (NSArray*)models url:(NSString*)url identifications:(NSArray*)identifications delegate:(id<HTTPRequesterDelegate>)delegate completeHandler:(HTTPRequesterCompleteHandler)completeHandler
 {
+    if ([models count] == 0)  return;
+    
     BatchOperation* operation = [[BatchOperation alloc] init];
     NSArray* requesters = [self obtainRequesters: operation count:models.count identifications:identifications delegate:delegate];
     
