@@ -567,14 +567,16 @@
 //    [imagesDatas addObjectsFromArray: imagesThumbnailsDatas];
 //    [imagesPaths addObjectsFromArray: imagesThumbnailsPaths];
     DLOG(@"Assemble images paths: %@", imagesPaths);
-    
-    if (imagesPaths.count == 0) {
-        DLog(@"Image Paths Count = 0");
-    }
-    
     if (imagesPaths.count != imagesDatas.count) {
         DLog(@"Upload Images Count ---- Have Error , check it out !!!");
     }
+    
+    if (imagesPaths.count == 0) {
+        DLog(@"Image Paths Count = 0");
+        [self startCreateUpdateInformRequest: orderNO forwardUser:forwardUser];
+        return;
+    }
+    
     
     // send the request
     __block int uploadCount = 1;
