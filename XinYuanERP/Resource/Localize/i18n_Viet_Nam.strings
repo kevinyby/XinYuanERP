@@ -55,6 +55,7 @@
 "FinanceSalary"="Bảng lương";
 "FinanceSalaryCHOrder"="giao dịch biên chế";
 "FuelConsumption"="tiêu thụ nhiên liệu";
+"General_Settings"="Thiết lập thông báo";
 "HAVE_OR_NOT.HAVE"="có";
 "HAVE_OR_NOT.NO"="không";
 "HumanResource"="phòng nhân sự";
@@ -71,7 +72,6 @@
 "NO"="không";
 "NewAdd"="mới";
 "Notify"="đẩy";
-"Notify_Settings"="Thiết lập thông báo";
 "NullSetting"="không được thiết lập";
 "OK"="OK";
 "OTHERS"="khác";
@@ -155,6 +155,7 @@
 "apply"="áp dụng";
 "applyDate"="ngày ứng dụng";
 "arrive"="đạt";
+"atWork"="z";
 "bank"="ngân hàng";
 "because"="z";
 "branch"="chi nhánh";

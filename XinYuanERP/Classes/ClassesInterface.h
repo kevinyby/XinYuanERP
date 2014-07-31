@@ -72,6 +72,8 @@
 #import "SetPermissionListController.h"
 
 #import "AdminControllerDispatcher.h"
+
+#import "ApprovalsViews.h"
 #import "SetApprovalsController.h"
 #import "SetExpirationsController.h"
 #import "SetDropboxController.h"

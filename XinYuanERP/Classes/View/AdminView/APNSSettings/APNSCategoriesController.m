@@ -6,6 +6,16 @@
 @end
 
 @implementation APNSCategoriesController
+{
+    NSString* workTime;
+    NSString* traceFile ;
+    NSString* retiredAge;
+    NSString* workAge;
+    
+    NSString* fuelConsumption;
+    NSString* materialRequisition;
+    
+}
 
 
 @synthesize settingsTableView;
@@ -23,14 +33,22 @@
         if ([settingsTableView respondsToSelector:@selector(setSeparatorInset:)]) [settingsTableView setSeparatorInset:UIEdgeInsetsZero];
         settingsTableView.separatorStyle = UITableViewCellSeparatorStyleNone;
         
+        workTime = APPLOCALIZE_KEYS(@"atWork",@"time",@"Setting");
+        traceFile = APPLOCALIZE_KEYS(@"Trace",@"Files",@"time",@"Setting");
+        retiredAge = APPLOCALIZE_KEYS(@"Retire",@"age",@"Notify",@"Setting");
+        workAge = APPLOCALIZE_KEYS(@"Work",@"age",@"Notify",@"Setting");
+        
+        fuelConsumption = APPLOCALIZE_KEYS(@"FuelConsumption",@"exception",@"Notify",@"Setting");
+        materialRequisition = APPLOCALIZE_KEYS(@"MaterialRequisition",@"limit",@"Notify",@"Setting");
+        
         // data
         self.sections = @[LOCALIZE_KEY(DEPARTMENT_HUMANRESOURCE), LOCALIZE_KEY(DEPARTMENT_VEHICLE), LOCALIZE_KEY(DEPARTMENT_WAREHOUSE)];
         self.contents =  @[
-                          @[APPLOCALIZE_KEYS(@"Trace",@"Files",@"time",@"Setting"),APPLOCALIZE_KEYS(@"Retire",@"age",@"Notify",@"Setting"),APPLOCALIZE_KEYS(@"Work",@"age",@"Notify",@"Setting")],
+                          @[workTime,traceFile,retiredAge,workAge],
                           
-                          @[APPLOCALIZE_KEYS(@"FuelConsumption",@"exception",@"Notify",@"Setting")],
+                          @[fuelConsumption],
                           
-                          @[APPLOCALIZE_KEYS(@"MaterialRequisition",@"limit",@"Notify",@"Setting")],
+                          @[materialRequisition],
                           
                           ];
     }
@@ -53,7 +71,7 @@
 {
     [super viewWillAppear: animated];
     [self.navigationController setNavigationBarHidden:NO animated:YES];
-    self.navigationItem.title = LOCALIZE_KEY(@"Notify_Settings");
+    self.navigationItem.title = LOCALIZE_KEY(@"General_Settings");
 }
 
 #pragma mark - UITableViewDataSource
@@ -114,12 +132,30 @@
     controller.apnsType = @"APNS_TEST";
     // did select event
     
+    NSString* cellText = [[self.contents safeObjectAtIndex: indexPath.section] safeObjectAtIndex: indexPath.row];
+    
     // DEPARTMENT_HUMANRESOURCE
     if (indexPath.section == 0) {
         NSMutableDictionary* specification = [DictionaryHelper deepCopy: [JsonFileManager getJsonFromFile: @"Components.json"][@"AdministratorAPNS"]];
         
+        if ([cellText isEqualToString: workTime])
+        {
+            controller.apnsType = @"APNS_AtWorkTime";
+            [specification[@"COMPONENTS"][@"NESTED_BODY"][@"COMPONENTS"] removeObjectForKey: @"1"];
+            [specification[@"COMPONENTS"][@"NESTED_BODY"][@"COMPONENTS"] removeObjectForKey: @"2"];
+            [specification[@"COMPONENTS"][@"NESTED_BODY"][@"COMPONENTS"] removeObjectForKey: @"3"];
+            
+            controller.viewDidLoadBlock = ^void(BaseController* controllerObj){
+                ((APNSEditController*)controllerObj).apnsSettingsTableView.hidden = YES;
+                
+                JsonDivView* divView = (JsonDivView*)[controllerObj.view viewWithTag: APNSEditControllerJSONDivTag];
+                
+            };
+            
+        } else
+
         // Trace Files
-        if (indexPath.row == 0)
+        if ([cellText isEqualToString: traceFile])
         {
             controller.apnsType = @"APNS_TraceFilesDate";
             [DictionaryHelper replaceKeys: specification[@"COMPONENTS"][@"NESTED_BODY"][@"COMPONENTS"] keys:@[@"1"] withKeys:@[@"KEYS.save.Day.count"]];
@@ -132,7 +168,7 @@
             
         } else
         // @"Retire",@"age"
-        if (indexPath.row == 1)
+        if ([cellText isEqualToString: retiredAge])
         {
             controller.apnsType = @"APNS_RetireAge";
             [DictionaryHelper replaceKeys: specification[@"COMPONENTS"][@"NESTED_BODY"][@"COMPONENTS"] keys:@[@"1",@"2"] withKeys:@[@"KEYS.male.Retire.age",@"KEYS.female.Retire.age"]];
@@ -140,7 +176,7 @@
             
         } else
             // "Work",@"age"
-        if (indexPath.row ==2)
+        if ([cellText isEqualToString: workAge])
         {
             controller.apnsType = @"APNS_WorkAge";
             [DictionaryHelper replaceKeys: specification[@"COMPONENTS"][@"NESTED_BODY"][@"COMPONENTS"] keys:@[@"1"] withKeys:@[@"KEYS.Notify.Work.age"]];
@@ -168,7 +204,7 @@
         NSMutableDictionary* specification = [DictionaryHelper deepCopy: [JsonFileManager getJsonFromFile: @"Components.json"][@"AdministratorAPNS"]];
         
         // @"MaterialRequisition",@"limit"
-        if (indexPath.row == 0) {
+        if ([cellText isEqualToString: materialRequisition]) {
             static const char* objectKey = nil;
             static const char* textFieldKey = nil;
             controller.apnsType = @"APNS_MaterialLimit";

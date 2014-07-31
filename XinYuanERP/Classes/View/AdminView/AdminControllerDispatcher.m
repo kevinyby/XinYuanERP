@@ -256,7 +256,16 @@
 // Approvals Settings
 +(SetApprovalsController*) dispatchToApprovalSettingController: (NSString*)department order:(NSString*)order
 {
-    SetApprovalsController* viewController = [[SetApprovalsController alloc] initWithOrder: order department:department];
+    NSString* clazzstring = [order stringByAppendingString: @"SetApprovalsController"];
+    Class clazz = NSClassFromString(clazzstring);
+    
+    SetApprovalsController* viewController = nil;
+    if (clazz != NULL) {
+        viewController = [[clazz alloc] initWithOrder:order department:department];
+    } else {
+        viewController = [[SetApprovalsController alloc] initWithOrder: order department:department];
+    }
+    
     return viewController;
 }
 

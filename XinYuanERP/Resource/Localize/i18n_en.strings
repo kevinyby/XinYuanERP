@@ -55,6 +55,7 @@
 "FinanceSalary"="Salary Order";
 "FinanceSalaryCHOrder"="Salary Change Order";
 "FuelConsumption"="Fuel Consumption";
+"General_Settings"="General Settings";
 "HAVE_OR_NOT.HAVE"="Have";
 "HAVE_OR_NOT.NO"="NO";
 "HumanResource"="Human Resource";
@@ -71,7 +72,6 @@
 "NO"="NO";
 "NewAdd"="New Add";
 "Notify"="Notify";
-"Notify_Settings"="Notifications Settings";
 "NullSetting"="Not set";
 "OK"="OK";
 "OTHERS"="Others";
@@ -155,6 +155,7 @@
 "apply"="Apply";
 "applyDate"="Date of Application";
 "arrive"="Arrive";
+"atWork"="At Work";
 "bank"="Bank";
 "because"="Because";
 "branch"="Branch";

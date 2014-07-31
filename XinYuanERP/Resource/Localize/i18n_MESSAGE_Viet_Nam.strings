@@ -35,7 +35,6 @@
 "SelectNextLevelApp"="Hãy chọn một người được phê duyệt theo";
 "SendNotificationStatus"="Gửi thông báo cho %@ %@";
 "SendingNotification"="Thông báo được gửi đến% @: @%";
-"SettingApprovalLevel"="Thiết lập% @ Cấp";
 "SettingUserPermissions"="Thiết lập phép";
 "SeverParseDataError"="Phía máy chủ lỗi dữ liệu phân tích cú pháp, xin vui lòng liên hệ với quản trị viên.";
 "ShouldSumNotEqualTotalSum"="z";

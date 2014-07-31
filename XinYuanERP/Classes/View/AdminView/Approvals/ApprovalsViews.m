@@ -2,14 +2,16 @@
 #import "AppInterface.h"
 
 
-#define APPOROVAL_VIEW_TAG(_index) (8080+_index)
-#define LEVEL_VIEW_TAG(_index) (9090+_index)
+@implementation PanelView
+
+
+@end
 
 
 @implementation ApprovalsViews
-{
-    NSArray* approvals;
-}
+
+@synthesize approvals;
+@synthesize tabsPicker;
 
 - (id)initWithFrame:(CGRect)frame
 {
@@ -38,7 +40,7 @@
     NSMutableArray* localizeKeys = [NSMutableArray arrayWithCapacity:count];
     
     // add the tabs
-    PickerViewBase* tabsPicker = [[PickerViewBase alloc] init];
+    tabsPicker = [[PickerViewBase alloc] init];
     for (int i = 0; i < count; i++) {
         NSString* key = [approvals objectAtIndex: i];
         [localizeKeys addObject: LOCALIZE_KEY(LOCALIZE_CONNECT_KEYS(self.modelName, key))];
@@ -52,35 +54,41 @@
     tabsPicker.pickerViewBasedDidSelectAction = ^(PickerViewBase* pickerViewObj, NSInteger row, NSInteger component) {
         if (currnetRow == row) return ;
         
-        TableHeaderAddButtonView* currentApprovalView = (TableHeaderAddButtonView* )[self.contentView viewWithTag: APPOROVAL_VIEW_TAG(currnetRow)];
-        TableHeaderAddButtonView* selectedApprovalView = (TableHeaderAddButtonView* )[self.contentView viewWithTag: APPOROVAL_VIEW_TAG(row)];
+        UIView* superView = pickerViewObj.superview;
         
-        UIView* currentLevelView = (UIView* )[self.contentView viewWithTag: LEVEL_VIEW_TAG(currnetRow)];
-        UIView* selectedLevelView = (UIView* )[self.contentView viewWithTag: LEVEL_VIEW_TAG(row)];
+        PanelView* currentPanelView = (PanelView*)[superView viewWithTag:ApprovalsViews_PANEL_VIEW_TAG(currnetRow)];
+        PanelView* selectedPanelView = (PanelView*)[superView viewWithTag:ApprovalsViews_PANEL_VIEW_TAG(row)];
         
         currnetRow = row;
 
         // in
-        [UIView transitionWithView: self
+        [UIView transitionWithView: superView
                           duration: 0.8
                            options: UIViewAnimationOptionCurveEaseInOut
-                        animations:^ { [selectedApprovalView setCenterX: self.bounds.size.width / 2 ];
-                                       [selectedLevelView setCenterX: self.bounds.size.width / 2 ]; }
+                        animations:^ { [selectedPanelView setCenterX: superView.bounds.size.width / 2 ]; }
                         completion:^ (BOOL isFinish){}];
         
         // out
-        [UIView transitionWithView: self
+        [UIView transitionWithView: superView
                           duration: 0.5
                            options: UIViewAnimationOptionCurveEaseOut
-                        animations:^ { [currentApprovalView setOriginX: CGRectGetWidth(self.bounds)];
-                                       [currentLevelView setOriginX: CGRectGetWidth(self.bounds)]; }
+                        animations:^ { [currentPanelView setOriginX: CGRectGetWidth(superView.bounds)]; }
                         completion:^ (BOOL isFinish){}];
         
     };
     
     
     // add the tableviews
-    for (int i = 0; i < count; i++) {
+    for (int i = 0; i < approvals.count; i++) {
+        PanelView* panelView = [[PanelView alloc] init];
+        panelView.tag = ApprovalsViews_PANEL_VIEW_TAG(i);
+//        [ColorHelper setBorder: panelView];
+        [self addSubviewToContentView: panelView];
+        panelView.frame = CanvasRect(250, 0, 600, 600);
+        
+        
+        
+        // ------
         TableHeaderAddButtonView* approvalView = [[TableHeaderAddButtonView alloc] init];
         approvalView.headers = @[LOCALIZE_KEY(@"number"), LOCALIZE_KEY(@"name") ];     // default
         approvalView.headersXcoordinates = @[@(20), @(200)];
@@ -129,19 +137,19 @@
         
         // set frame
         [FrameHelper setFrame: CGRectMake(0, baselineY, 500, 400)  view:approvalView];
-        [self addSubviewToContentView: approvalView];
-        approvalView.tag = APPOROVAL_VIEW_TAG(i);
+        [panelView addSubview: approvalView];
+        panelView.approvalView = approvalView;
         
         
         //add level view
         
         UIView* levelView = [[UIView alloc]init];
         [FrameHelper setFrame:CGRectMake(0, 420, 500, 60)  view:levelView];
-        [self addSubviewToContentView:levelView];
-        levelView.tag = LEVEL_VIEW_TAG(i);
+        [panelView addSubview: levelView];
+        panelView.levelView = levelView;
         
         UILabel* levelLabel = [[UILabel alloc] init];
-        levelLabel.text = LOCALIZE_MESSAGE_FORMAT(@"SettingApprovalLevel", [localizeKeys objectAtIndex:i]) ;
+        levelLabel.text = APPLOCALIZE_KEYS(approvals[i], @"jobLevel");
         levelLabel.font = [UIFont fontWithName:@"Arial" size:20];
         [FrameHelper translateLabel:levelLabel canvas:CGRectMake(10, 15, 150, 30)];
         [levelView addSubview:levelLabel];
@@ -161,24 +169,29 @@
          };
         
         if (i == 0) {
-            [approvalView setCenterX: self.bounds.size.width / 2 ];
-            [levelView setCenterX: self.bounds.size.width / 2 ];
+            [panelView setCenterX: self.bounds.size.width / 2 ];
         } else {
-            [approvalView setOriginX: CGRectGetWidth(self.bounds) ];
-            [levelView setOriginX: CGRectGetWidth(self.bounds) ];
+            [panelView setOriginX: CGRectGetWidth(self.bounds) ];
         }
         
 
         
     }
     
+    
+    if (self.initializeSubViewsBlock) {
+        self.initializeSubViewsBlock(self);
+    }
 }
 
 -(void) loadCurrentApprovalsSettings
 {
     NSDictionary* orderAppSettings = [[DATA.approvalSettings objectForKey: self.categoryName] objectForKey: self.modelName];
     for (int i = 0; i < approvals.count; i++) {
-        TableHeaderAddButtonView* approvalView = (TableHeaderAddButtonView* )[self.contentView viewWithTag: APPOROVAL_VIEW_TAG(i)];
+        
+        PanelView* panelView = (PanelView*)[self.contentView viewWithTag:ApprovalsViews_PANEL_VIEW_TAG(i)];
+        
+        TableHeaderAddButtonView* approvalView = panelView.approvalView;
         NSString* key = [approvals objectAtIndex: i];
         
         
@@ -242,9 +255,13 @@
         
         // second : PRAMAS
         NSDictionary* pramas = [dictionary objectForKey:APPSettings_APPROVALS_PRAMAS];
-        UIView* levelView = (UIView* )[self.contentView viewWithTag: LEVEL_VIEW_TAG(i)];
+        UIView* levelView = panelView.levelView;
         GestureTextField* txtField = (GestureTextField*)[levelView viewWithTag:2];
         txtField.text = [pramas objectForKey:APPSettings_APPROVALS_PRAMAS_LEVEL];
+    }
+
+    if (self.loadCurrentApprovalsSettingsBlock) {
+        self.loadCurrentApprovalsSettingsBlock(self, orderAppSettings);
     }
 }
 
@@ -253,9 +270,12 @@
     // assemble the result
     NSMutableDictionary* result = [NSMutableDictionary dictionary];
     for (int i = 0; i < approvals.count; i++) {
+         PanelView* panelView = (PanelView*)[self.contentView viewWithTag:ApprovalsViews_PANEL_VIEW_TAG(i)];
+        
+        
         // Pair A :
         NSMutableDictionary* dictionary = [NSMutableDictionary dictionary];
-        TableHeaderAddButtonView* approvalView = (TableHeaderAddButtonView* )[self.contentView viewWithTag: APPOROVAL_VIEW_TAG(i)];
+        TableHeaderAddButtonView* approvalView = panelView.approvalView;
         NSString* key = [approvals objectAtIndex: i];
         
         NSMutableDictionary* pramas = [NSMutableDictionary dictionary];
@@ -266,7 +286,7 @@
         
         
         // add approval level
-        UIView* levelView = (UIView* )[self.contentView viewWithTag: LEVEL_VIEW_TAG(i)];
+        UIView* levelView = panelView.levelView;
         GestureTextField* txtField = (GestureTextField*)[levelView viewWithTag:2];
         id levelValue = txtField.text ? txtField.text : @"";
         [pramas setObject:levelValue forKey:APPSettings_APPROVALS_PRAMAS_LEVEL];
@@ -276,6 +296,11 @@
         
         [result setObject: dictionary forKey:key];
     }
+    
+    if (self.getApprovalsSettingsBlock) {
+        self.getApprovalsSettingsBlock(self, result);
+    }
+    
     return result;
 }
 

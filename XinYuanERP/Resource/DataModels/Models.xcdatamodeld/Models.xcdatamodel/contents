@@ -1,21 +1,19 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
-<model userDefinedModelVersionIdentifier="" type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="5063" systemVersion="13D65" minimumToolsVersion="Xcode 4.3" macOSVersion="Automatic" iOSVersion="Automatic">
+<model userDefinedModelVersionIdentifier="" type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="5064" systemVersion="13E28" minimumToolsVersion="Xcode 4.3" macOSVersion="Automatic" iOSVersion="Automatic">
     <entity name="Articles" representedClassName="Articles" syncable="YES">
         <attribute name="articles" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="editor" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="title" optional="YES" attributeType="String" syncable="YES"/>
     </entity>
     <entity name="Employee" representedClassName="Employee" syncable="YES">
-        <attribute name="department" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="employeeNO" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="jobLevel" optional="YES" attributeType="Integer 16" defaultValueString="0" syncable="YES"/>
-        <attribute name="jobTitle" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="name" optional="YES" attributeType="String" syncable="YES"/>
-        <attribute name="phoneNO" optional="YES" attributeType="String" syncable="YES"/>
-        <attribute name="subDepartment" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="ownApproval" optional="YES" attributeType="Boolean" syncable="YES"/>
+        <attribute name="resign" optional="YES" attributeType="Boolean" syncable="YES"/>
     </entity>
     <elements>
-        <element name="Employee" positionX="0" positionY="0" width="128" height="150"/>
         <element name="Articles" positionX="0" positionY="54" width="128" height="90"/>
+        <element name="Employee" positionX="0" positionY="0" width="128" height="120"/>
     </elements>
 </model>

@@ -3,12 +3,13 @@
 
 @implementation ViewControllerHelper
 
-+(void) setLandscapeBounds: (UIViewController*)controller {
++(CGRect) getLandscapeBounds
+{
     CGRect rect = [ViewHelper getScreenBoundsByCurrentOrientation];
     CGFloat longWidth = MAX(rect.size.width, rect.size.height);
     CGFloat shortHeight = MIN(rect.size.width, rect.size.height);
     CGRect landScapeRect = CGRectMake(0, 0, longWidth, shortHeight);
-    controller.view.bounds = landScapeRect;
+    return landScapeRect;
 }
 
 /** @prama dictionary ,which is two dimesion, first dimension element is NSMutableDictionary , second dimesion element is NSArray*/
