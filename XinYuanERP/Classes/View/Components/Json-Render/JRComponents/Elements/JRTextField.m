@@ -219,7 +219,7 @@
 -(void)setFrame:(CGRect)frame
 {
     [super setFrame:frame];
-    if (tapOverlayView.superview) {
+    if (tapOverlayView && tapOverlayView.superview) {
         tapOverlayView.frame = frame;
     }
 }

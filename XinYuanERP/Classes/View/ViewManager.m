@@ -27,7 +27,16 @@ static ViewManager* sharedInstance;
 //        NSNumber* nsmu = [NSNumber numberWithFloat:2];
 //        BOOL isEqual = [nsmu isEqual: @(2)];
 
-
+//        NSString* json = @"{\"oooo\": 64.6}";
+//        NSDictionary* jsonaaaaaa = [NSJSONSerialization JSONObjectWithData:[json dataUsingEncoding: NSUTF8StringEncoding] options:NSJSONReadingAllowFragments error:nil];
+//        
+//        NSNumber* jsonNum = jsonaaaaaa[@"oooo"];
+//        NSString* jsonsstring = [jsonNum stringValue];
+//        
+//        NSString* bbbbbbbb = @"64.1";
+//        float bbbbbFf = /* 64.5999985; */[bbbbbbbb floatValue];
+//        NSNumber* bbbbbbnum = [NSNumber numberWithFloat: bbbbbFf];
+//        NSString* bbbbbbbstring = [bbbbbbnum stringValue];
         NSLog(@"");
     }
     return self;

@@ -1,14 +1,14 @@
 #import "SetApprovalsController.h"
 #import "AppInterface.h"
-#import "ApprovalsViews.h"
+
 
 @implementation SetApprovalsController
 {
     NSString* order;
     NSString* department;
-    
-    ApprovalsViews* approvalsView;
 }
+
+@synthesize approvalsView;
 
 - (id)initWithOrder: (NSString*)orderObj department:(NSString *)departmentObj
 {
@@ -16,6 +16,8 @@
     if (self) {
         order = orderObj;
         department = departmentObj;
+        
+        approvalsView = [[ApprovalsViews alloc] initWithFrame:[ViewControllerHelper getLandscapeBounds]];
     }
     return self;
 }
@@ -61,9 +63,9 @@
     [super viewDidLoad];
     
     // set the container view
-    approvalsView = [[ApprovalsViews alloc] initWithFrame: self.view.bounds];
     approvalsView.categoryName = department;
     approvalsView.modelName = order;
+    approvalsView.frame = self.view.bounds;
     [approvalsView initializeSubViews];
     
     [self.view addSubview:approvalsView];

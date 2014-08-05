@@ -35,8 +35,8 @@
 
 + (NSString*)criterialBetweenDate: (NSDate*)fromDate toDate:(NSDate*)toDate
 {
-    NSString* fromString = [DateHelper stringFromDate: fromDate pattern:DATE_TIME_PATTERN];
-    NSString* toString = [DateHelper stringFromDate: toDate pattern:DATE_TIME_PATTERN];
+    NSString* fromString = [DateHelper stringFromDate: fromDate pattern:PATTERN_DATE_TIME];
+    NSString* toString = [DateHelper stringFromDate: toDate pattern:PATTERN_DATE_TIME];
     return [self criterialBetween: fromString to:toString];
 }
 

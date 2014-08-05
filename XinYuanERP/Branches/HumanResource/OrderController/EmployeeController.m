@@ -75,7 +75,7 @@
             notEmptyCount++;
         }
     }
-    return notEmptyCount >= 5;
+    return notEmptyCount > 6;
 }
 
 
@@ -317,7 +317,7 @@
     birthdayTextField.textFieldDidSetTextBlock = ^void(NormalTextField* tx, NSString* oldText) {
         NSString* newText = tx.text;
         if (!OBJECT_EMPYT(newText)) {
-            NSDate* birthday = [DateHelper dateFromString: newText pattern:DATE_PATTERN];
+            NSDate* birthday = [DateHelper dateFromString: newText pattern:PATTERN_DATE];
             NSInteger age = [DateHelper getAgeFromBirthday:birthday];
             [((id<JRComponentProtocal>)[jsonView getView:@"age"]) setValue: @(age)];
         }
@@ -326,7 +326,7 @@
     employDateTextField.textFieldDidSetTextBlock = ^void(NormalTextField* tx, NSString* oldText) {
         NSString* newText = tx.text;
         if (!OBJECT_EMPYT(newText)) {
-            NSDate* employeeDate = [DateHelper dateFromString: newText pattern:DATE_PATTERN];
+            NSDate* employeeDate = [DateHelper dateFromString: newText pattern:PATTERN_DATE];
             NSDateComponents* components = [[NSCalendar currentCalendar] components:NSCalendarUnitYear | NSCalendarUnitMonth fromDate:employeeDate toDate:[NSDate date] options:0];
             [((id<JRComponentProtocal>)[((JRComplexView*)[jsonView getView:@"Seniority_Complex"]) getView:@"year"]) setValue: @(components.year)];
             [((id<JRComponentProtocal>)[((JRComplexView*)[jsonView getView:@"Seniority_Complex"]) getView:@"month"]) setValue: @(components.month)];

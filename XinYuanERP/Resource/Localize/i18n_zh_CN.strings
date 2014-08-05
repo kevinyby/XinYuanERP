@@ -55,6 +55,7 @@
 "FinanceSalary"="薪资表";
 "FinanceSalaryCHOrder"="薪资异动表";
 "FuelConsumption"="油耗";
+"General_Settings"="通用设置";
 "HAVE_OR_NOT.HAVE"="有";
 "HAVE_OR_NOT.NO"="没";
 "HumanResource"="人事部门";
@@ -71,7 +72,6 @@
 "NO"="否";
 "NewAdd"="新增";
 "Notify"="推送";
-"Notify_Settings"="通知设置";
 "NullSetting"="未设置";
 "OK"="确定";
 "OTHERS"="其他";
@@ -155,6 +155,7 @@
 "apply"="审核";
 "applyDate"="申请日期";
 "arrive"="到达";
+"atWork"="上班";
 "bank"="银行";
 "because"="因为";
 "branch"="分支行";

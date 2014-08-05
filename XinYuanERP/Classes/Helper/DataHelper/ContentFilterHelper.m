@@ -20,7 +20,7 @@ ContentFilterElementBlock dateContentFilter = ^id(id cellElement, NSMutableArray
 {
     NSDateFormatter* dateformat = [DateHelper getDefaultDateFormater];
     if ([dateformat dateFromString: cellElement]) {
-        cellElement =  [DateHelper stringFromString: cellElement fromPattern:DATE_TIME_PATTERN toPattern:DATE_PATTERN];
+        cellElement =  [DateHelper stringFromString: cellElement fromPattern:PATTERN_DATE_TIME toPattern:PATTERN_DATE];
     }
     return cellElement;
     

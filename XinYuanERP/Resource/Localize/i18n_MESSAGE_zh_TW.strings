@@ -35,7 +35,6 @@
 "SelectNextLevelApp"="請選擇下一級核准人";
 "SendNotificationStatus"="發送通知給 %@  %@";
 "SendingNotification"="正發送著通知給 %@ : %@";
-"SettingApprovalLevel"="設定%@級別";
 "SettingUserPermissions"="設定權限";
 "SeverParseDataError"="服務器端解析數據出錯，請聯繫管理員。";
 "ShouldSumNotEqualTotalSum"="應收金額與總金額不壹致";

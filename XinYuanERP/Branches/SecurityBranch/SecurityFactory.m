@@ -95,7 +95,7 @@
             start = startArr[1];
             end = endArr[1];
             //yyyy-MM-dd HH:mm:ss
-            NSDate* newDate =  [DateHelper dateFromString:date pattern:DATE_TIME_PATTERN];
+            NSDate* newDate =  [DateHelper dateFromString:date pattern:PATTERN_DATE_TIME];
             NSString* fixedDate = [DateHelper stringFromDate:newDate pattern:@"yyyyMMdd"];
             
             //compose file name

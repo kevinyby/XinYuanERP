@@ -48,7 +48,7 @@
                 // Automatic fill the textfield .
                 NSMutableDictionary* renderInfos = [DictionaryHelper subtract: tempInfo keys:NeedEmployeeFileds];
                 if (renderInfos[@"employDate"]) {
-                    NSString* covertStr = [DateHelper stringFromString: renderInfos[@"employDate"] fromPattern:DATE_TIME_PATTERN toPattern:DATE_PATTERN];
+                    NSString* covertStr = [DateHelper stringFromString: renderInfos[@"employDate"] fromPattern:PATTERN_DATE_TIME toPattern:PATTERN_DATE];
                     [renderInfos setObject: covertStr forKey:@"employDate"];
                 }
                 

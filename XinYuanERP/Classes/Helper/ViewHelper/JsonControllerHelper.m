@@ -120,7 +120,7 @@
     NSArray* fillDatesKeyPath = autoFillConfig[kController_CREATE_AUTOFILL_NOWDATE];
     for (NSString* keyPath in fillDatesKeyPath) {
         id<JRComponentProtocal> jrview = (id<JRComponentProtocal>)[jsonView getView: keyPath];
-        NSString* pattern = dataPatternsConfig[keyPath] ? dataPatternsConfig[keyPath] : DATE_PATTERN;
+        NSString* pattern = dataPatternsConfig[keyPath] ? dataPatternsConfig[keyPath] : PATTERN_DATE;
         NSString* nowDateStr = [DateHelper stringFromDate: [NSDate date] pattern:pattern];
         [jrview setValue: nowDateStr];
     }

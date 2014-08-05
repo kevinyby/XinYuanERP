@@ -1,31 +1,18 @@
-#import "APNSEditController.h"
+#import "GeneralEditController.h"
 #import "AppInterface.h"
 
 
-@interface APNSEditController ()
+@implementation GeneralEditController
 
-@end
-
-@implementation APNSEditController
-//{
-//    TableHeaderAddButtonView* apnsSettingsTableView;
-//}
 
 
 @synthesize apnsSettingsTableView;
 
-- (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
-{
-    self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
-    if (self) {
-        // Custom initialization
-    }
-    return self;
-}
 
 -(void)viewWillAppear:(BOOL)animated {
     [super viewWillAppear:animated];
     [self.navigationController setNavigationBarHidden:NO animated:YES];
+    self.navigationController.navigationBar.translucent = NO;
     
     
     // -------------+++++++++++++ Load the settings From Server  +++++++++++++++-------------------------
@@ -34,8 +21,8 @@
         [VIEW.progress hide];
         if (! error) {
             NSDictionary* results = [CollectionHelper convertJSONStringToJSONObject: response.results[@"settings"]];
-            if (self.APNSDidGetDataFromServer) {
-                self.APNSDidGetDataFromServer(self, results);
+            if (self.APNSDidGetDataFromServerAction) {
+                self.APNSDidGetDataFromServerAction(self, results);
             } else {
                 [self setDataToViews: results[APNS_RESULTS_USERS] parameters:results[APNS_RESULTS_PARAMETERS]];
             }
@@ -45,6 +32,8 @@
 
 -(void) viewWillDisappear:(BOOL)animated {
     [super viewWillDisappear:animated];
+    
+    self.navigationController.navigationBar.translucent = YES;
     // check if pop or push ?
     
     if ([VIEW.navigator.viewControllers containsObject:self]) {
@@ -58,8 +47,8 @@
     // -------------+++++++++++++ Save the settings to Server  +++++++++++++++-------------------------
     NSMutableDictionary* results = nil;
     
-    if (self.APNSGetDataSendToServer) {
-        results = self.APNSGetDataSendToServer(self);
+    if (self.APNSGetDataSendToServerAction) {
+        results = self.APNSGetDataSendToServerAction(self);
     } else {
         results = [NSMutableDictionary dictionary];
         [self getViewsDataTo: results];
@@ -74,24 +63,23 @@
     
 }
 
-- (void)viewDidLoad
+-(void) initializeTableHeaderAddButtonView
 {
     [self setAutomaticallyAdjustsScrollViewInsets: NO];
     apnsSettingsTableView = [[TableHeaderAddButtonView alloc] init];
-    [self.view addSubview: apnsSettingsTableView];
-    
-    [super viewDidLoad];
-    // Do any additional setup after loading the view.
     
     apnsSettingsTableView.headers = [LocalizeHelper localize: @[PROPERTY_EMPLOYEENO, PROPERTY_EMPLOYEE_NAME]];
     apnsSettingsTableView.headersXcoordinates = @[@(20), @(200)];
     apnsSettingsTableView.valuesXcoordinates = @[@(10), @(200)];
+    apnsSettingsTableView.tableView.tableViewBaseCanEditIndexPathAction = ^BOOL(TableViewBase* tb, NSIndexPath* indexPath) {
+        return YES;
+    };
     
     [FrameHelper setFrame: CGRectMake(0, 80, 500, 400)  view:apnsSettingsTableView];
     [ColorHelper setBorder: apnsSettingsTableView color:[UIColor grayColor]];
-    [apnsSettingsTableView setCenterX: [self.view middlePoint].x];
-    
+    [apnsSettingsTableView setCenterX: [ViewControllerHelper getLandscapeBounds].size.width/2];
     // add button event
+    
     __weak TableHeaderAddButtonView* weakApprovalView = apnsSettingsTableView;
     apnsSettingsTableView.addButton.didClikcButtonAction = ^void(NormalButton* button) {
         
@@ -116,12 +104,16 @@
     
 }
 
-
-
-#pragma mark - TableViewBaseTableProxy
-- (BOOL)tableViewBase:(TableViewBase *)tableViewObj canEditIndexPath:(NSIndexPath*)indexPath
+- (void)viewDidLoad
 {
-    return YES;
+    [super viewDidLoad];
+    // Do any additional setup after loading the view.
+    
+    if (apnsSettingsTableView) {
+        [self.view addSubview: apnsSettingsTableView];
+    }
+    
+    
 }
 
 
@@ -138,6 +130,7 @@
     NSMutableArray* contents = [ViewControllerHelper getUserNumbersNames:users];
     apnsSettingsTableView.tableView.contentsDictionary = [NSMutableDictionary dictionaryWithObject:contents forKey:@""];
     [apnsSettingsTableView reloadTableData];
+    
     // parameters
     JsonDivView* divView = (JsonDivView*)[self.view viewWithTag: APNSEditControllerJSONDivTag];
     if (divView) {

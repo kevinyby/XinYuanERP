@@ -8,7 +8,7 @@
 @class TableHeaderAddButtonView;
 
 
-@interface APNSEditController : BaseController
+@interface GeneralEditController : BaseController
 
 @property (strong) NSString* apnsType;
 
@@ -17,13 +17,17 @@
 
 
 // Custom
-@property (copy) void(^APNSDidGetDataFromServer)(APNSEditController* controller, NSDictionary* results);
-@property (copy) NSMutableDictionary*(^APNSGetDataSendToServer)(APNSEditController* controller);
+@property (copy) void(^APNSDidGetDataFromServerAction)(GeneralEditController* controller, NSDictionary* results);
+@property (copy) NSMutableDictionary*(^APNSGetDataSendToServerAction)(GeneralEditController* controller);
 
 
 #pragma mark - Public Methods
+-(void) initializeTableHeaderAddButtonView;
+
+
 -(void) setDataToViews: (NSArray*)users parameters:(NSDictionary*)parameters;
 -(void) getViewsDataTo: (NSMutableDictionary*)results;
+
 
 
 @end

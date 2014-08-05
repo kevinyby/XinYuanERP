@@ -21,10 +21,12 @@
 @property (assign) int signedUserId;
 @property (strong) NSString* signedUserName;
 @property (strong) NSString* signedUserPassword;
+
 @property (strong) NSMutableDictionary* usersNONames;
 @property (strong) NSMutableDictionary* usersNOLevels;
 @property (strong) NSMutableDictionary* usersNOApproval;
 @property (strong) NSMutableDictionary* usersNOResign;
+
 @property (strong) NSMutableDictionary* usersNOPermissions;
 @property (strong) NSMutableDictionary* clientNONames;
 

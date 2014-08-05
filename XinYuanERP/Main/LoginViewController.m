@@ -314,7 +314,7 @@
     if (IS_ADMINISTATOR(DATA.signedUserId)) {
         [ACTION initialiazeAdministerProcedure];
         AppWheelViewController* controller = [[AppWheelViewController alloc] init];
-        controller.wheels = @[@"User_Permissions_Settings", @"Orders_Settings", @"Dropbox_Settings", @"Notify_Settings"];
+        controller.wheels = @[@"User_Permissions_Settings", @"Orders_Settings", @"Dropbox_Settings", @"General_Settings"];
         controller.wheelDidTapSwipLeftBlock = ^(AppWheelViewController* wheel, NSInteger index){
             UIViewController* nextController = nil;
             

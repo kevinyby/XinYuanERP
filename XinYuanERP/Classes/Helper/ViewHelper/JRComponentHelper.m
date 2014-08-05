@@ -428,31 +428,31 @@ static const char* CONST_DataPickerType = "PickerType";
 {
     for (int i = 0; i < pickers.count; i ++) {
         NSString* keyPath = pickers[i];
+        NSString* patternStr = patterns[keyPath];
         UIView* view = [jsonview getView: keyPath];
         
+        // ie. view = JRLabelCommaTextFieldView ,the get the JRTextField in its subViews
         for (UIView* subView in view.subviews) {
-            if ([subView isKindOfClass:[JRTextField class]]) {
-                JRTextField* tapElement = (JRTextField*)subView;
-                
-                NSString* patternStr = patterns[keyPath];
-                objc_setAssociatedObject(tapElement, CONST_DataPickerType, patternStr, OBJC_ASSOCIATION_RETAIN_NONATOMIC);
-                tapElement.textFieldDidClickAction = ^void(JRTextField* textFieldObj) {
-                    [JRComponentHelper showDatePicker: textFieldObj];
-                };
-            }
-            
-            else
-            
-            if ([subView isKindOfClass:[UIButton class]]) {
-                UIButton* tapElement = (UIButton*)subView;
-                if (!tapElement.enabled) continue;
-                
-                NSString* patternStr = patterns[keyPath];
-                objc_setAssociatedObject(tapElement, CONST_DataPickerType, patternStr, OBJC_ASSOCIATION_RETAIN_NONATOMIC);
-                [tapElement addTarget: [JRComponentHelper class] action:@selector(showDatePicker:) forControlEvents:UIControlEventTouchUpInside];
-            }
+            [self setupDatePickerToComponent: subView pattern:patternStr];
         }
 
+    }
+}
+
++(void) setupDatePickerToComponent: (UIView*)view pattern:(NSString*)pattern
+{
+    if ([view isKindOfClass:[JRTextField class]] || [view isKindOfClass:[UIButton class]]) {
+        
+        objc_setAssociatedObject(view, CONST_DataPickerType, pattern, OBJC_ASSOCIATION_RETAIN_NONATOMIC);
+        
+        
+        if ([view isKindOfClass:[JRTextField class]]) {
+            ((JRTextField*)view).textFieldDidClickAction = ^void(JRTextField* textFieldObj) {
+                [JRComponentHelper showDatePicker: textFieldObj];
+            };
+        } else if ([view isKindOfClass:[UIButton class]]) {
+            [((UIButton*)view) addTarget: [JRComponentHelper class] action:@selector(showDatePicker:) forControlEvents:UIControlEventTouchUpInside];
+        }
     }
 }
 
@@ -461,14 +461,18 @@ static const char* CONST_DataPickerType = "PickerType";
 {
     // get pattern
     NSString* pattern = objc_getAssociatedObject(obj, CONST_DataPickerType);
-    if (! pattern) pattern = DATE_PATTERN;
+    if (! pattern) pattern = PATTERN_DATE;
     
     // get textField
     UITextField* textField = nil;
-    UIView* superView = obj.superview;
-    for (UIView* subView in superView.subviews) {
-        if ([subView isKindOfClass:[UITextField class]]) {
-            textField = (UITextField*)subView;
+    if ([obj isKindOfClass: [UITextField class]]) {
+        textField = (UITextField*)obj;
+    } else {
+        UIView* superView = obj.superview;
+        for (UIView* subView in superView.subviews) {
+            if ([subView isKindOfClass:[UITextField class]]) {
+                textField = (UITextField*)subView;
+            }
         }
     }
     ActionDateDoneBlock doneBlock = ^(NSDate *selectedDate, id origin) {
@@ -484,10 +488,12 @@ static const char* CONST_DataPickerType = "PickerType";
     
     // picker mode
     UIDatePickerMode pickerMode = UIDatePickerModeDate;     // default date
-    if ([pattern isEqualToString: DATE_TIME_PATTERN]) {
+    if ([pattern isEqualToString: PATTERN_DATE_TIME]) {
         pickerMode = UIDatePickerModeDateAndTime;
-    } else if ([pattern isEqualToString: DATE_CLOCK_PATTERN]){
+    } else if ([pattern isEqualToString: PATTERN_CLOCK] || [pattern isEqualToString: @"HH:mm"]){
         pickerMode = UIDatePickerModeTime;
+    } else if ([pattern isEqualToString: PATTERN_DATE_TIME]) {
+        pickerMode = UIDatePickerModeDateAndTime;
     }
     [ActionSheetDatePicker showPickerWithTitle:@"" datePickerMode:pickerMode selectedDate:date doneBlock:doneBlock cancelBlock:cancelBlock origin:textField];
 }
@@ -502,7 +508,7 @@ static const char* CONST_DataPickerType = "PickerType";
         NSString* value = objects[key];
         
         if (! OBJECT_EMPYT(value)) {
-            [objects setObject:[DateHelper stringFromString:value fromPattern:DATE_TIME_PATTERN toPattern:pattern] forKey:key];
+            [objects setObject:[DateHelper stringFromString:value fromPattern:PATTERN_DATE_TIME toPattern:pattern] forKey:key];
         }
     }
 }
@@ -516,7 +522,7 @@ static const char* CONST_DataPickerType = "PickerType";
         NSString* value = objects[key];
         
         if (! OBJECT_EMPYT(value)) {
-            NSString* standarFormat = [DateHelper stringFromString:value fromPattern:pattern toPattern:DATE_TIME_PATTERN];
+            NSString* standarFormat = [DateHelper stringFromString:value fromPattern:pattern toPattern:PATTERN_DATE_TIME];
             [objects setObject: standarFormat forKey:key];
         }
     }

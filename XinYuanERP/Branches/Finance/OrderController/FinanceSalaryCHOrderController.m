@@ -161,7 +161,7 @@
                     return ;
                 }
                 
-                NSString* lastAdjustDate = [DateHelper stringFromString:lastSalaryCHInfo[@"adjustDate"] fromPattern:DATE_TIME_PATTERN toPattern:DATE_PATTERN];
+                NSString* lastAdjustDate = [DateHelper stringFromString:lastSalaryCHInfo[@"adjustDate"] fromPattern:PATTERN_DATE_TIME toPattern:PATTERN_DATE];
                 [oldSalary setObject: lastAdjustDate forKey:@"lastAdjustDate"];
                 [oldSalary setObject: lastSalaryCHInfo[@"adjustAmount"] forKey:@"lastAdjustAmount"];
             }

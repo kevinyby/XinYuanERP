@@ -22,7 +22,7 @@
 
 -(void) viewDidLoad{
     [super viewDidLoad];
-    currentDate = [DateHelper stringFromDate:[NSDate date] pattern:DATE_TIME_PATTERN];
+    currentDate = [DateHelper stringFromDate:[NSDate date] pattern:PATTERN_DATE_TIME];
     
     JRButtonTextFieldView* acceptStack = (JRButtonTextFieldView*)[self.jsonView getView:@"doneButton"];
     acceptButton = (JRButton*)acceptStack.button;
@@ -92,7 +92,7 @@
         passOut_name_weak.text = DATA.signedUserName;
         if (weak_mode == JsonControllerModeRead){
             //start request to modify
-            [AppServerRequester modifyModel:@"SecurityVisitorOrder" department:DEPARTMENT_SECURITY objects:@{@"passOut_name":userID, @"passOut_time":[DateHelper stringFromDate:[NSDate date] pattern:DATE_TIME_PATTERN]} identities:@{@"id":oid} completeHandler:^(ResponseJsonModel *data, NSError *error) {
+            [AppServerRequester modifyModel:@"SecurityVisitorOrder" department:DEPARTMENT_SECURITY objects:@{@"passOut_name":userID, @"passOut_time":[DateHelper stringFromDate:[NSDate date] pattern:PATTERN_DATE_TIME]} identities:@{@"id":oid} completeHandler:^(ResponseJsonModel *data, NSError *error) {
                 if (!error)
                     NSLog(@"modify successd");
             }];

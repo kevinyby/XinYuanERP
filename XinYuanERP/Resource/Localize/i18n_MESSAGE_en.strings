@@ -35,7 +35,6 @@
 "SelectNextLevelApp"="Please select next approva user";
 "SendNotificationStatus"="Send a notification to %@ %@";
 "SendingNotification"="Sending Notification to %@ : %@";
-"SettingApprovalLevel"="Setting% @ Level";
 "SettingUserPermissions"="Set permissions";
 "SeverParseDataError"="Server-side parsing data error, please contact the administrator.";
 "ShouldSumNotEqualTotalSum"="z";

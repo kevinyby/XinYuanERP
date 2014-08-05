@@ -44,7 +44,7 @@ static const int buttonOffset = buttonWidth + buttonMargin;
     [super viewDidLoad];
     editEnable = NO;
     authorityLevel = 4;
-    currentDate = [DateHelper stringFromDate:[DateHelper truncateTime:[NSDate date]] pattern:DATE_PATTERN];
+    currentDate = [DateHelper stringFromDate:[DateHelper truncateTime:[NSDate date]] pattern:PATTERN_DATE];
     uploadPath = @"Security/Patrol";
     [self setupTable];
 

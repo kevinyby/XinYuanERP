@@ -72,12 +72,14 @@
 #import "SetPermissionListController.h"
 
 #import "AdminControllerDispatcher.h"
+
+#import "ApprovalsViews.h"
 #import "SetApprovalsController.h"
 #import "SetExpirationsController.h"
 #import "SetDropboxController.h"
 
 #import "APNSCategoriesController.h"
-#import "APNSEditController.h"
+#import "GeneralEditController.h"
 
 
 // Controllers

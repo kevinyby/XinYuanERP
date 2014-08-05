@@ -66,7 +66,7 @@
     BOOL isSuccessfully = [super validateSendObjects: objects order:order];
     
     if (isSuccessfully) {
-        if ([[DateHelper dateFromString: objects[@"startDate"] pattern:DATE_TIME_PATTERN] GTEQ:[DateHelper dateFromString: objects[@"endDate"] pattern:DATE_TIME_PATTERN]]) {
+        if ([[DateHelper dateFromString: objects[@"startDate"] pattern:PATTERN_DATE_TIME] GTEQ:[DateHelper dateFromString: objects[@"endDate"] pattern:PATTERN_DATE_TIME]]) {
             isSuccessfully = NO;
             [ACTION alertError:LOCALIZE_MESSAGE(@"StartDateGTEndDate")];
         }

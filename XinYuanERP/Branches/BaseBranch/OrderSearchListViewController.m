@@ -89,14 +89,14 @@
     NSString* department = listController.department;
     NSArray* fields = listController.requestModel.fields;
     FilterTableView* tableViewObj = (FilterTableView*)listController.headerTableView.tableView;
-    NSString* imagesFolderProperty = [JsonBranchFactory getModelsListSpecification: department order:order][@"__Delete_Images_Folder"];
-    if (! imagesFolderProperty) return nil;
+    NSString* deleteImagesFolderProperty = [OrderSearchListViewController getDeleteImageFolderProperty: department order:order];
+    if (! deleteImagesFolderProperty) return nil;
     
     int imagesFolderValueIndex = -1;     // the id is 0 , the 1 is ... (maybe orderNO)
     for (int i = 0; i < fields.count; i++) {
         NSArray* innerFields = fields[i];
-        if ([innerFields containsObject: imagesFolderProperty]) {
-            imagesFolderValueIndex = [innerFields indexOfObject: imagesFolderProperty];
+        if ([innerFields containsObject: deleteImagesFolderProperty]) {
+            imagesFolderValueIndex = [innerFields indexOfObject: deleteImagesFolderProperty];
             DLOG(@"Get Image Folder Index: %d", imagesFolderValueIndex);
             break;
         }
@@ -109,6 +109,10 @@
     return imagesFolderName;
 }
 
++(NSString*) getDeleteImageFolderProperty: (NSString*)department order:(NSString*)order
+{
+    return [JsonBranchFactory getModelsListSpecification: department order:order][@"__Delete_Images_Folder"];
+}
 
 
 +(void) deleteWithCheckPermission:(NSString*)orderType deparment:(NSString*)department identification:(id)identification tips:(NSString*)tips handler:(void(^)(bool isSuccess))handler
