@@ -22,7 +22,7 @@
     
     NSDateFormatter *dateFormatter = [[NSDateFormatter alloc] init];
     
-    [dateFormatter setDateFormat: DATE_PATTERN];
+    [dateFormatter setDateFormat: PATTERN_DATE];
     
     NSDate *destDate= [dateFormatter dateFromString:dateString];
    
@@ -35,7 +35,7 @@
     
     NSDateFormatter *dateFormatter = [[NSDateFormatter alloc] init];
     
-    [dateFormatter setDateFormat:DATE_TIME_PATTERN];
+    [dateFormatter setDateFormat:PATTERN_DATE_TIME];
     
     NSString *destDateString = [dateFormatter stringFromDate:date];
     
@@ -57,11 +57,11 @@
     
     NSDateFormatter *dateFormatter = [[NSDateFormatter alloc] init];
     
-    [dateFormatter setDateFormat:DATE_TIME_PATTERN];
+    [dateFormatter setDateFormat:PATTERN_DATE_TIME];
     
     NSDate *destDate= [dateFormatter dateFromString:destString];
     
-    [dateFormatter setDateFormat: DATE_PATTERN];
+    [dateFormatter setDateFormat: PATTERN_DATE];
     
     NSString *destDateString = [dateFormatter stringFromDate:destDate];
     
@@ -72,7 +72,7 @@
 + (NSString*)stringfromDateFormatToZeroTime:(NSString*)sourceString
 {
     NSDateFormatter *dateFormatter = [[NSDateFormatter alloc] init];
-    [dateFormatter setDateFormat:DATE_PATTERN];
+    [dateFormatter setDateFormat:PATTERN_DATE];
     NSDate *destDate = [dateFormatter dateFromString:sourceString];
     [dateFormatter setDateFormat: DATE_ZEROTIME_FORMAT];
     NSString *destDateString = [dateFormatter stringFromDate:destDate];
@@ -84,7 +84,7 @@
     NSDateFormatter *dateFormatter = [[NSDateFormatter alloc] init];
     [dateFormatter setDateFormat:DATE_ZEROTIME_FORMAT];
     NSDate *destDate = [dateFormatter dateFromString:sourceString];
-    [dateFormatter setDateFormat: DATE_PATTERN];
+    [dateFormatter setDateFormat: PATTERN_DATE];
     NSString *destDateString = [dateFormatter stringFromDate:destDate];
     return destDateString;
 }
@@ -103,7 +103,7 @@
 {
     NSDateFormatter *dateFormatter = [[NSDateFormatter alloc] init];
     
-    [dateFormatter setDateFormat:DATE_TIME_PATTERN];
+    [dateFormatter setDateFormat:PATTERN_DATE_TIME];
     
     NSDate *destDate= [dateFormatter dateFromString:fromString];
     

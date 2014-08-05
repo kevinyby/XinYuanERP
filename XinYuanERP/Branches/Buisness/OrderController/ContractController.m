@@ -208,7 +208,7 @@
 {
     NSMutableDictionary* objects = [super assembleSendObjects: divViewKey];
     
-    NSMutableArray* tranlateArray = [self translateDateInArray:_contractPayContents fromPattern:DATE_PATTERN toPattern:DATE_TIME_PATTERN];
+    NSMutableArray* tranlateArray = [self translateDateInArray:_contractPayContents fromPattern:PATTERN_DATE toPattern:PATTERN_DATE_TIME];
     
     [objects setObject:tranlateArray forKey:@"ContractPayBills"];
     
@@ -226,7 +226,7 @@
     NSLog(@"objects === %@",objects);
     [self.jsonView setModel: objects];
     NSMutableArray* billObjects = [objects objectForKey:@"ContractPayBills"];
-    _contractPayContents = [self translateDateInArray:billObjects fromPattern:DATE_TIME_PATTERN toPattern:DATE_PATTERN];
+    _contractPayContents = [self translateDateInArray:billObjects fromPattern:PATTERN_DATE_TIME toPattern:PATTERN_DATE];
     [_contractPayTableView reloadTableData];
 }
 
@@ -350,7 +350,7 @@
 -(void)dateWasSelected:(NSDate*)selectedDate element:(id)element
 {
     JRTextField* jrTextField = (JRTextField*)element;
-    jrTextField.text = [DateHelper stringFromDate:selectedDate pattern:DATE_PATTERN];
+    jrTextField.text = [DateHelper stringFromDate:selectedDate pattern:PATTERN_DATE];
     [self modifyTableViewSourceIndex:[self getIndexPathFromView:jrTextField] fromView:jrTextField];
     
 }

@@ -40,6 +40,8 @@
 #pragma mark - Date
 
 +(void) setupDatePickerComponents: (JsonView*)jsonview pickers:(NSArray*)pickers patterns:(NSDictionary*)patterns;
++(void) setupDatePickerToComponent: (UIView*)view pattern:(NSString*)pattern;
+
 
 +(void) showDatePicker: (UIView*)obj;
 

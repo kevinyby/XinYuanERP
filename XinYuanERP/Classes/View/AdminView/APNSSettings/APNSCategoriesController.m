@@ -128,69 +128,150 @@
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    APNSEditController* controller = [[APNSEditController alloc] init];
+    NSString* cellText = [[self.contents safeObjectAtIndex: indexPath.section] safeObjectAtIndex: indexPath.row];
+    GeneralEditController* controller = [[GeneralEditController alloc] init];
     controller.apnsType = @"APNS_TEST";
+    
+    if (![cellText isEqualToString: workTime]){
+        [controller initializeTableHeaderAddButtonView];
+    }
     // did select event
     
-    NSString* cellText = [[self.contents safeObjectAtIndex: indexPath.section] safeObjectAtIndex: indexPath.row];
     
     // DEPARTMENT_HUMANRESOURCE
-    if (indexPath.section == 0) {
+    if (indexPath.section == 0)
+    {
         NSMutableDictionary* specification = [DictionaryHelper deepCopy: [JsonFileManager getJsonFromFile: @"Components.json"][@"AdministratorAPNS"]];
         
         if ([cellText isEqualToString: workTime])
         {
-            controller.apnsType = @"APNS_AtWorkTime";
-            [specification[@"COMPONENTS"][@"NESTED_BODY"][@"COMPONENTS"] removeObjectForKey: @"1"];
-            [specification[@"COMPONENTS"][@"NESTED_BODY"][@"COMPONENTS"] removeObjectForKey: @"2"];
-            [specification[@"COMPONENTS"][@"NESTED_BODY"][@"COMPONENTS"] removeObjectForKey: @"3"];
-            
-            controller.viewDidLoadBlock = ^void(BaseController* controllerObj){
-                ((APNSEditController*)controllerObj).apnsSettingsTableView.hidden = YES;
-                
-                JsonDivView* divView = (JsonDivView*)[controllerObj.view viewWithTag: APNSEditControllerJSONDivTag];
-                
-            };
-            
-        } else
+            NSString* xibName = @"WorkTimeSetting_IPAD";
 
-        // Trace Files
-        if ([cellText isEqualToString: traceFile])
-        {
-            controller.apnsType = @"APNS_TraceFilesDate";
-            [DictionaryHelper replaceKeys: specification[@"COMPONENTS"][@"NESTED_BODY"][@"COMPONENTS"] keys:@[@"1"] withKeys:@[@"KEYS.save.Day.count"]];
-            [specification[@"COMPONENTS"][@"NESTED_BODY"][@"COMPONENTS"] removeObjectForKey: @"2"];
-            [specification[@"COMPONENTS"][@"NESTED_BODY"][@"COMPONENTS"] removeObjectForKey: @"3"];
-            
+            controller = [[GeneralEditController alloc] initWithNibName: xibName bundle:[NSBundle mainBundle]];
+            controller.apnsType = @"AtWorkTime";
             controller.viewDidLoadBlock = ^void(BaseController* controllerObj){
-                ((APNSEditController*)controllerObj).apnsSettingsTableView.hidden = YES;
+                
+                JsonDivView* jsonDivView = (JsonDivView*)controllerObj.view;
+                [FrameHelper translateSubViewsFramesRecursive: jsonDivView];
+                
+                for (UIView* subView in jsonDivView.subviews) {
+                    if ([subView isKindOfClass: [JsonDivView class]]) {
+                        [LayerHelper setBasicAttributes: subView.layer config:@{@"BorderColor": @(7), @"BorderWidth": @(1), @"CornerRadius": @(5), @"MasksToBounds": @(TRUE)}];
+                        for (UIView* v in subView.subviews) {
+                            
+                            if ([v isKindOfClass: [JRTextField class]]) {
+                                [JRComponentHelper setupDatePickerToComponent: v pattern:@"HH:mm"];
+                                ((JRTextField*)v).textFieldDidSetTextBlock = ^void(NormalTextField* textField, NSString* oldText){
+                                    NSString* attribute = ((JRTextField*)textField).attribute;
+                                    NSString* att = nil;
+                                    if ([attribute rangeOfString: @"From"].location != NSNotFound) {
+                                        att = [attribute stringByReplacingOccurrencesOfString: @"From" withString:@""];
+                                    } else if ([attribute rangeOfString: @"To"].location != NSNotFound) {
+                                        att = [attribute stringByReplacingOccurrencesOfString: @"To" withString:@""];
+                                    }
+                                    
+                                    JRTextField* from = (JRTextField*)[jsonDivView getView:[att stringByAppendingString: @"From"]];
+                                    JRTextField* to = (JRTextField*)[jsonDivView getView:[att stringByAppendingString: @"To"]];
+                                    JRLabel* label = (JRLabel*)[jsonDivView getView:[att stringByAppendingString: @"Label"]];
+                                    
+                                    NSString* fromString = [from getValue];
+                                    NSString* toString = [to getValue];
+                                    if (OBJECT_EMPYT(fromString) || OBJECT_EMPYT(toString)) {
+                                        return;
+                                    }
+                                    
+                                    NSDateFormatter *dateFormatter= [[NSDateFormatter alloc] init];
+                                    [dateFormatter setDateFormat: @"HH:mm"];
+                                    NSDate *dateFrom =[dateFormatter dateFromString: fromString];
+                                    NSDate *dateTo = [dateFormatter dateFromString: toString];
+                                    
+                                    NSDateComponents* components = [[NSCalendar currentCalendar]
+                                                                       components:kCFCalendarUnitDay | kCFCalendarUnitHour | kCFCalendarUnitMinute
+                                                                       fromDate:dateFrom
+                                                                       toDate:dateTo
+                                                                       options:0];
+                                    NSInteger hour = [components hour];
+                                    if (hour < 0) {
+                                        hour = 24 + hour;
+                                    }
+                                    NSInteger minute = [components minute];
+                                    if (minute < 0) {
+                                        minute = 60 + minute;
+                                    }
+                                    
+                                    NSString* format = minute == 0 ? @"%d" : @"%d:%02d";
+                                    [label setValue: [NSString stringWithFormat: format, hour,minute]];
+                                    [label adjustWidthToFontText];
+                                };
+                            } else if ([v isKindOfClass: [JRLabel class]]) {
+                                [((JRLabel*)v) setValue: nil];
+                            }
+                        }
+                        
+                    }
+                }
             };
             
-        } else
-        // @"Retire",@"age"
-        if ([cellText isEqualToString: retiredAge])
-        {
-            controller.apnsType = @"APNS_RetireAge";
-            [DictionaryHelper replaceKeys: specification[@"COMPONENTS"][@"NESTED_BODY"][@"COMPONENTS"] keys:@[@"1",@"2"] withKeys:@[@"KEYS.male.Retire.age",@"KEYS.female.Retire.age"]];
-            [specification[@"COMPONENTS"][@"NESTED_BODY"][@"COMPONENTS"] removeObjectForKey: @"3"];
+            controller.APNSGetDataSendToServerAction = ^NSMutableDictionary*(GeneralEditController* controllerObj){
+                NSMutableDictionary* result = [NSMutableDictionary dictionary];
+                NSDictionary* model = [((JsonDivView*)controllerObj.view) getModel];
+                for (NSString* key in model) {
+                    if ([key rangeOfString:@"Label"].location == NSNotFound) {
+                        [result setObject: model[key] forKey:key];
+                    }
+                }
+                return result;
+            };
+            
+            controller.APNSDidGetDataFromServerAction = ^void(GeneralEditController* controllerObj, NSDictionary* results) {
+                [((JsonDivView*)controllerObj.view) setModel: results];
+            };
+            
             
         } else
-            // "Work",@"age"
-        if ([cellText isEqualToString: workAge])
+            
         {
-            controller.apnsType = @"APNS_WorkAge";
-            [DictionaryHelper replaceKeys: specification[@"COMPONENTS"][@"NESTED_BODY"][@"COMPONENTS"] keys:@[@"1"] withKeys:@[@"KEYS.Notify.Work.age"]];
-            [specification[@"COMPONENTS"][@"NESTED_BODY"][@"COMPONENTS"] removeObjectForKey: @"2"];
-            [specification[@"COMPONENTS"][@"NESTED_BODY"][@"COMPONENTS"] removeObjectForKey: @"3"];
+            
+            // Trace Files
+            if ([cellText isEqualToString: traceFile])
+            {
+                controller.apnsType = @"APNS_TraceFilesDate";
+                [DictionaryHelper replaceKeys: specification[@"COMPONENTS"][@"NESTED_BODY"][@"COMPONENTS"] keys:@[@"1"] withKeys:@[@"KEYS.save.Day.count"]];
+                [specification[@"COMPONENTS"][@"NESTED_BODY"][@"COMPONENTS"] removeObjectForKey: @"2"];
+                [specification[@"COMPONENTS"][@"NESTED_BODY"][@"COMPONENTS"] removeObjectForKey: @"3"];
+                
+                controller.viewDidLoadBlock = ^void(BaseController* controllerObj){
+                    ((GeneralEditController*)controllerObj).apnsSettingsTableView.hidden = YES;
+                };
+                
+            } else
+                // @"Retire",@"age"
+                if ([cellText isEqualToString: retiredAge])
+                {
+                    controller.apnsType = @"APNS_RetireAge";
+                    [DictionaryHelper replaceKeys: specification[@"COMPONENTS"][@"NESTED_BODY"][@"COMPONENTS"] keys:@[@"1",@"2"] withKeys:@[@"KEYS.male.Retire.age",@"KEYS.female.Retire.age"]];
+                    [specification[@"COMPONENTS"][@"NESTED_BODY"][@"COMPONENTS"] removeObjectForKey: @"3"];
+                    
+                } else
+                    // "Work",@"age"
+                    if ([cellText isEqualToString: workAge])
+                    {
+                        controller.apnsType = @"APNS_WorkAge";
+                        [DictionaryHelper replaceKeys: specification[@"COMPONENTS"][@"NESTED_BODY"][@"COMPONENTS"] keys:@[@"1"] withKeys:@[@"KEYS.Notify.Work.age"]];
+                        [specification[@"COMPONENTS"][@"NESTED_BODY"][@"COMPONENTS"] removeObjectForKey: @"2"];
+                        [specification[@"COMPONENTS"][@"NESTED_BODY"][@"COMPONENTS"] removeObjectForKey: @"3"];
+                    }
+            
+            void(^previousViewDidLoadBlock)(BaseController* controllerObj) = controller.viewDidLoadBlock;
+            controller.viewDidLoadBlock = ^void(BaseController* controllerObj){
+                if (previousViewDidLoadBlock) {
+                    previousViewDidLoadBlock(controllerObj);
+                }
+                [APNSCategoriesController addAPNSSettingsJsonDivView: controllerObj.view specification:specification];
+            };
+            
         }
-        
-        void(^previousViewDidLoadBlock)(BaseController* controllerObj) = controller.viewDidLoadBlock;
-        controller.viewDidLoadBlock = ^void(BaseController* controllerObj){
-            if (previousViewDidLoadBlock) {
-                previousViewDidLoadBlock(controllerObj);
-            }
-            [APNSCategoriesController addAPNSSettingsJsonDivView: controllerObj.view specification:specification];
-        };
+
         
     // DEPARTMENT_VEHICLE
     } else if (indexPath.section == 1)
@@ -210,7 +291,7 @@
             controller.apnsType = @"APNS_MaterialLimit";
             [DictionaryHelper replaceKeys: specification[@"COMPONENTS"][@"NESTED_BODY"][@"COMPONENTS"] keys:@[@"1",@"2",@"3"] withKeys:@[@"productName",@"date",@"amount"]];
             
-            controller.APNSDidGetDataFromServer = ^void(APNSEditController* controllerObj, NSDictionary* results) {
+            controller.APNSDidGetDataFromServerAction = ^void(GeneralEditController* controllerObj, NSDictionary* results) {
                 NSMutableDictionary* objects = [DictionaryHelper deepCopy: results];
                 objc_setAssociatedObject(controllerObj, &objectKey, nil, OBJC_ASSOCIATION_RETAIN);
                 objc_setAssociatedObject(controllerObj, &objectKey, objects, OBJC_ASSOCIATION_RETAIN);
@@ -224,7 +305,7 @@
                 [controllerObj setDataToViews: data[APNS_RESULTS_USERS] parameters:data[APNS_RESULTS_PARAMETERS]];
                 // ------------------------------------ End . Set datas to view
             };
-            controller.APNSGetDataSendToServer = ^NSMutableDictionary*(APNSEditController* controllerObj){
+            controller.APNSGetDataSendToServerAction = ^NSMutableDictionary*(GeneralEditController* controllerObj){
                 NSMutableDictionary* objects = objc_getAssociatedObject(controllerObj, &objectKey);
                 return objects;
             };
@@ -252,7 +333,7 @@
                         // PREVIOUS
                         NSString* previousCode = objc_getAssociatedObject(productNameTx, &textFieldKey);
                         if (previousCode && ![previousCode isEqualToString:@""]) {
-                            [(APNSEditController*)controllerObj getViewsDataTo: objects[previousCode]];
+                            [(GeneralEditController*)controllerObj getViewsDataTo: objects[previousCode]];
                         }
                         
                         // NOW
@@ -269,7 +350,7 @@
                         }
                         objc_setAssociatedObject(productNameTx, &textFieldKey, productCode, OBJC_ASSOCIATION_RETAIN);
                         [productNameTx setValue: data[@"name"]];
-                        [(APNSEditController*)controllerObj setDataToViews: data[APNS_RESULTS_USERS] parameters:data[APNS_RESULTS_PARAMETERS]];
+                        [(GeneralEditController*)controllerObj setDataToViews: data[APNS_RESULTS_USERS] parameters:data[APNS_RESULTS_PARAMETERS]];
                         // ------------------------------------ End . Set datas to view
                         
                     };
@@ -288,7 +369,6 @@
     controller.viewWillAppearBlock = ^void(BaseController* controller, BOOL animated){
         controller.title = [tableView cellForRowAtIndexPath:indexPath].textLabel.text;
     };
-    controller.view.backgroundColor = [UIColor whiteColor];
     [VIEW.navigator pushViewController: controller animated:YES];
 }
 

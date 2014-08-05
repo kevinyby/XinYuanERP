@@ -15,7 +15,6 @@
 - (void)viewDidLoad
 {
     self.approvalsView.initializeSubViewsBlock = ^void(ApprovalsViews* appview) {
-        DLOG(@"++++++++++");
         for (int i = 0; i < appview.approvals.count; i++) {
             PanelView* panelView = (PanelView*)[appview.contentView viewWithTag:ApprovalsViews_PANEL_VIEW_TAG(i)];
             NSString* approvalKey = appview.approvals[i];

@@ -79,7 +79,7 @@
 #import "SetDropboxController.h"
 
 #import "APNSCategoriesController.h"
-#import "APNSEditController.h"
+#import "GeneralEditController.h"
 
 
 // Controllers
