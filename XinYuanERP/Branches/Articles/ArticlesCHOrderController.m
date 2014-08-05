@@ -107,6 +107,12 @@
         }
         
         if (!_updateTimer) {
+            
+//            dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^{
+//                _updateTimer = [NSTimer scheduledTimerWithTimeInterval:5 target:self selector:@selector(updateObjectToCache) userInfo:nil repeats:YES];
+//                [[NSRunLoop currentRunLoop] run];
+//            });
+            
             _updateTimer = [NSTimer timerWithTimeInterval:updateTimerSec target:self selector:@selector(updateObjectToCache) userInfo:nil repeats:YES];
             [[NSRunLoop currentRunLoop]addTimer:_updateTimer forMode:NSRunLoopCommonModes];
             
@@ -125,13 +131,13 @@
 -(void)updateObjectToCache
 {
     NSLog(@"---updateObjectToCache---");
-    if (isEmptyString(_titleNew.text) && isEmptyString(_textScrollViewNew.textView.text)) {
-        return;
-    }
-    NSDictionary* dic = @{@"title":_titleNew.text,
-                          @"articles":_textScrollViewNew.textView.text,
-                          @"editor":DATA.signedUserName};
-    [ArticlesObjectHelper updateManagedObject:dic];
+//    if (isEmptyString(_titleNew.text) && isEmptyString(_textScrollViewNew.textView.text)) {
+//        return;
+//    }
+//    NSDictionary* dic = @{@"title":_titleNew.text,
+//                          @"articles":_textScrollViewNew.textView.text,
+//                          @"editor":DATA.signedUserName};
+//    [ArticlesObjectHelper updateManagedObject:dic];
 }
 
 

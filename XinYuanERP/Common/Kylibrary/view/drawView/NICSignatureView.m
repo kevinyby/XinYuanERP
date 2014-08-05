@@ -355,6 +355,8 @@ static NICSignaturePoint ViewPointToGL(CGPoint viewPoint, CGRect bounds, GLKVect
     CGPoint mid = CGPointMake((l.x + previousPoint.x) / 2.0, (l.y + previousPoint.y) / 2.0);
     
     if (distance > QUADRATIC_DISTANCE_TOLERANCE) {
+        
+//        NSLog(@" quadratic distance === %f",distance);
         // Plot quadratic bezier instead of line
         unsigned int i;
         
@@ -377,6 +379,8 @@ static NICSignaturePoint ViewPointToGL(CGPoint viewPoint, CGRect bounds, GLKVect
         }
     }
     else if (distance > 1.0) {
+//        NSLog(@" line distance === %f",distance);
+        
         NICSignaturePoint v = ViewPointToGL(l, self.bounds, StrokeColor);
         [self addTriangleStripPointsForPrevious:previousVertex next:v];
         

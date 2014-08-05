@@ -24,6 +24,10 @@
 
 @property(nonatomic, readwrite, strong) NSRecursiveLock *lock;
 
+/*for batchRequest*/
+@property (nonatomic, strong) dispatch_queue_t completionQueue;
+@property (nonatomic, strong) dispatch_group_t completionGroup;
+
 
 @end
 
@@ -181,6 +185,65 @@
     self.error = error;
     self.completionBlock();
     [self operationDidFinish];
+}
+
+#pragma mark - BatchRequest
+
++ (NSArray *)batchOfRequestOperations:(NSArray *)operations
+                        progressBlock:(void (^)(NSUInteger numberOfFinishedOperations, NSUInteger totalNumberOfOperations,KKConnectionOperation* operation))progressBlock
+                      completionBlock:(void (^)(NSArray *operations))completionBlock
+{
+    if (!operations || [operations count] == 0) {
+        return @[[NSBlockOperation blockOperationWithBlock:^{
+            dispatch_async(dispatch_get_main_queue(), ^{
+                if (completionBlock) {
+                    completionBlock(@[]);
+                }
+            });
+        }]];
+    }
+    
+    __block dispatch_group_t group = dispatch_group_create();
+    NSBlockOperation *batchedOperation = [NSBlockOperation blockOperationWithBlock:^{
+        dispatch_group_notify(group, dispatch_get_main_queue(), ^{
+            if (completionBlock) {
+                completionBlock(operations);
+            }
+        });
+    }];
+    
+    for (KKConnectionOperation *operation in operations) {
+        operation.completionGroup = group;
+        void (^originalCompletionBlock)(void) = [operation.completionBlock copy];
+        __weak __typeof(operation)weakOperation = operation;
+        operation.completionBlock = ^{
+            __strong __typeof(weakOperation)strongOperation = weakOperation;
+#pragma clang diagnostic push
+#pragma clang diagnostic ignored "-Wgnu"
+            dispatch_queue_t queue = strongOperation.completionQueue ?: dispatch_get_main_queue();
+#pragma clang diagnostic pop
+            dispatch_group_async(group, queue, ^{
+                if (originalCompletionBlock) {
+                    originalCompletionBlock();
+                }
+                
+                NSUInteger numberOfFinishedOperations = [[operations indexesOfObjectsPassingTest:^BOOL(id op, NSUInteger __unused idx,  BOOL __unused *stop) {
+                    return [op isFinished];
+                }] count];
+                
+                if (progressBlock) {
+                    progressBlock(numberOfFinishedOperations, [operations count], strongOperation);
+                }
+                
+                dispatch_group_leave(group);
+            });
+        };
+        
+        dispatch_group_enter(group);
+        [batchedOperation addDependency:operation];
+    }
+    
+    return [operations arrayByAddingObject:batchedOperation];
 }
 
 

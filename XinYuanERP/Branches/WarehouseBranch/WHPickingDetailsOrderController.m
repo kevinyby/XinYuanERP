@@ -35,7 +35,7 @@
     [super viewDidLoad];
     // Do any additional setup after loading the view.
     
-    __weak WHPickingDetailsOrderController* weakSelf = self;
+     WHPickingDetailsOrderController* __weak weakSelf = self;
     __block WHPickingDetailsOrderController* blockSelf = self;
     
     
