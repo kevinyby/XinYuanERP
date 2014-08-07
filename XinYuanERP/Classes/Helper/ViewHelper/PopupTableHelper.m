@@ -122,12 +122,20 @@
 // title key is type
 +(JRButtonsHeaderTableView*) showPopTableView: (JRTextField*)textField titleKey:(NSString*)titleKey dataSources:(NSArray*)dataSources
 {
+    return [self showPopTableView:textField titleKey:titleKey dataSources:dataSources realDataSources:nil];
+}
+
++(JRButtonsHeaderTableView*) showPopTableView: (JRTextField*)textField titleKey:(NSString*)titleKey dataSources:(NSArray*)dataSources realDataSources:(NSArray*)realDataSources
+{
     UIView* superView = [PopupTableHelper getCommonPopupTableView];
     JRButtonsHeaderTableView* searchTableView = (JRButtonsHeaderTableView*)[superView viewWithTag: POPUP_TABLEVIEW_TAG];
     [searchTableView.tableView setHideSearchBar: YES];
     
     if (dataSources) {
         searchTableView.tableView.tableView.contentsDictionary = [DictionaryHelper deepCopy:@{@"": dataSources}];
+    }
+    if (realDataSources) {
+        searchTableView.tableView.tableView.realContentsDictionary = [DictionaryHelper deepCopy:@{@"": realDataSources}];
     }
     searchTableView.titleLabel.text = LOCALIZE_KEY(titleKey);
     searchTableView.rightButton.hidden = YES;
@@ -143,6 +151,7 @@
     [PopupViewHelper popView:superView willDissmiss:nil];
     return searchTableView;
 }
+
 
 
 +(UIView*) getCommonPopupTableView

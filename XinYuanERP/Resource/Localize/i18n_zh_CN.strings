@@ -54,6 +54,7 @@
 "FinancePaymentOrder"="支付单";
 "FinanceSalary"="薪资表";
 "FinanceSalaryCHOrder"="薪资异动表";
+"Friday"="星期五";
 "FuelConsumption"="油耗";
 "General_Settings"="通用设置";
 "HAVE_OR_NOT.HAVE"="有";
@@ -67,6 +68,7 @@
 "MINOR"="子";
 "Manufacture"="生管部门";
 "MaterialRequisition"="领料";
+"Monday"="星期一";
 "Motorcade"="车队";
 "NETWORK_ERROR"="网络错误";
 "NO"="否";
@@ -96,6 +98,7 @@
 "SECURITY_FK"="访客单";
 "SECURITY_RZ"="保安日志";
 "SEND"="发送";
+"Saturday"="星期六";
 "Security"="保安部门";
 "SecurityJournalOrder"="警卫日志";
 "SecurityPatrolOrder"="保安巡查日志";
@@ -115,7 +118,10 @@
 "Sign_Save"="保存";
 "Signature"="签名";
 "Statistics"="数据统计";
+"Sunday"="星期天";
+"Thursday"="星期四";
 "Trace"="追踪";
+"Tuesday"="星期二";
 "UPLOAD"="上传";
 "User_Permissions_Settings"="用户权限设置";
 "VENDOR"="厂商";
@@ -141,6 +147,7 @@
 "WHRecycleInventory"="回收库存";
 "WHScrapOrder"="报废单";
 "Warehouse"="仓库部门";
+"Wednesday"="星期三";
 "Work"="工作";
 "YES"="是";
 "ZZ_BTNSubmit"="存档";

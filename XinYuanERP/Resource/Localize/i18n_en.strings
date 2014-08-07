@@ -54,6 +54,7 @@
 "FinancePaymentOrder"="Single payment";
 "FinanceSalary"="Salary Order";
 "FinanceSalaryCHOrder"="Salary Change Order";
+"Friday"="Friday";
 "FuelConsumption"="Fuel Consumption";
 "General_Settings"="General Settings";
 "HAVE_OR_NOT.HAVE"="Have";
@@ -67,6 +68,7 @@
 "MINOR"="Minor";
 "Manufacture"="Manufacture";
 "MaterialRequisition"="Material Requisition";
+"Monday"="Monday";
 "Motorcade"="Motorcade";
 "NETWORK_ERROR"="Network Error";
 "NO"="NO";
@@ -96,6 +98,7 @@
 "SECURITY_FK"="Visitors Single";
 "SECURITY_RZ"="SecurityLog";
 "SEND"="Send";
+"Saturday"="Saturday";
 "Security"="Security";
 "SecurityJournalOrder"="SecurityVisitLogOrder";
 "SecurityPatrolOrder"="Security Patrol Order";
@@ -115,7 +118,10 @@
 "Sign_Save"="Save";
 "Signature"="Signature";
 "Statistics"="Statistics";
+"Sunday"="Sunday";
+"Thursday"="Thursday";
 "Trace"="Trace";
+"Tuesday"="Tuesday";
 "UPLOAD"="Upload";
 "User_Permissions_Settings"="User Permissions";
 "VENDOR"="Vendor";
@@ -141,6 +147,7 @@
 "WHRecycleInventory"="Recycle Inventory";
 "WHScrapOrder"="Scrap Order";
 "Warehouse"="Warehouse";
+"Wednesday"="Wednesday";
 "Work"="Work";
 "YES"="YES";
 "ZZ_BTNSubmit"="Submit";

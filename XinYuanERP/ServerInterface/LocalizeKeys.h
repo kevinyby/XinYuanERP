@@ -48,6 +48,7 @@
 #define HR_EDU_RECORD_KEYS          @[@"Employee.edu_rGraduate",@"Employee.edu_rSchool",@"Employee.edu_rDropOut"]
 
 
+#define WEEK_DAYS                   @[@"Monday", @"Tuesday", @"Wednesday", @"Thursday", @"Friday", @"Saturday", @"Sunday"]
 
 
 

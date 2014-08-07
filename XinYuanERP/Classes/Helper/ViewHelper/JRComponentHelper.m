@@ -488,11 +488,9 @@ static const char* CONST_DataPickerType = "PickerType";
     
     // picker mode
     UIDatePickerMode pickerMode = UIDatePickerModeDate;     // default date
-    if ([pattern isEqualToString: PATTERN_DATE_TIME]) {
-        pickerMode = UIDatePickerModeDateAndTime;
-    } else if ([pattern isEqualToString: PATTERN_CLOCK] || [pattern isEqualToString: @"HH:mm"]){
+    if ([pattern isEqualToString: PATTERN_CLOCK] || [pattern isEqualToString: @"HH:mm"]){
         pickerMode = UIDatePickerModeTime;
-    } else if ([pattern isEqualToString: PATTERN_DATE_TIME]) {
+    } else {
         pickerMode = UIDatePickerModeDateAndTime;
     }
     [ActionSheetDatePicker showPickerWithTitle:@"" datePickerMode:pickerMode selectedDate:date doneBlock:doneBlock cancelBlock:cancelBlock origin:textField];

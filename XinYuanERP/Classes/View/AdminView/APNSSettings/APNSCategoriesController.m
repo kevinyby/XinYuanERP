@@ -44,13 +44,13 @@
         // data
         self.sections = @[LOCALIZE_KEY(DEPARTMENT_HUMANRESOURCE), LOCALIZE_KEY(DEPARTMENT_VEHICLE), LOCALIZE_KEY(DEPARTMENT_WAREHOUSE)];
         self.contents =  @[
-                          @[workTime,traceFile,retiredAge,workAge],
-                          
-                          @[fuelConsumption],
-                          
-                          @[materialRequisition],
-                          
-                          ];
+                           @[workTime,traceFile,retiredAge,workAge],
+                           
+                           @[fuelConsumption],
+                           
+                           @[materialRequisition],
+                           
+                           ];
     }
     return self;
 }
@@ -59,7 +59,7 @@
 {
     [super viewDidLoad];
     
-
+    
     [self.view addSubview: settingsTableView];
     
     // set frame directly
@@ -146,7 +146,7 @@
         if ([cellText isEqualToString: workTime])
         {
             NSString* xibName = @"WorkTimeSetting_IPAD";
-
+            
             controller = [[GeneralEditController alloc] initWithNibName: xibName bundle:[NSBundle mainBundle]];
             controller.apnsType = @"AtWorkTime";
             controller.viewDidLoadBlock = ^void(BaseController* controllerObj){
@@ -157,56 +157,71 @@
                 for (UIView* subView in jsonDivView.subviews) {
                     if ([subView isKindOfClass: [JsonDivView class]]) {
                         [LayerHelper setBasicAttributes: subView.layer config:@{@"BorderColor": @(7), @"BorderWidth": @(1), @"CornerRadius": @(5), @"MasksToBounds": @(TRUE)}];
-                        for (UIView* v in subView.subviews) {
+                        
+                        JsonDivView* subDivView = (JsonDivView*)subView;
+                        
+                        for (UIView* v in subDivView.subviews) {
                             
                             if ([v isKindOfClass: [JRTextField class]]) {
-                                [JRComponentHelper setupDatePickerToComponent: v pattern:@"HH:mm"];
-                                ((JRTextField*)v).textFieldDidSetTextBlock = ^void(NormalTextField* textField, NSString* oldText){
-                                    NSString* attribute = ((JRTextField*)textField).attribute;
-                                    NSString* att = nil;
-                                    if ([attribute rangeOfString: @"From"].location != NSNotFound) {
-                                        att = [attribute stringByReplacingOccurrencesOfString: @"From" withString:@""];
-                                    } else if ([attribute rangeOfString: @"To"].location != NSNotFound) {
-                                        att = [attribute stringByReplacingOccurrencesOfString: @"To" withString:@""];
-                                    }
-                                    
-                                    JRTextField* from = (JRTextField*)[jsonDivView getView:[att stringByAppendingString: @"From"]];
-                                    JRTextField* to = (JRTextField*)[jsonDivView getView:[att stringByAppendingString: @"To"]];
-                                    JRLabel* label = (JRLabel*)[jsonDivView getView:[att stringByAppendingString: @"Label"]];
+                                
+                                JRTextField* jrTx = (JRTextField*)v;
+                                NSString* attribute = jrTx.attribute;
+                                NSString* att = nil;
+                                if ([attribute rangeOfString: @"From"].location != NSNotFound) {
+                                    att = [attribute stringByReplacingOccurrencesOfString: @"From" withString:@""];
+                                } else if ([attribute rangeOfString: @"To"].location != NSNotFound) {
+                                    att = [attribute stringByReplacingOccurrencesOfString: @"To" withString:@""];
+                                }
+                                
+                                JRTextField* from = (JRTextField*)[jsonDivView getView:[att stringByAppendingString: @"From"]];
+                                JRTextField* to = (JRTextField*)[jsonDivView getView:[att stringByAppendingString: @"To"]];
+                                JRLabel* label = (JRLabel*)[jsonDivView getView:[att stringByAppendingString: @"Label"]];
+                                
+                                if ([subDivView.attribute isEqualToString:@"workDay"]) {
+                                    jrTx.isEnumerateValue = YES;
+                                    jrTx.enumerateValues = WEEK_DAYS;
+                                    jrTx.enumerateValuesLocalizeKeys = WEEK_DAYS;
+                                    jrTx.textFieldDidClickAction = ^void(JRTextField* tx) {
+                                        [PopupTableHelper showPopTableView: tx titleKey:APPLOCALIZE_KEYS(@"Work", @"day") dataSources:[LocalizeHelper localize:WEEK_DAYS] realDataSources:WEEK_DAYS];
+                                    };
+                                } else {
+                                    [JRComponentHelper setupDatePickerToComponent: jrTx pattern:@"HH:mm"];
+                                }
+                                
+                                jrTx.textFieldDidSetTextBlock = ^void(NormalTextField* textField, NSString* oldText){
                                     
                                     NSString* fromString = [from getValue];
                                     NSString* toString = [to getValue];
                                     if (OBJECT_EMPYT(fromString) || OBJECT_EMPYT(toString)) {
                                         return;
                                     }
-                                    
-                                    NSDateFormatter *dateFormatter= [[NSDateFormatter alloc] init];
-                                    [dateFormatter setDateFormat: @"HH:mm"];
-                                    NSDate *dateFrom =[dateFormatter dateFromString: fromString];
-                                    NSDate *dateTo = [dateFormatter dateFromString: toString];
-                                    
-                                    NSDateComponents* components = [[NSCalendar currentCalendar]
-                                                                       components:kCFCalendarUnitDay | kCFCalendarUnitHour | kCFCalendarUnitMinute
-                                                                       fromDate:dateFrom
-                                                                       toDate:dateTo
-                                                                       options:0];
-                                    NSInteger hour = [components hour];
-                                    if (hour < 0) {
-                                        hour = 24 + hour;
+                                    NSString* labelText = nil;
+                                    if ([subDivView.attribute isEqualToString:@"workDay"]) {
+                                        int indexFrom = [WEEK_DAYS indexOfObject: fromString];
+                                        int indexTo = [WEEK_DAYS indexOfObject: toString];
+                                        int subtractValue = indexTo - indexFrom;
+                                        if (subtractValue < 0) {
+                                            subtractValue = 7 + subtractValue;
+                                        }
+                                        labelText = [NSString stringWithFormat: @"%d", subtractValue + 1];
+                                        
+                                    } else {
+                                        NSArray* hourandminiute = [DateHelper subtractHourAndMinute: fromString to:toString];
+                                        NSInteger hour = [[hourandminiute firstObject] integerValue];
+                                        NSInteger minute = [[hourandminiute lastObject] integerValue];
+                                        NSString* format = minute == 0 ? @"%d" : @"%d:%02d";
+                                        
+                                        labelText = [NSString stringWithFormat: format, hour, minute];
                                     }
-                                    NSInteger minute = [components minute];
-                                    if (minute < 0) {
-                                        minute = 60 + minute;
-                                    }
-                                    
-                                    NSString* format = minute == 0 ? @"%d" : @"%d:%02d";
-                                    [label setValue: [NSString stringWithFormat: format, hour,minute]];
+                                    [label setValue: labelText];
                                     [label adjustWidthToFontText];
                                 };
+                                
                             } else if ([v isKindOfClass: [JRLabel class]]) {
                                 [((JRLabel*)v) setValue: nil];
                             }
                         }
+                        
                         
                     }
                 }
@@ -271,15 +286,15 @@
             };
             
         }
-
         
-    // DEPARTMENT_VEHICLE
+        
+        // DEPARTMENT_VEHICLE
     } else if (indexPath.section == 1)
     {
         
         
         
-    // DEPARTMENT_WAREHOUSE
+        // DEPARTMENT_WAREHOUSE
     } else if (indexPath.section == 2)
     {
         NSMutableDictionary* specification = [DictionaryHelper deepCopy: [JsonFileManager getJsonFromFile: @"Components.json"][@"AdministratorAPNS"]];
@@ -383,7 +398,7 @@
     [bodyDivView setCenterX:[view sizeWidth]/2];
     [bodyDivView setOriginY:[jsonView originY]];
     bodyDivView.tag = APNSEditControllerJSONDivTag;
-//                [ColorHelper setBorderRecursive: bodyView];
+    //                [ColorHelper setBorderRecursive: bodyView];
 }
 
 

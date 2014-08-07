@@ -18,7 +18,10 @@
 +(void) setupPopTableView: (JRTextField*)textField type:(NSString*)type;
 
 +(JRButtonsHeaderTableView*) showUpJobLevelPopTableView: (JRTextField*)jrTextField;
+
 +(JRButtonsHeaderTableView*) showPopTableView: (JRTextField*)textField titleKey:(NSString*)titleKey dataSources:(NSArray*)dataSources;
++(JRButtonsHeaderTableView*) showPopTableView: (JRTextField*)textField titleKey:(NSString*)titleKey dataSources:(NSArray*)dataSources realDataSources:(NSArray*)realDataSources;
+
 +(void) dissmissCurrentPopTableView;
 
 

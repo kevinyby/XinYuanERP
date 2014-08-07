@@ -54,6 +54,7 @@
 "FinancePaymentOrder"="thanh toán duy nhất";
 "FinanceSalary"="Bảng lương";
 "FinanceSalaryCHOrder"="giao dịch biên chế";
+"Friday"="z";
 "FuelConsumption"="tiêu thụ nhiên liệu";
 "General_Settings"="Thiết lập thông báo";
 "HAVE_OR_NOT.HAVE"="có";
@@ -67,6 +68,7 @@
 "MINOR"="trẻ em";
 "Manufacture"="Cơ quan y tế";
 "MaterialRequisition"="chọn";
+"Monday"="z";
 "Motorcade"="xe hộ tống";
 "NETWORK_ERROR"="Lỗi mạng";
 "NO"="không";
@@ -96,6 +98,7 @@
 "SECURITY_FK"="khách đơn";
 "SECURITY_RZ"="an ninh Đăng nhập";
 "SEND"="gửi";
+"Saturday"="z";
 "Security"="ngành an ninh";
 "SecurityJournalOrder"="bảo vệ đăng nhập";
 "SecurityPatrolOrder"="Nhật ký tuần tra an ninh";
@@ -115,7 +118,10 @@
 "Sign_Save"="tiết kiệm";
 "Signature"="chữ ký";
 "Statistics"="Thống kê";
+"Sunday"="z";
+"Thursday"="z";
 "Trace"="theo dõi";
+"Tuesday"="z";
 "UPLOAD"="tải lên";
 "User_Permissions_Settings"="người sử dụng Quyền";
 "VENDOR"="công ty";
@@ -141,6 +147,7 @@
 "WHRecycleInventory"="chứng khoán tái chế";
 "WHScrapOrder"="phế liệu";
 "Warehouse"="Bộ kho";
+"Wednesday"="z";
 "Work"="công việc";
 "YES"="được";
 "ZZ_BTNSubmit"="lưu trữ";

@@ -86,8 +86,8 @@
         
         "COMS_DATE_PATTERNS": {
             "createDate":"yyyy-MM-dd",
-            "startDate" : "yyyy-MM-dd HH:mm:ss",
-            "endDate": "yyyy-MM-dd HH:mm:ss"
+            "startDate" : "yyyy-MM-dd HH:mm",
+            "endDate": "yyyy-MM-dd HH:mm"
         }
         
         
