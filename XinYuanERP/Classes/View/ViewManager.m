@@ -21,6 +21,10 @@ static ViewManager* sharedInstance;
         NSLog(@"device identifierForVendor : %@", [[[UIDevice currentDevice] identifierForVendor] UUIDString]);
         NSLog(@"device name: %@", [[UIDevice currentDevice] name]);
         
+        NSString* apaaa = @"app2";
+        NSString* ooooo = [apaaa substringFromIndex: apaaa.length - 1];
+        int aaa = [ooooo intValue];
+        
 //        for (int i = 0; i < 5; i++)  NSLog(@"%d", arc4random() % 10);
 //        NSString* string = @"aaa";
 //        NSArray* result = [AppViewHelper getKeyElements: string];

@@ -83,9 +83,61 @@
 }
 
 
+-(void) enableViewsWithReceiveObjects: (NSMutableDictionary*)objects
+{
+    JsonDivView* NESTED_footerDiv = (JsonDivView*)[self.jsonView getView: @"NESTED_footer"];
+    NSArray* levels = [DATA.modelsStructure getModelApprovals: self.order];
+    for (int i = 0; i < levels.count; i++) {
+        NSString* levelKey = levels[i];
+        [NESTED_footerDiv getView: levelKey].hidden = NO;
+    }
+    
+    NSString* virtualFinalAppLevel = [self getTheFinalAppLeveBySettings: objects];
+    if (virtualFinalAppLevel) {
+        NSString* nextLevel = virtualFinalAppLevel;
+        while ((nextLevel = [JsonControllerHelper getNextAppLevel: nextLevel])) {
+            [NESTED_footerDiv getView: nextLevel].hidden = YES;
+        }
+        
+        JRButtonTextFieldView* finalButton = (JRButtonTextFieldView*)[NESTED_footerDiv getView: virtualFinalAppLevel];
+        JRButtonTextFieldView* realFinalButton = (JRButtonTextFieldView*)[NESTED_footerDiv getView: [levels lastObject]];
+        finalButton.button.didClikcButtonAction = realFinalButton.button.didClikcButtonAction;
+    }
+    
+    [super enableViewsWithReceiveObjects:objects];
+}
+
+
 #pragma mark - Private Methods
+
+-(NSString*) getTheFinalAppLeveBySettings: (NSDictionary*)objects
+{
+    float day = [objects[@"day"] floatValue];
+    NSDictionary* orderSettings = DATA.approvalSettings[self.department][self.order];
+    NSArray* levels = [DATA.modelsStructure getModelApprovals: self.order];
+    for (int i = 0; i < levels.count; i++) {
+        NSString* levelKey = levels[i];
+        NSDictionary* appValue = orderSettings[levelKey];
+        NSString* appleaveDaySpec = appValue[@"APP_LEAVE_DAY"];
+        int APP_LEAVE_DAY = [appleaveDaySpec intValue];
+        if (!OBJECT_EMPYT(appleaveDaySpec) && (APP_LEAVE_DAY >= day)) {
+            return levelKey;
+        }
+    }
+    return nil;
+}
+
+
 -(void) caculateLeaveTime
 {
+    if (self.controlMode != JsonControllerModeCreate) return;
+    
+    NSString* startDateString = [startDateTextField getValue];
+    NSString* endDateString = [endDateTextField getValue];
+    if (OBJECT_EMPYT(startDateString) || OBJECT_EMPYT(endDateString)) {
+        return;
+    }
+    
     if (! workTimeSettings) {
         [AppServerRequester readSetting: @"ADMIN_AtWorkTime" completeHandler:^(ResponseJsonModel *response, NSError *error) {
             if (response.status) {
@@ -102,12 +154,6 @@
 
 -(void) caculateDayAnHour
 {
-    NSString* startDateString = [startDateTextField getValue];
-    NSString* endDateString = [endDateTextField getValue];
-    if (OBJECT_EMPYT(startDateString) || OBJECT_EMPYT(endDateString)) {
-        return;
-    }
-    
     // To Be Continue
 //    NSString* morningFrom = workTimeSettings[@"morningFrom"];
 //    NSString* morningTo = workTimeSettings[@"morningTo"];
