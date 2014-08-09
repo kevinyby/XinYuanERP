@@ -33,7 +33,9 @@
         NSData* jsonData = [NSData dataWithBytesNoCopy:(void *)[data bytes] + binaryLength length:jsonLenght freeWhenDone:NO];
         
         NSError *error = nil;
+        NSString* jsonString = [[NSString alloc] initWithData: jsonData encoding:NSUTF8StringEncoding];
         NSDictionary* dictionary = [NSJSONSerialization JSONObjectWithData:jsonData options:NSJSONReadingMutableLeaves|NSJSONReadingAllowFragments error:&error];
+//        NSDictionary* dictionary = [jsonString objectFromJSONString];
         if (error) {
             binaryData = [NSData dataWithData:jsonData];
         } else {
