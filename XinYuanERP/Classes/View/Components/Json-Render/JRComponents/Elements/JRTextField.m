@@ -188,6 +188,8 @@
     // ...
     if ([text isKindOfClass: [NSNumber class]]) {
         text = [((NSNumber*)text) stringValue];
+//        text = [NSString stringWithFormat: @"%.5f", [text floatValue]];
+//        text = [JRTextField convertFloatNumberToString: (NSNumber*)text];
     }
     
     self.text = text;
@@ -242,6 +244,28 @@
     textField.isBooleanValue = YES;
     textField.booleanValuesLocalizeKeys = keys;
     textField.textFieldDidClickAction = ^void(JRTextField* textField) {  [PopupTableHelper showPopTableView: textField titleKey:titleKey dataSources: [LocalizeHelper localize: textField.booleanValuesLocalizeKeys]]; };
+}
+
+
+
++(NSString*) convertFloatNumberToString: (NSNumber*)number
+{
+    NSString* text = [NSString stringWithFormat: @"%.5f", [number floatValue] ];
+    
+    int zeroCount = 0;
+    if ([text rangeOfString: @"."].location != NSNotFound) {
+        int dotIndex = [text rangeOfString: @"."].location;
+        for (int i = text.length - 1; i > dotIndex; i--) {
+            char c = [text characterAtIndex: i];
+            NSString* s = [NSString stringWithFormat: @"%c", c];
+            if ([s isEqualToString: @"0"]) {
+                zeroCount ++ ;
+            }
+        }
+    }
+    
+    NSString* result = [text substringWithRange: NSMakeRange(0, text.length - zeroCount)];
+    return result;
 }
 
 

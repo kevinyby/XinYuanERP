@@ -156,7 +156,7 @@
         self.headerTableView.searchBar.textField.text = result;
         self.headerTableView.tableView.filterText = result;
     };
-    [self.navigationController presentModalViewController:QRReadVC animated:YES];
+//    [self.navigationController presentModalViewController:QRReadVC animated:YES];
 }
 
 
