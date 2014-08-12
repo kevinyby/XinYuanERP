@@ -38,6 +38,7 @@
                                     "MODEL_SENDVIEW" : "NESTED_MaterialInfo",
                                     
                                     "NESTED_BOTTOM.createUser": {
+                                        "MODEL_APPFROM" : "createUser",
                                         "MODEL_APPTO" : "app1"
                                     },
                             
