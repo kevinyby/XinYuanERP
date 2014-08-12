@@ -15,25 +15,38 @@
     // QRCode button item
     UIImage* qrCodeScanImage = IMAGEINIT(@"public_QRCodeScan.png");
     UIImage* qrCodeHightImage =  [ImageHelper applyingAlphaToImage: qrCodeScanImage alpha:0.5];
-    UIButton* qrCodeScanButton = [[UIButton alloc]initWithImage:qrCodeScanImage focusImage:qrCodeHightImage target:self action:@selector(scanQRCode:)];
+    UIButton* qrCodeScanButton = [[UIButton alloc] initWithImage:qrCodeScanImage focusImage:qrCodeHightImage target:self action:@selector(scanQRCode:)];
     CGRect rect = CGRectMake(10, 5, qrCodeScanImage.size.width+10, qrCodeScanImage.size.height+10);
     [qrCodeScanButton setFrame:rect];
-    
-    // new version
-    UIBarButtonItem* addButtonItem = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemAdd target:self action:@selector(createNewOrder:)];
     UIBarButtonItem* qrCodeButtonItem = [[UIBarButtonItem alloc] initWithCustomView: qrCodeScanButton];
+    
+    // Add button item
+    UIBarButtonItem* addButtonItem = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemAdd target:self action:@selector(createNewOrder:)];
+    
+    
+    // Search button item
+    UIBarButtonItem* searchButtonItem = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemSearch target:self action:@selector(searchOrder:)];
+    
+    
+    // Space button item
+    UIBarButtonItem* spaceButtonItem = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemFixedSpace target:nil action:nil];
+    spaceButtonItem.width = [FrameTranslater convertCanvasWidth: 50];
+    
+    
+    //
+    NSArray* items = nil;
     if ([self.order isEqualToString:MODEL_WHInventory]||[self.order isEqualToString:MODEL_EMPLOYEE]) {
-        UIBarButtonItem* spaceButtonItem = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemFixedSpace target:nil action:nil];
-        spaceButtonItem.width = [FrameTranslater convertCanvasWidth: 50];
-        self.navigationItem.rightBarButtonItems = @[addButtonItem, spaceButtonItem, qrCodeButtonItem];
+       items = @[addButtonItem, spaceButtonItem, searchButtonItem, spaceButtonItem, qrCodeButtonItem];
     } else {
-        self.navigationItem.rightBarButtonItems = @[addButtonItem];
+        items = @[addButtonItem, spaceButtonItem, searchButtonItem];
     }
-
+    
+    self.navigationItem.rightBarButtonItems = items;
 }
 
 
 #pragma mark - Override Super Class Methods
+
 -(void) appSearchTableViewController: (AppSearchTableViewController*)controller didSelectIndexPath:(NSIndexPath*)indexPath
 {
     if([PermissionChecker checkSignedUserWithAlert:self.department order:self.order permission:PERMISSION_READ]) {
@@ -56,12 +69,11 @@
     id identification = [[tableViewObj realContentForIndexPath:realIndexPath] firstObject];
     NSString* tips = [[tableViewObj realContentForIndexPath:realIndexPath] safeObjectAtIndex: 1];
     
-    
-    [OrderSearchListViewController deleteWithCheckPermission: orderType deparment:department identification:identification tips:tips handler:^(bool isSuccess) {
+    [OrderSearchListViewHelper deleteWithCheckPermission: orderType deparment:department identification:identification tips:tips handler:^(bool isSuccess) {
         if (isSuccess) {
     
             // delete the images
-            NSString* imagesFolderName = [OrderSearchListViewController getImageFolderName: weakInstance indexPath:realIndexPath];
+            NSString* imagesFolderName = [OrderSearchListViewHelper getImageFolderName: weakInstance indexPath:realIndexPath];
             if (! OBJECT_EMPYT(imagesFolderName)) {
                 NSString* fullFolderName = [[JsonControllerHelper getImagesHomeFolder: orderType department:department] stringByAppendingPathComponent: imagesFolderName];
                 [VIEW.progress show];
@@ -78,70 +90,10 @@
     
     return NO;  // let the call back delete visual content
 }
-
-
-
-#pragma mark - Util
-
-+(NSString*) getImageFolderName:(OrderSearchListViewController*)listController indexPath:(NSIndexPath*)realIndexPath
-{
-    NSString* order = listController.order;
-    NSString* department = listController.department;
-    NSArray* fields = listController.requestModel.fields;
-    FilterTableView* tableViewObj = (FilterTableView*)listController.headerTableView.tableView;
-    NSString* deleteImagesFolderProperty = [OrderSearchListViewController getDeleteImageFolderProperty: department order:order];
-    if (! deleteImagesFolderProperty) return nil;
-    
-    int imagesFolderValueIndex = -1;     // the id is 0 , the 1 is ... (maybe orderNO)
-    for (int i = 0; i < fields.count; i++) {
-        NSArray* innerFields = fields[i];
-        if ([innerFields containsObject: deleteImagesFolderProperty]) {
-            imagesFolderValueIndex = [innerFields indexOfObject: deleteImagesFolderProperty];
-            DLOG(@"Get Image Folder Index: %d", imagesFolderValueIndex);
-            break;
-        }
-    }
-    if (imagesFolderValueIndex == -1) return nil;
-    
-    NSArray* realRowContents = [tableViewObj realContentForIndexPath: realIndexPath];
-    NSString* imagesFolderName = [realRowContents objectAtIndex: imagesFolderValueIndex];
-    
-    return imagesFolderName;
-}
-
-+(NSString*) getDeleteImageFolderProperty: (NSString*)department order:(NSString*)order
-{
-    return [JsonBranchFactory getModelsListSpecification: department order:order][@"__Delete_Images_Folder"];
-}
-
-
-+(void) deleteWithCheckPermission:(NSString*)orderType deparment:(NSString*)department identification:(id)identification tips:(NSString*)tips handler:(void(^)(bool isSuccess))handler
-{
-    if([PermissionChecker checkSignedUserWithAlert: department order:orderType permission:PERMISSION_DELETE]) {
-        [OrderSearchListViewController delete: orderType deparment:department identification:identification tips:tips handler:handler];
-    }
-}
-
-+(void) delete:(NSString*)orderType deparment:(NSString*)department identification:(id)identification tips:(NSString*)tips handler:(void(^)(bool isSuccess))handler
-{
-    [PopupViewHelper popAlert:LOCALIZE_KEY(KEY_WARNING) message:LOCALIZE_MESSAGE_FORMAT(MESSAGE_SureToDelete, tips) style:0 actionBlock: ^(UIView *view, NSInteger index) {
-        UIAlertView* alertView = (UIAlertView*)view;
-        NSString* buttonTitle = [alertView buttonTitleAtIndex: index];
-        if ([buttonTitle isEqualToString: LOCALIZE_KEY(@"OK")]) {
-            
-            [VIEW.progress show];
-            VIEW.progress.detailsLabelText = LOCALIZE_MESSAGE_FORMAT(@"DeletingStuffAndWait", tips);
-            [AppServerRequester deleteModel: orderType department:department identities:@{PROPERTY_IDENTIFIER: identification} completeHandler:^(bool isSuccessfully) {
-                [VIEW.progress hide];
-                if (handler) {
-                    handler(isSuccessfully);
-                }
-            }];
-            
-        }
-    } dismissBlock:nil buttons:LOCALIZE_KEY(@"OK"), LOCALIZE_KEY(@"CANCEL"), nil];
-}
 // delete -------------------
+
+
+
 
 
 #pragma mark - Action
@@ -153,6 +105,25 @@
     if (self.didTapAddNewOrderBlock) self.didTapAddNewOrderBlock(self,sender);
 }
 
+
+
+-(void) searchOrder: (id)sender
+{
+    UIView* superView = [PopupTableHelper getCommonPopupTableView];
+    JRButtonsHeaderTableView* searchTableView = (JRButtonsHeaderTableView*)[superView viewWithTag: POPUP_TABLEVIEW_TAG];
+    [searchTableView.tableView setHideSearchBar: YES];
+    [PopupViewHelper popView:superView willDissmiss:nil];
+    
+    
+    JRButton* rightButton = searchTableView.rightButton;
+    [rightButton setTitle:LOCALIZE_KEY(@"SEARCH") forState:UIControlStateNormal];
+    
+    JRButton* leftButton = searchTableView.leftButton;
+    [leftButton setTitle:LOCALIZE_KEY(@"clear") forState:UIControlStateNormal];
+}
+
+
+
 -(void)scanQRCode:(id)sender
 {
     QRCodeReaderViewController* QRReadVC = [[QRCodeReaderViewController alloc]init];
@@ -160,7 +131,8 @@
         self.headerTableView.searchBar.textField.text = result;
         self.headerTableView.tableView.filterText = result;
     };
-//    [self.navigationController presentModalViewController:QRReadVC animated:YES];
+
+    [self.navigationController presentViewController: QRReadVC animated:YES completion:nil];
 }
 
 

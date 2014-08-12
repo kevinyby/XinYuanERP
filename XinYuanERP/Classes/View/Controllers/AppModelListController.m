@@ -5,18 +5,6 @@
 
 @implementation AppModelListController
 
-
--(void)viewDidAppear:(BOOL)animated
-{
-    [super viewDidAppear:animated];
-    // ... in filter mode selected error occured
-    if (!self.headerTableView.tableView.isInFilteringMode && self.currentRow) {
-        NSIndexPath* currentIndexPath = [NSIndexPath indexPathForRow:self.currentRow inSection: 0];
-        [self.headerTableView.tableView selectRowAtIndexPath:currentIndexPath animated:YES scrollPosition:UITableViewScrollPositionMiddle];
-    }
-    
-}
-
 #pragma mark - Public Mthods
 
 -(void) getPreviousRow: (int)idIndex handler:(void(^)(id identification))handler

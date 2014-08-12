@@ -59,7 +59,8 @@
 {
     if (self.controlMode != JsonControllerModeCreate) return;
     
-    NSDictionary* objects = [self.jsonView getModel];
+    NSDictionary* withImagesObjects = [self.jsonView getModel];
+    NSMutableDictionary* objects = [DictionaryHelper filter:withImagesObjects withType:[UIImage class]];
     if ([self needToWriteOrRenderCache: objects]) {
         NSString* jsonString = [CollectionHelper convertJSONObjectToJSONString: objects];
         [FileManager writeDataToFile: CachePath data: [jsonString dataUsingEncoding: NSUTF8StringEncoding]];
