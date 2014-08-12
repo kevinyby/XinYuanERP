@@ -147,8 +147,8 @@
         [textField setValue: value];
         [PopupViewHelper dissmissCurrentPopView];
     };
-    
     [PopupViewHelper popView:superView willDissmiss:nil];
+    
     return searchTableView;
 }
 
@@ -176,7 +176,7 @@
     
     JRButton* rightButton = searchTableView.rightButton;
     [rightButton setBackgroundImage:[UIImage imageNamed:@"Pushbutton_08.png"] forState:UIControlStateNormal];
-    [FrameHelper setFrame:XYWH(290, 5, 84, 46) view:rightButton];
+    [FrameHelper setFrame:XYWH(285, 5, 84, 46) view:rightButton];
     
     [rightButton setTitle:LOCALIZE_KEY(@"edit") forState:UIControlStateNormal];
     

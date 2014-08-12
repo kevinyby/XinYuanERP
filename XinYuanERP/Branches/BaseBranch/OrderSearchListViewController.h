@@ -16,13 +16,4 @@ typedef void(^DidTapAddNewOrderBlock)(OrderSearchListViewController* controller,
 @property (copy) DidTapAddNewOrderBlock didTapAddNewOrderBlock;
 
 
-
-
-
-#pragma mark -
-
-+(NSString*) getDeleteImageFolderProperty: (NSString*)department order:(NSString*)order;
-
-+(void) deleteWithCheckPermission:(NSString*)orderType deparment:(NSString*)department identification:(id)identification tips:(NSString*)tips handler:(void(^)(bool isSuccess))handler;
-
 @end

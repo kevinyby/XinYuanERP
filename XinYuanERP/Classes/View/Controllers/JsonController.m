@@ -169,11 +169,11 @@
         id identification = self.identification;
         NSString* tips = LOCALIZE_KEY(@"order");
         
-        [OrderSearchListViewController deleteWithCheckPermission: orderType deparment:department identification:identification tips:tips handler:^(bool isSuccess) {
+        [OrderSearchListViewHelper deleteWithCheckPermission: orderType deparment:department identification:identification tips:tips handler:^(bool isSuccess) {
             if (isSuccess) {
                 
                 // delete the images
-                NSString* imagesFolderProperty = [OrderSearchListViewController getDeleteImageFolderProperty: department order:orderType];
+                NSString* imagesFolderProperty = [OrderSearchListViewHelper getDeleteImageFolderProperty: department order:orderType];
                 NSString* imagesFolderName = self.valueObjects[imagesFolderProperty];
                 if (! OBJECT_EMPYT(imagesFolderName)) {
                     NSString* fullFolderName = [[JsonControllerHelper getImagesHomeFolder: orderType department:department] stringByAppendingPathComponent: imagesFolderName];
