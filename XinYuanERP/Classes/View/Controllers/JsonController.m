@@ -536,6 +536,9 @@
         NSMutableDictionary* differWithoutImagesObjects = [JsonControllerHelper differObjects:self.valueObjects objects:withoutImagesObjects];
         
         if ([self.valueObjects[PROPERTY_RETURNED] boolValue]) {
+            if (! differWithoutImagesObjects) {
+                differWithoutImagesObjects = [NSMutableDictionary dictionary];
+            }
             [differWithoutImagesObjects setObject:[NSNumber numberWithBool: NO] forKey:PROPERTY_RETURNED];
             [differWithoutImagesObjects setObject: forwardUser forKey:PROPERTY_FORWARDUSER];
         }
