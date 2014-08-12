@@ -26,7 +26,7 @@
     productCodeTxtField.textFieldDidClickAction = ^void(JRTextField* jrTextField) {
         
         NSArray* needFields = @[@"productCode",@"productName",@"productCategory"];
-        PickerModelTableView* pickView = [PickerModelTableView getPickerModelView:MODEL_WHInventory fields:needFields criterias:@{@"and": [NSMutableDictionary dictionaryWithDictionary:@{@"productCategory": @"EQ<>设备"}]}];
+        PickerModelTableView* pickView = [PickerModelTableView popupWithRequestModel:MODEL_WHInventory fields:needFields willDimissBlock:nil];
         pickView.titleHeaderViewDidSelectAction = ^void(JRTitleHeaderTableView* headerTableView, NSIndexPath* indexPath){
             
             FilterTableView* filterTableView = (FilterTableView*)headerTableView.tableView.tableView;

@@ -414,7 +414,7 @@
                                     "JFrame":[440, 530, 350, 80],
                                     "COMPONENTS":{
                                         
-                                        "BTN_Save" : {
+                                        "BTN_Save_" : {
                                             "JCom": "JRButton",
                                             "JFrame": [200,10,-1.1,-1.1],
                                             "JSubRender":{
@@ -424,6 +424,14 @@
                                                 "JS_FONT_BOLD":1,
                                                 "JS_FONT_N_COLOR":[255,255,255,1],
                                                 "JS_FONT_S_COLOR":[0,0,0,0],
+                                            }
+                                        },
+                                        "createUser": {
+                                            "JCom" : "JRButtonTextFieldView",
+                                            "JFrame": [200,10,160,50],
+                                            "JSubRender": {
+                                                "frames":[[], [81,1,-1.1,-1.1]],
+                                                "SubRenders":[{"JR_BGN_IMG":"public_底部按钮.png"},{"JR_IMG":"public_底部长名字框.png"}]
                                             }
                                         },
                                         

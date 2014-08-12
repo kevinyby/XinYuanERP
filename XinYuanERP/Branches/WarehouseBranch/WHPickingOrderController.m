@@ -90,7 +90,7 @@
                 
             }];
             
-            NSArray* array = [filterTableView realContentForIndexPath: indexPath];
+            NSArray* array = [filterTableView realContentForIndexPath: realIndexPath];
             jrTextField.text = [array objectAtIndex:1];
             productNameTxtField.text = [array objectAtIndex:2];
             productCategoryTxtField.text = [array objectAtIndex:3];

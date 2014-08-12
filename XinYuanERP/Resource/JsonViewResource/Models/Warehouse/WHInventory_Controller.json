@@ -37,7 +37,7 @@
                                 {
                                     "MODEL_SENDVIEW" : "NESTED_MaterialInfo",
                                     
-                                    "NESTED_BOTTOM.BTN_Save": {
+                                    "NESTED_BOTTOM.createUser": {
                                         "MODEL_APPTO" : "app1"
                                     },
                             

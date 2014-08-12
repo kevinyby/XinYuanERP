@@ -113,22 +113,22 @@
     [ColorHelper setBorder: langurageButton];
 
 
-//    JsonController* jsonController = [[WHPickingOrderController alloc] initWithOrder:@"WHPickingOrder" department:DEPARTMENT_WAREHOUSE];
-    JsonController* jsonController = [[EmployeeQuitOrderController alloc] initWithOrder:@"EmployeeQuitOrder" department:DEPARTMENT_HUMANRESOURCE];
+    JsonController* jsonController = [[WHLendOutOrderController alloc] initWithOrder:@"WHLendOutOrder" department:DEPARTMENT_WAREHOUSE];
+//    JsonController* jsonController = [[EmployeeQuitOrderController alloc] initWithOrder:@"EmployeeQuitOrder" department:DEPARTMENT_HUMANRESOURCE];
 //    JsonController* jsonController = [[JsonController alloc] initWithOrder:@"FinanceSalary" department:DEPARTMENT_FINANCE];
 //    UIViewController* jsonController = [AdminControllerDispatcher dispatchToOtherSettingsController];
     
-    NSString* sbname = @"Main_iPhone";
-    if ([UIDevice currentDevice].userInterfaceIdiom == UIUserInterfaceIdiomPad){
-        sbname = @"Main_iPad";
-    }
-    UIStoryboard* sb = [UIStoryboard storyboardWithName:sbname bundle:nil];
-    assert(sb != nil);
-    UIViewController* controller = [sb instantiateViewControllerWithIdentifier:@"Cards"];
-    [self presentViewController:controller animated:YES completion:nil];
-//    [VIEW.navigator pushViewController: jsonController animated:YES];
-//    [jsonController.view addSubview: langurageButton];
-//    [ColorHelper setBorderRecursive: jsonController.jsonView];
+//    NSString* sbname = @"Main_iPhone";
+//    if ([UIDevice currentDevice].userInterfaceIdiom == UIUserInterfaceIdiomPad){
+//        sbname = @"Main_iPad";
+//    }
+//    UIStoryboard* sb = [UIStoryboard storyboardWithName:sbname bundle:nil];
+//    assert(sb != nil);
+//    UIViewController* controller = [sb instantiateViewControllerWithIdentifier:@"Cards"];
+//    [self presentViewController:controller animated:YES completion:nil];
+    [VIEW.navigator pushViewController: jsonController animated:YES];
+    [jsonController.view addSubview: langurageButton];
+    [ColorHelper setBorderRecursive: jsonController.jsonView];
   
 
    

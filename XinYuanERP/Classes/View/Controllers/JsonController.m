@@ -112,6 +112,10 @@
     NSDictionary* clientConfig = self.specifications[kController_CLIENT];
     NSDictionary* imagesConfig = self.specifications[kController_IMAGES];
 
+    // Photos Picker
+    [JRComponentHelper setupPhotoPickerComponents: varJsonView config:imagesConfig[kController_IMAGE_PICKER]];
+    // Photos Previews
+    [JRComponentHelper setupPreviewImageComponents: self config:imagesConfig[kController_IMAGES_PREVIEWS]];
     // Toggle Buttons
     [JRComponentHelper setupToggleButtons: varJsonView components:clientConfig[kController_TOGGLES_BUTTONS]];
     // Date Pickers & Date Patterns
@@ -120,10 +124,6 @@
     [JRComponentHelper setupQRCodeComponents: varJsonView components:clientConfig[kController_QRCODES_BUTTONS]];
     // Signature
     [JRComponentHelper setupSignaturePicker: varJsonView config:clientConfig[kController_SIGNATURESBUTTONS]];
-    // Photos Picker
-    [JRComponentHelper setupPhotoPickerComponents: varJsonView config:imagesConfig[kController_IMAGE_PICKER]];
-    // Photos Previews
-    [JRComponentHelper setupPreviewImageComponents: self config:imagesConfig[kController_IMAGES_PREVIEWS]];
     // Popup Tables
     [PopupTableHelper setupPopTableViewsInJsonView: varJsonView config:clientConfig[kController_ValuesPicker]];
     
