@@ -37,19 +37,22 @@
         "SUBMIT_BUTTONS" : [
                             {
                             
-                            "NESTED_BOTTOM.createUser": {
+                            "NESTED_footer.createUser": {
+                            "MODEL_APPFROM" : "createUser",
                             "MODEL_APPTO" : "app1"
                             },
-                            "NESTED_BOTTOM.app1": {
+                            "NESTED_footer.app1": {
                             "BUTTON_TYPE" : 1,
                             "MODEL_APPFROM" : "app1",
                             "MODEL_APPTO" : "app2"
                             },
-                            "NESTED_BOTTOM.app2": {
+                            "NESTED_footer.app2": {
                             "BUTTON_TYPE" : 1,
                             "MODEL_APPFROM" : "app2",
                             "MODEL_APPTO" : "createUser"
                             }
+                            
+                            
                             
                             }
             

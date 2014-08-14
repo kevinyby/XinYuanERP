@@ -168,12 +168,6 @@
     
     _totalPriceTxtField = ((JRLabelTextFieldView*)[self.jsonView getView:@"totalPrice"]).textField;
 
-    
-    JRButtonTextFieldView* createUserView = (JRButtonTextFieldView*)[self.jsonView getView:@"NESTED_BOTTOM.createUser"];
-    JRButtonTextFieldView* app1View = (JRButtonTextFieldView*)[self.jsonView getView:@"NESTED_BOTTOM.app1"];
-    JRButtonTextFieldView* app2View= (JRButtonTextFieldView*)[self.jsonView getView:@"NESTED_BOTTOM.app2"];
-    [WarehouseHelper constraint:app1View condition:createUserView];
-    [WarehouseHelper constraint:app2View condition:app1View];
 }
 
 
