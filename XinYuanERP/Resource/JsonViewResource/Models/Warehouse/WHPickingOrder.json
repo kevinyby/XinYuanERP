@@ -1,6 +1,22 @@
 {
     "COMPONENTS":{
-        "NESTED_footer": "",
+        "NESTED_footer": {
+            "JFrame": [ 80, 630, 530, 60],
+            "COMPONENTS": {
+                "createUser": {
+                    "JFrame": [342,1,170,55],
+                },
+                "app1": {
+                    "JFrame": [176,1,170,55],
+                },
+                "app2": {
+                    "JFrame": [10,1,170,55],
+                },
+                "app3":"",
+                "app4":"",
+            }
+            
+        },
         "BG_BOOK_IMAGE" : {
             "JCom": "JRImageView",
             "JFrame": [40,80,913,525],
@@ -218,38 +234,6 @@
             }
         },
         
-        "NESTED_BOTTOM": {
-            "JFrame": [ 80, 630, 530, 60],
-            "BORDER": 2 ,
-            "COMPONENTS": {
-                "createUser": {
-                    "JCom" : "JRButtonTextFieldView",
-                    "JFrame": [342,1,170,55],
-                    "JSubRender": {
-                        "frames":[[], [81,1,-1.1,-1.1]],
-                        "SubRenders":[{"JR_BGN_IMG":"public_底部按钮.png"},{"JR_IMG":"public_底部长名字框.png"}]
-                    }
-                },
-                
-                "app1": {
-                    "JCom" : "JRButtonTextFieldView",
-                    "JFrame": [176,1,170,55],
-                    "JSubRender": {
-                        "frames":[[], [81,1,-1.1,-1.1]],
-                        "SubRenders":[{"JR_BGN_IMG":"public_底部按钮.png"},{"JR_IMG":"public_底部长名字框.png"}]
-                    }
-                },
-                
-                "app2": {
-                    "JCom" : "JRButtonTextFieldView",
-                    "JFrame": [10,1,170,55],
-                    "JSubRender": {
-                        "frames":[[], [81,1,-1.1,-1.1]],
-                        "SubRenders":[{"JR_BGN_IMG":"public_底部按钮.png"},{"JR_IMG":"public_底部长名字框.png"}]
-                    }
-                },
-            }
-        },
         "BTN_Disagree" : {
             "JFrame":[680,610,250,80],
             "SORTEDKEYS": ["Disagree_Button","Disagree","Notice"],

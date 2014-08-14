@@ -36,10 +36,9 @@
             weakProductCodeTxtField.text = [array objectAtIndex:1];
             productNameTxtField.text = [array objectAtIndex:2];
             
-            [AnimationView dismissAnimationView];
+            [PickerModelTableView dismiss];
         };
         
-        [AnimationView presentAnimationView:pickView completion:nil];
     };
     
 }
