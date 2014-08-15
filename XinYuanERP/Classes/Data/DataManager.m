@@ -44,9 +44,13 @@ static DataManager* sharedInstance;
 
 -(void) initializeSQLiteDatabase
 {
-    [appSqlite openDataBase];
+    NSString* sqlite3FilePath  = [[FileManager documentsPath] stringByAppendingPathComponent: @"App/caches.db"];
+    [FileManager createFolderWhileNotExist: sqlite3FilePath];
+    [appSqlite openDatabase: [sqlite3FilePath UTF8String]];
     [appSqlite createUserTable];
-    if ([appSqlite checkIsNoRecord])[appSqlite insertValuesInUser:@"" password:@""];
+    if ([appSqlite checkIsNoRecord]) {
+        [appSqlite insertValuesInUser:@"" password:@""];
+    }
 }
 
 

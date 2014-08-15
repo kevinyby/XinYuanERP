@@ -109,17 +109,21 @@
 
 -(void) searchOrder: (id)sender
 {
+    // popu the view
     UIView* superView = [PopupTableHelper getCommonPopupTableView];
     JRButtonsHeaderTableView* searchTableView = (JRButtonsHeaderTableView*)[superView viewWithTag: POPUP_TABLEVIEW_TAG];
     [searchTableView.tableView setHideSearchBar: YES];
     [PopupViewHelper popView:superView willDissmiss:nil];
     
-    
+    // change the button title
     JRButton* rightButton = searchTableView.rightButton;
     [rightButton setTitle:LOCALIZE_KEY(@"SEARCH") forState:UIControlStateNormal];
     
     JRButton* leftButton = searchTableView.leftButton;
     [leftButton setTitle:LOCALIZE_KEY(@"clear") forState:UIControlStateNormal];
+    
+    // set the table contents
+    
 }
 
 

@@ -3,22 +3,20 @@
 @interface AppSQLiteManager : SQLiteManager
 
 
+#pragma mark - User Table
+
 - (void) createUserTable;
 
--(NSArray*) selectFirstUser ;
-- (NSArray*) selectLastUser ;
+-(BOOL) checkIsNoRecord;
+
+-(NSArray*) selectFirstUserNameAndPassword ;
 
 - (void) insertValuesInUser: (NSString*)username password:(NSString*)password;
-
--(void) insertPassword:(NSString*)password;
-
--(void) insertUsername: (NSString*)username;
 
 -(void) updateUsername: (NSString*)username;
 
 -(void) updatePassword:(NSString*)password;
 
--(BOOL) checkIsNoRecord;
 
 
 
