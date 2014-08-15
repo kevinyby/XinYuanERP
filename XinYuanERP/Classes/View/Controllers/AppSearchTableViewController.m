@@ -20,6 +20,7 @@
         headerTableView.headerLabelClass = [JRLocalizeLabel class];
         [headerTableView.searchBar setHiddenCancelButton: YES];
         headerTableView.tableView.proxy = self;
+        headerTableView.searchBar.textField.placeholder = APPLOCALIZE_KEYS(@"local", @"SEARCH");
         
         
         if (UI_USER_INTERFACE_IDIOM() == UIUserInterfaceIdiomPhone) {

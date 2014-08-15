@@ -30,7 +30,7 @@
     [ACTION destroyReleaseableProcedure];
     
     // get the save username & password
-    NSArray* array = [DATA.appSqlite selectFirstUser];
+    NSArray* array = [DATA.appSqlite selectFirstUserNameAndPassword];
     NSString* username = [array firstObject];
     NSString* password = [array lastObject];
     userNameTextField.text = username;

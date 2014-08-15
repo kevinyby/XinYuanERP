@@ -302,40 +302,25 @@
 +(void) enableSubmitButtonsForApplyMode: (JsonController*)jsoncontroller withObjects:(NSDictionary*)objects order:(NSString*)order
 {
     
-    BOOL isReturned = [objects[PROPERTY_RETURNED] boolValue];
+    NSString* lastHasApprovalLevel = [JsonControllerHelper getCurrentHasApprovedLevel: order valueObjects:objects];
+    BOOL isReturned = [objects[PROPERTY_RETURNED] boolValue] && [DATA.signedUserName isEqualToString: objects[lastHasApprovalLevel]];
     
-    NSString* lastHasApprovalLevel = nil;
-    BOOL isReturnedToSignedUser = NO;
     if (isReturned) {
         jsoncontroller.controlMode = JsonControllerModeModify;
-        lastHasApprovalLevel = [JsonControllerHelper getCurrentHasApprovedLevel: order valueObjects:objects];
-        isReturnedToSignedUser = [DATA.signedUserName isEqualToString: objects[lastHasApprovalLevel]];
     }
     
     
     [JsonControllerHelper iterateJsonControllerSubmitButtonsConfig: jsoncontroller handler:^BOOL(NSString* buttonKey, JRButton *submitBTN, NSString *departmentType, NSString *orderType, NSString *sendNestedViewKey, NSString *appTo, NSString *appFrom, JsonControllerSubmitButtonType buttonType) {
         
+        // for returned mode
         if (isReturned) {
-            // for returned mode
             
-            if (isReturnedToSignedUser) {
-                
-                if ([lastHasApprovalLevel isEqualToString: PROPERTY_CREATEUSER]) {
-                    if (buttonType == JsonControllerSubmitButtonTypeSaveOrUpdate) {
-                        [submitBTN setTitleColor: [UIColor redColor] forState:UIControlStateNormal];
-                        [JsonControllerHelper setUserInterfaceEnable: submitBTN enable:YES];
-                        return YES;
-                    }
-                } else {
-                    if ([buttonKey rangeOfString: lastHasApprovalLevel].location != NSNotFound) {
-                        [submitBTN setTitleColor: [UIColor redColor] forState:UIControlStateNormal];
-                        [JsonControllerHelper setUserInterfaceEnable: submitBTN enable:YES];
-                        return YES;
-                    }
-                    
-                }
-                
+            if (([lastHasApprovalLevel isEqualToString: PROPERTY_CREATEUSER] && buttonType == JsonControllerSubmitButtonTypeSaveOrUpdate) || [buttonKey rangeOfString: lastHasApprovalLevel].location != NSNotFound) {
+                    [submitBTN setTitleColor: [UIColor redColor] forState:UIControlStateNormal];
+                    [JsonControllerHelper setUserInterfaceEnable: submitBTN enable:YES];
+                    return YES;
             }
+            
             
             
         } else {
