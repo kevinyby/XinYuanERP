@@ -12,6 +12,7 @@
 
 @property (readonly) NSArray* approvals;
 @property (readonly) PickerViewBase* tabsPicker;
+@property (nonatomic,assign) NSInteger subOrderDepth;
 
 
 

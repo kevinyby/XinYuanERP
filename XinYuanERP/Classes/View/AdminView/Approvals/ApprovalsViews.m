@@ -102,7 +102,14 @@
             NSMutableArray* numbers = [NSMutableArray array];
             for (NSString* username in [DATA.usersNOApproval allKeys]){
                 if ([DATA.usersNOApproval[username] boolValue]) {
-                    BOOL isHaveReadPermission = [PermissionChecker check: username department:self.categoryName order:self.modelName permission:PERMISSION_READ];
+                    
+                    NSString* modelType = self.modelName;
+                    if (self.subOrderDepth) {
+                        int count = VIEW.navigator.viewControllers.count;
+                        SetApprovalsController* rootApprovalController = [VIEW.navigator.viewControllers objectAtIndex: count - 1 - self.subOrderDepth ];
+                        modelType = rootApprovalController.approvalsView.modelName;
+                    }
+                    BOOL isHaveReadPermission = [PermissionChecker check: username department:self.categoryName order:modelType permission:PERMISSION_READ];
                     if (isHaveReadPermission) {
                         [numbers addObject:username];
                     }

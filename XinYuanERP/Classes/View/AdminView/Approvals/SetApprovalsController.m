@@ -102,6 +102,7 @@
             // next set subOrder
             jrButton.didClikcButtonAction = ^void(JRButton* button) {
                 SetApprovalsController* approvalController = [[SetApprovalsController alloc] initWithOrder: subOrder department:department];
+                approvalController.approvalsView.subOrderDepth = approvalsView.subOrderDepth + 1;
                 [VIEW.navigator pushViewController: approvalController animated:YES];
             };
         }

@@ -372,7 +372,7 @@
             }
         },
         "NESTED_BOTTOM":{ 
-            "JFrame":[60, 554, 908, 108],
+            "JFrame":[58, 554, 910, 108],
             "BORDER": 11,
             "SORTEDKEYS":["BG_IMAGE"],
             "COMPONENTS":{

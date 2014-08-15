@@ -98,9 +98,9 @@
     };
     
     
-    JRButtonTextFieldView* createUserView = (JRButtonTextFieldView*)[self.jsonView getView:@"NESTED_TOP.createUser"];
-    JRButtonTextFieldView* app1View = (JRButtonTextFieldView*)[self.jsonView getView:@"NESTED_TOP.app1"];
-    JRButtonTextFieldView* app2View= (JRButtonTextFieldView*)[self.jsonView getView:@"NESTED_TOP.app2"];
+//    JRButtonTextFieldView* createUserView = (JRButtonTextFieldView*)[self.jsonView getView:@"NESTED_TOP.createUser"];
+//    JRButtonTextFieldView* app1View = (JRButtonTextFieldView*)[self.jsonView getView:@"NESTED_TOP.app1"];
+//    JRButtonTextFieldView* app2View= (JRButtonTextFieldView*)[self.jsonView getView:@"NESTED_TOP.app2"];
     
 //    [KVOObserver observerForObject:createUserView.textField keyPath:@"text" oldAndNewBlock:^(id oldValue, id newValue) {
 //        NSLog(@"oldValue === %@",oldValue);
@@ -114,8 +114,8 @@
 //        NSLog(@"newValue === %@",newValue);
 //    }];
     
-    [WarehouseHelper constraint:app1View condition:createUserView];
-    [WarehouseHelper constraint:app2View condition:app1View];
+//    [WarehouseHelper constraint:app1View condition:createUserView];
+//    [WarehouseHelper constraint:app2View condition:app1View];
     
 //    JRButton* BTN_ReturnNumButton = (JRButton*)[self.jsonView getView:@"NESTED_BOTTOM.BTN_ReturnNum"];
 //    [self constraint:app2View complete:^(BOOL success){
@@ -165,13 +165,6 @@
     [controller.jsonView addSubviewToContentView:nestedDivView];
     
     [nestedDivView addOriginY: [nestedDivView sizeHeight] * index];
-    
-    
-    JRButtonTextFieldView* createUserView = (JRButtonTextFieldView*)[nestedDivView getView:@"createUser"];
-    JRButtonTextFieldView* app1View = (JRButtonTextFieldView*)[nestedDivView getView:@"app1"];
-    JRButtonTextFieldView* app2View= (JRButtonTextFieldView*)[nestedDivView getView:@"app2"];
-    [WarehouseHelper constraint:app1View condition:createUserView];
-    [WarehouseHelper constraint:app2View condition:app1View];
     
     // -------- Client
     
@@ -229,8 +222,6 @@
     [controller setupServerEvents];
     
     
-    
-    
     if (index != 0) {
         [controller baseSuperViewMove:[nestedDivView sizeHeight]];
     }
@@ -272,14 +263,16 @@
 -(BOOL) validateSendObjects: (NSMutableDictionary*)objects order:(NSString*)order
 {
     
-    // judge lendAmount
-    if (!isEmptyString(_productCodeTxtField.text)){
-        
-        JRTextField* lendAmountTxtField = ((JRLabelTextFieldView*)[self.jsonView getView:@"lendAmount"]).textField;
-        float lendAmount = [lendAmountTxtField.text floatValue];
-        if (lendAmount>_remainInventory) {
-            [Utility showAlert: LOCALIZE_MESSAGE(@"LendAmountOutOfLimit")];
-            return NO;
+    if (self.controlMode == JsonControllerModeCreate)
+    {
+        if (!isEmptyString(_productCodeTxtField.text)){
+            
+            JRTextField* lendAmountTxtField = ((JRLabelTextFieldView*)[self.jsonView getView:@"lendAmount"]).textField;
+            float lendAmount = [lendAmountTxtField.text floatValue];
+            if (lendAmount>_remainInventory) {
+                [Utility showAlert: LOCALIZE_MESSAGE(@"LendAmountOutOfLimit")];
+                return NO;
+            }
         }
     }
     return [super validateSendObjects:objects order:order];
@@ -309,6 +302,19 @@
     
 }
 
+-(void) enableViewsWithReceiveObjects: (NSMutableDictionary*)objects
+{
+    NSMutableDictionary* orderObjdect = [objects objectForKey:@"order"];
+    
+    [self createBillViews:[objects objectForKey:@"bills"]];
+    
+    [super enableViewsWithReceiveObjects:orderObjdect];
+    
+    [self enableBillViews:orderObjdect];
+    
+}
+
+
 -(void) translateReceiveObjects: (NSMutableDictionary*)objects
 {
     NSMutableDictionary* orderObjdect = [objects objectForKey:@"order"];
@@ -334,6 +340,29 @@
     
     NSArray* bills = [objects objectForKey:@"bills"];
     
+    for (int j = 0; j<[bills count]; ++j) {
+        
+        NSString* NestedBillTag = [NSString stringWithFormat:@"%@%d",@"NESTED_MIDDLE_INCREMENT_",j];
+        JsonDivView* billDivView = (JsonDivView*)[self.jsonView getView:NestedBillTag];
+        
+        NSDictionary* billObjdect = bills[j];
+        NSMutableDictionary* billMutObject = [DictionaryHelper deepCopy: billObjdect];
+        [super translateReceiveObjects: billMutObject];
+        [billDivView setModel: billMutObject];
+        
+        float returnAmount = [[billObjdect objectForKey:@"returnAmount"] floatValue];
+        lendAmount = lendAmount - returnAmount;
+    }
+    
+    notReturnAmountTxtField.text = [[NSNumber numberWithFloat:lendAmount] stringValue];
+}
+
+
+
+#pragma mark -
+#pragma mark - Handle Bills
+-(void)createBillViews:(NSArray *)bills
+{
     int billCount = bills.count;
     int previousBillCount = self.incrementInt;
     int substract = billCount - previousBillCount;
@@ -355,23 +384,45 @@
         [WHLendOutOrderController deriveReturnViews: self index: 0];
         self.incrementInt ++ ;
     }
+}
+
+-(void)enableBillViews:(NSMutableDictionary*)orderObjdect
+{
+    BOOL isOrderAllApproved = [JsonControllerHelper isAllApplied: self.order valueObjects:orderObjdect];
     
+    JRButton* BTN_ReturnNumButton = (JRButton*)[self.jsonView getView:@"NESTED_BOTTOM.BTN_ReturnNum"];
+    BTN_ReturnNumButton.enabled = isOrderAllApproved;
     
-    for (int j = 0; j<[bills count]; ++j) {
+    if (isOrderAllApproved) {
         
-        NSString* NestedBillTag = [NSString stringWithFormat:@"%@%d",@"NESTED_MIDDLE_INCREMENT_",j];
-        JsonDivView* billDivView = (JsonDivView*)[self.jsonView getView:NestedBillTag];
+        NSArray* bills = [orderObjdect objectForKey:@"bills"];
         
-        NSDictionary* billObjdect = bills[j];
-        NSMutableDictionary* billMutObject = [DictionaryHelper deepCopy: billObjdect];
-        [super translateReceiveObjects: billMutObject];
-        [billDivView setModel: billMutObject];
+        NSDictionary* lastBillObject = [bills lastObject];
+        NSString* apporovingLevel = PROPERTY_CREATEUSER;
+        int billDivIndex = bills.count;
         
-        float returnAmount = [[billObjdect objectForKey:@"returnAmount"] floatValue];
-        lendAmount = lendAmount - returnAmount;
+        if (lastBillObject != nil) {
+            while (!OBJECT_EMPYT(lastBillObject[apporovingLevel])) {
+                apporovingLevel = [JsonControllerHelper getNextAppLevel: apporovingLevel];
+            }
+            billDivIndex = bills.count - 1;
+        }
+        
+        if (!lastBillObject[apporovingLevel]) {
+            
+            NSString* billDivViewKey = [NSString stringWithFormat:@"%@%d",@"NESTED_MIDDLE_INCREMENT_", billDivIndex];
+            JsonDivView* billDivView = (JsonDivView*)[self.jsonView getView: billDivViewKey];
+            
+            JRButton* approvalingButton = ((JRButtonTextFieldView*)[billDivView getView: apporovingLevel]).button;
+            
+            if (!lastBillObject || [DATA.signedUserName isEqualToString: lastBillObject[PROPERTY_FORWARDUSER]]) {
+                [JsonControllerHelper setUserInterfaceEnable: approvalingButton enable:YES];
+            }
+            
+            
+        }
     }
-    
-    notReturnAmountTxtField.text = [[NSNumber numberWithFloat:lendAmount] stringValue];
+
 }
 
 
