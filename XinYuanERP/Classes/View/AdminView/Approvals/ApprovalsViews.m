@@ -230,7 +230,8 @@
                 tip = LOCALIZE_KEY(@"Employee.resign");
             }else
             {
-                BOOL isHaveReadPermission = [PermissionChecker check: username department:self.categoryName order:self.modelName permission:PERMISSION_READ];
+                NSString* orderType = [ViewControllerHelper getOrderType: self.modelName];
+                BOOL isHaveReadPermission = [PermissionChecker check: username department:self.categoryName order:orderType permission:PERMISSION_READ];
                 if (! isHaveReadPermission) {
                     tip = APPLOCALIZE_KEYS(@"user", @"without", PERMISSION_READ, @"permission");
                 }
