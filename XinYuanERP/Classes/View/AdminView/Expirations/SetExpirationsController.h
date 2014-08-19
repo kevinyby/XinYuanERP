@@ -1,6 +1,6 @@
-#import "AppRefreshTableViewController.h"
+#import "AppModelListController.h"
 
-@interface SetExpirationsController : AppRefreshTableViewController
+@interface SetExpirationsController : AppModelListController
 
 - (id)initWithOrder: (NSString*)order department:(NSString *)department;
 

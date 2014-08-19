@@ -81,13 +81,16 @@
 -(void) requestForDataFromServer
 {
     if (! self.requestModel) return;
+    
     if (! VIEW.isProgressShowing) {
         [VIEW.progress show];
         VIEW.progress.labelText = nil;
         VIEW.progress.detailsLabelText = nil;
     }
+    
     [DATA.requester startPostRequestWithAlertTips:self.requestModel completeHandler:^(HTTPRequester* requester, ResponseJsonModel *data, NSHTTPURLResponse *httpURLReqponse, NSError *error) {
         [self didReceiveDataFromServer: data error:error];
+        
         if (VIEW.progress.labelText == nil && VIEW.progress.detailsLabelText == nil) {
             [VIEW.progress hide];
         }
@@ -97,10 +100,19 @@
 {
     if (data.status) {
         // load the data to view
-        [ListViewControllerHelper assembleTableContents: self.headerTableView.tableView objects:data.results keys:data.models filter:self.contentsFilter];
+        
+        NSArray* keys = data.models;
+        NSArray* objects = data.results;
+        ContentFilterBlock filter = self.contentsFilter;
+        
+        AlignTableView* tableViewObj = self.headerTableView.tableView;
+        NSMutableDictionary* realContentsDictionary = [TableContentHelper assembleToRealContentDictionary: objects keys:keys];
+        tableViewObj.realContentsDictionary = realContentsDictionary;
+        NSMutableDictionary* contentsDictionary = [ListViewControllerHelper convertRealToVisualContents: realContentsDictionary filter:filter];
+        tableViewObj.contentsDictionary = contentsDictionary;
+        
         [self reloadTableData];
-    } else {
-        // TO DO LIST
+        
     }
 }
 
