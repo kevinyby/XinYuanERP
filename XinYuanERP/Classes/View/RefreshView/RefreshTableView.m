@@ -250,10 +250,10 @@
     [self.tableView setContentInset:(UIEdgeInsets){isTop ? 0.0f:contentInset.top, contentInset.left, isTop ? contentInset.bottom:0.0f, contentInset.right}];
     [UIView commitAnimations];
     
-    if (!isTop) {
-        CGPoint bottomOffset = CGPointMake(0, fmaxf(0,self.tableView.contentSize.height - self.tableView.bounds.size.height));
-        [self.tableView setContentOffset:bottomOffset animated:YES];
-    }
+//    if (!isTop) {
+//        CGPoint bottomOffset = CGPointMake(0, fmaxf(0,self.tableView.contentSize.height - self.tableView.bounds.size.height));
+//        [self.tableView setContentOffset:bottomOffset animated:YES];
+//    }
     
     RefreshElementView* elementView = isTop ? self.topView : self.bottomView;
     elementView.state = RefreshElementStateNull;

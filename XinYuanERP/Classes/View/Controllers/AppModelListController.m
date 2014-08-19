@@ -153,6 +153,18 @@
             [ViewHelper tableViewRowInsert: refreshTableView.tableView insertIndexPaths:insertIndexPaths animation:isTop ? UITableViewRowAnimationBottom : UITableViewRowAnimationTop completion:^(BOOL finished) {
                 [refreshTableView doneDownloading: isTop];
                 [refreshTableView reloadTableData];
+                
+                
+                // animation
+                UITableView* tableViewObj = refreshTableView.tableView;
+                CGPoint tableContentOffset = tableViewObj.contentOffset;
+                if (isTop) {
+                    tableContentOffset = CGPointMake(tableViewObj.contentOffset.x, 0);
+                } else {
+                    tableContentOffset = CGPointMake(tableViewObj.contentOffset.x, tableViewObj.contentOffset.y + tableViewObj.bounds.size.height / 2);
+                }
+                [tableViewObj setContentOffset:tableContentOffset animated:YES];
+                
             }];
             
         } else {
