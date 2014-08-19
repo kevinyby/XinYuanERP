@@ -12,8 +12,9 @@
 {
     
     NSMutableArray* insertIndexPaths = [NSMutableArray array];
-    
     NSArray* sortedKeys = [DictionaryHelper getSortedKeys: partRealContentDictionary];
+    
+    
     for (int j = 0; j < sortedKeys.count; j++) {
         NSString* key = [sortedKeys objectAtIndex: j];
         int section = j ;
@@ -44,6 +45,8 @@
             
         }
     }
+    
+    
     return insertIndexPaths;
 }
 

@@ -85,7 +85,6 @@
 // Controllers
 #import "AppNavigationViewController.h"
 #import "AppSearchTableViewController.h"
-#import "AppRefreshTableViewController.h"
 #import "AppImagePickerController.h"
 #import "AppModelListController.h"
 

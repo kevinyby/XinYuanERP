@@ -25,8 +25,8 @@
 
 @implementation RefreshTableView
 {
-    CGRect topViewOriginRect ;
-    CGRect bottomViewOriginRect ;
+    CGFloat topViewY ;
+    CGFloat bottomViewY ;
     
     NSArray* topBottomContraints;
 }
@@ -50,38 +50,36 @@
         [_topView setSize:(CGSize){[FrameTranslater convertCanvasWidth:210],[FrameTranslater convertCanvasHeight:25]}];
         [self insertSubview:_topView belowSubview: self.headerView];
         
-        
-        
         // bottom view
         _bottomView = [[RefreshBottomView alloc] initWithText:nil];
         [_bottomView setSize:(CGSize){[FrameTranslater convertCanvasWidth:30],[FrameTranslater convertCanvasHeight:30]}];
         [self addSubview: _bottomView];
         
         
-        [self setupTopBottomSubViewsConstraints];
-        
+        // important!!!   forbbin when scrolling call layoutSubviews method
+        [_topView setTranslatesAutoresizingMaskIntoConstraints: NO];
+        [_bottomView setTranslatesAutoresizingMaskIntoConstraints: NO];
     }
     return self;
 }
 
--(void) setupTopBottomSubViewsConstraints
+-(void)layoutSubviews
 {
-    [_topView setTranslatesAutoresizingMaskIntoConstraints: NO];
-    [_bottomView setTranslatesAutoresizingMaskIntoConstraints: NO];
+    [super layoutSubviews];
     
     
-    // top view constraint
-    NSLayoutConstraint* topXConstraint = [NSLayoutConstraint constraintWithItem:_topView attribute:NSLayoutAttributeCenterX relatedBy:NSLayoutRelationEqual toItem:self.tableView attribute:NSLayoutAttributeCenterX multiplier:1.0 constant:0];
-    NSLayoutConstraint* topYConstraint = [NSLayoutConstraint constraintWithItem:_topView attribute:NSLayoutAttributeCenterY relatedBy:NSLayoutRelationEqual toItem:self.tableView attribute:NSLayoutAttributeTop multiplier:0.7 constant:0];
+    [self.topView setCenterX: self.frame.size.width/2];
+    [self.bottomView setCenterX: self.frame.size.width/2];
     
-    // bottom view constraint
-    NSLayoutConstraint* bottomXConstraint = [NSLayoutConstraint constraintWithItem:_bottomView attribute:NSLayoutAttributeCenterX relatedBy:NSLayoutRelationEqual toItem:self.tableView attribute:NSLayoutAttributeCenterX multiplier:1.0 constant:0];
-    NSLayoutConstraint* bottomYConstraint = [NSLayoutConstraint constraintWithItem:_bottomView attribute:NSLayoutAttributeCenterY relatedBy:NSLayoutRelationEqual toItem:self attribute:NSLayoutAttributeBottom multiplier:0.9 constant:0];
+    topViewY = self.tableView.frame.origin.y - [FrameTranslater convertCanvasY: 50];
+    [self.topView setCenterY: topViewY];
     
-    if (topBottomContraints) [self removeConstraints: topBottomContraints];
-    topBottomContraints = @[topYConstraint,topXConstraint,bottomYConstraint,bottomXConstraint];
-    [self addConstraints: topBottomContraints];
+    bottomViewY = self.frame.size.height * 0.9;
+    [self.bottomView setCenterY: bottomViewY];
+    
+//    NSLog(@"---> %f, %f, %f", topViewY, bottomViewY, self.frame.origin.y);
 }
+
 
 #pragma mark - getter
 
@@ -98,21 +96,6 @@
     _disableTriggered = disableTriggered;
 }
 
--(void)layoutSubviews
-{
-    [super layoutSubviews];
-    
-    topViewOriginRect = self.topView.frame;
-    bottomViewOriginRect = self.bottomView.frame;
-    
-    [self.topView setCenterX: self.frame.size.width/2];
-    [self.topView setCenterY: [FrameTranslater convertCanvasY: -15]];
-    
-    [self.bottomView setCenterX: self.frame.size.width/2];
-    [self.bottomView setCenterY: self.frame.size.height * 0.9];
-    
-//    NSLog(@"%@ -> %@ -> %@", NSStringFromCGRect(topViewOriginRect), NSStringFromCGRect(bottomViewOriginRect), NSStringFromCGRect(self.frame));
-}
 
 #pragma mark - TableViewBaseScrollProxy
 
@@ -121,12 +104,11 @@
     if (_disableTriggered) return;
     
     float contentoffsetY = tableViewObj.contentOffset.y;
-//    NSLog(@"%f , %f, %f ", contentoffsetY, tableViewObj.contentSize.height, tableViewObj.bounds.size.height);
     
     // drag down
     if (contentoffsetY < 0) {
         // normal or loading mode
-        float y = topViewOriginRect.origin.y -  contentoffsetY;
+        float y = topViewY - contentoffsetY;
         [self.topView setOriginY: y];
 
     
@@ -135,9 +117,13 @@
         
         // pulling mode
         if (contentoffsetY < -kTOP_BOTTOM_REFRESH_OFFSET_Y) {
-            if (self.topView.state != RefreshElementStatePulling) self.topView.state = RefreshElementStatePulling;
+            if (self.topView.state != RefreshElementStatePulling) {
+                self.topView.state = RefreshElementStatePulling;
+            }
         } else {
-            if (self.topView.state != RefreshElementStateNormal) self.topView.state = RefreshElementStateNormal;
+            if (self.topView.state != RefreshElementStateNormal) {
+                self.topView.state = RefreshElementStateNormal;
+            }
         }
         
         
