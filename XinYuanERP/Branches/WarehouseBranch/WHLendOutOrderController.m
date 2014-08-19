@@ -98,31 +98,6 @@
     };
     
     
-//    JRButtonTextFieldView* createUserView = (JRButtonTextFieldView*)[self.jsonView getView:@"NESTED_TOP.createUser"];
-//    JRButtonTextFieldView* app1View = (JRButtonTextFieldView*)[self.jsonView getView:@"NESTED_TOP.app1"];
-//    JRButtonTextFieldView* app2View= (JRButtonTextFieldView*)[self.jsonView getView:@"NESTED_TOP.app2"];
-    
-//    [KVOObserver observerForObject:createUserView.textField keyPath:@"text" oldAndNewBlock:^(id oldValue, id newValue) {
-//        NSLog(@"oldValue === %@",oldValue);
-//        app1View.button.userInteractionEnabled  =  !OBJECT_EMPYT(newValue);
-//        NSLog(@"newValue === %@",newValue);
-//    }];
-//    
-//    [KVOObserver observerForObject:app1View.textField keyPath:@"text" oldAndNewBlock:^(id oldValue, id newValue) {
-//        app2View.button.userInteractionEnabled  =  !OBJECT_EMPYT(newValue);
-//        NSLog(@"oldValue === %@",oldValue);
-//        NSLog(@"newValue === %@",newValue);
-//    }];
-    
-//    [WarehouseHelper constraint:app1View condition:createUserView];
-//    [WarehouseHelper constraint:app2View condition:app1View];
-    
-//    JRButton* BTN_ReturnNumButton = (JRButton*)[self.jsonView getView:@"NESTED_BOTTOM.BTN_ReturnNum"];
-//    [self constraint:app2View complete:^(BOOL success){
-//        BTN_ReturnNumButton.userInteractionEnabled = success;
-//    }];
-    
-    
     _incrementInt = 0;
     _bottomView = ((JsonDivView*)[self.jsonView getView:@"NESTED_BOTTOM"]);
     _backgroundView = ((JRImageView*)[self.jsonView getView:@"BG_BOTTOM_IMAGE"]);
@@ -134,7 +109,6 @@
         [WHLendOutOrderController deriveReturnViews: weakSelf index:weakSelf.incrementInt];
         weakSelf.incrementInt++;
         
-        // override preview
         NSString* LASTimageKey = [NSString stringWithFormat:@"%@%d.%@",@"NESTED_MIDDLE_INCREMENT_",_incrementInt-1,@"IMG_Photo_Return"];
         JRImageView* jrImageView = (JRImageView*)[self.jsonView getView:LASTimageKey];
         jrImageView.didClickAction = ^void(JRImageView* imageView) {
@@ -310,7 +284,7 @@
     
     [super enableViewsWithReceiveObjects:orderObjdect];
     
-    [self enableBillViews:orderObjdect];
+    [self enableBillViewButton:orderObjdect];
     
 }
 
@@ -386,7 +360,7 @@
     }
 }
 
--(void)enableBillViews:(NSMutableDictionary*)orderObjdect
+-(void)enableBillViewButton:(NSMutableDictionary*)orderObjdect
 {
     BOOL isOrderAllApproved = [JsonControllerHelper isAllApplied: self.order valueObjects:orderObjdect];
     
@@ -419,6 +393,9 @@
                 [JsonControllerHelper setUserInterfaceEnable: approvalingButton enable:YES];
             }
             
+            if (OBJECT_EMPYT(lastBillObject[levelApp2])) {
+                BTN_ReturnNumButton.enabled = NO;
+            }
             
         }
     }
@@ -450,16 +427,6 @@
     CGRect nextPageRect = _nextPageButton.frame;
     nextPageRect.origin.y = nextPageRect.origin.y + moveHeight;
     _nextPageButton.frame = nextPageRect;
-    
-}
-
-typedef void (^Success)(BOOL);
--(void)constraint:(JRButtonTextFieldView*)constraintView complete:(Success)completeBlock
-{
-    
-    JRTextField* txtField = constraintView.textField;
-    BOOL success = !isEmptyString(txtField.text);
-    completeBlock(success);
     
 }
 

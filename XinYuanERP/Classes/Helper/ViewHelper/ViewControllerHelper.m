@@ -88,10 +88,12 @@
     [PopupViewHelper popView: superView willDissmiss:nil];
 }
 
-+(NSMutableArray*) getApprovalsUsers: (NSString*)app department:(NSString*)department order:(NSString*)order
++(NSMutableArray*) getApprovalsUsers: (NSString*)app department:(NSString*)department order:(NSString*)orderOrBill
 {
+    NSString* orderType = [self getOrderType: orderOrBill];
+    
     // assemble approvals users list
-    NSDictionary* approvalsettings = [[[DATA.approvalSettings objectForKey: department] objectForKey: order] objectForKey:app ];
+    NSDictionary* approvalsettings = [[[DATA.approvalSettings objectForKey: department] objectForKey: orderOrBill] objectForKey:app ];
     NSArray* approvalUsers = [approvalsettings objectForKey: APPSettings_APPROVALS_USERS];
     
     // FOR TEST
@@ -112,7 +114,7 @@
     }
     for (int i = 0; i < users.count; i++) {
         NSString* username = [users objectAtIndex: i];
-        BOOL isHaveReadPermission = [PermissionChecker check: username department:department order:order permission:PERMISSION_READ];
+        BOOL isHaveReadPermission = [PermissionChecker check: username department:department order:orderType permission:PERMISSION_READ];
         if (! DATA.usersNONames[username] || ! [DATA.usersNOApproval[username] boolValue] || [DATA.usersNOResign[username] boolValue] || ! isHaveReadPermission ) {
             [users removeObject: username];
             i--;
@@ -121,6 +123,19 @@
     return [ArrayHelper eliminateDuplicates: users];
 }
 
+
++(NSString*) getOrderType: (NSString*)orderOrBill
+{
+    NSString* orderType = orderOrBill;
+    NSDictionary* modelStructs = [DATA.modelsStructure getInsertModelsDefine];
+    for (NSString* orderKey in modelStructs) {
+        NSArray* values = modelStructs[orderKey];
+        if ([values containsObject: orderOrBill]) {
+            orderType = orderKey;
+        }
+    }
+    return orderType;
+}
 
 
 

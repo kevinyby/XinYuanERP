@@ -19,7 +19,7 @@
 
 @property (nonatomic, assign) BOOL regExp;
 
-@property (nonatomic, strong) NSMutableArray* regExpArray;
+@property (nonatomic, strong) NSMutableArray *regExpArray;
 
 
 @end

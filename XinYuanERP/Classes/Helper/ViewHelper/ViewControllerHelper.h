@@ -20,6 +20,8 @@
 
 #pragma mark -
 
++(NSString*) getOrderType: (NSString*)orderOrBill;
+
 +(NSString*) getUserName: (NSString*)number;
 
 +(NSMutableArray*) getUserNumbersNames: (NSArray*)numbers;
