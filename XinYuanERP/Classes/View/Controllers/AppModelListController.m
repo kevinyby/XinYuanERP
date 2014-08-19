@@ -19,6 +19,10 @@
 
 -(void) didTriggeredTopRefresh: (RefreshTableView*)tableView
 {
+    RequestJsonModel* requestModel = self.requestModel;
+    NSMutableArray* limit = [requestModel.limits firstObject];
+    [limit replaceObjectAtIndex: 0 withObject: @(0)];
+    
     [DATA.requester startPostRequestWithAlertTips:self.requestModel completeHandler:^(HTTPRequester* requester, ResponseJsonModel *data, NSHTTPURLResponse *httpURLReqponse, NSError *error) {
         if (data.status) {
             // load the data to view
