@@ -52,7 +52,18 @@
         }
         if (config[req_FIELDS]) [listController.requestModel.fields addObjectsFromArray:config[req_FIELDS]];
         if (config[req_JOINS]) [listController.requestModel.joins addObject: config[req_JOINS]];
-        if (config[req_SORTS]) [listController.requestModel.sorts addObjectsFromArray: [ArrayHelper deepCopy: config[req_SORTS]]];
+        
+        if (config[req_SORTS]) {
+            [listController.requestModel.sorts addObjectsFromArray: [ArrayHelper deepCopy: config[req_SORTS]]];
+        } else {
+            [listController.requestModel.sorts addObjectsFromArray: [ArrayHelper deepCopy: @[@[@"id.DESC"]]]];
+        }
+        
+        if (config[req_LIMITS]) {
+            [listController.requestModel.limits addObjectsFromArray: [ArrayHelper deepCopy: config[req_LIMITS]]];
+        } else {
+            [listController.requestModel.limits addObjectsFromArray: [ArrayHelper deepCopy: @[@[@(0), @(200)]]]];
+        }
         
         // view
         if (config[list_VIEW_HEADERS]) listController.headers = config[list_VIEW_HEADERS];
