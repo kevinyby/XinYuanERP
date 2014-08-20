@@ -207,7 +207,7 @@
 -(RequestJsonModel*) assembleReadRequest:(NSDictionary*)objects
 {
     NSString* orderNO = self.identification;
-    RequestJsonModel* requestModel = [OrderJsonModelFactory factoryMultiJsonModels:@[ORDER_WHLendOutOrder, BILL_WHLendOutBill]
+    RequestJsonModel* requestModel = [RequestJsonModelFactory factoryMultiJsonModels:@[ORDER_WHLendOutOrder, BILL_WHLendOutBill]
                                                                            objects:@[[RequestModelHelper getModelIdentities: orderNO], @{}]
                                                                               path:PATH_LOGIC_READ(self.department)];
     

@@ -6,10 +6,10 @@
 //  Copyright (c) 2013年 Xinyuan4. All rights reserved.
 //
 
-#import "OrderJsonModelFactory.h"
+#import "RequestJsonModelFactory.h"
 #import "AppInterface.h"
 
-@implementation OrderJsonModelFactory
+@implementation RequestJsonModelFactory
 
 + (RequestJsonModel*)factoryJsonModelCreate:(NSMutableDictionary*)modelDic
                              departMent:(NSString*)depart

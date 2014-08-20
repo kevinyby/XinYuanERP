@@ -92,7 +92,7 @@
     FilterTableView* tableViewObj = listController.headerTableView.tableView;
     NSIndexPath* selectedRealIndexPath = [tableViewObj getRealIndexPathInFilterMode: [tableViewObj indexPathForSelectedRow]];
     NSString* orderNO = [[tableViewObj realContentForIndexPath: selectedRealIndexPath] objectAtIndex: 1];
-    RequestJsonModel* requestModel = [OrderJsonModelFactory factoryMultiJsonModels:@[@"Warehouse.WHPurchaseOrder",@"Finance.FinancePaymentBill",@"Finance.FinancePaymentOrder"]
+    RequestJsonModel* requestModel = [RequestJsonModelFactory factoryMultiJsonModels:@[@"Warehouse.WHPurchaseOrder",@"Finance.FinancePaymentBill",@"Finance.FinancePaymentOrder"]
                                                                            objects:@[@{PROPERTY_ORDERNO:orderNO},@{@"referenceOrderNO":orderNO},@{}]
                                                                               path:DEPARTMENT_HTTPURL(SUPERBRANCH, PERMISSION_READ)];
     [requestModel.fields addObjectsFromArray:@[@[],@[@"paymentOrderNO",@"realPaid"],@[@"createDate"]]];

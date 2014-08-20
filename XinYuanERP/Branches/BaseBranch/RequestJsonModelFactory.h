@@ -11,7 +11,7 @@
 #define DEPARTMENT_HTTPURL(_DEPARTMENT,_OPERATE)  [NSString stringWithFormat:@"/logic/%@__%@",_DEPARTMENT,_OPERATE]
 
 @class RequestJsonModel;
-@interface OrderJsonModelFactory : NSObject
+@interface RequestJsonModelFactory : NSObject
 
 + (RequestJsonModel*)factoryJsonModelCreate:(NSMutableDictionary*)modelDic
                              departMent:(NSString*)depart

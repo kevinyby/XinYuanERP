@@ -36,7 +36,7 @@
 #import "LoginViewController.h"
 
 // Base Branch
-#import "OrderJsonModelFactory.h"
+#import "RequestJsonModelFactory.h"
 #import "BaseOrderListController.h"
 #import "OrderListControllerHelper.h"
 
