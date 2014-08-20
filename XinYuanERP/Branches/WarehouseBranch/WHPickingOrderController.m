@@ -139,24 +139,32 @@
     JRTextField* applicationTxtField = ((JRLabelTextFieldView*)[self.jsonView getView:@"application"]).textField;
     JRTextField* applicationDescTxtField = ((JRTextField*)[self.jsonView getView:@"applicationDesc"]);
     applicationTxtField.textFieldDidClickAction = ^void(JRTextField* jrTextField){
-        NSArray* orderTypes = @[MODEL_WHInventory, @"Contract"];
+        
+        NSArray* orderTypes = @[MODEL_WHInventory, @"Contract", @"Other"];
         
         [PopBubbleView popTableBubbleView:jrTextField title:LOCALIZE_KEY(LOCALIZE_CONNECT_KEYS(ORDER_WHPickingOrder,@"application")) dataSource:[LocalizeHelper localize: orderTypes] selectedBlock:^(NSInteger selectedIndex, NSString *selectedValue) {
+            
             NSArray* needFields = nil;
             if (selectedIndex == 0) {
                 needFields = @[@"productCode",@"productName"];
-            }else{
+            }else if(selectedIndex == 1){
                 needFields = @[@"contractNO",@"contractName"];
             }
-            NSString* model = orderTypes[selectedIndex];
-            PickerModelTableView* pickView = [PickerModelTableView popupWithRequestModel:model fields:needFields willDimissBlock:nil];
-            pickView.titleHeaderViewDidSelectAction = ^void(JRTitleHeaderTableView* headerTableView, NSIndexPath* indexPath){
-                FilterTableView* filterTableView = (FilterTableView*)headerTableView.tableView.tableView;
-                NSArray* array = [filterTableView contentForIndexPath: indexPath];
-                jrTextField.text = [array objectAtIndex:0];
-                applicationDescTxtField.text = [array objectAtIndex:1];
-                [PickerModelTableView dismiss];
-            };
+            
+            if (needFields != nil) {
+                NSString* model = orderTypes[selectedIndex];
+                PickerModelTableView* pickView = [PickerModelTableView popupWithRequestModel:model fields:needFields willDimissBlock:nil];
+                pickView.titleHeaderViewDidSelectAction = ^void(JRTitleHeaderTableView* headerTableView, NSIndexPath* indexPath){
+                    FilterTableView* filterTableView = (FilterTableView*)headerTableView.tableView.tableView;
+                    NSArray* array = [filterTableView contentForIndexPath: indexPath];
+                    jrTextField.text = [array objectAtIndex:0];
+                    applicationDescTxtField.text = [array objectAtIndex:1];
+                    [PickerModelTableView dismiss];
+                };
+            }else{
+                jrTextField.text = selectedValue;
+                applicationDescTxtField.text = @"";
+            }
             
         }];
     };
