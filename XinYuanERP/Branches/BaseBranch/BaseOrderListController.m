@@ -1,7 +1,7 @@
-#import "OrderSearchListViewController.h"
+#import "BaseOrderListController.h"
 #import "AppInterface.h"
 
-@implementation OrderSearchListViewController
+@implementation BaseOrderListController
 
 - (void)viewDidLoad
 {
@@ -62,18 +62,18 @@
 
 - (BOOL)tableViewBase:(TableViewBase *)tableViewObj shouldDeleteContentsAtIndexPath:(NSIndexPath*)indexPath
 {
-    __weak OrderSearchListViewController* weakInstance = self;
+    __weak BaseOrderListController* weakInstance = self;
     NSString* orderType = self.order;
     NSString* department = self.department;
     NSIndexPath* realIndexPath = [((FilterTableView*)tableViewObj) getRealIndexPathInFilterMode: indexPath];
     id identification = [[tableViewObj realContentForIndexPath:realIndexPath] firstObject];
     NSString* tips = [[tableViewObj realContentForIndexPath:realIndexPath] safeObjectAtIndex: 1];
     
-    [OrderSearchListViewHelper deleteWithCheckPermission: orderType deparment:department identification:identification tips:tips handler:^(bool isSuccess) {
+    [OrderListControllerHelper deleteWithCheckPermission: orderType deparment:department identification:identification tips:tips handler:^(bool isSuccess) {
         if (isSuccess) {
     
             // delete the images
-            NSString* imagesFolderName = [OrderSearchListViewHelper getImageFolderName: weakInstance indexPath:realIndexPath];
+            NSString* imagesFolderName = [OrderListControllerHelper getImageFolderName: weakInstance indexPath:realIndexPath];
             if (! OBJECT_EMPYT(imagesFolderName)) {
                 NSString* fullFolderName = [[JsonControllerHelper getImagesHomeFolder: orderType department:department] stringByAppendingPathComponent: imagesFolderName];
                 [VIEW.progress show];

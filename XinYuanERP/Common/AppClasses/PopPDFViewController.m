@@ -8,7 +8,6 @@
 
 #import "PopPDFViewController.h"
 #import "AppInterface.h"
-#import "OrderMacro.h"
 #import "UIViewController+CWPopup.h"
 
 @implementation PopPDFTableViewCell
@@ -115,6 +114,9 @@
     
     [self readProductDescPDF];
 }
+
+#define REQUEST_IMGDOWNLOAD @"download"
+#define REQUEST_DOWNLOADIMGNAME(_NAME)  [NSString stringWithFormat:@"%@%@",REQUEST_IMGDOWNLOAD,_NAME]
 
 -(void)readProductDescPDF
 {

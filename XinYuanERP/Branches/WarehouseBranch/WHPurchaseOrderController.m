@@ -88,7 +88,7 @@
 -(RequestJsonModel*) assembleReadRequest:(NSDictionary*)objects
 {
     
-    OrderSearchListViewController* listController = [VIEW.navigator.viewControllers objectAtIndex: VIEW.navigator.viewControllers.count - 2];
+    BaseOrderListController* listController = [VIEW.navigator.viewControllers objectAtIndex: VIEW.navigator.viewControllers.count - 2];
     FilterTableView* tableViewObj = listController.headerTableView.tableView;
     NSIndexPath* selectedRealIndexPath = [tableViewObj getRealIndexPathInFilterMode: [tableViewObj indexPathForSelectedRow]];
     NSString* orderNO = [[tableViewObj realContentForIndexPath: selectedRealIndexPath] objectAtIndex: 1];

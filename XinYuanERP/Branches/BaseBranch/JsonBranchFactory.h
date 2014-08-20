@@ -1,5 +1,5 @@
 #import <Foundation/Foundation.h>
-#import "OrderSearchListViewController.h"
+#import "BaseOrderListController.h"
 
 
 #define list_REQUEST_PATH           @"PATH"
@@ -30,23 +30,23 @@
 
 #pragma mark - Public Methods
 
-- (void)handleOrderListController: (OrderSearchListViewController*)listController order:(NSString*)order;
+- (void)handleOrderListController: (BaseOrderListController*)listController order:(NSString*)order;
 
 
 #pragma mark - Subclass Override Methods
 
--(void) setInstanceVariablesValues: (OrderSearchListViewController*)listController order:(NSString*)order;
+-(void) setInstanceVariablesValues: (BaseOrderListController*)listController order:(NSString*)order;
 
--(void) setExceptionAttributes: (OrderSearchListViewController*)listController order:(NSString*)order;
+-(void) setExceptionAttributes: (BaseOrderListController*)listController order:(NSString*)order;
 
--(void) setHeadersSortAction: (OrderSearchListViewController*)listController order:(NSString*)order;
+-(void) setHeadersSortAction: (BaseOrderListController*)listController order:(NSString*)order;
 
 
 #pragma mark - Class Methods
 
-+(void) iterateHeaderJRLabel: (OrderSearchListViewController*)listController handler:(BOOL(^)(JRLocalizeLabel* label, int index, NSString* attribute))handler;
++(void) iterateHeaderJRLabel: (BaseOrderListController*)listController handler:(BOOL(^)(JRLocalizeLabel* label, int index, NSString* attribute))handler;
 
-+(JRLocalizeLabel*) getHeaderJRLabelByAttribute: (OrderSearchListViewController*)listController attribute:(NSString*)attribute;
++(JRLocalizeLabel*) getHeaderJRLabelByAttribute: (BaseOrderListController*)listController attribute:(NSString*)attribute;
 
 + (id)factoryCreateBranch:(NSString*)department;
 

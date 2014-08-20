@@ -37,8 +37,8 @@
 
 // Base Branch
 #import "OrderJsonModelFactory.h"
-#import "OrderSearchListViewController.h"
-#import "OrderSearchListViewHelper.h"
+#import "BaseOrderListController.h"
+#import "OrderListControllerHelper.h"
 
 #import "JsonBranchFactory.h"
 #import "JsonBranchHelper.h"

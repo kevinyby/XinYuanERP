@@ -44,12 +44,4 @@
                                     objects:(NSArray*)iObjects
                                        path:(NSString*)iPath;
 
-+ (NSMutableDictionary*)apnsApplyDepartMent:(NSString*)iDepartMent Order:(NSString*)iOrder Identifier:(id)iOrderNo;
-
-+ (NSMutableDictionary*)apnsApproveDepartMent:(NSString*)iDepartMent Order:(NSString*)iOrder Identifier:(id)iOrderNo;
-
-+ (NSMutableDictionary*)apnsRejectDepartMent:(NSString*)iDepartMent Order:(NSString*)iOrder Identifier:(id)iOrderNo;
-
-+ (NSMutableDictionary*)apnsDepartMent:(NSString*)iDepartMent Order:(NSString*)iOrder Identifier:(id)iOrderNo Contents:(NSString*)iContent;
-
 @end

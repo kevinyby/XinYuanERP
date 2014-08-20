@@ -3,6 +3,13 @@
 
 #define HeaderHeight 50
 
+@interface AppModelListController ()
+
+@property (assign) int amounts;                     // the current visible count
+@property (assign) int currentRow;
+
+@end
+
 
 @implementation AppModelListController
 

@@ -169,11 +169,11 @@
         id identification = self.identification;
         NSString* tips = LOCALIZE_KEY(@"order");
         
-        [OrderSearchListViewHelper deleteWithCheckPermission: orderType deparment:department identification:identification tips:tips handler:^(bool isSuccess) {
+        [OrderListControllerHelper deleteWithCheckPermission: orderType deparment:department identification:identification tips:tips handler:^(bool isSuccess) {
             if (isSuccess) {
                 
                 // delete the images
-                NSString* imagesFolderProperty = [OrderSearchListViewHelper getDeleteImageFolderProperty: department order:orderType];
+                NSString* imagesFolderProperty = [OrderListControllerHelper getDeleteImageFolderProperty: department order:orderType];
                 NSString* imagesFolderName = self.valueObjects[imagesFolderProperty];
                 if (! OBJECT_EMPYT(imagesFolderName)) {
                     NSString* fullFolderName = [[JsonControllerHelper getImagesHomeFolder: orderType department:department] stringByAppendingPathComponent: imagesFolderName];
@@ -186,8 +186,8 @@
                 
                 // pop
                 UIViewController* controller = [VIEW.navigator.viewControllers objectAtIndex: VIEW.navigator.viewControllers.count - 2];
-                if ([controller isKindOfClass:[OrderSearchListViewController class]]) {
-                    OrderSearchListViewController* list = (OrderSearchListViewController*)controller;
+                if ([controller isKindOfClass:[BaseOrderListController class]]) {
+                    BaseOrderListController* list = (BaseOrderListController*)controller;
                     list.isPopNeedRefreshRequest = YES;
                 }
                 

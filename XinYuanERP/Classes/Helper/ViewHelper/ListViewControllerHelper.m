@@ -81,7 +81,7 @@
 
 #pragma mark - Exception Icon
 
-+(void) setupExceptionAttributes: (OrderSearchListViewController*)listController order:(NSString*)order
++(void) setupExceptionAttributes: (BaseOrderListController*)listController order:(NSString*)order
 {
     BOOL isHaveExceptionCloumn = [[DATA.modelsStructure getModelStructure: order] objectForKey: PROPERTY_EXCEPTION] != nil;
     if (isHaveExceptionCloumn) {

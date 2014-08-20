@@ -16,7 +16,7 @@
 
 @implementation SecurityFactory
 
--(void) setInstanceVariablesValues: (OrderSearchListViewController*)orderlist order:(NSString*)order {
+-(void) setInstanceVariablesValues: (BaseOrderListController*)orderlist order:(NSString*)order {
     [super setInstanceVariablesValues: orderlist order:order];
     /* Note: this long long if-else statements can be refactored with polymorphism
               by moving these individual statement into each "order" calss*/
@@ -78,7 +78,7 @@
         {
             //grab the data from previous list.
             NSArray* controllers = VIEW.navigator.viewControllers;
-            OrderSearchListViewController* listController = (OrderSearchListViewController*)[controllers lastObject] ;
+            BaseOrderListController* listController = (BaseOrderListController*)[controllers lastObject] ;
             FilterTableView* tableViewObj = listController.headerTableView.tableView;
             NSIndexPath* selectIndexPath = [tableViewObj getRealIndexPathInFilterMode: [tableViewObj indexPathForSelectedRow]];
             

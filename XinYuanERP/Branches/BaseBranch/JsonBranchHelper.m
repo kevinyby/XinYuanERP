@@ -5,7 +5,7 @@
 
 
 
-+(void) clickHeaderLabelSortRequestAction: (JRLocalizeLabel*)label listController:(OrderSearchListViewController*)listController
++(void) clickHeaderLabelSortRequestAction: (JRLocalizeLabel*)label listController:(BaseOrderListController*)listController
 {
     RequestJsonModel* requestModel = listController.requestModel;
     NSString* attribute = label.attribute;
@@ -40,6 +40,9 @@
     }
     return newSortString;
 }
+
+
+
 
 
 @end

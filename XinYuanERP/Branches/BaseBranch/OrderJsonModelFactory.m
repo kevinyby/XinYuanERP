@@ -87,25 +87,5 @@
     
 }
 
-+ (NSMutableDictionary*)apnsApplyDepartMent:(NSString*)iDepartMent Order:(NSString*)iOrder Identifier:(id)iOrderNo
-{
-    return [self apnsDepartMent:iDepartMent Order:iOrder Identifier:iOrderNo Contents:APNS_ORDERAPPLYALERTMESSAGE(iOrder)];
-}
-
-+ (NSMutableDictionary*)apnsApproveDepartMent:(NSString*)iDepartMent Order:(NSString*)iOrder Identifier:(id)iOrderNo
-{
-    return [self apnsDepartMent:iDepartMent Order:iOrder Identifier:iOrderNo Contents:APNS_ORDERAPPROVEALERTMESSAGE(iOrder)];
-}
-
-+ (NSMutableDictionary*)apnsRejectDepartMent:(NSString*)iDepartMent Order:(NSString*)iOrder Identifier:(id)iOrderNo
-{
-    return [self apnsDepartMent:iDepartMent Order:iOrder Identifier:iOrderNo Contents:APNS_ORDERREJECTALERTMESSAGE(iOrder)];
-}
-
-+ (NSMutableDictionary*)apnsDepartMent:(NSString*)iDepartMent Order:(NSString*)iOrder Identifier:(id)iOrderNo Contents:(NSString*)iContent
-{
-    return [AppDataHelper getApnsContents: iDepartMent order:iOrder identities:[RequestModelHelper getModelIdentities: iOrderNo] forwardUser:nil alert:iContent];
-}
-
 
 @end

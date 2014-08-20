@@ -3,7 +3,7 @@
 @class ResponseJsonModel;
 @class JsonBranchFactory;
 @class AppSearchTableViewController;
-@class OrderSearchListViewController;
+@class BaseOrderListController;
 
 @interface ListViewControllerHelper : NSObject
 
@@ -29,7 +29,7 @@
 
 #pragma mark - Exception Icon
 
-+(void) setupExceptionAttributes: (OrderSearchListViewController*)listController order:(NSString*)order;
++(void) setupExceptionAttributes: (BaseOrderListController*)listController order:(NSString*)order;
 
 +(NSUInteger) modifyRequestFields: (RequestJsonModel*)requestModel order:(NSString*)order;
 
