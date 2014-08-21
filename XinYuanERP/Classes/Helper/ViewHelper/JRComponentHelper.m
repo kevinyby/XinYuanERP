@@ -433,25 +433,55 @@ static const char* CONST_DataPickerType = "PickerType";
         
         // ie. view = JRLabelCommaTextFieldView ,the get the JRTextField in its subViews
         for (UIView* subView in view.subviews) {
-            [self setupDatePickerToComponent: subView pattern:patternStr];
+            [self addComponentShowDatePickerAction: subView pattern:patternStr];
         }
 
     }
 }
 
-+(void) setupDatePickerToComponent: (UIView*)view pattern:(NSString*)pattern
++(void) addComponentShowDatePickerAction:(UIView*)view pattern:(NSString*)pattern
+{
+    [self componentShowDatePickerAction: view pattern:pattern isAdd:YES];
+}
+
++(void) removeComponentShowDatePickerAction:(UIView*)view
+{
+    [self componentShowDatePickerAction: view pattern:nil isAdd:NO];
+}
+
+
++(void) componentShowDatePickerAction:(UIView*)view pattern:(NSString*)pattern isAdd:(BOOL)isAdd
 {
     if ([view isKindOfClass:[JRTextField class]] || [view isKindOfClass:[UIButton class]]) {
         
-        objc_setAssociatedObject(view, CONST_DataPickerType, pattern, OBJC_ASSOCIATION_RETAIN_NONATOMIC);
-        
+        if (isAdd) {
+            objc_setAssociatedObject(view, CONST_DataPickerType, pattern, OBJC_ASSOCIATION_RETAIN_NONATOMIC);
+        } else {
+            objc_setAssociatedObject(view, CONST_DataPickerType, nil, OBJC_ASSOCIATION_RETAIN_NONATOMIC);
+        }
         
         if ([view isKindOfClass:[JRTextField class]]) {
-            ((JRTextField*)view).textFieldDidClickAction = ^void(JRTextField* textFieldObj) {
-                [JRComponentHelper showDatePicker: textFieldObj];
-            };
+            JRTextField* textField = (JRTextField*)view;
+            
+            if (isAdd) {
+                textField.textFieldDidClickAction = ^void(JRTextField* textFieldObj) {
+                    [JRComponentHelper showDatePicker: textFieldObj];
+                };
+            } else {
+                NSString* pattern = objc_getAssociatedObject(view, CONST_DataPickerType);
+                if (pattern) {
+                    textField.textFieldDidClickAction = nil;
+                }
+            }
+            
+            
         } else if ([view isKindOfClass:[UIButton class]]) {
-            [((UIButton*)view) addTarget: [JRComponentHelper class] action:@selector(showDatePicker:) forControlEvents:UIControlEventTouchUpInside];
+            UIButton* button = (UIButton*)view;
+            if (isAdd) {
+                [button addTarget: [JRComponentHelper class] action:@selector(showDatePicker:) forControlEvents:UIControlEventTouchUpInside];
+            } else {
+                [button removeTarget: [JRComponentHelper class] action:@selector(showDatePicker:) forControlEvents:UIControlEventTouchUpInside];
+            }
         }
     }
 }
@@ -490,7 +520,7 @@ static const char* CONST_DataPickerType = "PickerType";
     UIDatePickerMode pickerMode = UIDatePickerModeDate;     // default date
     if ([pattern isEqualToString: PATTERN_CLOCK] || [pattern isEqualToString: @"HH:mm"]){
         pickerMode = UIDatePickerModeTime;
-    } else {
+    } else if ([pattern rangeOfString: PATTERN_CLOCK].location != NSNotFound || [pattern rangeOfString: @"HH:mm"].location != NSNotFound) {
         pickerMode = UIDatePickerModeDateAndTime;
     }
     [ActionSheetDatePicker showPickerWithTitle:@"" datePickerMode:pickerMode selectedDate:date doneBlock:doneBlock cancelBlock:cancelBlock origin:textField];

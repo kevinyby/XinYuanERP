@@ -123,7 +123,56 @@
     [leftButton setTitle:LOCALIZE_KEY(@"clear") forState:UIControlStateNormal];
     
     // set the table contents
-    
+    TableViewBase* tableVieObj = searchTableView.tableView.tableView;
+    tableVieObj.allowsSelection = NO;
+    tableVieObj.tableViewBaseNumberOfSectionsAction = ^NSInteger(TableViewBase* tableViewObj) {
+        return 1;
+    };
+    tableVieObj.tableViewBaseNumberOfRowsInSectionAction = ^NSInteger(TableViewBase* tableViewObj, NSInteger section) {
+        return 20;
+    };
+    tableVieObj.tableViewBaseCellForIndexPathAction = ^UITableViewCell*(TableViewBase* tableViewObj, NSIndexPath* indexPath, UITableViewCell* oldCell) {
+        JRLocalizeLabel* label = (JRLocalizeLabel*)[oldCell.contentView viewWithTag: 1000111];
+        JRTextField* textField = (JRTextField*)[oldCell.contentView viewWithTag: 1000222];
+        if (!label) {
+            label = [[JRLocalizeLabel alloc] initWithFrame:CanvasRect(10, 25, 120, 70)];
+            label.tag = 1000111;
+            [oldCell.contentView addSubview: label];
+            
+            label.font = [UIFont systemFontOfSize: CanvasFontSize(25)];
+            label.disableChangeTextTransition = YES;
+        }
+        if (!textField) {
+            textField = [[JRTextField alloc] initWithFrame:CanvasRect(150, 15, 200, 50)];
+            textField.tag = 1000222;
+            [oldCell.contentView addSubview: textField];
+            
+            textField.borderStyle = UITextBorderStyleNone;
+            textField.textAlignment = NSTextAlignmentCenter;
+            [ColorHelper setBorder: textField color:[UIColor flatGrayColor]];
+        }
+        label.text = nil;
+        textField.text = nil;
+        
+        
+        // set data and event
+        NSString* text = nil;
+        if (indexPath.row == 0) {
+            text = APPLOCALIZE_KEYS(@"createDate", @"from");
+        } else if (indexPath.row == 1) {
+            text = APPLOCALIZE_KEYS(@"createDate", @"to");
+        }
+        label.text = text;
+        
+        if (indexPath.row == 0 || indexPath.row == 1) {
+            [JRComponentHelper addComponentShowDatePickerAction: textField pattern:PATTERN_DATE];
+        } else {
+            [JRComponentHelper removeComponentShowDatePickerAction: textField];
+        }
+
+        
+        return oldCell;
+    };
 }
 
 
