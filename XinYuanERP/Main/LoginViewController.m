@@ -381,11 +381,17 @@
                 JsonBranchFactory* branchFactory = [JsonBranchFactory factoryCreateBranch: department];
                 orderWheel.wheelDidTapSwipLeftBlock = ^(AppWheelViewController* wheel, NSInteger index) {
                     NSString* order = [wheel.wheels objectAtIndex: index];
-                    OrderSearchListViewController* orderlist = [[OrderSearchListViewController alloc] init ];
-                    orderlist.order = order;
-                    orderlist.department = department;
-                    [branchFactory handleOrderListController: orderlist order:order];
-                    [VIEW.navigator pushViewController:orderlist animated:YES];
+                    
+                    NSString* orderClazzString = [NSString stringWithFormat:@"%@%@", order, @"ListController"];
+                    BaseOrderListController* orderListController = [[NSClassFromString(orderClazzString) alloc] init];
+                    if (!orderListController) {
+                        orderListController = [[BaseOrderListController alloc] init ];
+                    }
+                    
+                    orderListController.order = order;
+                    orderListController.department = department;
+                    [branchFactory handleOrderListController: orderListController order:order];
+                    [VIEW.navigator pushViewController:orderListController animated:YES];
                 };
                 controller = orderWheel;
                 

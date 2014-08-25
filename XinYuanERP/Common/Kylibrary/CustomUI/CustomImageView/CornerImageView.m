@@ -7,7 +7,6 @@
 //
 
 #import "CornerImageView.h"
-#import "OrderMacro.h"
 #import "AppConfig.h"
 
 @implementation CornerImageView

@@ -11,7 +11,7 @@
 
 @implementation VehicleFactory
 
--(void) setInstanceVariablesValues: (OrderSearchListViewController*)orderlist order:(NSString*)order {
+-(void) setInstanceVariablesValues: (BaseOrderListController*)orderlist order:(NSString*)order {
     [super setInstanceVariablesValues: orderlist order:order];
     if ([order isEqualToString: ORDER_VEHICLEINFO]){
         [orderlist.requestModel addModels: order, nil];//which table you want to search

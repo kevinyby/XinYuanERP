@@ -2,16 +2,16 @@
 
 
 
-@class OrderSearchListViewController;
+@class BaseOrderListController;
 
 
 
-@interface OrderSearchListViewHelper : NSObject
+@interface OrderListControllerHelper : NSObject
 
 
 #pragma mark -
 
-+(NSString*) getImageFolderName:(OrderSearchListViewController*)listController indexPath:(NSIndexPath*)realIndexPath;
++(NSString*) getImageFolderName:(BaseOrderListController*)listController indexPath:(NSIndexPath*)realIndexPath;
 
 +(NSString*) getDeleteImageFolderProperty: (NSString*)department order:(NSString*)order;
 

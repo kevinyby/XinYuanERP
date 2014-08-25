@@ -52,13 +52,15 @@
 // Add animation when set text
 -(void)setText:(NSString *)text
 {
-    // Add transition (must be called after myLabel has been displayed)
-    // http://stackoverflow.com/a/6267259/1749293
-    CATransition *animation = [CATransition animation];
-    animation.duration = 0.5;
-    animation.type = kCATransitionFromTop;
-    animation.timingFunction = [CAMediaTimingFunction functionWithName:kCAMediaTimingFunctionEaseInEaseOut];
-    [self.layer addAnimation:animation forKey:@"changeTextTransition"];
+    if (! self.disableChangeTextTransition) {
+        // Add transition (must be called after myLabel has been displayed)
+        // http://stackoverflow.com/a/6267259/1749293
+        CATransition *animation = [CATransition animation];
+        animation.duration = 0.5;
+        animation.type = kCATransitionFromTop;
+        animation.timingFunction = [CAMediaTimingFunction functionWithName:kCAMediaTimingFunctionEaseInEaseOut];
+        [self.layer addAnimation:animation forKey:@"changeTextTransition"];
+    }
     
     [super setText: text];
 }

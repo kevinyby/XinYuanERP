@@ -12,4 +12,7 @@
 @property (assign) BOOL isReserveCenter;       // when adjust to the text length,
                                             // the center will be changed.
 
+
+@property (assign) BOOL disableChangeTextTransition;
+
 @end

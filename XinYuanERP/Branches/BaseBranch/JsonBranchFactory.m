@@ -8,7 +8,7 @@
 
 #pragma mark - Public Methods
 
-- (void)handleOrderListController: (OrderSearchListViewController*)listController order:(NSString*)order
+- (void)handleOrderListController: (BaseOrderListController*)listController order:(NSString*)order
 {
     
     // then , assign the attributes
@@ -19,7 +19,7 @@
     listController.requestModel = [RequestJsonModel getJsonModel];
     listController.requestModel.path = PATH_LOGIC_READ(self.department);
     
-    listController.didTapAddNewOrderBlock = ^void(OrderSearchListViewController* controller, id sender)
+    listController.didTapAddNewOrderBlock = ^void(BaseOrderListController* controller, id sender)
     {
         JsonController* jsonController = [JsonBranchFactory getNewJsonControllerInstance: weakInstance.department order:order];
         jsonController.controlMode = JsonControllerModeCreate;
@@ -105,16 +105,16 @@
 
 #pragma mark - SubClass Override Methods
 
--(void) setInstanceVariablesValues: (OrderSearchListViewController*)listController order:(NSString*)order
+-(void) setInstanceVariablesValues: (BaseOrderListController*)listController order:(NSString*)order
 {
 }
 
--(void) setExceptionAttributes: (OrderSearchListViewController*)listController order:(NSString*)order
+-(void) setExceptionAttributes: (BaseOrderListController*)listController order:(NSString*)order
 {
     [ListViewControllerHelper setupExceptionAttributes: listController order:order];
 }
 
--(void) setHeadersSortAction: (OrderSearchListViewController*)listController order:(NSString*)order
+-(void) setHeadersSortAction: (BaseOrderListController*)listController order:(NSString*)order
 {
     [JsonBranchFactory iterateHeaderJRLabel:listController handler:^BOOL(JRLocalizeLabel *label, int index, NSString *attribute) {
         label.jrLocalizeLabelDidClickAction = ^void(JRLocalizeLabel* label) {
@@ -149,7 +149,7 @@
 
 
 #pragma mark - Class Methods
-+(void) iterateHeaderJRLabel: (OrderSearchListViewController*)listController handler:(BOOL(^)(JRLocalizeLabel* label, int index, NSString* attribute))handler
++(void) iterateHeaderJRLabel: (BaseOrderListController*)listController handler:(BOOL(^)(JRLocalizeLabel* label, int index, NSString* attribute))handler
 {
     NSArray* headers = listController.headers;
     UIView* headerView = listController.headerTableView.headerView;
@@ -164,7 +164,7 @@
     }
 }
 
-+(JRLocalizeLabel*) getHeaderJRLabelByAttribute: (OrderSearchListViewController*)listController attribute:(NSString*)attribute
++(JRLocalizeLabel*) getHeaderJRLabelByAttribute: (BaseOrderListController*)listController attribute:(NSString*)attribute
 {
     NSArray* headers = listController.headers;
     UIView* headerView = listController.headerTableView.headerView;

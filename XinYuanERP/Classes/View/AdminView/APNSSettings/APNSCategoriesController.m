@@ -185,7 +185,7 @@
                                         [PopupTableHelper showPopTableView: tx titleKey:APPLOCALIZE_KEYS(@"Work", @"day") dataSources:[LocalizeHelper localize:WEEK_DAYS] realDataSources:WEEK_DAYS];
                                     };
                                 } else {
-                                    [JRComponentHelper setupDatePickerToComponent: jrTx pattern:@"HH:mm"];
+                                    [JRComponentHelper addComponentShowDatePickerAction: jrTx pattern:@"HH:mm"];
                                 }
                                 
                                 jrTx.textFieldDidSetTextBlock = ^void(NormalTextField* textField, NSString* oldText){

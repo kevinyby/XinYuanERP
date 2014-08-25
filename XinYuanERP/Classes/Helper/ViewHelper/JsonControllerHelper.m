@@ -131,8 +131,8 @@
 +(void) flipPage: (JsonController*)jsonController isNextPage:(BOOL)isNexPage
 {
     if (VIEW.navigator.viewControllers.count < 2) return;
-    OrderSearchListViewController* listController = [VIEW.navigator.viewControllers objectAtIndex:VIEW.navigator.viewControllers.count - 2];
-    if (! [listController isKindOfClass:[OrderSearchListViewController class]]) return;
+    BaseOrderListController* listController = [VIEW.navigator.viewControllers objectAtIndex:VIEW.navigator.viewControllers.count - 2];
+    if (! [listController isKindOfClass:[BaseOrderListController class]]) return;
     
     if (isNexPage) {
         [listController getNextRow: 0 handler:^(id identification) {

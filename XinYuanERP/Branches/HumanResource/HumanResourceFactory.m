@@ -5,7 +5,7 @@
 
 #pragma mark - Overide Super Class Method
 
--(void) setInstanceVariablesValues: (OrderSearchListViewController*)listController order:(NSString*)order
+-(void) setInstanceVariablesValues: (BaseOrderListController*)listController order:(NSString*)order
 {
     [super setInstanceVariablesValues: listController order:order];
     
@@ -35,7 +35,7 @@
 }
 
 
--(void) setExceptionAttributes: (OrderSearchListViewController*)listController order:(NSString*)order
+-(void) setExceptionAttributes: (BaseOrderListController*)listController order:(NSString*)order
 {
     if ([order isEqualToString: MODEL_EMPLOYEE]) {
         BOOL isHaveExceptionCloumn = [[DATA.modelsStructure getModelStructure: order] objectForKey: PROPERTY_EXCEPTION] != nil;
@@ -75,7 +75,7 @@
 
 
 // temp code . to be ..... in server, add pending count column
--(void) setHeadersSortAction: (OrderSearchListViewController*)listController order:(NSString*)order
+-(void) setHeadersSortAction: (BaseOrderListController*)listController order:(NSString*)order
 {
     
     if ([order isEqualToString: MODEL_EMPLOYEE]) {

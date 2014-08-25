@@ -1,13 +1,13 @@
 #import "AppModelListController.h"
 
-@class OrderSearchListViewController;
+@class BaseOrderListController;
 
-typedef void(^DidTapAddNewOrderBlock)(OrderSearchListViewController* controller, id sender);
-
-
+typedef void(^DidTapAddNewOrderBlock)(BaseOrderListController* controller, id sender);
 
 
-@interface OrderSearchListViewController : AppModelListController
+
+
+@interface BaseOrderListController : AppModelListController
 
 
 @property (strong) NSString* order;                 // order or model

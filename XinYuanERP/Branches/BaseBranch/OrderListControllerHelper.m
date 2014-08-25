@@ -1,18 +1,18 @@
-#import "OrderSearchListViewHelper.h"
+#import "OrderListControllerHelper.h"
 #import "AppInterface.h"
 
-@implementation OrderSearchListViewHelper
+@implementation OrderListControllerHelper
 
 
 #pragma mark - Util
 
-+(NSString*) getImageFolderName:(OrderSearchListViewController*)listController indexPath:(NSIndexPath*)realIndexPath
++(NSString*) getImageFolderName:(BaseOrderListController*)listController indexPath:(NSIndexPath*)realIndexPath
 {
     NSString* order = listController.order;
     NSString* department = listController.department;
     NSArray* fields = listController.requestModel.fields;
     FilterTableView* tableViewObj = (FilterTableView*)listController.headerTableView.tableView;
-    NSString* deleteImagesFolderProperty = [OrderSearchListViewHelper getDeleteImageFolderProperty: department order:order];
+    NSString* deleteImagesFolderProperty = [OrderListControllerHelper getDeleteImageFolderProperty: department order:order];
     if (! deleteImagesFolderProperty) return nil;
     
     int imagesFolderValueIndex = -1;     // the id is 0 , the 1 is ... (maybe orderNO)
@@ -41,7 +41,7 @@
 +(void) deleteWithCheckPermission:(NSString*)orderType deparment:(NSString*)department identification:(id)identification tips:(NSString*)tips handler:(void(^)(bool isSuccess))handler
 {
     if([PermissionChecker checkSignedUserWithAlert: department order:orderType permission:PERMISSION_DELETE]) {
-        [OrderSearchListViewHelper delete: orderType deparment:department identification:identification tips:tips handler:handler];
+        [OrderListControllerHelper delete: orderType deparment:department identification:identification tips:tips handler:handler];
     }
 }
 
