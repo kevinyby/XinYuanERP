@@ -131,13 +131,13 @@
 -(void)updateObjectToCache
 {
     NSLog(@"---updateObjectToCache---");
-//    if (isEmptyString(_titleNew.text) && isEmptyString(_textScrollViewNew.textView.text)) {
-//        return;
-//    }
-//    NSDictionary* dic = @{@"title":_titleNew.text,
-//                          @"articles":_textScrollViewNew.textView.text,
-//                          @"editor":DATA.signedUserName};
-//    [ArticlesObjectHelper updateManagedObject:dic];
+    if (isEmptyString(_titleNew.text) && isEmptyString(_textScrollViewNew.textView.text)) {
+        return;
+    }
+    NSDictionary* dic = @{@"title":_titleNew.text,
+                          @"articles":_textScrollViewNew.textView.text,
+                          @"editor":DATA.signedUserName};
+    [ArticlesObjectHelper updateManagedObject:dic];
 }
 
 
