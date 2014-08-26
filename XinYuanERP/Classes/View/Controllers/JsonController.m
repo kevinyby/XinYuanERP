@@ -526,7 +526,8 @@
             }
         }];
         
-    } else if (self.controlMode == JsonControllerModeModify) {
+    }
+    else if (self.controlMode == JsonControllerModeModify) {
         
         NSDictionary* identities = [RequestModelHelper getModelIdentities: self.identification];
         if (! identities) return;

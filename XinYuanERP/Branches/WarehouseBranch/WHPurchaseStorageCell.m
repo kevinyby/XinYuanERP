@@ -102,6 +102,25 @@
     _storageUnitPriceTxtField.delegate = self;
     _subTotalTxtField.userInteractionEnabled = NO;
     _storageSubTotalTxtField.userInteractionEnabled = NO;
+    
+    
+    __weak JRTextField *_weakNameTxtField =  _nameTxtField;
+    _codeTxtField.textFieldDidClickAction = ^(JRTextField* jrTextField){
+        
+        NSArray* needFields = @[@"productCode",@"productName"];
+        PickerModelTableView* pickView = [PickerModelTableView popupWithRequestModel:MODEL_WHInventory fields:needFields willDimissBlock:nil];
+        pickView.titleHeaderViewDidSelectAction = ^void(JRTitleHeaderTableView* headerTableView, NSIndexPath* indexPath){
+            
+            FilterTableView* filterTableView = (FilterTableView*)headerTableView.tableView.tableView;
+            NSIndexPath* realIndexPath = [filterTableView getRealIndexPathInFilterMode: indexPath];
+            
+            NSArray* array = [filterTableView realContentForIndexPath: realIndexPath];
+            jrTextField.text = [array objectAtIndex:1];
+            _weakNameTxtField.text = [array objectAtIndex:2];
+            
+            [PickerModelTableView dismiss];
+        };
+    };
 }
 
 #pragma mark -
