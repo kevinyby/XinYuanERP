@@ -3,16 +3,18 @@
 
 @implementation VehicleListController
 
--(void) setInstanceVariablesValues: (BaseOrderListController*)orderlist order:(NSString*)order {
-    [super setInstanceVariablesValues: orderlist order:order];
+-(void) setInstanceVariablesValues
+{
+    NSString* order = self.order;
+    [super setInstanceVariablesValues];
     if ([order isEqualToString: ORDER_VEHICLEINFO]){
-        [orderlist.requestModel addModels: order, nil];//which table you want to search
-        [orderlist.requestModel.fields //which fileds you want to pick, note the double nested array here
+        [self.requestModel addModels: order, nil];//which table you want to search
+        [self.requestModel.fields //which fileds you want to pick, note the double nested array here
             addObjectsFromArray:@[@[PROPERTY_IDENTIFIER, PROPERTY_ORDERNO,@"vehicleNo"]]];
         
-        orderlist.headers = @[@"单号",@"车牌号"];
-        orderlist.headersXcoordinates = @[@(50),@(300)];
-        orderlist.valuesXcoordinates = @[@(40),@(300)];
+        self.headers = @[@"单号",@"车牌号"];
+        self.headersXcoordinates = @[@(50),@(300)];
+        self.valuesXcoordinates = @[@(40),@(300)];
         
         
         //there is nothing to filter about at present

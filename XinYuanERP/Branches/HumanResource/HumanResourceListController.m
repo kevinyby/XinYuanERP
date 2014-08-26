@@ -5,21 +5,22 @@
 
 #pragma mark - Overide Super Class Method
 
--(void) setInstanceVariablesValues: (BaseOrderListController*)listController order:(NSString*)order
+-(void) setInstanceVariablesValues
 {
-    [super setInstanceVariablesValues: listController order:order];
+    NSString* order = self.order;
+    [super setInstanceVariablesValues];
     
     if ([order isEqualToString: MODEL_EMPLOYEE]) {
-        listController.headerTableView.refreshCompareColumnSortIndex = 1;
-        listController.contentsFilter = ^void(int elementIndex , int innerCount, int outterCount, NSString* section, id cellElement, NSMutableArray* cellRepository) {
+        self.headerTableView.refreshCompareColumnSortIndex = 1;
+        self.contentsFilter = ^void(int elementIndex , int innerCount, int outterCount, NSString* section, id cellElement, NSMutableArray* cellRepository) {
             
             // id , resign
             if (elementIndex == 0 || elementIndex == 5){
                 return ;
                 
                 // pendingApprovals
-                // the last one , note that , in setExceptionAttributes: add "exception" column/field
-            } else if(elementIndex == innerCount-1) {
+                // the last one , note that , in setExceptionAttributes add "exception" column/field
+            } else if(elementIndex == innerCount - 1) {
                 if ([cellElement intValue] == 0) {
                     cellElement = EMPTY_STRING;
                 }
@@ -35,21 +36,22 @@
 }
 
 
--(void) setExceptionAttributes: (BaseOrderListController*)listController order:(NSString*)order
+-(void) setExceptionAttributes
 {
+    NSString* order = self.order;
     if ([order isEqualToString: MODEL_EMPLOYEE]) {
         
         BOOL isHaveExceptionCloumn = [[DATA.modelsStructure getModelProperties: order] containsObject: PROPERTY_EXCEPTION];
         
         if (isHaveExceptionCloumn) {
-            RequestJsonModel* requestModel = listController.requestModel;
+            RequestJsonModel* requestModel = self.requestModel;
             NSString* model = @"HumanResource.Employee";
             NSUInteger exceptionIndex = [ListViewControllerHelper modifyRequestFields: requestModel order:model];
             if (exceptionIndex != NSNotFound) {
-                ContentFilterBlock previousFilter = listController.contentsFilter;
-                listController.contentsFilter = [ListViewControllerHelper getExceptionContentFilter:previousFilter order:model exceptionIndex:exceptionIndex];
+                ContentFilterBlock previousFilter = self.contentsFilter;
+                self.contentsFilter = [ListViewControllerHelper getExceptionContentFilter:previousFilter order:model exceptionIndex:exceptionIndex];
                 
-                WillShowCellBlock previousWillShow = listController.willShowCellBlock;
+                WillShowCellBlock previousWillShow = self.willShowCellBlock;
                 WillShowCellBlock withExceptionWillShow = [ListViewControllerHelper getExceptionWillShowCellBlock:previousWillShow exceptionIndex:exceptionIndex];
                 WillShowCellBlock wihtResignedWillShow = ^void(AppSearchTableViewController* controller ,NSIndexPath* indexPath, UITableViewCell* cell) {
                     if (withExceptionWillShow) {
@@ -58,34 +60,34 @@
                     
                     // handle the resign
                     NSArray* values = [controller valueForIndexPath: indexPath];
-                    int resignIndex = [[listController.requestModel.fields firstObject] indexOfObject:@"resign"];
+                    int resignIndex = [[self.requestModel.fields firstObject] indexOfObject:@"resign"];
                     BOOL isResign = [[values safeObjectAtIndex: resignIndex] boolValue];
                     CGFloat centerX = [FrameTranslater convertCanvasWidth: [[controller.valuesXcoordinates safeObjectAtIndex: resignIndex] floatValue] + 10 ];
                     UIImageView* iamgeView = [ListViewControllerHelper getImageViewInCell:cell imageName:@"cb_green_on.png" centerX: centerX tag:20003];
                     iamgeView.hidden = !isResign;
                 };
                 
-                listController.willShowCellBlock = wihtResignedWillShow;
+                self.willShowCellBlock = wihtResignedWillShow;
                 
             }
         }
     } else {
         
-        [super setExceptionAttributes:listController order:order];
+        [super setExceptionAttributes];
     }
 }
 
 
 // temp code . to be ..... in server, add pending count column
--(void) setHeadersSortAction: (BaseOrderListController*)listController order:(NSString*)order
+-(void) setHeadersSortActions
 {
-    
+    NSString* order = self.order;
     if ([order isEqualToString: MODEL_EMPLOYEE]) {
-        [JsonBranchHelper iterateHeaderJRLabel:listController handler:^BOOL(JRLocalizeLabel *label, int index, NSString *attribute) {
+        [JsonBranchHelper iterateHeaderJRLabel:self handler:^BOOL(JRLocalizeLabel *label, int index, NSString *attribute) {
             label.jrLocalizeLabelDidClickAction = ^void(JRLocalizeLabel* label) {
                 
                 NSString* attribute = label.attribute;
-                NSMutableArray* outterSorts = listController.requestModel.sorts;
+                NSMutableArray* outterSorts = self.requestModel.sorts;
                 
                 
                 
@@ -169,7 +171,7 @@
                 
                 
                 
-                [listController requestForDataFromServer];
+                [self requestForDataFromServer];
                 
             };
             return NO;
@@ -177,7 +179,7 @@
         
     } else {
         
-        [super setHeadersSortAction:listController order:order];
+        [super setHeadersSortActions];
     }
 }
 

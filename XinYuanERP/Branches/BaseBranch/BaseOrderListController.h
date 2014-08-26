@@ -1,16 +1,7 @@
 #import "AppModelListController.h"
 
 
-@class BaseOrderListController;
-
-
-typedef void(^DidTapAddNewOrderBlock)(BaseOrderListController* controller, id sender);
-
-
-
-
 @interface BaseOrderListController : AppModelListController
-
 
 
 @property (strong) NSString* order;                 // order or model
@@ -18,22 +9,18 @@ typedef void(^DidTapAddNewOrderBlock)(BaseOrderListController* controller, id se
 
 
 
-@property (copy) DidTapAddNewOrderBlock didTapAddNewOrderBlock;
-
-
-
 #pragma mark - Public Methods
 
-- (void)handleOrderListController: (BaseOrderListController*)listController order:(NSString*)order;
+- (void)handleOrderListController;
 
 
 #pragma mark - Subclass Override Methods
 
--(void) setInstanceVariablesValues: (BaseOrderListController*)listController order:(NSString*)order;
+-(void) setInstanceVariablesValues;
 
--(void) setExceptionAttributes: (BaseOrderListController*)listController order:(NSString*)order;
+-(void) setExceptionAttributes;
 
--(void) setHeadersSortAction: (BaseOrderListController*)listController order:(NSString*)order;
+-(void) setHeadersSortActions;
 
 
 @end

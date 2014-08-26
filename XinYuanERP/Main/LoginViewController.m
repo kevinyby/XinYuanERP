@@ -146,7 +146,7 @@
 #pragma mark - Json View
     __weak LoginViewController* weakInstance = self;
     jsonview =  (JsonView*)[JsonViewRenderHelper renderFile:@"Views" specificationsKey:@"LoginView"];
-    [jsonview setViewFrame: [ViewHelper getScreenBoundsByCurrentOrientation]];
+    [jsonview setViewFrame: self.view.bounds]; 
     [ColorHelper clearBorderRecursive: jsonview];
     
     [self.view addSubview: jsonview];
@@ -397,7 +397,7 @@
                     
                     orderListController.order = order;
                     orderListController.department = department;
-                    [orderListController handleOrderListController: orderListController order:order];
+                    [orderListController handleOrderListController];
                     [VIEW.navigator pushViewController:orderListController animated:YES];
                 };
                 controller = orderWheel;

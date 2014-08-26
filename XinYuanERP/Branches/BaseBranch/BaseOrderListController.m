@@ -15,55 +15,15 @@
     orderProperties = [DATA.modelsStructure getModelStructure: self.order];
     orderSearchProperties = [[orderProperties allKeys] mutableCopy];
     
-    [self setRightBarButtonItems];
+    [OrderListControllerHelper setRightBarButtonItems: self];
     
 }
 
-- (void)setRightBarButtonItems
-{
-    // QRCode button item
-    UIImage* qrCodeScanImage = IMAGEINIT(@"public_QRCodeScan.png");
-    UIImage* qrCodeHightImage =  [ImageHelper applyingAlphaToImage: qrCodeScanImage alpha:0.5];
-    UIButton* qrCodeScanButton = [[UIButton alloc] initWithImage:qrCodeScanImage focusImage:qrCodeHightImage target:self action:@selector(scanQRCode:)];
-    CGRect rect = CGRectMake(10, 5, qrCodeScanImage.size.width+10, qrCodeScanImage.size.height+10);
-    [qrCodeScanButton setFrame:rect];
-    UIBarButtonItem* qrCodeButtonItem = [[UIBarButtonItem alloc] initWithCustomView: qrCodeScanButton];
-    
-    // Add button item
-    UIBarButtonItem* addButtonItem = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemAdd target:self action:@selector(createNewOrder:)];
-    
-    
-    // Search button item
-    UIBarButtonItem* searchButtonItem = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemSearch target:self action:@selector(searchOrder:)];
-    
-    
-    // Space button item
-    UIBarButtonItem* spaceButtonItem = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemFixedSpace target:nil action:nil];
-    spaceButtonItem.width = [FrameTranslater convertCanvasWidth: 50];
-    
-    
-    //
-    NSArray* items = nil;
-    if ([self.order isEqualToString:MODEL_WHInventory]||[self.order isEqualToString:MODEL_EMPLOYEE]) {
-       items = @[addButtonItem, spaceButtonItem, searchButtonItem, spaceButtonItem, qrCodeButtonItem];
-    } else {
-        items = @[addButtonItem, spaceButtonItem, searchButtonItem];
-    }
-    
-    self.navigationItem.rightBarButtonItems = items;
-}
 
 
 #pragma mark - Override Super Class Methods
 
--(void) appSearchTableViewController: (AppSearchTableViewController*)controller didSelectIndexPath:(NSIndexPath*)indexPath
-{
-    if([PermissionChecker checkSignedUserWithAlert:self.department order:self.order permission:PERMISSION_READ]) {
-        [super appSearchTableViewController: controller didSelectIndexPath:indexPath];
-    }
-}
-
-// delete -------------------
+// delete begin -------------------
 - (BOOL)tableViewBase:(TableViewBase *)tableViewObj canEditIndexPath:(NSIndexPath*)indexPath
 {
     return [PermissionChecker checkSignedUser: self.department order:self.order permission:PERMISSION_DELETE];
@@ -99,7 +59,7 @@
     
     return NO;  // let the call back delete visual content
 }
-// delete -------------------
+// delete end -------------------
 
 
 
@@ -107,15 +67,21 @@
 
 #pragma mark - Action
 
--(void)createNewOrder:(id)sender
+-(void)createNewOrderAction:(id)sender
 {
-    if(! [PermissionChecker checkSignedUserWithAlert: self.department order:self.order permission:PERMISSION_CREATE]) return;
+    if(! [PermissionChecker checkSignedUserWithAlert: self.department order:self.order permission:PERMISSION_CREATE]) {
+        return;
+    }
+    
     self.isPopNeedRefreshRequest = YES;
-    if (self.didTapAddNewOrderBlock) self.didTapAddNewOrderBlock(self,sender);
+    
+    JsonController* jsonController = [JsonBranchHelper getNewJsonControllerInstance: self.department order:self.order];
+    jsonController.controlMode = JsonControllerModeCreate;
+    [VIEW.navigator pushViewController: jsonController animated:YES];
 }
 
 
--(void)scanQRCode:(id)sender
+-(void)scanQRCodeAction:(id)sender
 {
     QRCodeReaderViewController* QRReadVC = [[QRCodeReaderViewController alloc]init];
     QRReadVC.resultBlock = ^void(NSString* result){
@@ -127,7 +93,7 @@
 }
 
 
--(void) searchOrder: (id)sender
+-(void) searchOrderAction: (id)sender
 {
     // popu the view
     UIView* superView = [PopupTableHelper getCommonPopupTableView];
@@ -200,79 +166,76 @@
 
 
 
-#pragma mark - Override and Config
+#pragma mark - Public Methods and Handle Config
 
-
-#pragma mark - Public Methods
-
-- (void)handleOrderListController: (BaseOrderListController*)listController order:(NSString*)order
+- (void)handleOrderListController
 {
-    
     // then , assign the attributes
-    __weak BaseOrderListController* weakInstance = self;
+    NSString* orderType = self.order;
+    NSString* department = self.department;
+//    __weak BaseOrderListController* weakInstance = self;
     
     // set common
+    self.requestModel = [RequestJsonModel getJsonModel];
+    self.requestModel.path = PATH_LOGIC_READ(self.department);
     
-    listController.requestModel = [RequestJsonModel getJsonModel];
-    listController.requestModel.path = PATH_LOGIC_READ(self.department);
-    
-    listController.didTapAddNewOrderBlock = ^void(BaseOrderListController* controller, id sender)
+    self.appTableDidSelectRowBlock = ^void(AppSearchTableViewController* controller ,NSIndexPath* realIndexPath)
     {
-        JsonController* jsonController = [JsonBranchHelper getNewJsonControllerInstance: weakInstance.department order:order];
-        jsonController.controlMode = JsonControllerModeCreate;
-        [VIEW.navigator pushViewController: jsonController animated:YES];
+        if(! [PermissionChecker checkSignedUserWithAlert:department order:orderType permission:PERMISSION_READ]) {
+            return;
+        }
         
-    };
-    
-    listController.appTableDidSelectRowBlock = ^void(AppSearchTableViewController* controller ,NSIndexPath* realIndexPath)
-    {
         // set identification
         id identification = [controller getIdentification: realIndexPath];
-        JsonController* jsonController = [JsonBranchHelper getNewJsonControllerInstance: self.department order:order];
+        JsonController* jsonController = [JsonBranchHelper getNewJsonControllerInstance: department order:orderType];
         jsonController.controlMode = JsonControllerModeRead;
         jsonController.identification = identification;
         [VIEW.navigator pushViewController: jsonController animated:YES];
     };
     
     // set from specification
-    NSDictionary* config = [JsonBranchHelper getModelsListSpecification: self.department order:order];
+    NSDictionary* config = [JsonBranchHelper getModelsListSpecification: self.department order:orderType];
     if (config) {
         
-        // request
         if (config[list_REQUEST_PATH]) {
-            listController.requestModel.path = PATH_LOGIC_READ(config[list_REQUEST_PATH]);
+            self.requestModel.path = PATH_LOGIC_READ(config[list_REQUEST_PATH]);
         } else {
-            listController.requestModel.path = PATH_LOGIC_READ(self.department);
+            self.requestModel.path = PATH_LOGIC_READ(self.department);
         }
+        
         if (config[req_MODELS]) {
-            [listController.requestModel.models addObjectsFromArray: config[req_MODELS]];
+            [self.requestModel.models addObjectsFromArray: config[req_MODELS]];
         } else {
-            [listController.requestModel addModels: order, nil];
+            [self.requestModel addModels: orderType, nil];
         }
-        if (config[req_FIELDS]) [listController.requestModel.fields addObjectsFromArray:config[req_FIELDS]];
-        if (config[req_JOINS]) [listController.requestModel.joins addObject: config[req_JOINS]];
+        
+        if (config[req_FIELDS]) [self.requestModel.fields addObjectsFromArray:config[req_FIELDS]];
+        
+        if (config[req_JOINS]) [self.requestModel.joins addObject: config[req_JOINS]];
         
         if (config[req_SORTS]) {
-            [listController.requestModel.sorts addObjectsFromArray: [ArrayHelper deepCopy: config[req_SORTS]]];
+            [self.requestModel.sorts addObjectsFromArray: [ArrayHelper deepCopy: config[req_SORTS]]];
         } else {
-            [listController.requestModel.sorts addObjectsFromArray: [ArrayHelper deepCopy: @[@[@"id.DESC"]]]];
+            [self.requestModel.sorts addObjectsFromArray: [ArrayHelper deepCopy: @[@[@"id.DESC"]]]];
         }
         
         if (config[req_LIMITS]) {
-            [listController.requestModel.limits addObjectsFromArray: [ArrayHelper deepCopy: config[req_LIMITS]]];
+            [self.requestModel.limits addObjectsFromArray: [ArrayHelper deepCopy: config[req_LIMITS]]];
         } else {
-            [listController.requestModel.limits addObjectsFromArray: [ArrayHelper deepCopy: @[@[@(0), @(200)]]]];
+            [self.requestModel.limits addObjectsFromArray: [ArrayHelper deepCopy: @[@[@(0), @(200)]]]];
         }
         
         // view
-        if (config[list_VIEW_HEADERS]) listController.headers = config[list_VIEW_HEADERS];
-        if (config[list_VIEW_HEADERSX]) listController.headersXcoordinates = config[list_VIEW_HEADERSX];
-        if (config[list_VIEW_VALUESX]) listController.valuesXcoordinates = config[list_VIEW_VALUESX];
+        if (config[list_VIEW_HEADERS]) self.headers = config[list_VIEW_HEADERS];
+        
+        if (config[list_VIEW_HEADERSX]) self.headersXcoordinates = config[list_VIEW_HEADERSX];
+        
+        if (config[list_VIEW_VALUESX]) self.valuesXcoordinates = config[list_VIEW_VALUESX];
         
         // pre define filter
         if (config[list_VIEW_FILTER]) {
             NSDictionary* filters = config[list_VIEW_FILTER];
-            listController.contentsFilter = ^void(int elementIndex , int innerCount, int outterCount, NSString* section, id cellElement, NSMutableArray* cellRepository) {
+            self.contentsFilter = ^void(int elementIndex , int innerCount, int outterCount, NSString* section, id cellElement, NSMutableArray* cellRepository) {
                 NSString* filterName = [filters objectForKey: [[NSNumber numberWithInt: elementIndex] stringValue]];
                 
                 if (filterName) {
@@ -290,34 +253,38 @@
         
     }
     
+    // after set headers
+    [JsonBranchHelper iterateHeaderJRLabel:self handler:^BOOL(JRLocalizeLabel *label, int index, NSString *attribute) {
+        label.attribute = attribute; return NO;
+    }];
     
     
     // for suclass
-    [self setInstanceVariablesValues: listController order:order];
+    [self setInstanceVariablesValues];
     
-    [self setExceptionAttributes: listController order:order];
+    [self setExceptionAttributes];
     
-    [JsonBranchHelper iterateHeaderJRLabel:listController handler:^BOOL(JRLocalizeLabel *label, int index, NSString *attribute) { label.attribute = attribute; return NO; }];
-    [self setHeadersSortAction: listController order:order];
+    [self setHeadersSortActions];
 }
 
 
 #pragma mark - SubClass Override Methods
 
--(void) setInstanceVariablesValues: (BaseOrderListController*)listController order:(NSString*)order
+-(void) setInstanceVariablesValues
 {
 }
 
--(void) setExceptionAttributes: (BaseOrderListController*)listController order:(NSString*)order
+-(void) setExceptionAttributes
 {
-    [ListViewControllerHelper setupExceptionAttributes: listController order:order];
+    [ListViewControllerHelper setupExceptionAttributes: self order:self.order];
 }
 
--(void) setHeadersSortAction: (BaseOrderListController*)listController order:(NSString*)order
+-(void) setHeadersSortActions
 {
-    [JsonBranchHelper iterateHeaderJRLabel:listController handler:^BOOL(JRLocalizeLabel *label, int index, NSString *attribute) {
+    __weak BaseOrderListController* weakInstance = self;
+    [JsonBranchHelper iterateHeaderJRLabel:weakInstance handler:^BOOL(JRLocalizeLabel *label, int index, NSString *attribute) {
         label.jrLocalizeLabelDidClickAction = ^void(JRLocalizeLabel* label) {
-            [JsonBranchHelper clickHeaderLabelSortRequestAction: label listController:listController];
+            [JsonBranchHelper clickHeaderLabelSortRequestAction: label listController:weakInstance];
         };
         return NO;
     }];

@@ -4,7 +4,46 @@
 @implementation OrderListControllerHelper
 
 
-#pragma mark - Util
+
+#pragma mark - View Did Load
+
++ (void)setRightBarButtonItems: (BaseOrderListController*)listController
+{
+    // QRCode button item
+    UIImage* qrCodeScanImage = IMAGEINIT(@"public_QRCodeScan.png");
+    UIImage* qrCodeHightImage =  [ImageHelper applyingAlphaToImage: qrCodeScanImage alpha:0.5];
+    UIButton* qrCodeScanButton = [[UIButton alloc] initWithImage:qrCodeScanImage focusImage:qrCodeHightImage target:listController action:@selector(scanQRCodeAction:)];
+    CGRect rect = CGRectMake(10, 5, qrCodeScanImage.size.width+10, qrCodeScanImage.size.height+10);
+    [qrCodeScanButton setFrame:rect];
+    UIBarButtonItem* qrCodeButtonItem = [[UIBarButtonItem alloc] initWithCustomView: qrCodeScanButton];
+    
+    // Add button item
+    UIBarButtonItem* addButtonItem = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemAdd target:listController action:@selector(createNewOrderAction:)];
+    
+    
+    // Search button item
+    UIBarButtonItem* searchButtonItem = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemSearch target:listController action:@selector(searchOrderAction:)];
+    
+    
+    // Space button item
+    UIBarButtonItem* spaceButtonItem = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemFixedSpace target:nil action:nil];
+    spaceButtonItem.width = [FrameTranslater convertCanvasWidth: 50];
+    
+    
+    //
+    NSArray* items = nil;
+    if ([listController.order isEqualToString:MODEL_WHInventory]||[listController.order isEqualToString:MODEL_EMPLOYEE]) {
+        items = @[addButtonItem, spaceButtonItem, searchButtonItem, spaceButtonItem, qrCodeButtonItem];
+    } else {
+        items = @[addButtonItem, spaceButtonItem, searchButtonItem];
+    }
+    
+    listController.navigationItem.rightBarButtonItems = items;
+}
+
+
+
+#pragma mark - Delete Order
 
 +(NSString*) getImageFolderName:(BaseOrderListController*)listController indexPath:(NSIndexPath*)realIndexPath
 {

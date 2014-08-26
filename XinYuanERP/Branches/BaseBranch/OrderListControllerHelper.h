@@ -5,11 +5,18 @@
 @class BaseOrderListController;
 
 
-
 @interface OrderListControllerHelper : NSObject
 
 
-#pragma mark -
+
+#pragma mark - View Did Load
+
++ (void)setRightBarButtonItems: (BaseOrderListController*)listController;
+
+
+
+
+#pragma mark - Delete Order
 
 +(NSString*) getImageFolderName:(BaseOrderListController*)listController indexPath:(NSIndexPath*)realIndexPath;
 
