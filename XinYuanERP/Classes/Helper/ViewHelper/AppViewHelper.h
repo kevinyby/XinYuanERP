@@ -5,7 +5,7 @@
 
 #define APPLOCALIZE_KEYS(_key, args...) [AppViewHelper localizations:_key, ##args, nil]
 #define APPLOCALIZE(_key) [AppViewHelper localization:_key]
-#define APPLOCALIZES(_key, _item) [AppViewHelper localization:_key model:_item]
+#define APPLOCALIZES(_key, _item) [AppViewHelper localization:_item model:_key]
 
 
 

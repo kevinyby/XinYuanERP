@@ -2,12 +2,21 @@
 #import "AppInterface.h"
 
 @implementation BaseOrderListController
+{
+    NSDictionary* orderProperties;
+    NSMutableArray* orderSearchProperties;
+}
 
 - (void)viewDidLoad
 {
     [super viewDidLoad];
 	// Do any additional setup after loading the view.
+    
+    orderProperties = [DATA.modelsStructure getModelStructure: self.order];
+    orderSearchProperties = [[orderProperties allKeys] mutableCopy];
+    
     [self setRightBarButtonItems];
+    
 }
 
 - (void)setRightBarButtonItems
@@ -106,6 +115,17 @@
 }
 
 
+-(void)scanQRCode:(id)sender
+{
+    QRCodeReaderViewController* QRReadVC = [[QRCodeReaderViewController alloc]init];
+    QRReadVC.resultBlock = ^void(NSString* result){
+        self.headerTableView.searchBar.textField.text = result;
+        self.headerTableView.tableView.filterText = result;
+    };
+    
+    [self.navigationController presentViewController: QRReadVC animated:YES completion:nil];
+}
+
 
 -(void) searchOrder: (id)sender
 {
@@ -129,7 +149,7 @@
         return 1;
     };
     tableVieObj.tableViewBaseNumberOfRowsInSectionAction = ^NSInteger(TableViewBase* tableViewObj, NSInteger section) {
-        return 20;
+        return orderSearchProperties.count;
     };
     tableVieObj.tableViewBaseCellForIndexPathAction = ^UITableViewCell*(TableViewBase* tableViewObj, NSIndexPath* indexPath, UITableViewCell* oldCell) {
         JRLocalizeLabel* label = (JRLocalizeLabel*)[oldCell.contentView viewWithTag: 1000111];
@@ -153,21 +173,23 @@
         }
         label.text = nil;
         textField.text = nil;
+        [JRComponentHelper removeComponentShowDatePickerAction: textField];
+        
+        
         
         
         // set data and event
-        NSString* text = nil;
-        if (indexPath.row == 0) {
-            text = APPLOCALIZE_KEYS(@"createDate", @"from");
-        } else if (indexPath.row == 1) {
-            text = APPLOCALIZE_KEYS(@"createDate", @"to");
-        }
+        NSString* text = APPLOCALIZES(self.order, orderSearchProperties[indexPath.row]);
+        NSLog(@"+++++ %@", text);
+//        if (indexPath.row == 0) {
+//            text = APPLOCALIZE_KEYS(@"createDate", @"from");
+//        } else if (indexPath.row == 1) {
+//            text = APPLOCALIZE_KEYS(@"createDate", @"to");
+//        }
         label.text = text;
         
         if (indexPath.row == 0 || indexPath.row == 1) {
             [JRComponentHelper addComponentShowDatePickerAction: textField pattern:PATTERN_DATE];
-        } else {
-            [JRComponentHelper removeComponentShowDatePickerAction: textField];
         }
 
         
@@ -177,16 +199,133 @@
 
 
 
--(void)scanQRCode:(id)sender
-{
-    QRCodeReaderViewController* QRReadVC = [[QRCodeReaderViewController alloc]init];
-    QRReadVC.resultBlock = ^void(NSString* result){
-        self.headerTableView.searchBar.textField.text = result;
-        self.headerTableView.tableView.filterText = result;
-    };
 
-    [self.navigationController presentViewController: QRReadVC animated:YES completion:nil];
+#pragma mark - Override and Config
+
+
+#pragma mark - Public Methods
+
+- (void)handleOrderListController: (BaseOrderListController*)listController order:(NSString*)order
+{
+    
+    // then , assign the attributes
+    __weak BaseOrderListController* weakInstance = self;
+    
+    // set common
+    
+    listController.requestModel = [RequestJsonModel getJsonModel];
+    listController.requestModel.path = PATH_LOGIC_READ(self.department);
+    
+    listController.didTapAddNewOrderBlock = ^void(BaseOrderListController* controller, id sender)
+    {
+        JsonController* jsonController = [JsonBranchFactory getNewJsonControllerInstance: weakInstance.department order:order];
+        jsonController.controlMode = JsonControllerModeCreate;
+        [VIEW.navigator pushViewController: jsonController animated:YES];
+        
+    };
+    
+    listController.appTableDidSelectRowBlock = ^void(AppSearchTableViewController* controller ,NSIndexPath* realIndexPath)
+    {
+        // set identification
+        id identification = [controller getIdentification: realIndexPath];
+        JsonController* jsonController = [JsonBranchFactory getNewJsonControllerInstance: self.department order:order];
+        jsonController.controlMode = JsonControllerModeRead;
+        jsonController.identification = identification;
+        [VIEW.navigator pushViewController: jsonController animated:YES];
+    };
+    
+    // set from specification
+    NSDictionary* config = [JsonBranchFactory getModelsListSpecification: self.department order:order];
+    if (config) {
+        
+        // request
+        if (config[list_REQUEST_PATH]) {
+            listController.requestModel.path = PATH_LOGIC_READ(config[list_REQUEST_PATH]);
+        } else {
+            listController.requestModel.path = PATH_LOGIC_READ(self.department);
+        }
+        if (config[req_MODELS]) {
+            [listController.requestModel.models addObjectsFromArray: config[req_MODELS]];
+        } else {
+            [listController.requestModel addModels: order, nil];
+        }
+        if (config[req_FIELDS]) [listController.requestModel.fields addObjectsFromArray:config[req_FIELDS]];
+        if (config[req_JOINS]) [listController.requestModel.joins addObject: config[req_JOINS]];
+        
+        if (config[req_SORTS]) {
+            [listController.requestModel.sorts addObjectsFromArray: [ArrayHelper deepCopy: config[req_SORTS]]];
+        } else {
+            [listController.requestModel.sorts addObjectsFromArray: [ArrayHelper deepCopy: @[@[@"id.DESC"]]]];
+        }
+        
+        if (config[req_LIMITS]) {
+            [listController.requestModel.limits addObjectsFromArray: [ArrayHelper deepCopy: config[req_LIMITS]]];
+        } else {
+            [listController.requestModel.limits addObjectsFromArray: [ArrayHelper deepCopy: @[@[@(0), @(200)]]]];
+        }
+        
+        // view
+        if (config[list_VIEW_HEADERS]) listController.headers = config[list_VIEW_HEADERS];
+        if (config[list_VIEW_HEADERSX]) listController.headersXcoordinates = config[list_VIEW_HEADERSX];
+        if (config[list_VIEW_VALUESX]) listController.valuesXcoordinates = config[list_VIEW_VALUESX];
+        
+        // pre define filter
+        if (config[list_VIEW_FILTER]) {
+            NSDictionary* filters = config[list_VIEW_FILTER];
+            listController.contentsFilter = ^void(int elementIndex , int innerCount, int outterCount, NSString* section, id cellElement, NSMutableArray* cellRepository) {
+                NSString* filterName = [filters objectForKey: [[NSNumber numberWithInt: elementIndex] stringValue]];
+                
+                if (filterName) {
+                    ContentFilterElementBlock block = [ContentFilterHelper.contentFiltersMap objectForKey: filterName];
+                    if (block) {
+                        cellElement = block(cellElement, cellRepository);
+                    }
+                }
+                
+                if (cellElement) {
+                    [cellRepository addObject: cellElement];
+                }
+            };
+        }
+        
+    }
+    
+    
+    
+    // for suclass
+    [self setInstanceVariablesValues: listController order:order];
+    
+    [self setExceptionAttributes: listController order:order];
+    
+    [JsonBranchFactory iterateHeaderJRLabel:listController handler:^BOOL(JRLocalizeLabel *label, int index, NSString *attribute) { label.attribute = attribute; return NO; }];
+    [self setHeadersSortAction: listController order:order];
 }
+
+
+#pragma mark - SubClass Override Methods
+
+-(void) setInstanceVariablesValues: (BaseOrderListController*)listController order:(NSString*)order
+{
+}
+
+-(void) setExceptionAttributes: (BaseOrderListController*)listController order:(NSString*)order
+{
+    [ListViewControllerHelper setupExceptionAttributes: listController order:order];
+}
+
+-(void) setHeadersSortAction: (BaseOrderListController*)listController order:(NSString*)order
+{
+    [JsonBranchFactory iterateHeaderJRLabel:listController handler:^BOOL(JRLocalizeLabel *label, int index, NSString *attribute) {
+        label.jrLocalizeLabelDidClickAction = ^void(JRLocalizeLabel* label) {
+            [JsonBranchHelper clickHeaderLabelSortRequestAction: label listController:listController];
+        };
+        return NO;
+    }];
+}
+
+
+
+
 
 
 @end

@@ -1,12 +1,4 @@
-//
-//  SecurityFactory.m
-//  XinYuanERP
-//
-//  Created by Xinyuan4 on 13-11-2.
-//  Copyright (c) 2013年 Xinyuan4. All rights reserved.
-//
-
-#import "SecurityFactory.h"
+#import "SecurityListController.h"
 
 #import "AppInterface.h"
 #import "ResultPage.h"
@@ -14,7 +6,7 @@
 //join two strings by '.'
 #define LK(order,attribute) [NSString stringWithFormat:@"%@%@%@", order, LOCALIZE_KEY_CONNECTOR, attribute]
 
-@implementation SecurityFactory
+@implementation SecurityListController
 
 -(void) setInstanceVariablesValues: (BaseOrderListController*)orderlist order:(NSString*)order {
     [super setInstanceVariablesValues: orderlist order:order];

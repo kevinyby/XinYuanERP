@@ -67,7 +67,6 @@
 #import "SecurityVisitorOrderController.h"
 #import "SecurityDailyLogViewController.h"
 #import "SecurityPatrolOrderController.h"
-#import "SecurityFactory.h"
 
 
 
@@ -89,7 +88,6 @@
 
 // ShareOrder Branch
 #import "SharedPassOrderController.h"
-#import "SharedOrderFactory.h"
 #import "SharedCahierOrderController.h"
 
 

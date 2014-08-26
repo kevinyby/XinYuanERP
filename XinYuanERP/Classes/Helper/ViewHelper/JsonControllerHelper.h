@@ -90,8 +90,7 @@
 
 #pragma mark - Util Methods
 
-
-#pragma mark -
++(NSMutableDictionary*) getRenderModel: (NSString*)orderType;
 
 +(NSMutableDictionary*) differObjects:(NSDictionary*)oldObjects objects:(NSDictionary*)objects;
 

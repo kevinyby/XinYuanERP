@@ -378,19 +378,26 @@
                 // show the orders
                 AppWheelViewController* orderWheel = [AppViewHelper getOrdersWheelController];
                 orderWheel.wheels = [AppDataHelper getUserModelWheels: DATA.signedUserName department:department];
-                JsonBranchFactory* branchFactory = [JsonBranchFactory factoryCreateBranch: department];
+
                 orderWheel.wheelDidTapSwipLeftBlock = ^(AppWheelViewController* wheel, NSInteger index) {
                     NSString* order = [wheel.wheels objectAtIndex: index];
+                    BaseOrderListController* orderListController = nil;
                     
                     NSString* orderClazzString = [NSString stringWithFormat:@"%@%@", order, @"ListController"];
-                    BaseOrderListController* orderListController = [[NSClassFromString(orderClazzString) alloc] init];
+                    orderListController = [[NSClassFromString(orderClazzString) alloc] init];
+                    
                     if (!orderListController) {
-                        orderListController = [[BaseOrderListController alloc] init ];
+                        NSString* orderClazzString = [NSString stringWithFormat:@"%@%@", department, @"ListController"];
+                        orderListController = [[NSClassFromString(orderClazzString) alloc] init];
+                        
+                        if (!orderListController) {
+                            orderListController = [[BaseOrderListController alloc] init ];
+                        }
                     }
                     
                     orderListController.order = order;
                     orderListController.department = department;
-                    [branchFactory handleOrderListController: orderListController order:order];
+                    [orderListController handleOrderListController: orderListController order:order];
                     [VIEW.navigator pushViewController:orderListController animated:YES];
                 };
                 controller = orderWheel;

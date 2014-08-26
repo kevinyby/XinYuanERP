@@ -1,15 +1,7 @@
-//
-//  VehicleFactory.m
-//  XinYuanERP
-//
-//  Created by bravo on 14-4-17.
-//  Copyright (c) 2014年 Xinyuan4. All rights reserved.
-//
-
-#import "VehicleFactory.h"
+#import "VehicleListController.h"
 #import "AppInterface.h"
 
-@implementation VehicleFactory
+@implementation VehicleListController
 
 -(void) setInstanceVariablesValues: (BaseOrderListController*)orderlist order:(NSString*)order {
     [super setInstanceVariablesValues: orderlist order:order];

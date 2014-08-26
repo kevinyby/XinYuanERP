@@ -111,8 +111,7 @@
 
 
 -(NSArray*) getOrderFields{
-    NSDictionary* WHPurchaseOrderStructs = [DATA.modelsStructure getModelStructure: @"WHPurchaseOrder"];
-    NSMutableArray* WHPurchaseOrderFields = [[DictionaryHelper getSortedKeys: WHPurchaseOrderStructs] mutableCopy];
+    NSMutableArray* WHPurchaseOrderFields = [[DATA.modelsStructure getModelProperties: @"WHPurchaseOrder"] mutableCopy];
     [WHPurchaseOrderFields removeObject: @"WHPurchaseBills"];
     [WHPurchaseOrderFields removeObject: @"createDate"];
     

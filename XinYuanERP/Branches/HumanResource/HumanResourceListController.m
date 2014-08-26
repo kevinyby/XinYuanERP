@@ -1,7 +1,7 @@
-#import "HumanResourceFactory.h"
+#import "HumanResourceListController.h"
 #import "AppInterface.h"
 
-@implementation HumanResourceFactory
+@implementation HumanResourceListController
 
 #pragma mark - Overide Super Class Method
 
@@ -38,7 +38,9 @@
 -(void) setExceptionAttributes: (BaseOrderListController*)listController order:(NSString*)order
 {
     if ([order isEqualToString: MODEL_EMPLOYEE]) {
-        BOOL isHaveExceptionCloumn = [[DATA.modelsStructure getModelStructure: order] objectForKey: PROPERTY_EXCEPTION] != nil;
+        
+        BOOL isHaveExceptionCloumn = [[DATA.modelsStructure getModelProperties: order] containsObject: PROPERTY_EXCEPTION];
+        
         if (isHaveExceptionCloumn) {
             RequestJsonModel* requestModel = listController.requestModel;
             NSString* model = @"HumanResource.Employee";

@@ -282,7 +282,7 @@
     
     self.valueObjects = [DictionaryHelper deepCopy:resultsObj];
     
-    NSMutableDictionary* modelToRender = [DATA.modelsStructure getModelStructure:self.order];
+    NSMutableDictionary* modelToRender = [JsonControllerHelper getRenderModel: self.order];
     [DictionaryHelper combine: modelToRender with:self.valueObjects];
     
     return modelToRender;

@@ -1,15 +1,7 @@
-//
-//  SharedOrderFactory.m
-//  XinYuanERP
-//
-//  Created by Xinyuan4 on 13-12-13.
-//  Copyright (c) 2013年 Xinyuan4. All rights reserved.
-//
-
-#import "SharedOrderFactory.h"
+#import "SharedOrderListController.h"
 #import "AppInterface.h"
 
-@implementation SharedOrderFactory
+@implementation SharedOrderListController
 
 
 -(void) setInstanceVariablesValues: (BaseOrderListController*)orderlist order:(NSString*)order {

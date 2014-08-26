@@ -28,18 +28,7 @@
 
 
 
-#pragma mark - Public Methods
 
-- (void)handleOrderListController: (BaseOrderListController*)listController order:(NSString*)order;
-
-
-#pragma mark - Subclass Override Methods
-
--(void) setInstanceVariablesValues: (BaseOrderListController*)listController order:(NSString*)order;
-
--(void) setExceptionAttributes: (BaseOrderListController*)listController order:(NSString*)order;
-
--(void) setHeadersSortAction: (BaseOrderListController*)listController order:(NSString*)order;
 
 
 #pragma mark - Class Methods
@@ -47,8 +36,6 @@
 +(void) iterateHeaderJRLabel: (BaseOrderListController*)listController handler:(BOOL(^)(JRLocalizeLabel* label, int index, NSString* attribute))handler;
 
 +(JRLocalizeLabel*) getHeaderJRLabelByAttribute: (BaseOrderListController*)listController attribute:(NSString*)attribute;
-
-+ (id)factoryCreateBranch:(NSString*)department;
 
 +(void) navigateToOrderController: (NSString*)department order:(NSString*)order identifier:(id)identifier;
 
