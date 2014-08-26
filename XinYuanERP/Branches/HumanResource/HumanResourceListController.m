@@ -81,7 +81,7 @@
 {
     
     if ([order isEqualToString: MODEL_EMPLOYEE]) {
-        [JsonBranchFactory iterateHeaderJRLabel:listController handler:^BOOL(JRLocalizeLabel *label, int index, NSString *attribute) {
+        [JsonBranchHelper iterateHeaderJRLabel:listController handler:^BOOL(JRLocalizeLabel *label, int index, NSString *attribute) {
             label.jrLocalizeLabelDidClickAction = ^void(JRLocalizeLabel* label) {
                 
                 NSString* attribute = label.attribute;

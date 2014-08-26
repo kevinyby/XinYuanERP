@@ -218,7 +218,7 @@
     
     listController.didTapAddNewOrderBlock = ^void(BaseOrderListController* controller, id sender)
     {
-        JsonController* jsonController = [JsonBranchFactory getNewJsonControllerInstance: weakInstance.department order:order];
+        JsonController* jsonController = [JsonBranchHelper getNewJsonControllerInstance: weakInstance.department order:order];
         jsonController.controlMode = JsonControllerModeCreate;
         [VIEW.navigator pushViewController: jsonController animated:YES];
         
@@ -228,14 +228,14 @@
     {
         // set identification
         id identification = [controller getIdentification: realIndexPath];
-        JsonController* jsonController = [JsonBranchFactory getNewJsonControllerInstance: self.department order:order];
+        JsonController* jsonController = [JsonBranchHelper getNewJsonControllerInstance: self.department order:order];
         jsonController.controlMode = JsonControllerModeRead;
         jsonController.identification = identification;
         [VIEW.navigator pushViewController: jsonController animated:YES];
     };
     
     // set from specification
-    NSDictionary* config = [JsonBranchFactory getModelsListSpecification: self.department order:order];
+    NSDictionary* config = [JsonBranchHelper getModelsListSpecification: self.department order:order];
     if (config) {
         
         // request
@@ -297,7 +297,7 @@
     
     [self setExceptionAttributes: listController order:order];
     
-    [JsonBranchFactory iterateHeaderJRLabel:listController handler:^BOOL(JRLocalizeLabel *label, int index, NSString *attribute) { label.attribute = attribute; return NO; }];
+    [JsonBranchHelper iterateHeaderJRLabel:listController handler:^BOOL(JRLocalizeLabel *label, int index, NSString *attribute) { label.attribute = attribute; return NO; }];
     [self setHeadersSortAction: listController order:order];
 }
 
@@ -315,7 +315,7 @@
 
 -(void) setHeadersSortAction: (BaseOrderListController*)listController order:(NSString*)order
 {
-    [JsonBranchFactory iterateHeaderJRLabel:listController handler:^BOOL(JRLocalizeLabel *label, int index, NSString *attribute) {
+    [JsonBranchHelper iterateHeaderJRLabel:listController handler:^BOOL(JRLocalizeLabel *label, int index, NSString *attribute) {
         label.jrLocalizeLabelDidClickAction = ^void(JRLocalizeLabel* label) {
             [JsonBranchHelper clickHeaderLabelSortRequestAction: label listController:listController];
         };

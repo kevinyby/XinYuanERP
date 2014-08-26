@@ -93,7 +93,7 @@
     NSString* department = self.department;
     BTN_Adjust.didClikcButtonAction = ^void(JRButton* btn) {
         if([PermissionChecker checkSignedUserWithAlert: department order:ORDER_FinanceSalaryCHOrder permission:PERMISSION_CREATE]) {
-            FinanceSalaryCHOrderController* jsonController = (FinanceSalaryCHOrderController*)[JsonBranchFactory getNewJsonControllerInstance: department order:ORDER_FinanceSalaryCHOrder];
+            FinanceSalaryCHOrderController* jsonController = (FinanceSalaryCHOrderController*)[JsonBranchHelper getNewJsonControllerInstance: department order:ORDER_FinanceSalaryCHOrder];
             jsonController.controlMode = JsonControllerModeCreate;
             
             NSString* employeeNO = self.valueObjects[PROPERTY_EMPLOYEENO];

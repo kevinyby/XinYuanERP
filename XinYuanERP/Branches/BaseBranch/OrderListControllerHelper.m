@@ -34,7 +34,7 @@
 
 +(NSString*) getDeleteImageFolderProperty: (NSString*)department order:(NSString*)order
 {
-    return [JsonBranchFactory getModelsListSpecification: department order:order][@"__Delete_Images_Folder"];
+    return [JsonBranchHelper getModelsListSpecification: department order:order][@"__Delete_Images_Folder"];
 }
 
 

@@ -522,7 +522,7 @@
                 [PopupViewHelper popAlert: LOCALIZE_MESSAGE(@"SelectAnAction") message:nil style:0 actionBlock:^(UIView *popView, NSInteger index) {
                     // read
                     if (index == 1) {
-                        [JsonBranchFactory navigateToOrderController: department order:order identifier:referenceOrderNOid];
+                        [JsonBranchHelper navigateToOrderController: department order:order identifier:referenceOrderNOid];
                         // add
                     } else if (index == 2) {
                         // check if have already in the payment order
@@ -598,7 +598,7 @@
                 // get identificaion
                 id identification = [[tableLeftSectionBillsContents objectAtIndex: row] objectForKey:attr_referenceOrderNO];
                 // show
-                [JsonBranchFactory navigateToOrderController: department order:order identifier:identification];
+                [JsonBranchHelper navigateToOrderController: department order:order identifier:identification];
             }
         } dismissBlock:nil buttons:LOCALIZE_KEY(KEY_CANCEL), LOCALIZE_KEY(@"read"), nil];
     }
