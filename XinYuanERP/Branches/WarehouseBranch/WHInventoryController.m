@@ -289,6 +289,18 @@
     
 }
 
+-(void) renderWithReceiveObjects: (NSMutableDictionary*)objects
+{
+    [super renderWithReceiveObjects:objects];
+    
+    float priceBasicUnitFloat = [objects[@"priceBasicUnit"] floatValue];
+    _priceBasicUnitTxtField.text = [NSString stringWithFormat:@"%g",priceBasicUnitFloat];
+    
+    
+    float priceUnitFloat = [objects[@"priceUnit"] floatValue];
+    _priceUnitTxtField.text = [NSString stringWithFormat:@"%g",priceUnitFloat];
+}
+
 #pragma mark -
 #pragma mark - UITextField Delegate
 
