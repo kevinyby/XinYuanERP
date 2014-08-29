@@ -83,7 +83,8 @@
 
 +(void) setupExceptionAttributes: (BaseOrderListController*)listController order:(NSString*)order
 {
-    BOOL isHaveExceptionCloumn = [[DATA.modelsStructure getModelStructure: order] objectForKey: PROPERTY_EXCEPTION] != nil;
+    BOOL isHaveExceptionCloumn = [[DATA.modelsStructure getModelProperties: order] containsObject: PROPERTY_EXCEPTION];
+    
     if (isHaveExceptionCloumn) {
         
         RequestJsonModel* requestModel = listController.requestModel;

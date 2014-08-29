@@ -146,7 +146,7 @@
 #pragma mark - Json View
     __weak LoginViewController* weakInstance = self;
     jsonview =  (JsonView*)[JsonViewRenderHelper renderFile:@"Views" specificationsKey:@"LoginView"];
-    [jsonview setViewFrame: [ViewHelper getScreenBoundsByCurrentOrientation]];
+    [jsonview setViewFrame: self.view.bounds]; 
     [ColorHelper clearBorderRecursive: jsonview];
     
     [self.view addSubview: jsonview];
@@ -185,8 +185,8 @@
     
     // login button
     JRButton* loginButton = (JRButton*)[jsonview getView: @"loginBtn"];
-    loginButton.didClikcButtonAction = ^(id sender) {
-        [weakInstance loginRequest];
+    loginButton.didClikcButtonAction = ^(id sender) {        
+        [weakInstance loginRequestAction];
     };
     
     [JsonViewHelper refreshJsonViewLocalizeText: jsonview];
@@ -231,7 +231,7 @@
 }
 
 
--(void)loginRequest
+-(void)loginRequestAction
 {
 //    [((NSArray*)userNameTextField.text) objectAtIndex:0];
     NSString* verifyCode = verifyCodeTextField.text ? verifyCodeTextField.text : @"" ;
@@ -378,19 +378,25 @@
                 // show the orders
                 AppWheelViewController* orderWheel = [AppViewHelper getOrdersWheelController];
                 orderWheel.wheels = [AppDataHelper getUserModelWheels: DATA.signedUserName department:department];
-                JsonBranchFactory* branchFactory = [JsonBranchFactory factoryCreateBranch: department];
+
                 orderWheel.wheelDidTapSwipLeftBlock = ^(AppWheelViewController* wheel, NSInteger index) {
                     NSString* order = [wheel.wheels objectAtIndex: index];
+                    BaseOrderListController* orderListController = nil;
                     
                     NSString* orderClazzString = [NSString stringWithFormat:@"%@%@", order, @"ListController"];
-                    BaseOrderListController* orderListController = [[NSClassFromString(orderClazzString) alloc] init];
+                    orderListController = [[NSClassFromString(orderClazzString) alloc] init];
+                    
                     if (!orderListController) {
-                        orderListController = [[BaseOrderListController alloc] init ];
+                        NSString* orderClazzString = [NSString stringWithFormat:@"%@%@", department, @"ListController"];
+                        orderListController = [[NSClassFromString(orderClazzString) alloc] init];
+                        
+                        if (!orderListController) {
+                            orderListController = [[BaseOrderListController alloc] init ];
+                        }
                     }
                     
-                    orderListController.order = order;
-                    orderListController.department = department;
-                    [branchFactory handleOrderListController: orderListController order:order];
+                    [orderListController initializeWithDepartment: department order:order];
+                    
                     [VIEW.navigator pushViewController:orderListController animated:YES];
                 };
                 controller = orderWheel;

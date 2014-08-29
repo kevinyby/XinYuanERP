@@ -468,10 +468,7 @@ static const char* CONST_DataPickerType = "PickerType";
                     [JRComponentHelper showDatePicker: textFieldObj];
                 };
             } else {
-                NSString* pattern = objc_getAssociatedObject(view, CONST_DataPickerType);
-                if (pattern) {
-                    textField.textFieldDidClickAction = nil;
-                }
+                textField.textFieldDidClickAction = nil;
             }
             
             

@@ -1,7 +1,7 @@
 #import "AppSearchTableViewController.h"
 
 @class ResponseJsonModel;
-@class JsonBranchFactory;
+@class OrderListControllerHelper;
 @class AppSearchTableViewController;
 @class BaseOrderListController;
 

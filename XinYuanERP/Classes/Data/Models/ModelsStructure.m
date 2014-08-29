@@ -2,51 +2,30 @@
 #import "AppInterface.h"
 
 @implementation ModelsStructure
+{
+    NSDictionary* categoryModels;
+}
 
 -(void) renderModels: (NSDictionary*)dictionary {
     NSError* error = nil ;
-    _categoryModels = [[NSMutableDictionary alloc] initWithCapacity: 5];
     
     if (! dictionary || [dictionary count] == 0) {
-        
         NSData* data = [NSData dataWithContentsOfFile: [FileManager.documentsPath stringByAppendingPathComponent: ModelsStructurePath ]];
-        NSDictionary* dictionary = data ? [NSJSONSerialization JSONObjectWithData: data options:NSJSONReadingAllowFragments error:&error] : nil;
-        if (dictionary) [_categoryModels setDictionary: dictionary];
-        
-        
-    } else {
-        
-        for (NSString* category in dictionary) {                // categories
-            
-            NSDictionary* categoryDictionary = [dictionary objectForKey: category];
-            
-            NSMutableDictionary* categotyValues = [NSMutableDictionary dictionary];
-            [_categoryModels setObject: categotyValues forKey:category];
-            
-            for (NSString* order in categoryDictionary) {       // orders
-                
-                NSArray* properties = [categoryDictionary objectForKey: order];
-                
-                NSMutableDictionary* orderValues = [NSMutableDictionary dictionary];
-                [categotyValues setObject: orderValues forKey:order];
-                
-                for (NSString* property in properties) {        // properties
-                    [orderValues setObject: [NSNull null] forKey:property];
-                }
-            }
-        }
-        
-        NSData* data = [NSJSONSerialization dataWithJSONObject: _categoryModels options:NSJSONWritingPrettyPrinted error:&error];
-        if (data) {
-            [FileManager writeDataToFile: [FileManager.documentsPath stringByAppendingPathComponent: ModelsStructurePath ] data:data];
-        }
+        dictionary = data ? [NSJSONSerialization JSONObjectWithData: data options:NSJSONReadingAllowFragments error:&error] : nil;
+    }
+    
+    categoryModels = dictionary;
+    
+    NSData* data = [NSJSONSerialization dataWithJSONObject: categoryModels options:NSJSONWritingPrettyPrinted error:&error];
+    if (data) {
+        [FileManager writeDataToFile: [FileManager.documentsPath stringByAppendingPathComponent: ModelsStructurePath ] data:data];
     }
 }
 
 
 // get all categories
 -(NSArray*) getAllCategories {
-    return [_categoryModels allKeys];
+    return [categoryModels allKeys];
 }
 
 /** Get category by order type*/
@@ -82,7 +61,7 @@
 // get the order names by specified department
 -(NSArray*) getOrders: (NSString*)deparment withBill:(BOOL)withBill
 {
-    NSArray* allModels = [[_categoryModels objectForKey: deparment] allKeys];
+    NSArray* allModels = [[categoryModels objectForKey: deparment] allKeys];
     if (! withBill) {
         NSPredicate* predicate = [NSPredicate predicateWithFormat:@"not (SELF contains[cd] %@)" , BILL_SUFFIX];       // filter the bill
         allModels = [allModels filteredArrayUsingPredicate: predicate];
@@ -91,27 +70,25 @@
 }
 
 
-// get specified department's all orders, return a copy
--(NSMutableDictionary*) getModelsStructures: (NSString*)deparment {
-    NSMutableDictionary* result = [_categoryModels objectForKey: deparment];
-    NSMutableDictionary* copy = [NSMutableDictionary dictionary];
-    [DictionaryHelper deepCopy: result to:copy];
-    return copy;
+
+-(NSArray*) getModelProperties: (NSString*)orderType
+{
+    NSArray* properties = [[self getModelStructure: orderType] allKeys];
+    return properties;
 }
 
 
 // get specified order, return a copy
--(NSMutableDictionary*) getModelStructure: (NSString*)order {
-    NSMutableDictionary* result = nil;
-    for (NSString* categoryKey in _categoryModels) {
-        NSDictionary* outterDictionary = [_categoryModels objectForKey: categoryKey];
-        result = [outterDictionary objectForKey: order];
+-(NSDictionary*) getModelStructure: (NSString*)orderType {
+    NSDictionary* result = nil;
+    
+    for (NSString* categoryKey in categoryModels) {
+        NSDictionary* outterDictionary = [categoryModels objectForKey: categoryKey];
+        result = [outterDictionary objectForKey: orderType];
         if (result) break;
     }
     
-    NSMutableDictionary* copy = [NSMutableDictionary dictionary];
-    [DictionaryHelper deepCopy: result to:copy];
-    return copy;
+    return result;
 }
 
 
@@ -142,7 +119,7 @@
 -(NSArray*) getModelApprovals: (NSString*)orderType
 {
     NSMutableArray* approvals = [NSMutableArray array];
-    NSArray* properties = [[DATA.modelsStructure getModelStructure: orderType] allKeys];
+    NSArray* properties = [self getModelProperties: orderType];
     if ([properties containsObject: levelApp1])  [approvals addObject: levelApp1];
     if ([properties containsObject: levelApp2])  [approvals addObject: levelApp2];
     if ([properties containsObject: levelApp3])  [approvals addObject: levelApp3];

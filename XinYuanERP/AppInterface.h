@@ -38,10 +38,8 @@
 // Base Branch
 #import "RequestJsonModelFactory.h"
 #import "BaseOrderListController.h"
+#import "OrderListSearchHelper.h"
 #import "OrderListControllerHelper.h"
-
-#import "JsonBranchFactory.h"
-#import "JsonBranchHelper.h"
 
 
 // Companyarticles
@@ -67,7 +65,6 @@
 #import "SecurityVisitorOrderController.h"
 #import "SecurityDailyLogViewController.h"
 #import "SecurityPatrolOrderController.h"
-#import "SecurityFactory.h"
 
 
 
@@ -89,7 +86,6 @@
 
 // ShareOrder Branch
 #import "SharedPassOrderController.h"
-#import "SharedOrderFactory.h"
 #import "SharedCahierOrderController.h"
 
 

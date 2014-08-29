@@ -26,6 +26,7 @@
 "Employee.edu_rGraduate"="tốt nghiệp";
 "Employee.edu_rSchool"="trường";
 "Employee.education"="giáo dục";
+"Employee.education_experience"="giáo dục";
 "Employee.employDate"="sử dụng ngày";
 "Employee.employeeNO"="số";
 "Employee.gender"="giới tính";

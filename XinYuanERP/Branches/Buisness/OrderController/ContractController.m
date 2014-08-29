@@ -173,7 +173,7 @@
                     // get identificaion
                     id identification = [tableViewObj contentForIndexPath:indexPath];
                     // show
-                    [JsonBranchFactory navigateToOrderController: department order:order identifier:identification];
+                    [OrderListControllerHelper navigateToOrderController: department order:order identifier:identification];
                 };
                 
             }];

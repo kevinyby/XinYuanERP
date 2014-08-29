@@ -2,8 +2,6 @@
 
 @interface ModelsStructure : NSObject
 
-@property (strong, readonly) NSMutableDictionary* categoryModels;
-
 -(void) renderModels: (NSDictionary*)dictionary ;
 
 -(NSArray*) getAllCategories ;
@@ -12,8 +10,9 @@
 -(NSMutableDictionary*) getAllOders:(BOOL)withBill ;
 -(NSArray*) getOrders: (NSString*)deparment withBill:(BOOL)withBill;
 
--(NSMutableDictionary*) getModelStructure: (NSString*)order ;
--(NSMutableDictionary*) getModelsStructures: (NSString*)deparment ;
+
+-(NSArray*) getModelProperties: (NSString*)orderType;
+-(NSMutableDictionary*) getModelStructure: (NSString*)orderType ;
 
 
 #pragma mark -

@@ -1,12 +1,4 @@
-//
-//  SecurityFactory.m
-//  XinYuanERP
-//
-//  Created by Xinyuan4 on 13-11-2.
-//  Copyright (c) 2013年 Xinyuan4. All rights reserved.
-//
-
-#import "SecurityFactory.h"
+#import "SecurityListController.h"
 
 #import "AppInterface.h"
 #import "ResultPage.h"
@@ -14,39 +6,41 @@
 //join two strings by '.'
 #define LK(order,attribute) [NSString stringWithFormat:@"%@%@%@", order, LOCALIZE_KEY_CONNECTOR, attribute]
 
-@implementation SecurityFactory
+@implementation SecurityListController
 
--(void) setInstanceVariablesValues: (BaseOrderListController*)orderlist order:(NSString*)order {
-    [super setInstanceVariablesValues: orderlist order:order];
+-(void) setInstanceVariablesValues
+{
+    NSString* order = self.order;
+    [super setInstanceVariablesValues];
     /* Note: this long long if-else statements can be refactored with polymorphism
               by moving these individual statement into each "order" calss*/
     if ([order isEqualToString:@"SecurityPatrolOrder"]){
-        [orderlist.requestModel addModels:order, nil];
-        [orderlist.requestModel.fields addObjectsFromArray:@[@[PROPERTY_IDENTIFIER, PROPERTY_ORDERNO, @"protralDate"]]];
-        orderlist.headers = @[PROPERTY_ORDERNO,LK(order,@"protralDate")];
-        orderlist.headersXcoordinates = @[@(100), @(500)];
+        [self.requestModel addModels:order, nil];
+        [self.requestModel.fields addObjectsFromArray:@[@[PROPERTY_IDENTIFIER, PROPERTY_ORDERNO, @"protralDate"]]];
+        self.headers = @[PROPERTY_ORDERNO,LK(order,@"protralDate")];
+        self.headersXcoordinates = @[@(100), @(500)];
     }
     else if ([order isEqualToString:@"Patrol"]){
         
     }
     else if ([order isEqualToString:@"SecurityVisitorOrder"]){
-        [orderlist.requestModel addModels:order, nil];
-        [orderlist.requestModel.fields addObjectsFromArray:@[@[PROPERTY_IDENTIFIER,PROPERTY_ORDERNO,@"visitEmployeeNO"]]];
-        orderlist.headers = @[PROPERTY_ORDERNO, LK(order,@"visit")];
-        orderlist.headersXcoordinates = @[@(100),@(500)];
+        [self.requestModel addModels:order, nil];
+        [self.requestModel.fields addObjectsFromArray:@[@[PROPERTY_IDENTIFIER,PROPERTY_ORDERNO,@"visitEmployeeNO"]]];
+        self.headers = @[PROPERTY_ORDERNO, LK(order,@"visit")];
+        self.headersXcoordinates = @[@(100),@(500)];
     }
     else if ([order isEqualToString:@"SecurityPatrolTracker"]){
-        [orderlist.requestModel addModels:order, nil];
-        [orderlist.requestModel.fields addObjectsFromArray:@[@[PROPERTY_IDENTIFIER,PROPERTY_ORDERNO,@"createDate",@"startTime",@"endTime"]]];
-        orderlist.headers =@[@"年",@"月",@"日",@"时段"];
-        orderlist.headersXcoordinates= @[@(50),@(100),@(150),@(450)];
-        orderlist.valuesXcoordinates = @[@(40),@(400),@(530)];
+        [self.requestModel addModels:order, nil];
+        [self.requestModel.fields addObjectsFromArray:@[@[PROPERTY_IDENTIFIER,PROPERTY_ORDERNO,@"createDate",@"startTime",@"endTime"]]];
+        self.headers =@[@"年",@"月",@"日",@"时段"];
+        self.headersXcoordinates= @[@(50),@(100),@(150),@(450)];
+        self.valuesXcoordinates = @[@(40),@(400),@(530)];
         
         //we don't need orderID, orderNO to be presented here,
         //so we filter them out, then we have to split the orderDate
         //and join the startTime and endTime with '~'
         //format: yyyy mm dd hh:mm~hh:mm
-        orderlist.contentsFilter = ^void(int elementIndex, int innerCount, int outterCount, NSString* section, id cellElement, NSMutableArray* cellRepository){
+        self.contentsFilter = ^void(int elementIndex, int innerCount, int outterCount, NSString* section, id cellElement, NSMutableArray* cellRepository){
             id valueObj = nil;
             if (elementIndex < 2){
                 return ; //filter first two
@@ -74,7 +68,7 @@
         
         //We should avoid entering the tracker controloller(default behaviour)
         //instead, rewritting the select event is a better trick.
-        orderlist.appTableDidSelectRowBlock = ^void(AppSearchTableViewController* controller ,NSIndexPath* realIndexPath)
+        self.appTableDidSelectRowBlock = ^void(AppSearchTableViewController* controller ,NSIndexPath* realIndexPath)
         {
             //grab the data from previous list.
             NSArray* controllers = VIEW.navigator.viewControllers;

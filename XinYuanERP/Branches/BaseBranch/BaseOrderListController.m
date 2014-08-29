@@ -2,59 +2,43 @@
 #import "AppInterface.h"
 
 @implementation BaseOrderListController
+{
+    NSDictionary* config;
+    
+    
+    OrderListSearchHelper* searchHelper;
+}
+
+
+-(void) initializeWithDepartment:(NSString*)department order:(NSString*)orderType
+{
+    self.order = orderType;
+    self.department = department;
+    
+    config = [OrderListControllerHelper getModelsListSpecification: department order:orderType];
+}
 
 - (void)viewDidLoad
 {
     [super viewDidLoad];
 	// Do any additional setup after loading the view.
-    [self setRightBarButtonItems];
+    
+    // set up bar items
+    [OrderListControllerHelper setRightBarButtonItems: self];
+    
+    // set up list controller properties
+    [self setupOrderListControllerWithSpecification];
+    
 }
 
-- (void)setRightBarButtonItems
-{
-    // QRCode button item
-    UIImage* qrCodeScanImage = IMAGEINIT(@"public_QRCodeScan.png");
-    UIImage* qrCodeHightImage =  [ImageHelper applyingAlphaToImage: qrCodeScanImage alpha:0.5];
-    UIButton* qrCodeScanButton = [[UIButton alloc] initWithImage:qrCodeScanImage focusImage:qrCodeHightImage target:self action:@selector(scanQRCode:)];
-    CGRect rect = CGRectMake(10, 5, qrCodeScanImage.size.width+10, qrCodeScanImage.size.height+10);
-    [qrCodeScanButton setFrame:rect];
-    UIBarButtonItem* qrCodeButtonItem = [[UIBarButtonItem alloc] initWithCustomView: qrCodeScanButton];
-    
-    // Add button item
-    UIBarButtonItem* addButtonItem = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemAdd target:self action:@selector(createNewOrder:)];
-    
-    
-    // Search button item
-    UIBarButtonItem* searchButtonItem = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemSearch target:self action:@selector(searchOrder:)];
-    
-    
-    // Space button item
-    UIBarButtonItem* spaceButtonItem = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemFixedSpace target:nil action:nil];
-    spaceButtonItem.width = [FrameTranslater convertCanvasWidth: 50];
-    
-    
-    //
-    NSArray* items = nil;
-    if ([self.order isEqualToString:MODEL_WHInventory]||[self.order isEqualToString:MODEL_EMPLOYEE]) {
-       items = @[addButtonItem, spaceButtonItem, searchButtonItem, spaceButtonItem, qrCodeButtonItem];
-    } else {
-        items = @[addButtonItem, spaceButtonItem, searchButtonItem];
-    }
-    
-    self.navigationItem.rightBarButtonItems = items;
-}
+
+
+
 
 
 #pragma mark - Override Super Class Methods
 
--(void) appSearchTableViewController: (AppSearchTableViewController*)controller didSelectIndexPath:(NSIndexPath*)indexPath
-{
-    if([PermissionChecker checkSignedUserWithAlert:self.department order:self.order permission:PERMISSION_READ]) {
-        [super appSearchTableViewController: controller didSelectIndexPath:indexPath];
-    }
-}
-
-// delete -------------------
+// delete begin -------------------
 - (BOOL)tableViewBase:(TableViewBase *)tableViewObj canEditIndexPath:(NSIndexPath*)indexPath
 {
     return [PermissionChecker checkSignedUser: self.department order:self.order permission:PERMISSION_DELETE];
@@ -90,7 +74,7 @@
     
     return NO;  // let the call back delete visual content
 }
-// delete -------------------
+// delete end -------------------
 
 
 
@@ -98,95 +82,190 @@
 
 #pragma mark - Action
 
--(void)createNewOrder:(id)sender
+-(void)createNewOrderAction:(id)sender
 {
-    if(! [PermissionChecker checkSignedUserWithAlert: self.department order:self.order permission:PERMISSION_CREATE]) return;
+    if(! [PermissionChecker checkSignedUserWithAlert: self.department order:self.order permission:PERMISSION_CREATE]) {
+        return;
+    }
+    
     self.isPopNeedRefreshRequest = YES;
-    if (self.didTapAddNewOrderBlock) self.didTapAddNewOrderBlock(self,sender);
+    
+    JsonController* jsonController = [OrderListControllerHelper getNewJsonControllerInstance: self.department order:self.order];
+    jsonController.controlMode = JsonControllerModeCreate;
+    [VIEW.navigator pushViewController: jsonController animated:YES];
 }
 
 
-
--(void) searchOrder: (id)sender
-{
-    // popu the view
-    UIView* superView = [PopupTableHelper getCommonPopupTableView];
-    JRButtonsHeaderTableView* searchTableView = (JRButtonsHeaderTableView*)[superView viewWithTag: POPUP_TABLEVIEW_TAG];
-    [searchTableView.tableView setHideSearchBar: YES];
-    [PopupViewHelper popView:superView willDissmiss:nil];
-    
-    // change the button title
-    JRButton* rightButton = searchTableView.rightButton;
-    [rightButton setTitle:LOCALIZE_KEY(@"SEARCH") forState:UIControlStateNormal];
-    
-    JRButton* leftButton = searchTableView.leftButton;
-    [leftButton setTitle:LOCALIZE_KEY(@"clear") forState:UIControlStateNormal];
-    
-    // set the table contents
-    TableViewBase* tableVieObj = searchTableView.tableView.tableView;
-    tableVieObj.allowsSelection = NO;
-    tableVieObj.tableViewBaseNumberOfSectionsAction = ^NSInteger(TableViewBase* tableViewObj) {
-        return 1;
-    };
-    tableVieObj.tableViewBaseNumberOfRowsInSectionAction = ^NSInteger(TableViewBase* tableViewObj, NSInteger section) {
-        return 20;
-    };
-    tableVieObj.tableViewBaseCellForIndexPathAction = ^UITableViewCell*(TableViewBase* tableViewObj, NSIndexPath* indexPath, UITableViewCell* oldCell) {
-        JRLocalizeLabel* label = (JRLocalizeLabel*)[oldCell.contentView viewWithTag: 1000111];
-        JRTextField* textField = (JRTextField*)[oldCell.contentView viewWithTag: 1000222];
-        if (!label) {
-            label = [[JRLocalizeLabel alloc] initWithFrame:CanvasRect(10, 25, 120, 70)];
-            label.tag = 1000111;
-            [oldCell.contentView addSubview: label];
-            
-            label.font = [UIFont systemFontOfSize: CanvasFontSize(25)];
-            label.disableChangeTextTransition = YES;
-        }
-        if (!textField) {
-            textField = [[JRTextField alloc] initWithFrame:CanvasRect(150, 15, 200, 50)];
-            textField.tag = 1000222;
-            [oldCell.contentView addSubview: textField];
-            
-            textField.borderStyle = UITextBorderStyleNone;
-            textField.textAlignment = NSTextAlignmentCenter;
-            [ColorHelper setBorder: textField color:[UIColor flatGrayColor]];
-        }
-        label.text = nil;
-        textField.text = nil;
-        
-        
-        // set data and event
-        NSString* text = nil;
-        if (indexPath.row == 0) {
-            text = APPLOCALIZE_KEYS(@"createDate", @"from");
-        } else if (indexPath.row == 1) {
-            text = APPLOCALIZE_KEYS(@"createDate", @"to");
-        }
-        label.text = text;
-        
-        if (indexPath.row == 0 || indexPath.row == 1) {
-            [JRComponentHelper addComponentShowDatePickerAction: textField pattern:PATTERN_DATE];
-        } else {
-            [JRComponentHelper removeComponentShowDatePickerAction: textField];
-        }
-
-        
-        return oldCell;
-    };
-}
-
-
-
--(void)scanQRCode:(id)sender
+-(void)scanQRCodeAction:(id)sender
 {
     QRCodeReaderViewController* QRReadVC = [[QRCodeReaderViewController alloc]init];
     QRReadVC.resultBlock = ^void(NSString* result){
         self.headerTableView.searchBar.textField.text = result;
         self.headerTableView.tableView.filterText = result;
     };
-
+    
     [self.navigationController presentViewController: QRReadVC animated:YES completion:nil];
 }
+
+
+-(void) searchOrderAction: (id)sender
+{
+    if (!searchHelper) {
+        searchHelper = [[OrderListSearchHelper alloc] initWithOrder: self.order];
+        
+        [self handleSearchHelper: searchHelper];
+    }
+    
+    [searchHelper showSearchTableView];
+}
+
+
+
+
+#pragma mark - Handle Porperties With Config
+
+- (void)setupOrderListControllerWithSpecification
+{
+    // then , assign the attributes
+    NSString* orderType = self.order;
+    NSString* department = self.department;
+    
+    // set common
+    self.requestModel = [RequestJsonModel getJsonModel];
+    self.requestModel.path = PATH_LOGIC_READ(self.department);
+    
+    self.appTableDidSelectRowBlock = ^void(AppSearchTableViewController* controller ,NSIndexPath* realIndexPath)
+    {
+        if(! [PermissionChecker checkSignedUserWithAlert:department order:orderType permission:PERMISSION_READ]) {
+            return;
+        }
+        
+        // set identification
+        id identification = [controller getIdentification: realIndexPath];
+        JsonController* jsonController = [OrderListControllerHelper getNewJsonControllerInstance: department order:orderType];
+        jsonController.controlMode = JsonControllerModeRead;
+        jsonController.identification = identification;
+        [VIEW.navigator pushViewController: jsonController animated:YES];
+    };
+    
+    // set from specification
+    if (config) {
+        
+        if (config[list_REQUEST_PATH]) {
+            self.requestModel.path = PATH_LOGIC_READ(config[list_REQUEST_PATH]);
+        } else {
+            self.requestModel.path = PATH_LOGIC_READ(self.department);
+        }
+        
+        if (config[req_MODELS]) {
+            [self.requestModel.models addObjectsFromArray: config[req_MODELS]];
+        } else {
+            [self.requestModel addModels: orderType, nil];
+        }
+        
+        if (config[req_FIELDS]) [self.requestModel.fields addObjectsFromArray:config[req_FIELDS]];
+        
+        if (config[req_JOINS]) [self.requestModel.joins addObject: config[req_JOINS]];
+        
+        if (config[req_SORTS]) {
+            [self.requestModel.sorts addObjectsFromArray: [ArrayHelper deepCopy: config[req_SORTS]]];
+        } else {
+            [self.requestModel.sorts addObjectsFromArray: [ArrayHelper deepCopy: @[@[@"id.DESC"]]]];
+        }
+        
+        if (config[req_LIMITS]) {
+            [self.requestModel.limits addObjectsFromArray: [ArrayHelper deepCopy: config[req_LIMITS]]];
+        } else {
+            [self.requestModel.limits addObjectsFromArray: [ArrayHelper deepCopy: @[@[@(0), @(200)]]]];
+        }
+        
+        // view
+        if (config[list_VIEW_HEADERS]) self.headers = config[list_VIEW_HEADERS];
+        
+        if (config[list_VIEW_HEADERSX]) self.headersXcoordinates = config[list_VIEW_HEADERSX];
+        
+        if (config[list_VIEW_VALUESX]) self.valuesXcoordinates = config[list_VIEW_VALUESX];
+        
+        // pre define filter
+        if (config[list_VIEW_FILTER]) {
+            NSDictionary* filters = config[list_VIEW_FILTER];
+            self.contentsFilter = ^void(int elementIndex , int innerCount, int outterCount, NSString* section, id cellElement, NSMutableArray* cellRepository) {
+                NSString* filterName = [filters objectForKey: [[NSNumber numberWithInt: elementIndex] stringValue]];
+                
+                if (filterName) {
+                    ContentFilterElementBlock block = [ContentFilterHelper.contentFiltersMap objectForKey: filterName];
+                    if (block) {
+                        cellElement = block(cellElement, cellRepository);
+                    }
+                }
+                
+                if (cellElement) {
+                    [cellRepository addObject: cellElement];
+                }
+            };
+        }
+        
+    }
+    
+    // after set headers
+    [OrderListControllerHelper iterateHeaderJRLabel:self handler:^BOOL(JRLocalizeLabel *label, int index, NSString *attribute) {
+        label.attribute = attribute; return NO;
+    }];
+    
+    
+    // for suclass
+    [self setInstanceVariablesValues];
+    
+    [self setExceptionAttributes];
+    
+    [self setHeadersSortActions];
+}
+
+
+
+
+
+#pragma mark - SubClass Override Methods
+
+-(void) handleSearchHelper: (OrderListSearchHelper*)searchHelperObj
+{
+    NSMutableArray* properties = searchHelperObj.orderSearchProperties;
+    NSDictionary* propertiesMap = searchHelperObj.orderPropertiesMap;
+    
+    [properties removeObject: PROPERTY_IDENTIFIER];
+    [properties removeObject: PROPERTY_MODIFIEDUSER];
+    [properties removeObject: PROPERTY_FORWARDUSER];
+    
+    for (NSString* property in config[list_ELIMINATE_SEARCH]) {
+        [properties removeObject: property];
+    }
+    
+    [OrderListControllerHelper sortSearchProperties: properties propertiesMap:propertiesMap orderType:self.order];
+}
+
+-(void) setInstanceVariablesValues
+{
+}
+
+-(void) setExceptionAttributes
+{
+    [ListViewControllerHelper setupExceptionAttributes: self order:self.order];
+}
+
+-(void) setHeadersSortActions
+{
+    __weak BaseOrderListController* weakInstance = self;
+    [OrderListControllerHelper iterateHeaderJRLabel:weakInstance handler:^BOOL(JRLocalizeLabel *label, int index, NSString *attribute) {
+        label.jrLocalizeLabelDidClickAction = ^void(JRLocalizeLabel* label) {
+            [OrderListControllerHelper clickHeaderLabelSortRequestAction: label listController:weakInstance];
+        };
+        return NO;
+    }];
+}
+
+
+
+
 
 
 @end

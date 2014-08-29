@@ -15,7 +15,7 @@
     
     [PopupViewHelper popAlert: nil message:message style:0 actionBlock:^(UIView *popView, NSInteger index) {
         if (index == 1) {
-            [JsonBranchFactory navigateToOrderController: department order:orderType identifier:identifier];
+            [OrderListControllerHelper navigateToOrderController: department order:orderType identifier:identifier];
         }
     } dismissBlock:nil buttons:LOCALIZE_KEY(KEY_CANCEL), LOCALIZE_KEY(@"read"), nil];
 }

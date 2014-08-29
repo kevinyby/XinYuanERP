@@ -108,7 +108,7 @@ static ViewManager* sharedInstance;
         NSDictionary* identities = [informations objectForKey: APNS_INFOS_ID];
         id identification = [RequestModelHelper getModelIdentification: identities];
         
-        [JsonBranchFactory navigateToOrderController: department order:order identifier:identification];
+        [OrderListControllerHelper navigateToOrderController: department order:order identifier:identification];
     }];
     
     

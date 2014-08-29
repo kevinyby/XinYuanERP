@@ -217,7 +217,7 @@
     NSString* attribute = jrview.attribute;
     if (! attribute) return ;                                   // nil ? return
     
-    NSString* localizeValue = APPLOCALIZES( attribute, model);
+    NSString* localizeValue = APPLOCALIZES(model, attribute);
     NSString* connectKeys = LOCALIZE_CONNECT_KEYS(model, attribute);
     if ([localizeValue isEqualToString: connectKeys]) {
         localizeValue = nil;

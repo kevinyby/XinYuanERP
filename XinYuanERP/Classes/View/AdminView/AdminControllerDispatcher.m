@@ -186,7 +186,7 @@
             NSString* orderType = [wheel.wheels objectAtIndex: orderIndex];
             
             // checkout have 'app1' or not
-            NSArray* properties = [[DATA.modelsStructure getModelStructure: orderType] allKeys];
+            NSArray* properties = [DATA.modelsStructure getModelProperties: orderType] ;
             BOOL isHaveApproval = [properties containsObject: levelApp1] ;
             // set the buttons
             NSArray* buttons = isHaveApproval ? @[LOCALIZE_KEY(@"Approvals_Settings"), LOCALIZE_KEY(@"Expriations_Settings")] : @[LOCALIZE_KEY(@"Expriations_Settings")];

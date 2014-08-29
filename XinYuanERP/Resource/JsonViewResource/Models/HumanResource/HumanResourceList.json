@@ -13,7 +13,7 @@
         "HEADERSX": [50, 230, 400, 550, 680, 850],
         "VALUESX":  [20, 230, 400, 550, 705, 860],
         
-        
+        "__Eliminate_Search_Fields": ["urgencyName", "urgencyPhone", "subDepartment", "gender"],
         "__Delete_Images_Folder": "employeeNO"
     },
     
@@ -26,7 +26,22 @@
         "VALUESX": [0, 350, 500],
         
         
-        "FILTERS": {"0":"FILTER_NIL", "2":"FILTER_NumberName"}
+        "FILTERS": {"0":"FILTER_NIL", "2":"FILTER_NumberName"},
+        
+        
+        "__Eliminate_Search_Fields": ["password_N"
+                                      ,"livingAddress_O","urgencyName_O","urgencyPhone_O","phoneNO_O"
+                                      ,"livingAddress_N","urgencyName_N","urgencyPhone_N","phoneNO_N"
+                                      
+                                      ,"subDepartment_O"
+                                      ,"subDepartment_N"
+                                      
+                                      ,"ownApproval_O","inDrives_O","resign_O"
+                                      ,"ownApproval_N","inDrives_N","resign_N"
+                                      ]
+        
+        
+        
     },
     
     

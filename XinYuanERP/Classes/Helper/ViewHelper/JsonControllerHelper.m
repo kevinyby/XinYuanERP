@@ -818,11 +818,16 @@
 #pragma mark - Util Methods
 
 
++(NSMutableDictionary*) getRenderModel: (NSString*)orderType
+{
+    NSMutableDictionary* modelToRender = [NSMutableDictionary dictionary];
+    NSArray* keys = [DATA.modelsStructure getModelProperties: orderType];
+    for (NSString* propertyKey in keys) {
+        [modelToRender setObject:[NSNull null] forKey:propertyKey];
+    }
+    return modelToRender;
+}
 
-
-
-
-#pragma mark - 
 
 +(NSMutableDictionary*) differObjects:(NSDictionary*)oldObjects objects:(NSDictionary*)objects
 {

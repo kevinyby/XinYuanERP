@@ -120,7 +120,8 @@
 #define PROPERTY_EMPLOYEE_JOBTITLE @"jobTitle"
 #define PROPERTY_EMPLOYEE_DEPARTMENT @"department"
 
-#define PROPERTY_FORWARDUSER    @"forwardUser"
+#define PROPERTY_FORWARDUSER        @"forwardUser"
+#define PROPERTY_MODIFIEDUSER       @"modifiedUser"
 
 #define BILL_CREATEUSER         @"billCreateUser"
 

@@ -282,7 +282,7 @@
     
     self.valueObjects = [DictionaryHelper deepCopy:resultsObj];
     
-    NSMutableDictionary* modelToRender = [DATA.modelsStructure getModelStructure:self.order];
+    NSMutableDictionary* modelToRender = [JsonControllerHelper getRenderModel: self.order];
     [DictionaryHelper combine: modelToRender with:self.valueObjects];
     
     return modelToRender;
@@ -366,7 +366,7 @@
             // get identificaion
             id identification = [tableViewObj contentForIndexPath:indexPath];
             // show
-            [JsonBranchFactory navigateToOrderController: department order:order identifier:identification];
+            [OrderListControllerHelper navigateToOrderController: department order:order identifier:identification];
         };
         
     }];
