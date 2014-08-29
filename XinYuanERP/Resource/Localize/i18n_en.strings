@@ -195,10 +195,12 @@
 "expiredDate"="Expired Date";
 "failed"="failed";
 "female"="Female";
+"forwardUser"="Forward-User";
 "from"="From";
 "gender"="Gender";
 "have"="Have";
 "hour"="Time";
+"if"="If";
 "images"="Images";
 "inform"="Notice";
 "information"="Information";
@@ -214,6 +216,7 @@
 "male"="Male";
 "member"="Staff";
 "message"="Message";
+"modifiedUser"="Modified-User";
 "modify"="Modify";
 "money"="Money";
 "month"="Month";
@@ -225,6 +228,7 @@
 "orderNO"="Order NO.";
 "password"="Password";
 "pendingApprovalsCount"="Pendings Count";
+"people"="People";
 "permission"="Permission";
 "petrol"="Petrol";
 "phoneNO"="Phone";
@@ -242,6 +246,7 @@
 "returnAmount"="Return Amount";
 "returnDate"="Return Date";
 "returnPhoto"="Return";
+"returned"="Returned";
 "save"="Save";
 "settings"="Settings";
 "show"="Show";

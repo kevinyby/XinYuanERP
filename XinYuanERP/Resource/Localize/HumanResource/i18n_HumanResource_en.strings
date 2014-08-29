@@ -26,6 +26,7 @@
 "Employee.edu_rGraduate"="Graduated";
 "Employee.edu_rSchool"="At School";
 "Employee.education"="Education";
+"Employee.education_experience"="Education";
 "Employee.employDate"="Employ Date";
 "Employee.employeeNO"="Number";
 "Employee.gender"="Gender";

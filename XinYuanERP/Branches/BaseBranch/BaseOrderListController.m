@@ -3,8 +3,19 @@
 
 @implementation BaseOrderListController
 {
-    NSDictionary* orderProperties;
-    NSMutableArray* orderSearchProperties;
+    NSDictionary* config;
+    
+    
+    OrderListSearchHelper* searchHelper;
+}
+
+
+-(void) initializeWithDepartment:(NSString*)department order:(NSString*)orderType
+{
+    self.order = orderType;
+    self.department = department;
+    
+    config = [OrderListControllerHelper getModelsListSpecification: department order:orderType];
 }
 
 - (void)viewDidLoad
@@ -12,12 +23,16 @@
     [super viewDidLoad];
 	// Do any additional setup after loading the view.
     
-    orderProperties = [DATA.modelsStructure getModelStructure: self.order];
-    orderSearchProperties = [[orderProperties allKeys] mutableCopy];
-    
+    // set up bar items
     [OrderListControllerHelper setRightBarButtonItems: self];
     
+    // set up list controller properties
+    [self setupOrderListControllerWithSpecification];
+    
 }
+
+
+
 
 
 
@@ -75,7 +90,7 @@
     
     self.isPopNeedRefreshRequest = YES;
     
-    JsonController* jsonController = [JsonBranchHelper getNewJsonControllerInstance: self.department order:self.order];
+    JsonController* jsonController = [OrderListControllerHelper getNewJsonControllerInstance: self.department order:self.order];
     jsonController.controlMode = JsonControllerModeCreate;
     [VIEW.navigator pushViewController: jsonController animated:YES];
 }
@@ -95,85 +110,25 @@
 
 -(void) searchOrderAction: (id)sender
 {
-    // popu the view
-    UIView* superView = [PopupTableHelper getCommonPopupTableView];
-    JRButtonsHeaderTableView* searchTableView = (JRButtonsHeaderTableView*)[superView viewWithTag: POPUP_TABLEVIEW_TAG];
-    [searchTableView.tableView setHideSearchBar: YES];
-    [PopupViewHelper popView:superView willDissmiss:nil];
+    if (!searchHelper) {
+        searchHelper = [[OrderListSearchHelper alloc] initWithOrder: self.order];
+        
+        [self handleSearchHelper: searchHelper];
+    }
     
-    // change the button title
-    JRButton* rightButton = searchTableView.rightButton;
-    [rightButton setTitle:LOCALIZE_KEY(@"SEARCH") forState:UIControlStateNormal];
-    
-    JRButton* leftButton = searchTableView.leftButton;
-    [leftButton setTitle:LOCALIZE_KEY(@"clear") forState:UIControlStateNormal];
-    
-    // set the table contents
-    TableViewBase* tableVieObj = searchTableView.tableView.tableView;
-    tableVieObj.allowsSelection = NO;
-    tableVieObj.tableViewBaseNumberOfSectionsAction = ^NSInteger(TableViewBase* tableViewObj) {
-        return 1;
-    };
-    tableVieObj.tableViewBaseNumberOfRowsInSectionAction = ^NSInteger(TableViewBase* tableViewObj, NSInteger section) {
-        return orderSearchProperties.count;
-    };
-    tableVieObj.tableViewBaseCellForIndexPathAction = ^UITableViewCell*(TableViewBase* tableViewObj, NSIndexPath* indexPath, UITableViewCell* oldCell) {
-        JRLocalizeLabel* label = (JRLocalizeLabel*)[oldCell.contentView viewWithTag: 1000111];
-        JRTextField* textField = (JRTextField*)[oldCell.contentView viewWithTag: 1000222];
-        if (!label) {
-            label = [[JRLocalizeLabel alloc] initWithFrame:CanvasRect(10, 25, 120, 70)];
-            label.tag = 1000111;
-            [oldCell.contentView addSubview: label];
-            
-            label.font = [UIFont systemFontOfSize: CanvasFontSize(25)];
-            label.disableChangeTextTransition = YES;
-        }
-        if (!textField) {
-            textField = [[JRTextField alloc] initWithFrame:CanvasRect(150, 15, 200, 50)];
-            textField.tag = 1000222;
-            [oldCell.contentView addSubview: textField];
-            
-            textField.borderStyle = UITextBorderStyleNone;
-            textField.textAlignment = NSTextAlignmentCenter;
-            [ColorHelper setBorder: textField color:[UIColor flatGrayColor]];
-        }
-        label.text = nil;
-        textField.text = nil;
-        [JRComponentHelper removeComponentShowDatePickerAction: textField];
-        
-        
-        
-        
-        // set data and event
-        NSString* text = APPLOCALIZES(self.order, orderSearchProperties[indexPath.row]);
-        NSLog(@"+++++ %@", text);
-//        if (indexPath.row == 0) {
-//            text = APPLOCALIZE_KEYS(@"createDate", @"from");
-//        } else if (indexPath.row == 1) {
-//            text = APPLOCALIZE_KEYS(@"createDate", @"to");
-//        }
-        label.text = text;
-        
-        if (indexPath.row == 0 || indexPath.row == 1) {
-            [JRComponentHelper addComponentShowDatePickerAction: textField pattern:PATTERN_DATE];
-        }
-
-        
-        return oldCell;
-    };
+    [searchHelper showSearchTableView];
 }
 
 
 
 
-#pragma mark - Public Methods and Handle Config
+#pragma mark - Handle Porperties With Config
 
-- (void)handleOrderListController
+- (void)setupOrderListControllerWithSpecification
 {
     // then , assign the attributes
     NSString* orderType = self.order;
     NSString* department = self.department;
-//    __weak BaseOrderListController* weakInstance = self;
     
     // set common
     self.requestModel = [RequestJsonModel getJsonModel];
@@ -187,14 +142,13 @@
         
         // set identification
         id identification = [controller getIdentification: realIndexPath];
-        JsonController* jsonController = [JsonBranchHelper getNewJsonControllerInstance: department order:orderType];
+        JsonController* jsonController = [OrderListControllerHelper getNewJsonControllerInstance: department order:orderType];
         jsonController.controlMode = JsonControllerModeRead;
         jsonController.identification = identification;
         [VIEW.navigator pushViewController: jsonController animated:YES];
     };
     
     // set from specification
-    NSDictionary* config = [JsonBranchHelper getModelsListSpecification: self.department order:orderType];
     if (config) {
         
         if (config[list_REQUEST_PATH]) {
@@ -254,7 +208,7 @@
     }
     
     // after set headers
-    [JsonBranchHelper iterateHeaderJRLabel:self handler:^BOOL(JRLocalizeLabel *label, int index, NSString *attribute) {
+    [OrderListControllerHelper iterateHeaderJRLabel:self handler:^BOOL(JRLocalizeLabel *label, int index, NSString *attribute) {
         label.attribute = attribute; return NO;
     }];
     
@@ -268,7 +222,26 @@
 }
 
 
+
+
+
 #pragma mark - SubClass Override Methods
+
+-(void) handleSearchHelper: (OrderListSearchHelper*)searchHelperObj
+{
+    NSMutableArray* properties = searchHelperObj.orderSearchProperties;
+    NSDictionary* propertiesMap = searchHelperObj.orderPropertiesMap;
+    
+    [properties removeObject: PROPERTY_IDENTIFIER];
+    [properties removeObject: PROPERTY_MODIFIEDUSER];
+    [properties removeObject: PROPERTY_FORWARDUSER];
+    
+    for (NSString* property in config[list_ELIMINATE_SEARCH]) {
+        [properties removeObject: property];
+    }
+    
+    [OrderListControllerHelper sortSearchProperties: properties propertiesMap:propertiesMap orderType:self.order];
+}
 
 -(void) setInstanceVariablesValues
 {
@@ -282,9 +255,9 @@
 -(void) setHeadersSortActions
 {
     __weak BaseOrderListController* weakInstance = self;
-    [JsonBranchHelper iterateHeaderJRLabel:weakInstance handler:^BOOL(JRLocalizeLabel *label, int index, NSString *attribute) {
+    [OrderListControllerHelper iterateHeaderJRLabel:weakInstance handler:^BOOL(JRLocalizeLabel *label, int index, NSString *attribute) {
         label.jrLocalizeLabelDidClickAction = ^void(JRLocalizeLabel* label) {
-            [JsonBranchHelper clickHeaderLabelSortRequestAction: label listController:weakInstance];
+            [OrderListControllerHelper clickHeaderLabelSortRequestAction: label listController:weakInstance];
         };
         return NO;
     }];

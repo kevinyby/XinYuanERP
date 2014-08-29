@@ -7,8 +7,8 @@
 
 -(void) setInstanceVariablesValues
 {
-    NSString* order = self.order;
     [super setInstanceVariablesValues];
+    NSString* order = self.order;
     
     if ([order isEqualToString: MODEL_EMPLOYEE]) {
         self.headerTableView.refreshCompareColumnSortIndex = 1;
@@ -83,7 +83,7 @@
 {
     NSString* order = self.order;
     if ([order isEqualToString: MODEL_EMPLOYEE]) {
-        [JsonBranchHelper iterateHeaderJRLabel:self handler:^BOOL(JRLocalizeLabel *label, int index, NSString *attribute) {
+        [OrderListControllerHelper iterateHeaderJRLabel:self handler:^BOOL(JRLocalizeLabel *label, int index, NSString *attribute) {
             label.jrLocalizeLabelDidClickAction = ^void(JRLocalizeLabel* label) {
                 
                 NSString* attribute = label.attribute;
@@ -99,7 +99,7 @@
                     if ([secondString rangeOfString: @"pendingApprovalsCount"].location == NSNotFound) {
                         secondString = [@"Approvals.pendingApprovalsCount" stringByAppendingFormat:@".%@", SORT_ASC];
                     }
-                    NSString* newSortString = [JsonBranchHelper reverseSortString: secondString];
+                    NSString* newSortString = [OrderListControllerHelper reverseSortString: secondString];
                     
                     [self insertOrReplaceInSortsInEmployee: outterSorts newSortString:newSortString];
                 }
@@ -111,7 +111,7 @@
                     // if click 'resign'
                     if ([attribute rangeOfString: @"resign"].location != NSNotFound) {
                         NSString* resignSorting =  [firstInnerSorts firstObject];
-                        NSString* newSortString = [JsonBranchHelper reverseSortString: resignSorting];
+                        NSString* newSortString = [OrderListControllerHelper reverseSortString: resignSorting];
                         [firstInnerSorts replaceObjectAtIndex: 0 withObject: newSortString];
                     }
                     
@@ -135,7 +135,7 @@
                                     break;
                                 }
                             }
-                            employeeSortString = [JsonBranchHelper reverseSortString: employeeSortString];
+                            employeeSortString = [OrderListControllerHelper reverseSortString: employeeSortString];
                             [firstInnerSorts replaceObjectAtIndex: employeeStortIndex withObject:employeeSortString];
                             [firstInnerSorts exchangeObjectAtIndex: 1 withObjectAtIndex:employeeStortIndex];
                             
@@ -146,7 +146,7 @@
                             
                             NSString* newSortString = nil;
                             if ([secondString rangeOfString: attribute].location != NSNotFound) {
-                                newSortString = [JsonBranchHelper reverseSortString: secondString];
+                                newSortString = [OrderListControllerHelper reverseSortString: secondString];
                             } else {
                                 newSortString = [attribute stringByAppendingFormat:@".%@", SORT_ASC];
                             }

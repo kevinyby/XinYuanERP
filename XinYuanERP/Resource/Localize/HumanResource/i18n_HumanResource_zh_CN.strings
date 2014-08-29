@@ -26,6 +26,7 @@
 "Employee.edu_rGraduate"="毕业";
 "Employee.edu_rSchool"="在学";
 "Employee.education"="教育经历";
+"Employee.education_experience"="教育经历";
 "Employee.employDate"="入职日期";
 "Employee.employeeNO"="工号";
 "Employee.gender"="性别";

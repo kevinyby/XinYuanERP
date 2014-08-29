@@ -354,7 +354,7 @@
             // get identificaion
             id identification = [tableViewObj contentForIndexPath:indexPath];
             // show
-            [JsonBranchHelper navigateToOrderController: department order:order identifier:identification];
+            [OrderListControllerHelper navigateToOrderController: department order:order identifier:identification];
         };
         
     }];

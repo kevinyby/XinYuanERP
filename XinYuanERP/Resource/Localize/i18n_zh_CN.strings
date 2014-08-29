@@ -195,10 +195,12 @@
 "expiredDate"="有效期";
 "failed"="失败";
 "female"="女";
+"forwardUser"="接收者";
 "from"="从";
 "gender"="性别";
 "have"="有";
 "hour"="时";
+"if"="是否";
 "images"="图片";
 "inform"="通知";
 "information"="资料";
@@ -214,6 +216,7 @@
 "male"="男";
 "member"="人员";
 "message"="消息";
+"modifiedUser"="修改者";
 "modify"="修改";
 "money"="金额";
 "month"="月";
@@ -225,6 +228,7 @@
 "orderNO"="单号";
 "password"="密码";
 "pendingApprovalsCount"="待批文件数";
+"people"="人";
 "permission"="权限";
 "petrol"="汽油";
 "phoneNO"="电话";
@@ -242,6 +246,7 @@
 "returnAmount"="还入数量";
 "returnDate"="还入日期";
 "returnPhoto"="还入";
+"returned"="退审";
 "save"="保存";
 "settings"="设置";
 "show"="显示";

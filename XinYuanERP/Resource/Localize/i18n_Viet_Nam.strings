@@ -195,10 +195,12 @@
 "expiredDate"="hợp lệ";
 "failed"="thất bại";
 "female"="nữ";
+"forwardUser"="z";
 "from"="từ";
 "gender"="giới tính";
 "have"="z";
 "hour"="thời gian";
+"if"="z";
 "images"="phim";
 "inform"="thông báo";
 "information"="dữ liệu";
@@ -214,6 +216,7 @@
 "male"="nam";
 "member"="nhân viên";
 "message"="tin tức";
+"modifiedUser"="z";
 "modify"="sửa đổi";
 "money"="tiền";
 "month"="tháng";
@@ -225,6 +228,7 @@
 "orderNO"="số lẻ";
 "password"="mật khẩu";
 "pendingApprovalsCount"="Trong khi chờ tin";
+"people"="z";
 "permission"="z";
 "petrol"="xăng";
 "phoneNO"="điện thoại";
@@ -242,6 +246,7 @@
 "returnAmount"="Cũng nhập số";
 "returnDate"="Cũng ngày";
 "returnPhoto"="cũng vào";
+"returned"="z";
 "save"="tiết kiệm";
 "settings"="thiết lập";
 "show"="chương trình";

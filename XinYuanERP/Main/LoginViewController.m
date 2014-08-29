@@ -185,8 +185,8 @@
     
     // login button
     JRButton* loginButton = (JRButton*)[jsonview getView: @"loginBtn"];
-    loginButton.didClikcButtonAction = ^(id sender) {
-        [weakInstance loginRequest];
+    loginButton.didClikcButtonAction = ^(id sender) {        
+        [weakInstance loginRequestAction];
     };
     
     [JsonViewHelper refreshJsonViewLocalizeText: jsonview];
@@ -231,7 +231,7 @@
 }
 
 
--(void)loginRequest
+-(void)loginRequestAction
 {
 //    [((NSArray*)userNameTextField.text) objectAtIndex:0];
     NSString* verifyCode = verifyCodeTextField.text ? verifyCodeTextField.text : @"" ;
@@ -395,9 +395,8 @@
                         }
                     }
                     
-                    orderListController.order = order;
-                    orderListController.department = department;
-                    [orderListController handleOrderListController];
+                    [orderListController initializeWithDepartment: department order:order];
+                    
                     [VIEW.navigator pushViewController:orderListController animated:YES];
                 };
                 controller = orderWheel;
