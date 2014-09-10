@@ -13,7 +13,7 @@
         "HEADERSX": [50, 230, 400, 550, 680, 850],
         "VALUESX":  [20, 230, 400, 550, 705, 860],
         
-        "__Eliminate_Search_Fields": ["urgencyName", "urgencyPhone", "subDepartment", "gender"],
+        "__Eliminate_Search_Fields": ["urgencyName", "urgencyPhone", "subDepartment", "gender", "wordMask", "orderNO"],
         "__Delete_Images_Folder": "employeeNO"
     },
     

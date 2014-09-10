@@ -31,34 +31,42 @@
 
 - (void) initializeTableViewAndEvent
 {
+    __weak OrderListSearchHelper* weakInstance = self;
+    
+    // local variables
     NSString* orderType = _order;
     NSDictionary* orderPropertiesMap = _orderPropertiesMap;
     NSMutableArray* orderSearchProperties = _orderSearchProperties;
-    __weak OrderListSearchHelper* weakInstance = self;
+    NSMutableDictionary* searchValuesDataSources = _searchValuesDataSources;
     
     JRButtonsHeaderTableView* searchHeaderTableView = (JRButtonsHeaderTableView*)[_searchTableViewSuperView viewWithTag: POPUP_TABLEVIEW_TAG];
     [searchHeaderTableView.tableView setHideSearchBar: YES];
-    
-    // change the button title
-    JRButton* rightButton = searchHeaderTableView.rightButton;
-    [rightButton setTitle:LOCALIZE_KEY(@"SEARCH") forState:UIControlStateNormal];
-    
-    JRButton* leftButton = searchHeaderTableView.leftButton;
-    [leftButton setTitle:LOCALIZE_KEY(@"clear") forState:UIControlStateNormal];
-    
-    // set the table contents
     _searchTableView = searchHeaderTableView.tableView.tableView;
     TableViewBase* tableViewBaseObj = _searchTableView;
     
-    NSInteger checkBoxTag = 3000333;
+    // change the button title and button event
+    JRButton* rightButton = searchHeaderTableView.rightButton;
+    [rightButton setTitle:LOCALIZE_KEY(@"SEARCH") forState:UIControlStateNormal];
+    rightButton.didClikcButtonAction = ^void(JRButton* button) {
+        [weakInstance searchButtonAction];
+    };
+    
+    JRButton* leftButton = searchHeaderTableView.leftButton;
+    [leftButton setTitle:LOCALIZE_KEY(@"clear") forState:UIControlStateNormal];
+    leftButton.didClikcButtonAction = ^void(JRButton* button) {
+        [weakInstance clearButtonAction];
+    };
+    
+    // set the table contents
+    
     tableViewBaseObj.tableViewBaseDidSelectAction = ^void(TableViewBase* tableViewObj, NSIndexPath* indexPath) {
         NSString* property = orderSearchProperties[indexPath.row];
         BOOL isBooleanValue = [orderPropertiesMap[property] isEqualToString:@"boolean"];
         if (isBooleanValue) {
-            if (!_searchValuesDataSources[property]) {
-                [_searchValuesDataSources setObject: @(YES) forKey:property];
+            if (!searchValuesDataSources[property]) {
+                [searchValuesDataSources setObject: @(YES) forKey:property];
             } else {
-                [_searchValuesDataSources removeObjectForKey: property];
+                [searchValuesDataSources removeObjectForKey: property];
             }
             [tableViewObj reloadRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationFade];
         }
@@ -107,9 +115,10 @@
         
         
         // Checkbox
+        NSInteger checkBoxTag = 3000333;
         JRCheckBox* checkBox = (JRCheckBox*)[oldCell.contentView viewWithTag: checkBoxTag];
         if (!checkBox) {
-            checkBox = [[JRCheckBox alloc] initWithFrame:CanvasRect(200, 0, 80, 80)];
+            checkBox = [[JRCheckBox alloc] initWithFrame:CanvasRect(280, 0, 80, 80)];
             checkBox.tag = checkBoxTag;
             [oldCell.contentView addSubview: checkBox];
             
@@ -191,14 +200,14 @@
         // clear background and set background
         [weakInstance clearCellBackgroundColor: oldCell];
         if (isBooleanValue) {
-            if (_searchValuesDataSources[property]) {
+            if (searchValuesDataSources[property]) {
                 [weakInstance setCellBackgroundColor: oldCell];
             }
         }
         // set value to checkbox and textfield
-        if (_searchValuesDataSources[property]) {
-            checkBox.checked = [_searchValuesDataSources[property] boolValue];
-            [textField setValue: _searchValuesDataSources[property]] ;
+        if (searchValuesDataSources[property]) {
+            checkBox.checked = [searchValuesDataSources[property] boolValue];
+            [textField setValue: searchValuesDataSources[property]] ;
         }
         
         // set changed data to datasource
@@ -232,6 +241,8 @@
     [ColorHelper setBackGround: cell color:[UIColor clearColor]];
 }
 
+
+
 -(void) valueDidChangeAction: (id)sender
 {
     NSIndexPath* indexPath = [TableViewHelper getIndexPath: _searchTableView cellSubView:sender];
@@ -261,6 +272,25 @@
         [_searchValuesDataSources removeObjectForKey: property];
     }
 }
+
+
+
+
+-(void) searchButtonAction
+{
+    NSLog(@"--: %@", _searchValuesDataSources);
+}
+
+
+
+-(void) clearButtonAction
+{
+    [_searchValuesDataSources removeAllObjects];
+    [_searchTableView reloadData];
+}
+
+
+
 
 
 #pragma mark - Public Methods

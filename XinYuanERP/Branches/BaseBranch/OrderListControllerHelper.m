@@ -144,6 +144,9 @@
 +(void) clickHeaderLabelSortRequestAction: (JRLocalizeLabel*)label listController:(BaseOrderListController*)listController
 {
     RequestJsonModel* requestModel = listController.requestModel;
+    
+    [[requestModel.limits firstObject] replaceObjectAtIndex: 0 withObject: @(0)];
+    
     NSString* attribute = label.attribute;
     
     // just first objects default
@@ -249,7 +252,7 @@
     NSMutableArray* booleanArray = [NSMutableArray array];
     for (NSString* property in searchProperties) {
         
-        NSArray* levelApps = @[levelApp1, levelApp2, levelApp3, levelApp4];
+        NSArray* levelApps = @[levelApp1, levelApp2, levelApp3, levelApp4, PROPERTY_CREATEUSER];
         if ([levelApps containsObject: property]) {
             
             [levelArray addObject: property];
@@ -287,9 +290,12 @@
     [booleanArray sortUsingComparator:^NSComparisonResult(id obj1, id obj2) {
         return [@([APPLOCALIZES(orderType, obj1) length]) compare: @([APPLOCALIZES(orderType, obj2) length])];
     }];
+    
+    [levelArray removeObject: PROPERTY_CREATEUSER];
     [levelArray sortUsingComparator:^NSComparisonResult(id obj1, id obj2) {
         return [obj1 compare: obj2];
     }];
+    [levelArray insertObject: PROPERTY_CREATEUSER atIndex:0];
     
     
     [results addObjectsFromArray: dateArray];
