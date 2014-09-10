@@ -83,11 +83,13 @@
 {
     NSString* order = self.order;
     if ([order isEqualToString: MODEL_EMPLOYEE]) {
+        RequestJsonModel* requestModel = self.requestModel;
+        
         [OrderListControllerHelper iterateHeaderJRLabel:self handler:^BOOL(JRLocalizeLabel *label, int index, NSString *attribute) {
             label.jrLocalizeLabelDidClickAction = ^void(JRLocalizeLabel* label) {
                 
                 NSString* attribute = label.attribute;
-                NSMutableArray* outterSorts = self.requestModel.sorts;
+                NSMutableArray* outterSorts = requestModel.sorts;
                 
                 
                 
@@ -170,7 +172,7 @@
                 }
                 
                 
-                
+                [[requestModel.limits firstObject] replaceObjectAtIndex: 0 withObject: @(0)];
                 [self requestForDataFromServer];
                 
             };
