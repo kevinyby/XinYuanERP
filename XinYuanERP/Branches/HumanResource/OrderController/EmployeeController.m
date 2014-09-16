@@ -561,6 +561,14 @@
     //
     if (objects[@"idCard"]) [objects setObject:[AppRSAKeysKeeper simpleDecrypt:objects[@"idCard"]] forKey:@"idCard"];
     if (objects[@"livingAddress"]) [objects setObject:[AppRSAKeysKeeper simpleDecrypt:objects[@"livingAddress"]] forKey:@"livingAddress"];
+    
+    
+    
+//    [objects setObject:@"******" forKey:@"phoneNO"];
+//    [objects setObject:@"******" forKey:@"urgencyPhone"];
+//    [objects setObject:@"******" forKey:@"idCard"];
+//    [objects setObject:@"2012-03-05 00:00:00" forKey:@"birthday"];
+    
 }
 
 

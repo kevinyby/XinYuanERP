@@ -3,23 +3,26 @@
 
 @implementation OrderListSearchHelper
 {
-    NSString* _order ;
+    BaseOrderListController* _orderListController;
+    NSMutableArray* _backupCriterias ;
+    
     
     TableViewBase* _searchTableView;
     NSMutableDictionary* _searchValuesDataSources;
 }
 
 
-- (instancetype)initWithOrder: (NSString*)order
+- (instancetype)initWithController: (BaseOrderListController*)listController
 {
     self = [super init];
     if (self) {
-        _order = order;
+        _orderListController = listController;
+        _backupCriterias = [[NSMutableArray alloc] initWithArray: listController.requestModel.criterias];
+        
         _searchValuesDataSources = [[NSMutableDictionary alloc] init];
         
         
-        
-        _orderPropertiesMap = [DATA.modelsStructure getModelStructure: _order];
+        _orderPropertiesMap = [DATA.modelsStructure getModelStructure: listController.order];
         _orderSearchProperties = [[_orderPropertiesMap allKeys] mutableCopy];
         _searchTableViewSuperView = [PopupTableHelper getCommonPopupTableView];
         
@@ -34,8 +37,7 @@
     __weak OrderListSearchHelper* weakInstance = self;
     
     // local variables
-    NSString* orderType = _order;
-    NSDictionary* orderPropertiesMap = _orderPropertiesMap;
+    NSString* orderType = _orderListController.order;
     NSMutableArray* orderSearchProperties = _orderSearchProperties;
     NSMutableDictionary* searchValuesDataSources = _searchValuesDataSources;
     
@@ -61,7 +63,7 @@
     
     tableViewBaseObj.tableViewBaseDidSelectAction = ^void(TableViewBase* tableViewObj, NSIndexPath* indexPath) {
         NSString* property = orderSearchProperties[indexPath.row];
-        BOOL isBooleanValue = [orderPropertiesMap[property] isEqualToString:@"boolean"];
+        BOOL isBooleanValue = [weakInstance isBooleanValue: property];
         if (isBooleanValue) {
             if (!searchValuesDataSources[property]) {
                 [searchValuesDataSources setObject: @(YES) forKey:property];
@@ -131,7 +133,7 @@
         // set text and date event
         NSString* text = APPLOCALIZES(orderType, property);
         
-        BOOL isBooleanValue = [orderPropertiesMap[property] isEqualToString:@"boolean"];
+        BOOL isBooleanValue = [weakInstance isBooleanValue: property];
         if (isBooleanValue) {
             
             checkBox.hidden = NO;
@@ -148,7 +150,7 @@
                 
             } else {
                 
-                BOOL isDate = [orderPropertiesMap[property] isEqualToString:@"Date"];
+                BOOL isDate = [weakInstance isDateValue: property];
                 if (isDate) {
                     
                     [textField addOriginX: -CanvasW(20)];
@@ -241,8 +243,6 @@
     [ColorHelper setBackGround: cell color:[UIColor clearColor]];
 }
 
-
-
 -(void) valueDidChangeAction: (id)sender
 {
     NSIndexPath* indexPath = [TableViewHelper getIndexPath: _searchTableView cellSubView:sender];
@@ -276,9 +276,43 @@
 
 
 
+-(BOOL) isBooleanValue: (NSString*)property
+{
+    return [self isProperty: property valueType:@"boolean"];
+}
+
+-(BOOL) isDateValue: (NSString*)property
+{
+    return [self isProperty: property valueType:@"Date"];
+}
+
+-(BOOL) isProperty: (NSString*)property valueType: (NSString*)type
+{
+    BOOL result = [_orderPropertiesMap[property] isEqualToString:type];
+    return result;
+}
+
+
+
+
+
+#pragma mark - Button Action
+
 -(void) searchButtonAction
 {
     NSLog(@"--: %@", _searchValuesDataSources);
+    
+    RequestJsonModel* requesJsonModel = _orderListController.requestModel;
+    NSMutableArray* criterias = requesJsonModel.criterias;
+    
+    for (NSString* key in _searchValuesDataSources) {
+        NSString* value = _searchValuesDataSources[key];
+        
+        BOOL isBoolValue = [self isBooleanValue: key];
+
+    }
+    
+    [self hideSearchTableView];
 }
 
 
@@ -297,8 +331,16 @@
 
 -(void) showSearchTableView
 {
-    // popu the view
+    if ([PopupViewHelper isCurrentPopingView]) {
+        return;
+    }
     [PopupViewHelper popView:_searchTableViewSuperView willDissmiss:nil];
+}
+
+
+-(void) hideSearchTableView
+{
+    [PopupViewHelper dissmissCurrentPopView];
 }
 
 @end

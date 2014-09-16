@@ -1,7 +1,12 @@
 #import <Foundation/Foundation.h>
 
-@interface OrderListSearchHelper : NSObject
 
+
+@class BaseOrderListController;
+
+
+
+@interface OrderListSearchHelper : NSObject
 
 
 @property (strong, readonly) NSDictionary* orderPropertiesMap;
@@ -12,10 +17,11 @@
 
 
 
-- (instancetype)initWithOrder: (NSString*)order;
+- (instancetype)initWithController: (BaseOrderListController*)listController;
 
 
 -(void) showSearchTableView;
+-(void) hideSearchTableView;
 
 
 @end

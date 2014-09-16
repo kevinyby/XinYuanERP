@@ -111,8 +111,7 @@
 -(void) searchOrderAction: (id)sender
 {
     if (!searchHelper) {
-        searchHelper = [[OrderListSearchHelper alloc] initWithOrder: self.order];
-        
+        searchHelper = [[OrderListSearchHelper alloc] initWithController:self];
         [self handleSearchHelper: searchHelper];
     }
     
